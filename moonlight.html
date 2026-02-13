@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/Moonlight/iconcircle.ico">
+    <meta charset="UTF-8">
+    <title>Moonlight IDE</title>
+    <meta name="description" content="Moonlight IDE - The Future of Development">
+    <meta name="theme-color" content="#7289DA">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #7289DA; /* Moonlight Blue */
+            --secondary-color: #2C2F33; /* Dark Gray */
+            --accent-color: #99AAB5; /* Light Gray */
+            --background-color: #23272A; /* Very Dark Gray */
+            --text-color: #FFFFFF;
+            --nav-text-color: #FFFFFF;
+            --banner-background-color: #2C2F33;
+            --banner-color: #FFFFFF;
+            --banner-filter: none;
+            --nav-logo-filter: brightness(0) invert(1);
+
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .banner {
+            background-image: url('assets/Moonlight/backgroundwithstuff.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Animation for Moonlight Logo */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        div.banner img {
+            animation: float 6s ease-in-out infinite;
+            transform: none !important; /* Override default rotation */
+            opacity: 1 !important; /* Override default opacity */
+        }
+
+        /* Override specific text colors for dark mode feel */
+        .section-title {
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            color: var(--accent-color);
+        }
+
+        .studio-description {
+            color: #FFFFFF;
+        }
+
+        .studio-description-sub {
+            color: #AAAAAA;
+        }
+
+        .game-card {
+            background-color: #2C2F33;
+            color: white;
+        }
+
+        .game-card h3 {
+            color: white;
+        }
+
+        .game-card p {
+            color: #CCCCCC;
+        }
+
+        .scribble {
+            text-decoration-color: var(--primary-color);
+            color: #AAAAAA;
+        }
+    </style>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.parafieldstudios.com/moonlight">
+    <meta property="og:title" content="Moonlight IDE | Parafield Studios">
+    <meta property="twitter:description" content="The Future of Development">
+    <meta property="og:image" content="https://www.parafieldstudios.com/assets/Moonlight/iconcircle2.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.parafieldstudios.com/moonlight">
+    <meta property="twitter:title" content="Moonlight IDE">
+    <meta property="twitter:description" content="The Future of Development">
+    <meta property="twitter:image" content="https://www.parafieldstudios.com/assets/Moonlight/iconcircle2.png">
+
+    <meta itemprop="name" content="Moonlight IDE">
+    <meta itemprop="description" content="The Future of Development">
+    <meta itemprop="image" content="https://www.parafieldstudios.com/assets/Moonlight/iconcircle2.png">
+</head>
+<body>
+    <script src="js/index.js"></script>
+    <nav class="nav">
+        <div class="nav-left">
+            <img src="assets/logo.svg" alt="logo" class="nav-logo">
+<!--            <h3 class="nav-title">Moonlight IDE</h3>-->
+        </div>
+
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="window.location.href='index.html'">Home</button>
+            <button class="nav-button">Features</button>
+            <button class="nav-button">Download</button>
+        </div>
+    </nav>
+
+    <div class="banner scroll-on">
+        <img src="assets/Moonlight/transparent.png" alt="banner" class="scroll-on">
+        <div class="banner-text scroll-on">
+            <h1>MOONLIGHT</h1>
+            <h1>IDE</h1>
+            <p><b>"Ignore the mess, Code with simplicity" - mas6y6</b></p>
+        </div>
+    </div>
+
+    <main class="content">
+
+        <section class="about-section scroll-on">
+            <p class="studio-description">Code <span class="scribble">better</span> faster.</p>
+            <p class="studio-description-sub">The IDE that actually understands you.</p>
+        </section>
+
+        <section class="intro-section">
+            <h2 class="section-title">FEATURES</h2>
+            <p class="section-subtitle">Why choose Moonlight?</p>
+        </section>
+
+
+        <section class="games-grid">
+            <div class="game-card scroll-on">
+                <div class="game-image-placeholder" style="background-color: #7289DA;"></div>
+                <h3>Placeholder</h3>
+                <p>Placeholder</p>
+            </div>
+            <div class="game-card scroll-on">
+                <div class="game-image-placeholder" style="background-color: #99AAB5;"></div>
+                <h3>Placeholder</h3>
+                <p>Placeholder</p>
+            </div>
+             <div class="game-card scroll-on">
+                <div class="game-image-placeholder" style="background-color: #2C2F33;"></div>
+                <h3>Placeholder</h3>
+                <p>Placeholder</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Parafield Studios (Parafield Entertainment) All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
