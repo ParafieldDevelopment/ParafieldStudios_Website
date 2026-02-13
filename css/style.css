@@ -381,6 +381,14 @@ div.banner-text.scroll-on-active {
         z-index: 999;
     }
 
+    .studio-description {
+        font-size: 2.8rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
     .nav-buttons.active {
         right: 0;
     }
