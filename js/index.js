@@ -86,3 +86,128 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 10000);
     }
 });
+
+// Modal Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById("team-modal");
+    const modalContent = document.querySelector(".modal-content");
+    const modalName = document.getElementById("modal-name");
+    const modalRole = document.getElementById("modal-role");
+    const modalDescription = document.getElementById("modal-description");
+    const modalImage = document.querySelector(".modal-image-placeholder");
+    const closeModal = document.querySelector(".close-modal");
+
+    const teamCards = document.querySelectorAll(".team-card");
+    let activeCard = null;
+
+    teamCards.forEach(card => {
+        card.addEventListener("click", () => {
+            activeCard = card;
+            const rect = card.getBoundingClientRect();
+            const name = card.querySelector("h3").innerText;
+            const role = card.querySelector("p").innerText;
+            const description = card.getAttribute("data-description");
+            const imageColor = card.querySelector(".team-image-placeholder").style.backgroundColor;
+            const imageSrc = card.getAttribute("data-image");
+
+            modalName.innerText = name;
+            modalRole.innerText = role;
+            modalDescription.innerText = description || "No description available.";
+            modalImage.style.backgroundColor = imageColor;
+            
+            if (imageSrc) {
+                modalImage.style.backgroundImage = `url('${imageSrc}')`;
+                modalImage.style.backgroundSize = 'cover';
+                modalImage.style.backgroundPosition = 'center';
+            } else {
+                modalImage.style.backgroundImage = 'none';
+            }
+
+            // Initial state (match card)
+            modal.style.display = "block"; // Use block to allow fixed positioning
+            modal.classList.remove("active");
+            
+            modalContent.style.transition = 'none';
+            modalContent.style.position = 'fixed';
+            modalContent.style.top = `${rect.top}px`;
+            modalContent.style.left = `${rect.left}px`;
+            modalContent.style.width = `${rect.width}px`;
+            modalContent.style.height = `${rect.height}px`;
+            modalContent.style.margin = '0';
+            modalContent.style.transform = 'none';
+            modalContent.style.opacity = '1';
+            modalContent.style.overflow = 'hidden';
+            modalContent.style.zIndex = '2001'; // Ensure it's above everything
+
+            // Force reflow
+            void modal.offsetWidth;
+
+            // Animate to center
+            modal.classList.add("active");
+            modalContent.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
+            
+            // Calculate target dimensions
+            const targetWidth = Math.min(600, window.innerWidth * 0.9);
+            // Let height be auto-ish but we need a target for animation. 
+            // Let's pick a reasonable max height or calculate based on content?
+            // Calculating based on content is hard because content changes width.
+            // Let's just expand to a large box.
+            const targetHeight = Math.min(window.innerHeight * 0.8, 800); 
+
+            modalContent.style.top = `50%`;
+            modalContent.style.left = `50%`;
+            modalContent.style.width = `${targetWidth}px`;
+            modalContent.style.height = `${targetHeight}px`; 
+            modalContent.style.transform = 'translate(-50%, -50%)';
+            
+            // Allow scrolling inside modal after animation
+            setTimeout(() => {
+                modalContent.style.overflow = 'auto';
+            }, 500);
+        });
+    });
+
+    const closeAnimation = () => {
+        if (!activeCard) {
+            modal.style.display = "none";
+            return;
+        }
+
+        const rect = activeCard.getBoundingClientRect();
+
+        modal.classList.remove("active");
+        
+        // We need to transition from current state (centered) back to card rect.
+        // Current state is top: 50%, left: 50%, transform: translate(-50%, -50%)
+        // We need to remove transform and set top/left to rect.top/rect.left
+        
+        // First, get current computed style to lock it? No, we can just animate to new values.
+        
+        modalContent.style.transition = 'all 0.4s cubic-bezier(0.19, 1, 0.22, 1)';
+        modalContent.style.top = `${rect.top}px`;
+        modalContent.style.left = `${rect.left}px`;
+        modalContent.style.width = `${rect.width}px`;
+        modalContent.style.height = `${rect.height}px`;
+        modalContent.style.transform = 'none'; // Remove centering transform
+        modalContent.style.opacity = '0'; // Fade out content as it shrinks
+
+        setTimeout(() => {
+            modal.style.display = "none";
+            modalContent.style.opacity = '1';
+            modalContent.style.overflow = 'auto'; 
+            modalContent.style.height = 'auto';
+            activeCard = null;
+        }, 400); 
+    };
+
+    closeModal.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeAnimation();
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target == modal) {
+            closeAnimation();
+        }
+    });
+});

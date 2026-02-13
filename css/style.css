@@ -321,6 +321,188 @@ div.banner-text.scroll-on-active {
     margin-bottom: 1.5rem;
 }
 
+/* ---------------------- TEAM SECTION ---------------------- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    cursor: pointer; /* Indicate clickable */
+}
+
+.team-card.scroll-on-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.team-image-placeholder {
+    width: 100%;
+    height: 250px;
+    background-color: #ddd;
+}
+
+.team-card h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.2rem;
+    font-weight: 800;
+}
+
+.team-card p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+
+.team-socials {
+    margin-bottom: 1.5rem;
+}
+
+.team-socials a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.team-socials a:hover {
+    color: var(--accent-color);
+}
+
+/* Character Card Specifics */
+.character-card {
+    position: relative;
+    overflow: visible; /* Allow image to pop out */
+    margin-top: 50px; /* Space for pop out */
+}
+
+.character-img {
+    width: 120%; /* Make it larger than container */
+    height: auto;
+    position: absolute;
+    bottom: 104px; /* Adjust based on card content height */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease;
+    z-index: 1;
+    pointer-events: none; /* Let clicks pass through to card */
+}
+
+.character-card:hover .character-img {
+    transform: translateX(-50%) scale(1.1) translateY(-10px);
+}
+
+.character-card .team-image-placeholder {
+    opacity: 1; /* Keep placeholder visible for background color */
+}
+
+/* ---------------------- MODAL ---------------------- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: transparent; /* Handled by JS for animation */
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Allow clicks to pass through when hidden/animating initially */
+}
+
+.modal.active {
+    pointer-events: auto;
+    background-color: rgba(0,0,0,0.8);
+    transition: background-color 0.3s ease;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    position: relative;
+    transform-origin: center center;
+    /* Animation handled by JS */
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 2rem;
+    text-align: center;
+    opacity: 0; /* Hidden initially for animation */
+    transition: opacity 0.3s ease 0.1s;
+}
+
+.modal.active .modal-body {
+    opacity: 1;
+}
+
+.modal-image-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+#modal-name {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+#modal-role {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+#modal-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
 /* ---------------------- FOOTER ---------------------- */
 .footer {
     background-color: #222;

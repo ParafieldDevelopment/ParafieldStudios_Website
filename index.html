@@ -17,18 +17,18 @@
     <meta property="og:url" content="https://www.parafieldstudios.com/">
     <meta property="og:title" content="Parafield Studios">
     <meta property="twitter:description" content="Let's Inspire">
-    <meta property="og:image" content="https://www.parafieldstudios.com/assets/logo.png">
+    <meta property="og:image" content="https://www.parafieldstudios.com/assets/EmbedImaged/home.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.parafieldstudios.com/">
     <meta property="twitter:title" content="Parafield Studios">
     <meta property="twitter:description" content="Let's Inspire">
-    <meta property="twitter:image" content="https://www.parafieldstudios.com/assets/logo.png">
+    <meta property="twitter:image" content="https://www.parafieldstudios.com/assets/EmbedImaged/home.png">
 
     <meta itemprop="name" content="Parafield Studios">
     <meta itemprop="description" content="Let's Inspire">
-    <meta itemprop="image" content="https://www.parafieldstudios.com/assets/logo.png">
+    <meta itemprop="image" content="https://www.parafieldstudios.com/assets/EmbedImaged/home.png">
 </head>
 <body>
     <script src="js/index.js"></script>
@@ -61,7 +61,7 @@
 
         <section class="about-section scroll-on">
             <p class="studio-description">We're a <span class="scribble">professional</span> mentally insane studio.</p>
-            <p class="studio-description-sub">Trust me we know what we're doing (we think..)</p>
+            <p class="studio-description-sub">Trust me we know what we're doing (we think)</p>
         </section>
 
         <section class="intro-section">
@@ -95,6 +95,54 @@
                 <p>In development</p>
             </div>
         </section>
+
+        <section class="intro-section">
+            <h2 class="section-title">Meet the Team</h2>
+            <p class="section-subtitle">The people behind the madness</p>
+        </section>
+
+        <h2 class="section-title">The Directors</h2>
+
+        <section class="team-grid">
+            <div class="team-card scroll-on character-card" data-description="Batista is the visionary behind Parafield Studios. He leads the team with passion and dedication." data-image="assets/team/directors/bat.png">
+                <div class="team-image-placeholder" style="background-color: #ff5733;">
+                    <img src="assets/team/directors/bat.png" class="character-img" alt="Batista">
+                </div>
+
+                <h3>Batista</h3>
+                <p>CEO / Founder</p>
+            </div>
+            <div class="team-card scroll-on" data-description="Master of structures and physics defying creations.">
+                <div class="team-image-placeholder" style="background-color: #d333ff;"></div>
+                <h3>Notdefyingphysics</h3>
+                <p>Director of Structural Studios</p>
+            </div>
+            <div class="team-card scroll-on" data-description="Providing guidance and counseling to the team.">
+                <div class="team-image-placeholder" style="background-color: #9b8666;"></div>
+                <h3>xX420MCplayerXx</h3>
+                <p>Director of Counseling</p>
+            </div>
+        </section>
+
+        <h2 class="section-title">The Staffs</h2>
+
+        <section class="team-grid">
+            <div class="team-card scroll-on" data-description="A valued member of the council.">
+                <div class="team-image-placeholder" style="background-color: #ff5733;"></div>
+                <h3>Pilot Ocean</h3>
+                <p>Council</p>
+            </div>
+            <div class="team-card scroll-on" data-description="A valued member of the council.">
+                <div class="team-image-placeholder" style="background-color: #d333ff;"></div>
+                <h3>Cjkdawg</h3>
+                <p>Council</p>
+            </div>
+            <div class="team-card scroll-on" data-description="A valued member of the council.">
+                <div class="team-image-placeholder" style="background-color: #9b8666;"></div>
+                <h3>Ducko</h3>
+                <p>Council</p>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -106,5 +154,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Team Modal -->
+    <div id="team-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-placeholder"></div>
+                <h2 id="modal-name"></h2>
+                <p id="modal-role"></p>
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
