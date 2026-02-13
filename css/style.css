@@ -24,7 +24,6 @@ body {
 * {
     font-family: var(--font), sans-serif;
     box-sizing: border-box;
-    color: black;
 }
 
 /* ---------------------- NAV ---------------------- */
@@ -146,19 +145,94 @@ div.banner {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--banner-background-color);
     width: 100%;
-    height: 40vh;
+    height: 80vh;
     position: relative;
     opacity: 0;
     transition: opacity 1s ease;
+    overflow: hidden;
+}
+
+.banner-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.banner-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-slide.active {
+    /* No longer needing individual slide transitions for sliding */
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+div.banner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 45px 60px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+div.banner-logo.scroll-on-active {
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
 }
 
 div.banner.scroll-on-active {
     opacity: 1;
 }
 
-div.banner img {
+div.banner img.logo-img {
     height: 20vh;
     width: auto;
 
@@ -169,7 +243,7 @@ div.banner img {
     transition: 1s ease;
 }
 
-div.banner img.scroll-on-active {
+div.banner img.logo-img.scroll-on-active {
     transform: translateX(0px) rotate(0deg);
     opacity: 1;
 }
@@ -191,7 +265,6 @@ div.banner-text {
     margin-left: 20px;
 }
 
-
 div.banner-text h1 {
     margin: 0;
     font-weight: 800;
@@ -204,9 +277,83 @@ div.banner-text.scroll-on-active {
     opacity: 1;
 }
 
+div.introduction-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: 1s ease;
+}
+
+div.introduction-box.scroll-on-active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+button.introduction-box-btn {
+    height: 50px;
+    width: 8vw;
+    padding: 10px;
+
+    border: none;
+    border-radius: 100px;
+
+    color: white;
+    background-color: black;
+
+    transition: 0.3s ease;
+}
+
+button.introduction-box-btn:hover {
+    transform: translateY(-3px);
+    background-color: #525252;
+}
+
+button.introduction-box-btn:active {
+    transform: translateY(3px);
+    background-color: #525252;
+}
+
+div.quote-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 1s ease;
+
+    background-color: #000000;
+
+    padding: 3%;
+
+    color: white;
+}
+
+div.quote-box img {
+    height: 15vh;
+    width: auto;
+
+    border-radius: 50%;
+}
+
+div.quote-box.scroll-on-active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
 @media (max-width: 1400px) {
     .nav-toggle {
         display: block;
+    }
+
+    button.introduction-box-btn {
+        width: 30vw;
     }
 
     .nav-buttons {
@@ -244,12 +391,7 @@ div.banner-text.scroll-on-active {
     }
 
     div.banner {
-        height: 30vh;
-    }
-
-    div.banner img {
-        height: 50%;
-        max-height: 80px;
+        height: 50vh;
     }
 
     .nav-title {
@@ -269,4 +411,11 @@ div.banner-text.scroll-on-active {
         font-size: 2.5rem;
         color: var(--banner-color);
     }
+}
+
+footer {
+    background-color: #000000;
+    height: 20vh;
+    padding: 25px;
+    color: white;
 }
