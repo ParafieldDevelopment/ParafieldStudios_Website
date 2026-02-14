@@ -116,6 +116,7 @@ nav.nav.scrolled {
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.2s ease;
+    text-decoration: none; /* Added to remove underline from links */
 }
 
 .nav-button:hover {
@@ -280,7 +281,9 @@ div.banner-text.scroll-on-active {
 }
 
 .studio-desc-content {
-    text-align: left;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
 .scribble {
@@ -428,6 +431,10 @@ div.banner-text.scroll-on-active {
     display: none;
 }
 
+.card-buttons {
+    display: none;
+}
+
 /* ---------------------- MODAL ---------------------- */
 .modal {
     display: none; /* Hidden by default */
@@ -455,13 +462,16 @@ div.banner-text.scroll-on-active {
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
+    width: 95%; /* Wider modal */
+    max-width: 1000px; /* Increased max-width */
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     position: relative;
     transform-origin: center center;
     /* Animation handled by JS */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Side by side layout */
+    overflow: hidden; /* Ensure content stays inside rounded corners */
 }
 
 .close-modal {
@@ -485,9 +495,13 @@ div.banner-text.scroll-on-active {
 
 .modal-body {
     padding: 2rem;
-    text-align: center;
+    text-align: left; /* Align text to left */
     opacity: 0; /* Hidden initially for animation */
     transition: opacity 0.3s ease 0.1s;
+    width: 60%; /* Take up remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .modal.active .modal-body {
@@ -495,17 +509,21 @@ div.banner-text.scroll-on-active {
 }
 
 .modal-image-placeholder {
-    width: 100%;
-    height: 300px;
+    width: 40%; /* Image takes up 40% */
+    height: auto; /* Auto height to fill container */
+    min-height: 500px; /* Minimum height */
     background-color: #ddd;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
+    border-radius: 0; /* Remove border radius as it's flush with container */
+    margin-bottom: 0;
+    background-size: cover;
+    background-position: center;
 }
 
 #modal-name {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: var(--primary-color);
+    font-weight: 800;
 }
 
 #modal-role {
@@ -513,12 +531,64 @@ div.banner-text.scroll-on-active {
     color: #555;
     margin-bottom: 1rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #modal-description {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #333;
+    margin-bottom: 2rem;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: auto; /* Push to bottom if needed */
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none; /* For anchor tags */
+    display: inline-block; /* For anchor tags */
+    text-align: center;
+}
+
+.modal-btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.modal-btn.secondary {
+    background-color: #ddd;
+    color: #333;
+}
+
+.modal-btn.youtube {
+    background-color: #FF0000;
+    color: white;
+}
+
+.modal-btn.twitter {
+    background-color: #1DA1F2;
+    color: white;
+}
+
+.modal-btn.website {
+    background-color: #333;
+    color: white;
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* ---------------------- FOOTER ---------------------- */
@@ -639,5 +709,26 @@ div.banner-text.scroll-on-active {
     .nav-title {
         display: none;
     }
-}
 
+    /* Modal Responsive */
+    .modal-content {
+        flex-direction: column;
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .modal-image-placeholder {
+        width: 100%;
+        height: 250px;
+        min-height: auto;
+    }
+
+    .modal-body {
+        width: 100%;
+        text-align: center;
+    }
+
+    .modal-buttons {
+        justify-content: center;
+    }
+}

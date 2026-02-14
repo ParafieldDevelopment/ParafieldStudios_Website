@@ -90,11 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
 // Modal Logic
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById("team-modal");
+    if (!modal) return;
+
     const modalContent = document.querySelector(".modal-content");
     const modalName = document.getElementById("modal-name");
     const modalRole = document.getElementById("modal-role");
     const modalDescription = document.getElementById("modal-description");
     const modalImage = document.querySelector(".modal-image-placeholder");
+    const modalButtonsContainer = document.querySelector(".modal-buttons");
     const closeModal = document.querySelector(".close-modal");
 
     const teamCards = document.querySelectorAll(".team-card");
@@ -112,11 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const imageColor = card.querySelector(".team-image-placeholder").style.backgroundColor;
             const imageSrc = card.getAttribute("data-image");
+            
+            // Get buttons from the card
+            const cardButtons = card.querySelector(".card-buttons");
+            const buttonsHTML = cardButtons ? cardButtons.innerHTML : "";
 
             modalName.innerText = name;
             modalRole.innerText = role;
             modalDescription.innerHTML = description || "No description available.";
             modalImage.style.backgroundColor = imageColor;
+            modalButtonsContainer.innerHTML = buttonsHTML; // Inject buttons
             
             if (imageSrc) {
                 modalImage.style.backgroundImage = `url('${imageSrc}')`;
@@ -150,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modalContent.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
             
             // Calculate target dimensions
-            const targetWidth = Math.min(600, window.innerWidth * 0.9);
+            const targetWidth = Math.min(1000, window.innerWidth * 0.95); // Updated to match CSS
             // Let height be auto-ish but we need a target for animation. 
             // Let's pick a reasonable max height or calculate based on content?
             // Calculating based on content is hard because content changes width.
@@ -203,10 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 400); 
     };
 
-    closeModal.addEventListener("click", (e) => {
-        e.stopPropagation();
-        closeAnimation();
-    });
+    if (closeModal) {
+        closeModal.addEventListener("click", (e) => {
+            e.stopPropagation();
+            closeAnimation();
+        });
+    }
 
     window.addEventListener("click", (event) => {
         if (event.target == modal) {
