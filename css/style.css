@@ -628,15 +628,15 @@ div.banner-text.scroll-on-active {
     div.banner-text h1 {
         font-size: 4rem;
     }
+
+    .character-img {
+        width: 80%;
+    }
 }
 
 @media (max-width: 768px) {
     .nav-toggle {
         display: block;
-    }
-
-    .character-img {
-        width: 80%;
     }
 
     .nav-buttons {
@@ -734,5 +734,9 @@ div.banner-text.scroll-on-active {
 
     .modal-buttons {
         justify-content: center;
+    }
+
+    body.modal-open .character-img {
+        display: none;
     }
 }

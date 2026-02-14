@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Animate to center
             modal.classList.add("active");
+            document.body.classList.add("modal-open");
             modalContent.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
             
             // Calculate target dimensions
@@ -187,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = activeCard.getBoundingClientRect();
 
         modal.classList.remove("active");
+        document.body.classList.remove("modal-open");
         
         // We need to transition from current state (centered) back to card rect.
         // Current state is top: 50%, left: 50%, transform: translate(-50%, -50%)
