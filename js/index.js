@@ -106,13 +106,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = card.getBoundingClientRect();
             const name = card.querySelector("h3").innerText;
             const role = card.querySelector("p").innerText;
-            const description = card.getAttribute("data-description");
+            
+            const descriptionEl = card.querySelector(".card-description");
+            const description = descriptionEl ? descriptionEl.innerHTML : card.getAttribute("data-description");
+            
             const imageColor = card.querySelector(".team-image-placeholder").style.backgroundColor;
             const imageSrc = card.getAttribute("data-image");
 
             modalName.innerText = name;
             modalRole.innerText = role;
-            modalDescription.innerText = description || "No description available.";
+            modalDescription.innerHTML = description || "No description available.";
             modalImage.style.backgroundColor = imageColor;
             
             if (imageSrc) {

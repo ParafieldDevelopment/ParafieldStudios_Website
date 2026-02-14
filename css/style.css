@@ -424,6 +424,10 @@ div.banner-text.scroll-on-active {
     opacity: 1; /* Keep placeholder visible for background color */
 }
 
+.card-description {
+    display: none;
+}
+
 /* ---------------------- MODAL ---------------------- */
 .modal {
     display: none; /* Hidden by default */
