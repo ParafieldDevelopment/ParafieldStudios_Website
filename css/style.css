@@ -635,6 +635,10 @@ div.banner-text.scroll-on-active {
         display: block;
     }
 
+    .character-img {
+        width: 80%;
+    }
+
     .nav-buttons {
         position: fixed;
         top: 0;
