@@ -341,7 +341,8 @@ div.banner-text.scroll-on-active {
 /* ---------------------- TEAM SECTION ---------------------- */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+    justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -408,7 +409,7 @@ div.banner-text.scroll-on-active {
 }
 
 .character-img {
-    width: 120%; /* Make it larger than container */
+    width: 100%; /* Make it larger than container */
     height: auto;
     position: absolute;
     bottom: 104px; /* Adjust based on card content height */
@@ -739,4 +740,18 @@ div.banner-text.scroll-on-active {
     body.modal-open .character-img {
         display: none;
     }
+}
+
+@keyframes float-text {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.memory-text {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+    animation: float-text 3s ease-in-out infinite;
 }
