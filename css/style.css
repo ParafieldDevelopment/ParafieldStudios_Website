@@ -352,15 +352,15 @@ div.banner-text.scroll-on-active {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 1s ease, box-shadow 1s ease, opacity 1s ease;
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(50px) rotateY(50deg);
     cursor: pointer; /* Indicate clickable */
 }
 
 .team-card.scroll-on-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) rotate(0);
 }
 
 .team-card:hover {
