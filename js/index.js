@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const description = descriptionEl ? descriptionEl.innerHTML : card.getAttribute("data-description");
             
             const imageColor = card.querySelector(".team-image-placeholder").style.backgroundColor;
+            const imageBackgroundImage = card.querySelector(".team-image-placeholder").style.backgroundImage;
             const imageSrc = card.getAttribute("data-image");
             
             // Get buttons from the card
@@ -123,7 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
             modalName.innerText = name;
             modalRole.innerText = role;
             modalDescription.innerHTML = description || "No description available.";
-            modalImage.style.backgroundColor = imageColor;
+
+            console.log(card.dataset);
+
+            if (card.dataset.modalColor) {
+                modalImage.style.backgroundColor = card.dataset.modalColor;
+            } else {
+                modalImage.style.backgroundColor = imageColor;
+            }
             modalButtonsContainer.innerHTML = buttonsHTML; // Inject buttons
             
             if (imageSrc) {
