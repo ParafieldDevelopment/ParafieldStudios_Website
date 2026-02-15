@@ -30,7 +30,7 @@ body {
 }
 
 * {
-    font-family: var(--font);
+    font-family: var(--font), serif;
     box-sizing: border-box;
 }
 
@@ -220,7 +220,7 @@ div.banner-text h1 {
     font-size: 6rem;
     color: var(--banner-color);
     line-height: 0.9;
-    text-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.2);
 }
 
 div.banner-text.scroll-on-active {
