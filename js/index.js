@@ -236,66 +236,69 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const banner = document.querySelector('.banner');
-    const bannerText = document.querySelector('.banner-text');
-    const bannerImg = document.querySelector('.banner img');
+    // Check if we are on the index.html page
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+        const banner = document.querySelector('.banner');
+        const bannerText = document.querySelector('.banner-text');
+        const bannerImg = document.querySelector('.banner img');
 
-    if (!banner || !bannerText || !bannerImg) return;
+        if (!banner || !bannerText || !bannerImg) return;
 
-    const names = ["Parafield Studios", "Moonlight"];
-    const selectedName = names[Math.floor(Math.random() * names.length)];
+        const names = ["Parafield Studios", "Moonlight"];
+        const selectedName = names[Math.floor(Math.random() * names.length)];
 
-    if (selectedName === "Parafield Studios") {
-        const h1s = bannerText.querySelectorAll('h1');
-        if (h1s.length >= 2) {
-            h1s[0].textContent = "PARAFIELD";
-            h1s[1].textContent = "STUDIOS";
+        if (selectedName === "Parafield Studios") {
+            const h1s = bannerText.querySelectorAll('h1');
+            if (h1s.length >= 2) {
+                h1s[0].textContent = "PARAFIELD";
+                h1s[1].textContent = "STUDIOS";
+            }
+        } else {
+            // Moonlight Theme
+            banner.classList.add('moonlight-theme');
+            banner.style.backgroundImage = "url('assets/Moonlight/backgroundwithstuff.png')";
+            banner.style.backgroundSize = "cover";
+            banner.style.backgroundPosition = "center";
+            banner.style.backgroundColor = "#1a1a1a";
+            banner.style.gap = "50px";
+
+            // Inject custom styles for Moonlight theme
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .moonlight-theme img {
+                    height: 50vh !important;
+                    width: auto !important;
+                    max-width: 45vw !important;
+                    object-fit: cover !important;
+                    border-radius: 12px;
+                    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+                    filter: none !important;
+                    transform: translateY(50px) !important; /* Slide up animation start */
+                    opacity: 0;
+                    transition: transform 1s ease, opacity 1s ease !important;
+                }
+                .moonlight-theme img.scroll-on-active {
+                    transform: translateY(0) !important;
+                    opacity: 1;
+                }
+                .moonlight-theme .banner-text {
+                    align-items: flex-start !important;
+                    text-align: left !important;
+                }
+            `;
+            document.head.appendChild(style);
+
+            bannerImg.src = "assets/Moonlight/window.png";
+
+            // Update Text
+            bannerText.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
+                    <img src="assets/Moonlight/transparent.png" style="height: 80px !important; width: auto !important; box-shadow: none; border-radius: 0; transform: none !important; opacity: 1 !important; margin: 0;">
+                    <h1 style="font-size: 5rem; margin: 0; line-height: 1; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">Moonlight</h1>
+                </div>
+                <h3 style="font-size: 2rem; color: white; margin: 0; font-weight: 600; letter-spacing: 1px;">An advanced Roblox IDE</h3>
+                <p style="font-size: 1.2rem; color: #ddd; margin-top: 15px; font-style: italic; font-weight: 500;">Coming soon.. Eventually</p>
+            `;
         }
-    } else {
-        // Moonlight Theme
-        banner.classList.add('moonlight-theme');
-        banner.style.backgroundImage = "url('assets/Moonlight/backgroundwithstuff.png')";
-        banner.style.backgroundSize = "cover";
-        banner.style.backgroundPosition = "center";
-        banner.style.backgroundColor = "#1a1a1a";
-        banner.style.gap = "50px";
-
-        // Inject custom styles for Moonlight theme
-        const style = document.createElement('style');
-        style.innerHTML = `
-            .moonlight-theme img {
-                height: 50vh !important;
-                width: auto !important;
-                max-width: 45vw !important;
-                object-fit: cover !important;
-                border-radius: 12px;
-                box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-                filter: none !important;
-                transform: translateY(50px) !important; /* Slide up animation start */
-                opacity: 0;
-                transition: transform 1s ease, opacity 1s ease !important;
-            }
-            .moonlight-theme img.scroll-on-active {
-                transform: translateY(0) !important;
-                opacity: 1;
-            }
-            .moonlight-theme .banner-text {
-                align-items: flex-start !important;
-                text-align: left !important;
-            }
-        `;
-        document.head.appendChild(style);
-
-        bannerImg.src = "assets/Moonlight/window.png";
-
-        // Update Text
-        bannerText.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
-                <img src="assets/Moonlight/transparent.png" style="height: 80px !important; width: auto !important; box-shadow: none; border-radius: 0; transform: none !important; opacity: 1 !important; margin: 0;">
-                <h1 style="font-size: 5rem; margin: 0; line-height: 1; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">Moonlight</h1>
-            </div>
-            <h3 style="font-size: 2rem; color: white; margin: 0; font-weight: 600; letter-spacing: 1px;">An advanced Roblox IDE</h3>
-            <p style="font-size: 1.2rem; color: #ddd; margin-top: 15px; font-style: italic; font-weight: 500;">Coming soon.. Eventually</p>
-        `;
     }
 });
