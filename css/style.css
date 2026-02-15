@@ -640,6 +640,10 @@ div.banner-text.scroll-on-active {
         display: block;
     }
 
+    #modal-name {
+        font-size: 2rem;
+    }
+
     .nav-buttons {
         position: fixed;
         top: 0;
@@ -735,6 +739,33 @@ div.banner-text.scroll-on-active {
 
     .modal-buttons {
         justify-content: center;
+    }
+
+    .team-card {
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .character-card {
+        overflow: hidden;
+    }
+
+    .character-img {
+        width: 100%;
+        bottom: 120px;
+    }
+
+    .studio-description {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .section-subtitle {
+        text-align: center;
     }
 
     body.modal-open .character-img {
