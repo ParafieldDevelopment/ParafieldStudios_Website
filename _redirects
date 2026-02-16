@@ -1,0 +1,10 @@
+# Custom redirects and rewrites
+
+# Teapot
+/418 /418.html 418
+
+# Forbidden
+/403 /403.html 403
+
+# Maintenance
+/503 /503.html 503

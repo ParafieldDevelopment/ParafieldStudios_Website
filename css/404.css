@@ -1,0 +1,68 @@
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.not-found-image {
+    width: 200px;
+    height: auto;
+    filter: invert(1);
+}
+
+h1 {
+    font-size: 6rem;
+    margin: 0;
+    color: #333;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.home-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f2ae49;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.home-link:hover {
+    background-color: #e19d38;
+}
+
+.funny-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.error-code {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.funny-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #666;
+}

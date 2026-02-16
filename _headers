@@ -1,0 +1,2 @@
+# This file is for adding custom HTTP headers to your Cloudflare Pages site.
+# It is not used for setting status codes. See _redirects for that.

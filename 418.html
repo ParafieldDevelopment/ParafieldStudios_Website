@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>418 - I'm a Teapot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/404.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <style>
+        .teapot-img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: tilt 2s infinite ease-in-out;
+            /* filter: invert(1); Removed as requested */
+        }
+
+        @keyframes tilt {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="assets/teapot.svg" alt="I'm a teapot" class="teapot-img">
+
+        <h1>418</h1>
+        <p>I'm a teapot. I cannot brew coffee.</p>
+        <a href="index.html" class="home-link">Go back to Home</a>
+
+        <div class="funny-section">
+            <p class="error-code">Error Code: 418</p>
+            <p id="funny-text" class="funny-text"></p>
+        </div>
+    </div>
+
+    <script>
+        const funnyTexts = [
+            "Short and stout.",
+            "Here is my handle, here is my spout.",
+            "Tip me over and pour me out!",
+            "Why are you asking a teapot for a webpage?",
+            "HTCPCP implementation not found.",
+            "I'm steaming mad!",
+            "Would you like some Earl Grey instead?"
+        ];
+
+        const funnyTextElement = document.getElementById('funny-text');
+        const randomIndex = Math.floor(Math.random() * funnyTexts.length);
+        funnyTextElement.innerHTML = funnyTexts[randomIndex];
+    </script>
+</body>
+</html>
