@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!banner || !bannerText || !bannerImg) return;
 
-        const names = ["Parafield Studios", "Moonlight"];
+        const names = ["Parafield Studios", "Moonlight", "CC"];
         const selectedName = names[Math.floor(Math.random() * names.length)];
 
         if (selectedName === "Parafield Studios") {
@@ -254,17 +254,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 h1s[1].textContent = "STUDIOS";
             }
         } else {
-            // Moonlight Theme
+            // Shared Theme Setup (Moonlight & CC)
             banner.classList.add('moonlight-theme');
-            banner.style.backgroundImage = "url('assets/Moonlight/backgroundwithstuff.png')";
             banner.style.backgroundSize = "cover";
             banner.style.backgroundPosition = "center";
             banner.style.backgroundColor = "#1a1a1a";
             banner.style.gap = "50px";
 
-            // Inject custom styles for Moonlight theme
+            if (selectedName === "CC") {
+                banner.classList.add('cc-theme');
+            }
+
+            // Inject custom styles for themes
             const style = document.createElement('style');
             style.innerHTML = `
+                @font-face {
+                    font-family: 'BobloxClassic';
+                    src: url('assets/CC/fonts/BobloxClassic-nRjl4.ttf') format('truetype');
+                }
                 .moonlight-theme img {
                     height: 50vh !important;
                     width: auto !important;
@@ -277,6 +284,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     opacity: 0;
                     transition: transform 1s ease, opacity 1s ease !important;
                 }
+                .moonlight-theme.cc-theme img {
+                    height: 25vh !important; /* Smaller logo */
+                    object-fit: contain !important;
+                    box-shadow: none !important;
+                    border-radius: 0 !important;
+                }
                 .moonlight-theme img.scroll-on-active {
                     transform: translateY(0) !important;
                     opacity: 1;
@@ -285,20 +298,60 @@ document.addEventListener('DOMContentLoaded', () => {
                     align-items: flex-start !important;
                     text-align: left !important;
                 }
+                /* CC Theme Layout */
+                .moonlight-theme.cc-theme {
+                    justify-content: space-between !important;
+                    padding-left: 5vw;
+                    padding-right: 5vw;
+                }
+                .moonlight-theme.cc-theme .banner-text {
+                    align-items: flex-end !important;
+                    text-align: right !important;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                }
+                .moonlight-theme.cc-theme .banner-text h3 {
+                    font-family: 'BobloxClassic', sans-serif !important;
+                }
             `;
             document.head.appendChild(style);
 
-            bannerImg.src = "assets/Moonlight/window.png";
+            if (selectedName === "Moonlight") {
+                banner.style.backgroundImage = "url('assets/Moonlight/backgroundwithstuff.png')";
+                bannerImg.src = "assets/Moonlight/window.png";
 
-            // Update Text
-            bannerText.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
-                    <img src="assets/Moonlight/transparent.png" style="height: 80px !important; width: auto !important; box-shadow: none; border-radius: 0; transform: none !important; opacity: 1 !important; margin: 0;">
-                    <h1 style="font-size: 5rem; margin: 0; line-height: 1; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">Moonlight</h1>
-                </div>
-                <h3 style="font-size: 2rem; color: white; margin: 0; font-weight: 600; letter-spacing: 1px;">An advanced Roblox IDE</h3>
-                <p style="font-size: 1.2rem; color: #ddd; margin-top: 15px; font-style: italic; font-weight: 500;">Coming soon.. Eventually</p>
-            `;
+                // Update Text
+                bannerText.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
+                        <img src="assets/Moonlight/transparent.png" style="height: 80px !important; width: auto !important; box-shadow: none; border-radius: 0; transform: none !important; opacity: 1 !important; margin: 0;">
+                        <h1 style="font-size: 5rem; margin: 0; line-height: 1; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">Moonlight</h1>
+                    </div>
+                    <h3 style="font-size: 2rem; color: white; margin: 0; font-weight: 600; letter-spacing: 1px;">An advanced Roblox IDE</h3>
+                    <p style="font-size: 1.2rem; color: #ddd; margin-top: 15px; font-style: italic; font-weight: 500;">Coming soon.. Eventually</p>
+                `;
+            } else if (selectedName === "CC") {
+                banner.style.backgroundImage = "url('assets/CC/BetterGameBackground.png')";
+                bannerImg.src = "assets/CC/CCSwords.png";
+
+                // Random Text Logic
+                const randomChance = Math.random();
+                let titleText = "3 Items...";
+                let titleText2 = "2 Abilities...";
+
+                let subText = "Coming soon... Eventually";
+
+                if (randomChance < 0.1) { // 10% chance
+                    titleText = "Too many bots in TF2 casual?";
+                    subText = "Try our fighting game instead, that's on the hated platform roblox!";
+                }
+
+                // Update Text
+                bannerText.innerHTML = `
+                    <h3 style="font-size: 4rem; color: #ff749f; margin: 0; font-weight: 600; letter-spacing: 1px; -webkit-text-stroke: 4px #3f002e;">${titleText}</h3>
+                    <h3 style="font-size: 4rem; color: #ff749f; margin: 0; font-weight: 600; letter-spacing: 1px; -webkit-text-stroke: 4px #3f002e;">${titleText2}</h3>
+                    <p style="font-size: 1.2rem; color: #ddd; margin-top: 15px; font-style: italic; font-weight: 500;">${subText}</p>
+                `;
+            }
         }
     }
 });
