@@ -1,10 +1,2 @@
-# Custom redirects and rewrites (this might affect git tho uhh)
-
-# Teapot
-/418 /418.html 418
-
-# Forbidden
-/403 /403.html 403
-
-# Maintenance
-/503 /503.html 503
+# Custom redirects and rewrites
+# Functions are now handling 418, 403, and 503 status codes.
