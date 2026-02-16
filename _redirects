@@ -1,4 +1,4 @@
-# Custom redirects and rewrites
+# Custom redirects and rewrites (this might affect git tho uhh)
 
 # Teapot
 /418 /418.html 418
