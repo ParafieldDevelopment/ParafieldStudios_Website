@@ -303,7 +303,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     justify-content: space-between !important;
                     padding-left: 5vw;
                     padding-right: 5vw;
+                    position: relative; /* For vignette overlay */
                 }
+                /* Vignette Effect */
+                .moonlight-theme.cc-theme::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%);
+                    pointer-events: none; /* Allow clicks through */
+                    z-index: 1;
+                }
+                /* Ensure content is above vignette */
+                .moonlight-theme.cc-theme > * {
+                    z-index: 2;
+                }
+                
                 .moonlight-theme.cc-theme .banner-text {
                     align-items: flex-end !important;
                     text-align: right !important;
@@ -342,13 +360,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (randomChance < 0.1) { // 10% chance
                     titleText = "Too many bots in TF2 casual?";
+                    titleText2 = ""; // Clear second line if using alternate text
                     subText = "Try our fighting game instead, that's on the hated platform roblox!";
                 }
 
-                // Update Text
+
+                
+                let htmlContent = '';
+                if (titleText2) {
+                     htmlContent = `
+                        <h3 style="font-size: 4rem; color: #ff749f; margin: 0; font-weight: 600; letter-spacing: 1px; -webkit-text-stroke: 4px #3f002e;">${titleText}</h3>
+                        <h3 style="font-size: 4rem; color: #ff749f; margin: 0; font-weight: 600; letter-spacing: 1px; -webkit-text-stroke: 4px #3f002e;">${titleText2}</h3>
+                    `;
+                } else {
+                     // Alternate text case (Easter egg)
+                     htmlContent = `
+                        <h3 style="font-size: 3rem; color: #ff749f; margin: 0; font-weight: 600; letter-spacing: 1px; -webkit-text-stroke: 2px #3f002e;">${titleText}</h3>
+                    `;
+                }
+
                 bannerText.innerHTML = `
-                    <h3 style="font-size: 4rem; color: #ff749f; margin: 0; font-weight: 600; letter-spacing: 1px; -webkit-text-stroke: 4px #3f002e;">${titleText}</h3>
-                    <h3 style="font-size: 4rem; color: #ff749f; margin: 0; font-weight: 600; letter-spacing: 1px; -webkit-text-stroke: 4px #3f002e;">${titleText2}</h3>
+                    ${htmlContent}
                     <p style="font-size: 1.2rem; color: #ddd; margin-top: 15px; font-style: italic; font-weight: 500;">${subText}</p>
                 `;
             }
