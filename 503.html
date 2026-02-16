@@ -141,7 +141,13 @@
             <p id="funny-text" class="funny-text"></p>
         </div>
     </div>
-
+    <audio id="ambient-audio" loop>
+        <source src="assets/Secrets/403/Ambient.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="dom-load-audio" autoplay muted>
+        <source src="assets/Secrets/403/DOMLoad.mp3" type="audio/mpeg">
+    </audio>
     <script>
         const funnyTexts = [
             "Our hamsters are on a coffee break.",
@@ -237,6 +243,16 @@
                 container.classList.add('drifting');
                 starsContainer.style.opacity = '1'; // Fade in the stars
                 eggText.textContent = "Bye bye!";
+                const ambientAudio = document.getElementById('ambient-audio');
+                ambientAudio.volume = 0;
+                ambientAudio.play();
+                let fadeInterval = setInterval(() => {
+                    if (ambientAudio.volume < 1.0) {
+                        ambientAudio.volume = Math.min(1.0, ambientAudio.volume + 0.1);
+                    } else {
+                        clearInterval(fadeInterval);
+                    }
+                }, 500);
             }
         });
     </script>
