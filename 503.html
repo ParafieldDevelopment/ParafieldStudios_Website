@@ -10,16 +10,128 @@
     <link rel="stylesheet" href="css/404.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <style>
-        .maintenance-emoji {
-            font-size: 150px;
+        .maintenance-img {
+            width: 250px;
+            height: 150px;
             margin-bottom: 20px;
             display: inline-block;
+            cursor: pointer;
+            transition: transform 0.1s;
+            user-select: none;
+        }
+
+        .maintenance-img:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes drift-away {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(100px, 100vh) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        .drifting {
+            animation: drift-away 5s forwards ease-in;
+            pointer-events: none; /* Prevent further clicks */
+        }
+
+        .easter-egg-text {
+            font-style: italic;
+            color: #f2ae49; /* Primary color */
+            margin-top: 10px;
+            min-height: 24px; /* Prevent layout jump */
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .easter-egg-text.visible {
+            opacity: 1;
+        }
+
+        /* Starry Night Background */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 5s ease-in;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 3s infinite ease-in-out alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Shooting Star */
+        .shooting-star {
+            position: absolute;
+            right: -50px; /* Start right of screen */
+            top: -50px; /* Start above screen */
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
+            animation: shoot 3s linear infinite;
+            opacity: 0;
+        }
+
+        .shooting-star::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 1px;
+            background: linear-gradient(90deg, #fff, transparent);
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: rotate(315deg) translateX(0);
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(315deg) translateX(-1500px); /* Shoot far across */
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Stars Container -->
+    <div class="stars-container" id="stars-container">
+        <!-- Shooting stars will be added here -->
+    </div>
+
     <div class="container">
-        <div class="maintenance-emoji">🚧</div>
+        <img src="assets/under-construction-barrier-icon.svg" alt="Under Construction" class="maintenance-img" id="maintenance-img">
+
+        <p id="easter-egg-text" class="easter-egg-text"></p>
+
         <h1>503</h1>
         <p>Service Unavailable. We're currently undergoing maintenance.</p>
         <a href="index.html" class="home-link">Go back to Home</a>
@@ -38,12 +150,95 @@
             "Back in a jiffy! (Or maybe a few hours...)",
             "This page is currently under construction. Please check back later.",
             "We're upgrading our servers with more cowbell.",
-            "Our engineers are working tirelessly... or hardly working. We're not sure."
+            "Our engineers are working tirelessly... or hardly working. We're not sure.",
+            "If you're seeing this, check the status of CloudFlare. If they're down, that's the reason you're seeing this. If they're not down, then we have no clue what's going on."
         ];
 
         const funnyTextElement = document.getElementById('funny-text');
         const randomIndex = Math.floor(Math.random() * funnyTexts.length);
         funnyTextElement.innerHTML = funnyTexts[randomIndex];
+
+        // Generate Stars
+        const starsContainer = document.getElementById('stars-container');
+        const starCount = 200;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+
+            // Random position
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+
+            // Random size
+            const size = Math.random() * 2 + 1; // 1px to 3px
+
+            // Random animation delay
+            const delay = Math.random() * 3;
+
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.animationDelay = `${delay}s`;
+
+            starsContainer.appendChild(star);
+        }
+
+        // Generate Shooting Stars
+        const shootingStarCount = 3;
+        for (let i = 0; i < shootingStarCount; i++) {
+            const sStar = document.createElement('div');
+            sStar.classList.add('shooting-star');
+
+            // Random start position (off-screen top/right)
+            const top = Math.random() * 50; // Top half
+            const right = Math.random() * 50; // Right side
+
+            sStar.style.top = `-${top}px`;
+            sStar.style.right = `-${right}px`;
+            sStar.style.left = 'auto'; // Reset left
+
+            // Random delay
+            sStar.style.animationDelay = `${Math.random() * 5}s`;
+            sStar.style.animationDuration = `${Math.random() * 2 + 3}s`; // 3-5s duration
+
+            starsContainer.appendChild(sStar);
+        }
+
+        // Easter Egg Logic
+        const img = document.getElementById('maintenance-img');
+        const container = document.querySelector('.container');
+        const eggText = document.getElementById('easter-egg-text');
+        let clickCount = 0;
+
+        // Map click counts to messages
+        const messages = {
+            5: "What are you doing?",
+            10: "There's nothing else ya know?",
+            15: "Oh i see what your trying to do. Ur trying to find an easter egg right?",
+            20: "Just to let you know.. WE'RE DOWN RN..",
+            25: "So there's nothing else that you can find here...",
+            30: "Okay okay fine... I see what you want...",
+            35: "You want one? I'll give you one...",
+            40: "Let me whip something up here."
+        };
+
+        const finalThreshold = 45;
+
+        img.addEventListener('click', () => {
+            clickCount++;
+
+            if (messages[clickCount]) {
+                eggText.textContent = messages[clickCount];
+                eggText.classList.add('visible');
+            } else if (clickCount >= finalThreshold) {
+                document.body.style.overflow = 'hidden';
+                container.classList.add('drifting');
+                starsContainer.style.opacity = '1'; // Fade in the stars
+                eggText.textContent = "Bye bye!";
+            }
+        });
     </script>
 </body>
 </html>
