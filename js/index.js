@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     font-family: 'BobloxClassic';
                     src: url('assets/CC/fonts/BobloxClassic-nRjl4.ttf') format('truetype');
                 }
-                .moonlight-theme img {
+                .moonlight-theme > img {
                     height: 50vh !important;
                     width: auto !important;
                     max-width: 45vw !important;
@@ -284,13 +284,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     opacity: 0;
                     transition: transform 1s ease, opacity 1s ease !important;
                 }
-                .moonlight-theme.cc-theme img {
+                .moonlight-theme.cc-theme > img {
                     height: 25vh !important; /* Smaller logo */
                     object-fit: contain !important;
                     box-shadow: none !important;
                     border-radius: 0 !important;
                 }
-                .moonlight-theme img.scroll-on-active {
+                .moonlight-theme > img.scroll-on-active {
                     transform: translateY(0) !important;
                     opacity: 1;
                 }
@@ -330,6 +330,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 .moonlight-theme.cc-theme .banner-text h3 {
                     font-family: 'BobloxClassic', sans-serif !important;
+                }
+
+                /* Mobile Responsive Styles for Ads */
+                @media (max-width: 768px) {
+                    .moonlight-theme {
+                        flex-direction: column !important;
+                        justify-content: center !important;
+                        text-align: center !important;
+                        padding: 2rem !important;
+                    }
+                    .moonlight-theme > img {
+                        height: 20vh !important;
+                        max-width: 80vw !important;
+                        margin-bottom: 20px !important;
+                    }
+                    .moonlight-theme .banner-text {
+                        align-items: center !important;
+                        text-align: center !important;
+                        margin: 0 !important;
+                        width: 100%;
+                    }
+                    
+                    /* Moonlight Specific Mobile Fixes */
+                    .moonlight-theme h1 {
+                        font-size: 3rem !important; /* Reduce font size */
+                    }
+                    .moonlight-theme .banner-text > div {
+                        flex-direction: column !important; /* Stack logo and text */
+                        gap: 5px !important;
+                    }
+                    
+                    /* CC Theme Mobile Specifics */
+                    .moonlight-theme.cc-theme {
+                        padding-left: 2rem !important;
+                        padding-right: 2rem !important;
+                        justify-content: center !important;
+                    }
+                    .moonlight-theme.cc-theme .banner-text {
+                        align-items: center !important;
+                        text-align: center !important;
+                    }
+                    .moonlight-theme.cc-theme h3 {
+                        font-size: 2.5rem !important; /* Smaller font for mobile */
+                        -webkit-text-stroke: 2px #3f002e !important; /* Thinner stroke */
+                    }
                 }
             `;
             document.head.appendChild(style);
