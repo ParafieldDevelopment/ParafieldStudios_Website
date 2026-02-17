@@ -1,4 +1,4 @@
-adexport async function onRequest(context) {
+export async function onRequest(context) {
   const url = new URL(context.request.url);
   
   // Always allow access to assets (css, js, images) and the config file itself
@@ -6,7 +6,7 @@ adexport async function onRequest(context) {
       url.pathname.startsWith('/css/') || 
       url.pathname.startsWith('/js/') || 
       url.pathname === '/config.json' ||
-      url.pathname === '/503') {
+      url.pathname === '/errors/503') {
     return context.next();
   }
 
@@ -21,7 +21,7 @@ adexport async function onRequest(context) {
       // Check if maintenance mode is enabled
       if (config.maintenanceMode === true) {
         // Fetch and return the 503 page
-        const maintenancePage = await context.env.ASSETS.fetch(new Request(new URL("/503.html", context.request.url)));
+        const maintenancePage = await context.env.ASSETS.fetch(new Request(new URL("/errors/503.html", context.request.url)));
         
         return new Response(maintenancePage.body, {
           status: 503,
