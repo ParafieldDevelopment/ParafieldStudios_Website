@@ -32,16 +32,12 @@
             "Whatever you were looking for. Caseoh might have eaten it already.",
             "I CAN'T FIND MY CRACK! WHERE THE FUCK IS IT?!",
             " \"That's not...the...ThornRing, is it...?\" ",
-            "if you keep searching for pages that don't exist... <b id='san'>you're gonna have a bad time.</b>"
+            "if you keep searching for pages that don't exist... <b>you're gonna have a bad time.</b>"
         ];
 
         const funnyTextElement = document.getElementById('funny-text');
         const randomIndex = Math.floor(Math.random() * funnyTexts.length);
         funnyTextElement.innerHTML = funnyTexts[randomIndex];
-
-        document.getElementById('san').addEventListener('click', () => {
-            window.open('https://jcw87.github.io/c2-sans-fight/')
-        })
     </script>
 </body>
 </html>
