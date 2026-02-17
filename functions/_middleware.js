@@ -6,7 +6,7 @@ export async function onRequest(context) {
       url.pathname.startsWith('/css/') ||
       url.pathname.startsWith('/js/') ||
       url.pathname === '/config.json' ||
-      url.pathname === '/errors/503') {
+      url.pathname === '/errors/503.html') {
     return context.next();
   }
 
@@ -26,7 +26,7 @@ export async function onRequest(context) {
         return new Response(maintenancePage.body, {
           status: 503,
           statusText: "Service Unavailable",
-          headers: maintenancePage.headers
+          headers: { "Content-Type": "text/html" }
         });
       }
     }
