@@ -168,10 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Calculate target dimensions
             const targetWidth = Math.min(1000, window.innerWidth * 0.95); // Updated to match CSS
-            // Let height be auto-ish but we need a target for animation. 
-            // Let's pick a reasonable max height or calculate based on content?
-            // Calculating based on content is hard because content changes width.
-            // Let's just expand to a large box.
+            
             const targetHeight = Math.min(window.innerHeight * 0.8, 800); 
 
             modalContent.style.top = `50%`;
@@ -197,12 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modal.classList.remove("active");
         document.body.classList.remove("modal-open");
-        
-        // We need to transition from current state (centered) back to card rect.
-        // Current state is top: 50%, left: 50%, transform: translate(-50%, -50%)
-        // We need to remove transform and set top/left to rect.top/rect.left
-        
-        // First, get current computed style to lock it? No, we can just animate to new values.
+
         
         modalContent.style.transition = 'all 0.4s cubic-bezier(0.19, 1, 0.22, 1)';
         modalContent.style.top = `${rect.top}px`;
