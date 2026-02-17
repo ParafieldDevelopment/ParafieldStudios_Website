@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>401 - Unauthorized</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/404.css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <style>
+        .error-img {
+            width: 320px; /* Adjust size as needed */
+            height: 306px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../assets/ParafieldForbidden.png" alt="Unauthorized" class="error-img">
+        <h1>401</h1>
+        <p>Unauthorized. Please provide valid credentials.</p>
+        <a href="../index.html" class="home-link">Go back to Home</a>
+
+        <div class="funny-section">
+            <p class="error-code">Error Code: 401</p>
+            <p id="funny-text" class="funny-text"></p>
+        </div>
+    </div>
+
+    <script>
+        const funnyTexts = [
+            "Who are you? And why are you here?",
+            "You shall not pass... without proper authentication!",
+            "Access denied. Have you tried logging in?",
+            "This content requires a secret handshake.",
+            "Looks like you're missing a key.",
+            "I'm afraid I can't let you do that, Dave. (Without authentication)",
+            "Permission denied. Check your credentials."
+        ];
+
+        const funnyTextElement = document.getElementById('funny-text');
+        const randomIndex = Math.floor(Math.random() * funnyTexts.length);
+        funnyTextElement.innerHTML = funnyTexts[randomIndex];
+    </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-export async function onRequest(context) {
+adexport async function onRequest(context) {
   const url = new URL(context.request.url);
   
   // Always allow access to assets (css, js, images) and the config file itself
