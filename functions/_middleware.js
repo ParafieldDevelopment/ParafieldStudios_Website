@@ -35,6 +35,17 @@ export async function onRequest(context) {
     console.error("Failed to load config:", err);
   }
 
-  // If not in maintenance mode, proceed with the request
-  return context.next();
+  // If not in maintenance mode, or if config failed to load, proceed with the request
+  const response = await context.next();
+
+  if (response.status === 404) {
+    const custom404Page = await context.env.ASSETS.fetch(new Request(new URL("/errors/404.html", context.request.url)));
+    return new Response(custom404Page.body, {
+      status: 404,
+      statusText: "Not Found",
+      headers: { "Content-Type": "text/html" }
+    });
+  }
+
+  return response; // Return original response if not a 404
 }
