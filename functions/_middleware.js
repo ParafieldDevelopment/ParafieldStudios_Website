@@ -1,43 +1,39 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
-  
-  // Always allow access to assets (css, js, images) and the config file itself
-  if (url.pathname.startsWith('/assets/') || 
-      url.pathname.startsWith('/css/') || 
-      url.pathname.startsWith('/js/') || 
-      url.pathname === '/config.json' ||
-      url.pathname === '/errors/503') {
-    return context.next();
-  }
+  let response;
 
+  // --- Maintenance Mode Check ---
   try {
-    // Fetch the config.json file
-    // We use context.env.ASSETS to fetch the static file from the deployment
     const configResponse = await context.env.ASSETS.fetch(new Request(new URL("/config.json", context.request.url)));
-    
     if (configResponse.ok) {
       const config = await configResponse.json();
-      
-      // Check if maintenance mode is enabled
       if (config.maintenanceMode === true) {
-        // Fetch and return the 503 page
+        // Allow access to static assets and the 503 error page even in maintenance mode
+        if (url.pathname.startsWith('/assets/') || 
+            url.pathname.startsWith('/css/') || 
+            url.pathname.startsWith('/js/') || 
+            url.pathname === '/config.json' ||
+            url.pathname === '/errors/503.html') {
+            return context.next(); 
+        }
+
         const maintenancePage = await context.env.ASSETS.fetch(new Request(new URL("/errors/503.html", context.request.url)));
-        
         return new Response(maintenancePage.body, {
           status: 503,
           statusText: "Service Unavailable",
-          headers: maintenancePage.headers
+          headers: { "Content-Type": "text/html" }
         });
       }
     }
   } catch (err) {
-    // If config fails to load, proceed as normal to avoid breaking the site
     console.error("Failed to load config:", err);
   }
+  // --- End Maintenance Mode Check ---
 
-  // If not in maintenance mode, or if config failed to load, proceed with the request
-  const response = await context.next();
+  // Proceed with the request if not in maintenance mode or config failed
+  response = await context.next();
 
+  // --- 404 Handling (always last) ---
   if (response.status === 404) {
     const custom404Page = await context.env.ASSETS.fetch(new Request(new URL("/errors/404.html", context.request.url)));
     return new Response(custom404Page.body, {
@@ -47,5 +43,5 @@ export async function onRequest(context) {
     });
   }
 
-  return response; // Return original response if not a 404
+  return response;
 }
