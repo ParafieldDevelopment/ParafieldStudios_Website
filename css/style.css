@@ -776,6 +776,60 @@ div.banner-text.scroll-on-active {
     filter: invert(1);
 }
 
+/* ---------------------- CAREERS/JOBS ---------------------- */
+.job-listings {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: left;
+}
+
+.job-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.job-card h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.job-card .job-location {
+    font-weight: 700;
+    color: #777;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.job-card .job-description {
+    flex-basis: 100%;
+    margin-bottom: 1.5rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.job-card .modal-btn {
+    background-color: var(--primary-color);
+    color: white;
+    margin-left: auto;
+}
+
 /* ---------------------- RESPONSIVE ---------------------- */
 @media (max-width: 1024px) {
     div.banner-text h1 {
