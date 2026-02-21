@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!banner || !bannerText || !bannerImg) return;
 
-        const names = ["Parafield Studios", "Moonlight", "CC", "iSounds"];
+        const names = ["Parafield Studios", "Moonlight", "CC", "iSounds", "Careers"];
         const selectedName = names[Math.floor(Math.random() * names.length)];
 
         if (selectedName === "Parafield Studios") {
@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 banner.classList.add('cc-theme');
             } else if (selectedName === "iSounds") {
                 banner.classList.add('isounds-theme');
+            } else if (selectedName === "Careers") {
+                banner.classList.add('careers-theme');
             }
 
             // Inject custom styles for themes
@@ -170,6 +172,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
                     background-color: #f8f8f8;
                 }
+                
+                .careers-theme {
+                    justify-content: center !important;
+                    align-items: center !important;
+                }
+                
+                .careers-btn {
+                    display: inline-block;
+                    margin-top: 30px;
+                    padding: 12px 35px;
+                    background-color: #007bff;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 50px;
+                    font-weight: 800;
+                    font-size: 1.1rem;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+                }
+
+                .careers-btn:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+                    background-color: #0069d9;
+                }
 
                 /* Mobile Responsive Styles for Ads */
                 @media (max-width: 768px) {
@@ -275,6 +302,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 style="font-size: 2.5rem; color: white; margin: 15px 0; font-weight: 700; letter-spacing: 0.5px;">Listen to the World.</h3>
                     <p style="font-size: 1.3rem; color: #ccc; margin-top: 10px; font-weight: 400; max-width: 600px; line-height: 1.6;">Stream thousands of internet radio stations and podcasts in one place.</p>
                     <a href="https://sounds.parafieldstudios.com" class="isounds-btn">Start Listening</a>
+                `;
+            } else if (selectedName === "Careers") {
+                banner.style.backgroundImage = "url('assets/blueprint-background.png')";
+                bannerImg.style.display = 'none';
+                
+                bannerText.innerHTML = `
+                    <h1 style="font-size: 6rem; margin: 0; line-height: 1; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); color: white; font-weight: 900; letter-spacing: -2px;">WE'RE HIRING</h1>
+                    <p style="font-size: 1.3rem; color: #ccc; margin-top: 10px; font-weight: 400; max-width: 600px; line-height: 1.6;">Passionate about creating cool things? We're looking for people like you.</p>
+                    <a href="careers.html" class="careers-btn">View Open Roles</a>
                 `;
             }
         }
