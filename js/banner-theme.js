@@ -172,30 +172,91 @@ document.addEventListener('DOMContentLoaded', () => {
                     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
                     background-color: #f8f8f8;
                 }
-                
+
                 .careers-theme {
                     justify-content: center !important;
                     align-items: center !important;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .careers-ad-container {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .careers-logo-animated {
+                    height: 250px;
+                    filter: brightness(0) invert(1);
+                    animation: roll-and-bounce 2s ease-out forwards;
+                    z-index: 2;
+                }
+
+                .careers-finger-animated {
+                    position: absolute;
+                    height: 300px;
+                    z-index: 1;
+                    animation: point-and-jiggle 3s ease-out 1.5s forwards;
+                    opacity: 0;
                 }
                 
+                .careers-text-animated {
+                    position: absolute;
+                    z-index: 3;
+                    text-align: center;
+                    opacity: 0;
+                    animation: fadeInText 1s ease-out 2.5s forwards;
+                }
+                
+                .careers-text-animated h1 {
+                    font-size: 4rem;
+                    color: white;
+                    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+                    font-weight: 900;
+                    margin: 0;
+                }
+                
+                .careers-text-animated p {
+                    font-size: 1.2rem;
+                    color: #ccc;
+                    margin-top: 5px;
+                }
+
                 .careers-btn {
                     display: inline-block;
-                    margin-top: 30px;
-                    padding: 12px 35px;
+                    margin-top: 20px;
+                    padding: 10px 30px;
                     background-color: #007bff;
                     color: white;
                     text-decoration: none;
                     border-radius: 50px;
-                    font-weight: 800;
-                    font-size: 1.1rem;
+                    font-weight: 700;
                     transition: all 0.3s ease;
-                    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
                 }
 
-                .careers-btn:hover {
-                    transform: translateY(-3px);
-                    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
-                    background-color: #0069d9;
+                @keyframes roll-and-bounce {
+                    0% { transform: translateX(-150vw) rotate(-720deg); opacity: 0; }
+                    60% { transform: translateX(0) rotate(0deg); opacity: 1; }
+                    75% { transform: translateY(-30px); }
+                    90% { transform: translateY(10px); }
+                    100% { transform: translateY(0); }
+                }
+
+                @keyframes point-and-jiggle {
+                    0% { opacity: 0; transform: scale(0.5) translateY(50px); }
+                    70% { opacity: 1; transform: scale(1) translateY(0); }
+                    80% { transform: rotate(-5deg); }
+                    90% { transform: rotate(5deg); }
+                    100% { transform: rotate(0deg); }
+                }
+
+                @keyframes fadeInText {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
                 }
 
                 /* Mobile Responsive Styles for Ads */
@@ -306,12 +367,16 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (selectedName === "Careers") {
                 banner.style.backgroundImage = "url('assets/blueprint-background.png')";
                 bannerImg.style.display = 'none';
-                
-                bannerText.innerHTML = `
-                    <h1 style="font-size: 6rem; margin: 0; line-height: 1; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); color: white; font-weight: 900; letter-spacing: -2px;">WE'RE HIRING</h1>
-                    <p style="font-size: 1.3rem; color: #ccc; margin-top: 10px; font-weight: 400; max-width: 600px; line-height: 1.6;">Passionate about creating cool things? We're looking for people like you.</p>
-                    <a href="careers.html" class="careers-btn">View Open Roles</a>
-                `;
+                banner.innerHTML = `
+                <div class="careers-ad-container">
+                    <img src="assets/logo.svg" alt="Parafield Studios Logo" class="careers-logo-animated">
+                    <img src="assets/PointingFinger.png" alt="Pointing Finger" class="careers-finger-animated">
+                    <div class="careers-text-animated">
+                        <h1>WE WANT YOU</h1>
+                        <p>...to help us procrastinate. (and make cool things)</p>
+                        <a href="careers.html" class="careers-btn">Are You In?</a>
+                    </div>
+                </div>`;
             }
         }
     }
