@@ -63,11 +63,22 @@
             filter: brightness(0) invert(1);
         }
 
-        .banner-title {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .banner-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .banner-text h1 {
+            margin: -2px 0;
+            font-weight: 900;
+            font-size: 2.5rem; /* Adjusted for banner-top context */
             color: white;
+            line-height: 0.9;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
         
         .banner-divider {
@@ -129,7 +140,10 @@
     <div class="banner scroll-on">
         <div class="banner-top">
             <img src="assets/logo.svg" alt="logo" class="banner-logo scroll-on">
-            <span class="banner-title scroll-on">PARAFIELD STUDIOS</span>
+            <div class="banner-text scroll-on">
+                <h1>PARAFIELD</h1>
+                <h1>STUDIOS</h1>
+            </div>
         </div>
         <hr class="banner-divider scroll-on">
         <h1 class="banner-main-text scroll-on">CAREERS</h1>
