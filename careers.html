@@ -13,8 +13,76 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         :root {
-            --primary-color: #33A1FF;
-            --banner-background-color: #33A1FF;
+            --primary-color: #007bff; /* Blue to match blueprint */
+            --background-color: #1a1a1a;
+            --text-color: #f4f4f4;
+            --nav-logo-filter: brightness(0) invert(1);
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .job-card {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+        }
+
+        .job-card h3 {
+            color: var(--primary-color);
+        }
+        
+        .job-card .job-description {
+            color: #ccc;
+        }
+
+        .section-subtitle {
+            color: #aaa;
+        }
+
+        .banner {
+            background-image: url('assets/blueprint-background.png');
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .banner-top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .banner-logo {
+            height: 80px;
+            filter: brightness(0) invert(1);
+        }
+
+        .banner-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        
+        .banner-divider {
+            width: 80%;
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            margin: 2rem 0;
+        }
+
+        .banner-main-text {
+            font-size: 6rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            margin: 0;
         }
     </style>
 
@@ -59,11 +127,12 @@
     </nav>
 
     <div class="banner scroll-on">
-        <img src="assets/logo.svg" alt="banner" class="scroll-on">
-        <div class="banner-text scroll-on">
-            <h1>WORK</h1>
-            <h1>WITH US</h1>
+        <div class="banner-top">
+            <img src="assets/logo.svg" alt="logo" class="banner-logo scroll-on">
+            <span class="banner-title scroll-on">PARAFIELD STUDIOS</span>
         </div>
+        <hr class="banner-divider scroll-on">
+        <h1 class="banner-main-text scroll-on">CAREERS</h1>
     </div>
 
     <main class="content">
