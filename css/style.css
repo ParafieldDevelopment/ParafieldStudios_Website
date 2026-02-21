@@ -723,6 +723,7 @@ div.banner-text.scroll-on-active {
     padding: 3rem 2rem;
     text-align: center;
     margin-top: 4rem;
+    position: relative; /* Added for correct absolute positioning of child elements */
 }
 
 .footer-content p {
@@ -746,6 +747,33 @@ div.banner-text.scroll-on-active {
 
 .social-links a:hover {
     color: var(--primary-color);
+}
+
+.cloudflare-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.cloudflare-badge:hover {
+    opacity: 1;
+}
+
+.cloudflare-badge span {
+    color: #888;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.cloudflare-badge img {
+    height: 25px;
+    width: auto;
+    filter: invert(1);
 }
 
 /* ---------------------- RESPONSIVE ---------------------- */
