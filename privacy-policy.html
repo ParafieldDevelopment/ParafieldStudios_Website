@@ -11,9 +11,110 @@
     <meta name="description" content="Privacy Policy for Parafield Studios">
     <meta name="theme-color" content="#f2ae49">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .glitch-toggle-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .glitch-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .glitch-toggle {
+            position: relative;
+            width: 80px;
+            height: 40px;
+            background-color: #222;
+            border-radius: 20px;
+            border: 2px solid #444;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            pointer-events: none; /* Unclickable */
+            overflow: visible;
+            animation: shake 4s infinite;
+        }
+
+        .glitch-toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 30px;
+            height: 30px;
+            background-color: #f2ae49; /* Orange */
+            border-radius: 50%;
+            box-shadow: 0 0 5px #f2ae49;
+            animation: glitch-move 3s infinite alternate;
+        }
+
+        .axe-overlay {
+            position: absolute;
+            top: -35px;
+            left: 15px;
+            width: 50px;
+            height: 50px;
+            transform: rotate(25deg);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .axe-overlay img {
+            width: 100%;
+            height: 100%;
+            filter: brightness(0) invert(0); /* Makes it black */
+        }
+
+        /* Glitch animation for the slider knob */
+        @keyframes glitch-move {
+            0% { left: 3px; background-color: #f2ae49; box-shadow: 0 0 5px #f2ae49; }
+            45% { left: 3px; }
+            46% { left: 15px; background-color: #ff3333; box-shadow: 0 0 15px #ff3333; } /* Red flash attempt */
+            48% { left: 3px; background-color: #f2ae49; box-shadow: 0 0 5px #f2ae49; }
+            60% { left: 3px; }
+            62% { left: 8px; }
+            64% { left: 3px; }
+            90% { left: 3px; }
+            92% { left: 43px; background-color: #ff3333; box-shadow: 0 0 20px #ff3333; } /* Try to go full right */
+            94% { left: 3px; background-color: #f2ae49; box-shadow: 0 0 5px #f2ae49; }
+            100% { left: 3px; }
+        }
+
+        /* Shake effect on the container */
+        @keyframes shake {
+            0%, 90% { transform: translate(0, 0); }
+            91% { transform: translate(-1px, 1px); }
+            92% { transform: translate(1px, -1px); }
+            93% { transform: translate(-2px, 0); }
+            94% { transform: translate(2px, 0); }
+            95% { transform: translate(-1px, -1px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .spark {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #ffcc00;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body>
     <script src="js/navigation.js"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/banner-theme.js"></script>
     <nav class="nav">
         <div class="nav-left">
             <a href="index.html"><img src="assets/logo.svg" alt="logo" class="nav-logo"></a>
@@ -28,16 +129,38 @@
         </div>
     </nav>
 
-    <main class="content" style="padding: 2rem;">
-        <section style="max-width: 800px; margin: auto; text-align: center;">
-            <h1>Privacy Policy</h1>
-            <p class="section-subtitle" style="margin-bottom: 1rem;">We are gonna make this simple…</p>
-            <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 2rem;">“We DO NOT want your data. Keep that shit to yourselves.”</p>
-            <p>At Parafield Studios (and our subsidiaries like REDTOPS), we believe your personal life is none of our business. We aren't data brokers, and we aren't interested in your digital footprint.</p>
-            <hr style="margin: 2rem 0;">
-            <h2>What we DO collect however is Hardware Telemetry data.</h2>
-            <p>Why we collect it: To make sure our products and games actually run on your machine no matter how shitty it might be. We use this data to push updates and fix bugs. That is it.</p>
-            <div style="text-align: left; display: inline-block; margin-top: 1rem;">
+    <div class="banner scroll-on">
+        <img src="assets/logo.svg" alt="banner" class="scroll-on">
+        <div class="banner-text scroll-on">
+            <h1>PRIVACY</h1>
+            <h1>POLICY</h1>
+        </div>
+    </div>
+
+    <main class="content">
+        <section class="intro-section scroll-on">
+            <h2 class="section-title">We are gonna make this simple…</h2>
+            <p class="studio-description">“We DO NOT want your data. Keep that shit to yourselves.”</p>
+
+            <div class="glitch-toggle-container">
+                <p class="glitch-label">That telemetry data you expect</p>
+                <div class="glitch-toggle" id="privacy-toggle">
+                    <div class="axe-overlay">
+                        <img src="assets/axe-svgrepo-com.svg" alt="Axe">
+                    </div>
+                    <div class="glitch-toggle-slider"></div>
+                </div>
+            </div>
+
+            <div class="studio-desc-content">
+                <p>At Parafield Studios (and our subsidiaries like REDTOPS), we believe your personal life is none of our business. We aren't data brokers, and we aren't interested in your digital footprint.</p>
+            </div>
+        </section>
+
+        <section class="intro-section scroll-on">
+            <h2 class="section-title">What we DO collect however is Hardware Telemetry data.</h2>
+            <p class="section-subtitle">Why we collect it: To make sure our products and games actually run on your machine no matter how shitty it might be. We use this data to push updates and fix bugs. That is it.</p>
+            <div class="studio-desc-content" style="text-align: left; display: inline-block;">
                 <h3>This includes:</h3>
                 <ul style="list-style: '• '; padding-left: 1.5rem;">
                     <li>GPU/CPU models</li>
@@ -70,6 +193,54 @@
             <img src="assets/cloudflare.png" alt="Cloudflare Pages">
         </a>
     </footer>
-    <script src="js/banner-theme.js"></script>
+
+    <script>
+        // JS to generate random sparks
+        const toggleContainer = document.querySelector('.glitch-toggle');
+
+        function createSpark() {
+            const spark = document.createElement('div');
+            spark.className = 'spark';
+
+            // Random position around the toggle
+            const rect = toggleContainer.getBoundingClientRect();
+            // Relative to the container
+            const startX = Math.random() * 80; // Width of toggle
+            const startY = Math.random() * 40; // Height of toggle
+
+            spark.style.left = startX + 'px';
+            spark.style.top = startY + 'px';
+
+            toggleContainer.appendChild(spark);
+
+            // Animate spark
+            const angle = Math.random() * 360;
+            const distance = 20 + Math.random() * 30;
+            const duration = 200 + Math.random() * 200;
+
+            const animation = spark.animate([
+                { transform: 'translate(0, 0) scale(1)', opacity: 1, backgroundColor: '#fff' },
+                { transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0)`, opacity: 0, backgroundColor: '#ff3333' }
+            ], {
+                duration: duration,
+                easing: 'ease-out'
+            });
+
+            animation.onfinish = () => spark.remove();
+        }
+
+        // Randomly trigger sparks
+        setInterval(() => {
+            if (Math.random() > 0.6) {
+                createSpark();
+            }
+        }, 150);
+
+        // Occasional burst
+        setInterval(() => {
+             for(let i=0; i<4; i++) createSpark();
+        }, 2500);
+
+    </script>
 </body>
 </html>
