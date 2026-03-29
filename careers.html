@@ -372,10 +372,14 @@
         }
 
         .career-details {
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
             font-size: 1.1rem;
-            color: #ccc;
+            color: #fff;
             overflow-y: auto;
+        }
+
+        .career-details p, .career-details li {
+            color: #fff;
         }
 
         .career-details h4 {
@@ -434,17 +438,6 @@
 
         .role-card {
             cursor: pointer;
-        }
-
-        .career-details {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: #fff;
-            overflow-y: auto;
-        }
-
-        .career-details p, .career-details li {
-            color: #fff;
         }
 
         @media (max-width: 768px) {
@@ -546,7 +539,7 @@
             <h2 class="section-title">Open Roles</h2>
             <p class="section-subtitle">We're always looking for passionate people. See if you're a fit for any of our teams.</p>
             <div class="roles-grid">
-                <div class="role-card aux-dev-card" data-color="#002a4d">
+                <div class="role-card aux-dev-card" data-color="#33a1ff">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                     </div>
@@ -565,7 +558,7 @@
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" class="modal-btn primary">Apply Now</a>
                     </div>
                 </div>
-                <div class="role-card qa-card" data-color="#1b4d2e">
+                <div class="role-card qa-card" data-color="#28a745">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                     </div>
@@ -584,7 +577,7 @@
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" class="modal-btn primary">Apply Now</a>
                     </div>
                 </div>
-                <div class="role-card staff-card" data-color="#8c4a00">
+                <div class="role-card staff-card" data-color="#ff8c00">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     </div>
@@ -624,7 +617,7 @@
             <h2 class="section-title">Closed Roles and Misc</h2>
             <p class="section-subtitle">Interested in something else? These roles are for contacting the studio directly.</p>
             <div class="roles-grid">
-                <div class="role-card it-staff-card" data-color="#0a361a">
+                <div class="role-card it-staff-card" data-color="#2dce89">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
                     </div>
@@ -643,11 +636,9 @@
                     <div class="card-buttons">
                         <div class="modal-btn unavailable">Unavailable</div>
                         <div class="role-notice">Parafield is not looking for anyone with this role.</div>
-                        <!-- <a href="mailto:contact@parafieldstudios.com?subject=IT%20Staff%20Inquiry" class="modal-btn primary">Inquire via Email</a> -->
                     </div>
-                    <!-- <a href="mailto:contact@parafieldstudios.com?subject=IT%20Staff%20Inquiry" class="role-contact-btn">Contact Us</a> -->
                 </div>
-                <div class="role-card collab-card" data-color="#6b5a00">
+                <div class="role-card collab-card" data-color="#ffd700">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
@@ -666,9 +657,7 @@
                     <div class="card-buttons">
                         <div class="modal-btn unavailable">Unavailable</div>
                         <div class="role-notice">Parafield is not accepting collabs at this time.</div>
-                        <!-- <a href="mailto:contact@parafieldstudios.com?subject=Project%20Collaboration" class="modal-btn primary">Start a Conversation</a> -->
                     </div>
-                    <!-- <a href="mailto:contact@parafieldstudios.com?subject=Project%20Collaboration" class="role-contact-btn">Get in Touch</a> -->
                 </div>
             </div>
         </section>
