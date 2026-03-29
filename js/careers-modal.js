@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalName = document.getElementById("modal-name");
     const modalRole = document.getElementById("modal-role");
     const modalDescription = document.getElementById("modal-description");
+    const modalSide = document.querySelector(".career-modal-side");
     const modalIcon = document.querySelector(".career-modal-icon");
     const modalButtonsContainer = document.querySelector(".career-modal-buttons");
     const modalBadge = document.querySelector(".career-badge");
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = card.getBoundingClientRect();
             const name = card.querySelector("h3").innerText;
             const shortRole = card.querySelector("p").innerText;
+            const roleColor = card.getAttribute("data-color") || "#121212";
             
             const descriptionEl = card.querySelector(".card-description");
             const description = descriptionEl ? descriptionEl.innerHTML : "No details available.";
@@ -39,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Clear and inject icon
             modalIcon.innerHTML = '';
             modalIcon.appendChild(iconSvg);
+            
+            // Apply role color to modal side
+            modalSide.style.background = `linear-gradient(135deg, ${roleColor} 0%, #1a1a1a 100%)`;
             
             // Handle status badge
             if (isUnavailable) {
