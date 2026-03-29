@@ -486,6 +486,49 @@
             cursor: pointer;
         }
 
+        .marketing-section {
+            margin-top: 8rem;
+            padding: 6rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .marketing-logo {
+            height: 120px;
+            margin-bottom: 2rem;
+            filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255,255,255,0.2));
+            transition: transform 0.5s ease;
+        }
+
+        .marketing-section:hover .marketing-logo {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .marketing-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, #555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .marketing-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .marketing-title { font-size: 2.5rem; }
+            .marketing-logo { height: 80px; }
+        }
+
         @media (max-width: 768px) {
             .career-modal-content {
                 flex-direction: column;
@@ -525,18 +568,18 @@
     <meta property="og:url" content="https://www.parafieldstudios.com/careers">
     <meta property="og:title" content="Parafield Studios - Careers">
     <meta property="twitter:description" content="Join the team at Parafield Studios.">
-    <meta property="og:image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
+    <meta property="og:image" content="https://www.parafieldstudios.com/assets/EmbedImages/Career.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.parafieldstudios.com/careers">
     <meta property="twitter:title" content="Parafield Studios - Careers">
     <meta property="twitter:description" content="Join the team at Parafield Studios.">
-    <meta property="twitter:image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
+    <meta property="twitter:image" content="https://www.parafieldstudios.com/assets/EmbedImages/Career.png">
 
     <meta itemprop="name" content="Parafield Studios - Careers">
     <meta itemprop="description" content="Join the team at Parafield Studios.">
-    <meta itemprop="image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
+    <meta itemprop="image" content="https://www.parafieldstudios.com/assets/EmbedImages/Career.png">
 </head>
 <body>
     <script src="js/navigation.js"></script>
@@ -578,6 +621,7 @@
             <p class="section-subtitle">Well if you really wanted to, we don't mind! We need more people to help us learn more with procrastinating!</p>
             <div class="studio-desc-content">
                 <p>Jokes aside though We're a passionate, chaotic, and creative bunch. We believe in making cool things and having fun while doing it. Our studio is a place where your ideas can come to life, and your voice will be heard. We're a team of dreamers and morons, and we're looking for more people like us.</p>
+                <p><small>Even though our funding isn't that great. We were hopeful for any new members who would want to join in on the fun.</small></small></p>
             </div>
         </section>
 
@@ -678,7 +722,7 @@
                         <ul>
                             <li>Systems administration (Linux/Windows).</li>
                             <li>Network security and management.</li>
-                            <li>Cloud infrastructure (AWS/Cloudflare).</li>
+                            <li>Infrastructure Management.</li>
                         </ul>
                     </div>
                     <div class="card-buttons">
@@ -710,7 +754,29 @@
             </div>
         </section>
 
+        <section class="marketing-section scroll-on">
+            <img src="assets/logo.svg" alt="Parafield Logo" class="marketing-logo">
+            <h2 class="marketing-title">Crack Marketing Team</h2>
+            <p class="marketing-subtitle">The Crack Marketing Team is waiting for you.</p>
+        </section>
+
     </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Parafield Studios (Parafield Entertainment) All rights reserved.</p>
+            <div class="social-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="do-not-sell-my-information.html">Do Not Sell My Information</a>
+                <a href="https://x.com/ParafieldStudio">Twitter</a>
+                <a href="#https://discord.gg/23FVgBaYYh">Discord</a>
+            </div>
+        </div>
+        <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
+            <span>Hosted via Cloudflare Pages</span>
+            <img src="assets/cloudflare.png" alt="Cloudflare Pages">
+        </a>
+    </footer>
 
     <!-- Career Modal -->
     <div id="career-modal" class="modal">
