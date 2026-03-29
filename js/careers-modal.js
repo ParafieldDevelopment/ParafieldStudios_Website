@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const iconSvg = card.querySelector(".role-icon svg").cloneNode(true);
             const isUnavailable = card.querySelector(".role-unavailable") !== null;
+            const isPriority = card.getAttribute("data-priority") === "true";
             
             // Get buttons from the card
             const cardButtons = card.querySelector(".card-buttons");
@@ -55,9 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isUnavailable) {
                 modalBadge.innerText = "Position Closed / Misc";
                 modalBadge.classList.add("closed");
+                modalBadge.classList.remove("priority");
+            } else if (isPriority) {
+                modalBadge.innerText = "High Priority Position";
+                modalBadge.classList.add("priority");
+                modalBadge.classList.remove("closed");
             } else {
                 modalBadge.innerText = "Open Position";
                 modalBadge.classList.remove("closed");
+                modalBadge.classList.remove("priority");
             }
 
             modalButtonsContainer.innerHTML = buttonsHTML;

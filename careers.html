@@ -358,6 +358,52 @@
             color: #aaa;
         }
 
+        .career-badge.priority {
+            background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+            color: #fff;
+            animation: pulse-red 2s infinite;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .career-badge.priority::before {
+            content: '★';
+            font-size: 0.9rem;
+        }
+
+        @keyframes pulse-red {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 4px 25px rgba(255, 71, 87, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); }
+        }
+
+        .priority-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .priority-tag::before {
+            content: '★';
+        }
+
         .career-modal-body h2 {
             font-size: 3rem;
             font-weight: 900;
@@ -539,7 +585,8 @@
             <h2 class="section-title">Open Roles</h2>
             <p class="section-subtitle">We're always looking for passionate people. See if you're a fit for any of our teams.</p>
             <div class="roles-grid">
-                <div class="role-card aux-dev-card" data-color="#33a1ff">
+                <div class="role-card aux-dev-card" data-color="#33a1ff" data-priority="true">
+                    <div class="priority-tag">High Demand</div>
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                     </div>
@@ -558,7 +605,8 @@
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" class="modal-btn primary">Apply Now</a>
                     </div>
                 </div>
-                <div class="role-card qa-card" data-color="#28a745">
+                <div class="role-card qa-card" data-color="#28a745" data-priority="true">
+                    <div class="priority-tag">High Demand</div>
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                     </div>
