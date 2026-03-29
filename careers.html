@@ -117,10 +117,38 @@
             z-index: 2;
         }
         
-        .it-admin-card {
-            background: linear-gradient(135deg, #1e1e1e 0%, #004a80 100%);
-            border-color: rgba(0, 123, 255, 0.3);
+        /* Role Specific Colors */
+        .aux-dev-card {
+            background: linear-gradient(135deg, #1e1e1e 0%, #002a4d 100%);
+            border-color: rgba(0, 123, 255, 0.2);
         }
+        .aux-dev-card .role-icon svg { stroke: #33a1ff; }
+
+        .qa-card {
+            background: linear-gradient(135deg, #1e1e1e 0%, #1b4d2e 100%);
+            border-color: rgba(40, 167, 69, 0.2);
+        }
+        .qa-card .role-icon svg { stroke: #28a745; }
+        .qa-card:hover .role-icon { background: #28a745; }
+
+        .staff-card {
+            background: linear-gradient(135deg, #1e1e1e 0%, #8c4a00 100%);
+            border-color: rgba(255, 140, 0, 0.2);
+        }
+        .staff-card .role-icon svg { stroke: #ff8c00; }
+        .staff-card:hover .role-icon { background: #ff8c00; }
+
+        .it-staff-card {
+            background: linear-gradient(135deg, #1e1e1e 0%, #0a361a 100%);
+            border-color: rgba(40, 167, 69, 0.2);
+        }
+        .it-staff-card .role-icon svg { stroke: #2dce89; }
+
+        .collab-card {
+            background: linear-gradient(135deg, #1e1e1e 0%, #6b5a00 100%);
+            border-color: rgba(255, 215, 0, 0.2);
+        }
+        .collab-card .role-icon svg { stroke: #ffd700; }
 
         .role-contact-btn {
             display: inline-block;
@@ -268,6 +296,142 @@
             color: #fff;
         }
 
+        /* Career Modal Specifics */
+        .career-modal-content {
+            flex-direction: row;
+            background-color: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .career-modal-side {
+            width: 35%;
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-modal-icon {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            z-index: 2;
+        }
+
+        .career-modal-icon svg {
+            width: 60px;
+            height: 60px;
+            stroke: var(--primary-color);
+        }
+
+        .career-modal-body {
+            width: 65%;
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .career-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+
+        .career-badge.closed {
+            background: #444;
+            color: #aaa;
+        }
+
+        .career-modal-body h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .career-modal-body #modal-role {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .career-details {
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            color: #ccc;
+            overflow-y: auto;
+        }
+
+        .career-details h4 {
+            color: #fff;
+            margin: 1.5rem 0 0.5rem 0;
+            font-weight: 700;
+        }
+
+        .career-details ul {
+            padding-left: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .career-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        .career-modal-buttons {
+            margin-top: auto;
+        }
+
+        /* Hide content in cards */
+        .role-card .card-description,
+        .role-card .card-buttons {
+            display: none;
+        }
+
+        .role-card {
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .career-modal-content {
+                flex-direction: column;
+            }
+            .career-modal-side {
+                width: 100%;
+                height: 200px;
+            }
+            .career-modal-body {
+                width: 100%;
+                padding: 2rem;
+            }
+            .career-modal-body h2 {
+                font-size: 2.2rem;
+            }
+            .career-modal-icon {
+                width: 80px;
+                height: 80px;
+            }
+            .career-modal-icon svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             .banner-main-text { font-size: 4.5rem; }
             .banner-text h1 { font-size: 2rem; }
@@ -342,26 +506,62 @@
             <h2 class="section-title">Open Roles</h2>
             <p class="section-subtitle">We're always looking for passionate people. See if you're a fit for any of our teams.</p>
             <div class="roles-grid">
-                <div class="role-card">
+                <div class="role-card aux-dev-card">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                     </div>
                     <h3>Aux Developers</h3>
                     <p>The starting point for all our development talent.</p>
+                    <div class="card-description">
+                        <p>The Aux Developer role is our foundational entry point for creators at Parafield Studios. Whether you're a scripter, builder, or modeler, this is where your journey begins.</p>
+                        <h4>What you'll do:</h4>
+                        <ul>
+                            <li>Work on entry-level projects and contribute to the studio's main titles.</li>
+                            <li>Learn from senior developers and improve your skills.</li>
+                            <li>Be part of a creative and chaotic environment.</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" class="modal-btn primary">Apply Now</a>
+                    </div>
                 </div>
-                <div class="role-card">
+                <div class="role-card qa-card">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                     </div>
                     <h3>QA Testers</h3>
                     <p>Help us find bugs and make our projects better.</p>
+                    <div class="card-description">
+                        <p>Our QA Testers are the first line of defense against bugs. You'll be playing our games, finding glitches, and helping us polish our projects to perfection.</p>
+                        <h4>What you'll do:</h4>
+                        <ul>
+                            <li>Rigorously test new features and updates.</li>
+                            <li>Provide detailed bug reports and feedback.</li>
+                            <li>Ensure the highest quality for our players.</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" class="modal-btn primary">Apply Now</a>
+                    </div>
                 </div>
-                <div class="role-card">
+                <div class="role-card staff-card">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     </div>
                     <h3>Staff Team</h3>
                     <p>Join the team that keeps our community running.</p>
+                    <div class="card-description">
+                        <p>Our Staff Team manages our communities, discord servers, and social spaces. You'll be the bridge between the studio and our amazing community.</p>
+                        <h4>What you'll do:</h4>
+                        <ul>
+                            <li>Moderate community spaces and ensure a safe environment.</li>
+                            <li>Engage with players and gather feedback.</li>
+                            <li>Assist in organizing community events and announcements.</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" class="modal-btn primary">Apply Now</a>
+                    </div>
                 </div>
 <!--
                 <div class="role-card it-admin-card">
@@ -384,22 +584,46 @@
             <h2 class="section-title">Closed Roles and Misc</h2>
             <p class="section-subtitle">Interested in something else? These roles are for contacting the studio directly.</p>
             <div class="roles-grid">
-                <div class="role-card it-admin-card">
+                <div class="role-card it-staff-card">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
                     </div>
                     <h3>IT Staff</h3>
                     <p>Have skills in IT or systems administration? We'd love to hear from you.</p>
                     <div class="role-unavailable">Unavailable</div>
+                    <div class="card-description">
+                        <p>We are occasionally looking for IT professionals to help manage our infrastructure, servers, and internal tools.</p>
+                        <h4>Expertise we look for:</h4>
+                        <ul>
+                            <li>Systems administration (Linux/Windows).</li>
+                            <li>Network security and management.</li>
+                            <li>Cloud infrastructure (AWS/Cloudflare).</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="mailto:contact@parafieldstudios.com?subject=IT%20Staff%20Inquiry" class="modal-btn primary">Inquire via Email</a>
+                    </div>
                     <!-- <a href="mailto:contact@parafieldstudios.com?subject=IT%20Staff%20Inquiry" class="role-contact-btn">Contact Us</a> -->
                 </div>
-                <div class="role-card">
+                <div class="role-card collab-card">
                     <div class="role-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
                     <h3>Project Collaboration</h3>
                     <p>Interested in collaborating with Parafield Studios on a project?</p>
                     <div class="role-unavailable">Unavailable</div>
+                    <div class="card-description">
+                        <p>Parafield Studios is always open to hearing about exciting collaboration opportunities with other studios or independent creators.</p>
+                        <h4>Collaboration types:</h4>
+                        <ul>
+                            <li>Cross-promotion and events.</li>
+                            <li>Shared asset development.</li>
+                            <li>Co-development of new titles.</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="mailto:contact@parafieldstudios.com?subject=Project%20Collaboration" class="modal-btn primary">Start a Conversation</a>
+                    </div>
                     <!-- <a href="mailto:contact@parafieldstudios.com?subject=Project%20Collaboration" class="role-contact-btn">Get in Touch</a> -->
                 </div>
             </div>
@@ -407,20 +631,27 @@
 
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Parafield Studios (Parafield Entertainment) All rights reserved.</p>
-            <div class="social-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="do-not-sell-my-information.html">Do Not Sell My Information</a>
-                <a href="https://x.com/ParafieldStudio">Twitter</a>
-                <a href="#https://discord.gg/23FVgBaYYh">Discord</a>
+    <!-- Career Modal -->
+    <div id="career-modal" class="modal">
+        <div class="modal-content career-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-image-placeholder career-modal-side">
+                <div class="career-modal-icon"></div>
+            </div>
+            <div class="modal-body career-modal-body">
+                <div class="career-badge">Open Position</div>
+                <h2 id="modal-name"></h2>
+                <p id="modal-role"></p>
+                <div class="career-details">
+                    <div id="modal-description"></div>
+                </div>
+                <div class="modal-buttons career-modal-buttons">
+                    <!-- Buttons will be injected here via JS -->
+                </div>
             </div>
         </div>
-        <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
-            <span>Hosted via Cloudflare Pages</span>
-            <img src="assets/cloudflare.png" alt="Cloudflare Pages">
-        </a>
-    </footer>
+    </div>
+
+    <script src="js/careers-modal.js"></script>
 </body>
 </html>
