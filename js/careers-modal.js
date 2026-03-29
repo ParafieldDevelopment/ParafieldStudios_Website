@@ -45,6 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Apply role color to modal side
             modalSide.style.background = `linear-gradient(135deg, ${roleColor} 0%, #1a1a1a 100%)`;
             
+            // Apply role color to text and icon
+            modalName.style.color = roleColor;
+            if (iconSvg) {
+                iconSvg.style.stroke = roleColor;
+            }
+            
             // Handle status badge
             if (isUnavailable) {
                 modalBadge.innerText = "Position Closed / Misc";

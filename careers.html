@@ -396,11 +396,11 @@
         .role-notice {
             color: #ffd700;
             font-weight: 700;
-            margin-top: 1.5rem;
-            font-size: 1rem;
-            padding: 10px;
+            font-size: 0.9rem;
+            padding: 8px 12px;
             border-left: 3px solid #ffd700;
-            background: rgba(255, 215, 0, 0.05);
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 4px;
         }
 
         .modal-btn.unavailable {
@@ -414,8 +414,12 @@
         .career-modal-buttons {
             margin-top: auto;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .career-modal-buttons .modal-btn {
@@ -430,6 +434,17 @@
 
         .role-card {
             cursor: pointer;
+        }
+
+        .career-details {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+            overflow-y: auto;
+        }
+
+        .career-details p, .career-details li {
+            color: #fff;
         }
 
         @media (max-width: 768px) {
@@ -624,10 +639,10 @@
                             <li>Network security and management.</li>
                             <li>Cloud infrastructure (AWS/Cloudflare).</li>
                         </ul>
-                        <div class="role-notice">Parafield is not looking for anyone with this role.</div>
                     </div>
                     <div class="card-buttons">
                         <div class="modal-btn unavailable">Unavailable</div>
+                        <div class="role-notice">Parafield is not looking for anyone with this role.</div>
                         <!-- <a href="mailto:contact@parafieldstudios.com?subject=IT%20Staff%20Inquiry" class="modal-btn primary">Inquire via Email</a> -->
                     </div>
                     <!-- <a href="mailto:contact@parafieldstudios.com?subject=IT%20Staff%20Inquiry" class="role-contact-btn">Contact Us</a> -->
@@ -647,10 +662,10 @@
                             <li>Shared asset development.</li>
                             <li>Co-development of new titles.</li>
                         </ul>
-                        <div class="role-notice">Parafield is not looking for anyone with this role.</div>
                     </div>
                     <div class="card-buttons">
                         <div class="modal-btn unavailable">Unavailable</div>
+                        <div class="role-notice">Parafield is not accepting collabs at this time.</div>
                         <!-- <a href="mailto:contact@parafieldstudios.com?subject=Project%20Collaboration" class="modal-btn primary">Start a Conversation</a> -->
                     </div>
                     <!-- <a href="mailto:contact@parafieldstudios.com?subject=Project%20Collaboration" class="role-contact-btn">Get in Touch</a> -->
