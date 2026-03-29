@@ -143,6 +143,20 @@
             box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
         }
 
+        .role-unavailable {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 12px 28px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: not-allowed;
+        }
+
         @keyframes backgroundMove {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -363,6 +377,31 @@
             <div class="final-cta">
                 <p>Well.. Would you like to join?</p>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform?usp=sharing&ouid=111949429715585005508" class="role-contact-btn">Join Us!</a>
+            </div>
+        </section>
+
+        <section class="intro-section scroll-on">
+            <h2 class="section-title">Closed Roles and Misc</h2>
+            <p class="section-subtitle">Interested in something else? These roles are for contacting the studio directly.</p>
+            <div class="roles-grid">
+                <div class="role-card it-admin-card">
+                    <div class="role-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                    </div>
+                    <h3>IT Staff</h3>
+                    <p>Have skills in IT or systems administration? We'd love to hear from you.</p>
+                    <div class="role-unavailable">Unavailable</div>
+                    <!-- <a href="mailto:contact@parafieldstudios.com?subject=IT%20Staff%20Inquiry" class="role-contact-btn">Contact Us</a> -->
+                </div>
+                <div class="role-card">
+                    <div class="role-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Project Collaboration</h3>
+                    <p>Interested in collaborating with Parafield Studios on a project?</p>
+                    <div class="role-unavailable">Unavailable</div>
+                    <!-- <a href="mailto:contact@parafieldstudios.com?subject=Project%20Collaboration" class="role-contact-btn">Get in Touch</a> -->
+                </div>
             </div>
         </section>
 
