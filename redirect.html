@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Notice - Parafield Studios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/404.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <style>
+        .error-img {
+            width: 250px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .url-box {
+            background: #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+            word-break: break-all;
+            margin: 25px 0;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: #444;
+            border: 1px dashed #bbb;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .btn {
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-continue {
+            background-color: #f2ae49;
+            color: white;
+        }
+        .btn-continue:hover {
+            background-color: #e19d38;
+            transform: scale(1.05);
+        }
+        .btn-back {
+            background-color: #333;
+            color: white;
+        }
+        .btn-back:hover {
+            background-color: #000;
+            transform: scale(1.05);
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        p {
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="assets/warning.svg" alt="Redirect Notice" class="error-img">
+        <h1>Leaving so soon?</h1>
+        <p>You're about to visit an external website. We didn't build it, so we can't promise it's as cool as this one.</p>
+        
+        <div id="url-display" class="url-box">Loading...</div>
+        
+        <div class="button-group">
+            <a href="javascript:history.back()" class="btn btn-back">Take Me Back</a>
+            <a href="#" id="continue-link" class="btn btn-continue">Proceed to Site</a>
+        </div>
+
+        <div class="funny-section">
+            <p id="funny-text" class="funny-text"></p>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        let targetUrl = params.get('url');
+        
+        if (targetUrl) {
+            // Ensure URL is absolute
+            if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+                targetUrl = 'https://' + targetUrl;
+            }
+            
+            document.getElementById('url-display').textContent = targetUrl;
+            document.getElementById('continue-link').href = targetUrl;
+        } else {
+            document.getElementById('url-display').textContent = "No destination specified.";
+            document.getElementById('continue-link').style.display = 'none';
+        }
+
+        const funnyTexts = [
+            "Careful where you step.",
+            "The internet is a scary place.",
+            "Don't say we didn't warn you.",
+            "Leaving the safety of the studio...",
+            "Watch out for dragons.",
+            "Tell them Parafield sent you.",
+            "Remember to hydrate while you're out there.",
+            "Is it worth leaving this masterpiece?",
+            "Wait, did you leave the oven on?"
+        ];
+
+        const funnyTextElement = document.getElementById('funny-text');
+        const randomIndex = Math.floor(Math.random() * funnyTexts.length);
+        funnyTextElement.innerHTML = funnyTexts[randomIndex];
+    </script>
+</body>
+</html>
