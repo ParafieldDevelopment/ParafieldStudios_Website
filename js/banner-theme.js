@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!banner || !bannerText || !bannerImg) return;
 
-        const names = ["Parafield Studios", "Moonlight", "CC", "iSounds", "Careers"];
+        const names = ["Parafield Studios", "Moonlight", "CC", "Careers"];
         const selectedName = names[Math.floor(Math.random() * names.length)];
 
         if (selectedName === "Parafield Studios") {
@@ -355,15 +355,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${htmlContent}
                     <p style="font-size: 1.2rem; color: #ddd; margin-top: 15px; font-style: italic; font-weight: 500;">${subText}</p>
                 `;
-            } else if (selectedName === "iSounds") {
-                bannerImg.style.display = 'none';
-
-                bannerText.innerHTML = `
-                    <h1 style="font-size: 6rem; margin: 0; line-height: 1; text-shadow: 0 0 30px rgba(255, 115, 0, 0.4); color: #ff7300; font-weight: 900; letter-spacing: -2px;">iSounds</h1>
-                    <h3 style="font-size: 2.5rem; color: white; margin: 15px 0; font-weight: 700; letter-spacing: 0.5px;">Listen to the World.</h3>
-                    <p style="font-size: 1.3rem; color: #ccc; margin-top: 10px; font-weight: 400; max-width: 600px; line-height: 1.6;">Stream thousands of internet radio stations and podcasts in one place.</p>
-                    <a href="https://sounds.parafieldstudios.com" class="isounds-btn">Start Listening</a>
-                `;
+            // } else if (selectedName === "iSounds") {
+            //     bannerImg.style.display = 'none';
+            //
+            //     bannerText.innerHTML = `
+            //         <h1 style="font-size: 6rem; margin: 0; line-height: 1; text-shadow: 0 0 30px rgba(255, 115, 0, 0.4); color: #ff7300; font-weight: 900; letter-spacing: -2px;">iSounds</h1>
+            //         <h3 style="font-size: 2.5rem; color: white; margin: 15px 0; font-weight: 700; letter-spacing: 0.5px;">Listen to the World.</h3>
+            //         <p style="font-size: 1.3rem; color: #ccc; margin-top: 10px; font-weight: 400; max-width: 600px; line-height: 1.6;">Stream thousands of internet radio stations and podcasts in one place.</p>
+            //         <a href="https://sounds.parafieldstudios.com" class="isounds-btn">Start Listening</a>
+            //     `;
             } else if (selectedName === "Careers") {
                 banner.style.backgroundImage = "url('assets/blueprint-background.png')";
                 bannerImg.style.display = 'none';
