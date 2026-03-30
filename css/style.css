@@ -462,6 +462,16 @@ div.banner-text.scroll-on-active {
     }
 }
 
+/* ---------------------- SECTION DIVIDER ---------------------- */
+.section-divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+    margin: 4rem auto;
+    width: 80%;
+    max-width: 1000px;
+}
+
 /* ---------------------- CAREERS NOTICE ---------------------- */
 .careers-notice {
     margin: 4rem 0;
