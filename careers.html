@@ -506,31 +506,85 @@
         }
 
         .non-profit-disclaimer {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            max-width: 800px;
+            margin-top: 4rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(255, 71, 87, 0.2);
+            border-left: 6px solid #ff4757;
+            border-radius: 24px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            text-align: center;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .non-profit-disclaimer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at top right, rgba(255, 71, 87, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .disclaimer-icon {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 71, 87, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 71, 87, 0.3);
+        }
+
+        .disclaimer-icon svg {
+            width: 35px;
+            height: 35px;
+            stroke: #ff4757;
+        }
+
+        .disclaimer-content {
+            flex-grow: 1;
         }
 
         .non-profit-disclaimer p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: #efefef;
+            font-size: 1.1rem;
             line-height: 1.6;
             margin: 0;
         }
 
         .non-profit-disclaimer strong {
-            color: #fff;
+            color: #ff4757;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.1rem;
+            letter-spacing: 2px;
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        @media (max-width: 768px) {
+            .non-profit-disclaimer {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+            .disclaimer-icon {
+                width: 60px;
+                height: 60px;
+            }
         }
 
         .marketing-title {
@@ -654,8 +708,13 @@
             </div>
 
             <div class="non-profit-disclaimer scroll-on">
-                <strong>Non-Profit Disclaimer</strong>
-                <p>Parafield Studios is a non-profit organization. All positions listed are currently voluntary and unpaid. We are a team of passionate creators working together for the love of the craft and to gain experience in the industry.</p>
+                <div class="disclaimer-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+                <div class="disclaimer-content">
+                    <strong>Non-Profit Disclaimer</strong>
+                    <p>Parafield Studios is a non-profit organization. All positions listed are currently voluntary and unpaid. We are a team of passionate creators working together for the love of the craft and to gain experience in the industry.</p>
+                </div>
             </div>
         </section>
 
