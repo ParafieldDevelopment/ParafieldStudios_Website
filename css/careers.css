@@ -1,0 +1,631 @@
+:root {
+    --primary-color: #007bff; /* Blue to match blueprint */
+    --background-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #f4f4f4;
+    --text-muted: #aaa;
+    --nav-logo-filter: brightness(0) invert(1);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.role-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.role-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.role-card:hover::before {
+    opacity: 1;
+}
+
+.role-icon {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.role-card:hover .role-icon {
+    background: var(--primary-color);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.role-icon svg {
+    stroke: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    transition: stroke 0.4s ease;
+}
+
+.role-card:hover .role-icon svg {
+    stroke: #fff;
+}
+
+.role-card h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 1rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.role-card p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Role Specific Colors */
+.aux-dev-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #002a4d 100%);
+    border-color: rgba(0, 123, 255, 0.2);
+}
+.aux-dev-card .role-icon svg { stroke: #33a1ff; }
+
+.qa-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #1b4d2e 100%);
+    border-color: rgba(40, 167, 69, 0.2);
+}
+.qa-card .role-icon svg { stroke: #28a745; }
+.qa-card:hover .role-icon { background: #28a745; }
+
+.staff-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #8c4a00 100%);
+    border-color: rgba(255, 140, 0, 0.2);
+}
+.staff-card .role-icon svg { stroke: #ff8c00; }
+.staff-card:hover .role-icon { background: #ff8c00; }
+
+.it-staff-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #0a361a 100%);
+    border-color: rgba(40, 167, 69, 0.2);
+}
+.it-staff-card .role-icon svg { stroke: #2dce89; }
+
+.collab-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #6b5a00 100%);
+    border-color: rgba(255, 215, 0, 0.2);
+}
+.collab-card .role-icon svg { stroke: #ffd700; }
+
+.role-contact-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 16px 32px;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.role-contact-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
+}
+
+.role-unavailable {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 12px 28px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: not-allowed;
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+div.banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/blueprint-background.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 2rem;
+}
+
+.banner-top {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 1rem;
+}
+
+.banner-logo {
+    height: 100px;
+    filter: brightness(0) invert(1) drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+
+.banner-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.banner-text h1 {
+    margin: -5px 0;
+    font-weight: 900;
+    font-size: 3rem;
+    color: white;
+    line-height: 0.85;
+    text-shadow: 4px 4px 15px rgba(0,0,0,0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.banner-divider {
+    width: 100px;
+    border: 2px solid var(--primary-color);
+    margin: 2.5rem 0;
+    opacity: 1;
+}
+
+.banner-main-text {
+    font-size: 8rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 4px 4px 20px rgba(0,0,0,0.8);
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.intro-section {
+    padding: 6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+    font-size: 1.6rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.studio-desc-content p {
+    font-size: 1.25rem;
+    color: #ccc;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.final-cta {
+    text-align: center;
+    margin-top: 6rem;
+    padding: 5rem 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.final-cta p {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+/* Career Modal Specifics */
+.career-modal-content {
+    flex-direction: row;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.career-modal-side {
+    width: 35%;
+    background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.career-modal-icon {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+.career-modal-icon svg {
+    width: 60px;
+    height: 60px;
+    stroke: var(--primary-color);
+}
+
+.career-modal-body {
+    width: 65%;
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.career-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+}
+
+.career-badge.closed {
+    background: #444;
+    color: #aaa;
+}
+
+.career-badge.priority {
+    background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+    color: #fff;
+    animation: pulse-red 2s infinite;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.career-badge.priority::before {
+    content: '★';
+    font-size: 0.9rem;
+}
+
+@keyframes pulse-red {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 4px 25px rgba(255, 71, 87, 0.6); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); }
+}
+
+.priority-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.priority-tag::before {
+    content: '★';
+}
+
+.career-modal-body h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.career-modal-body #modal-role {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.career-details {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #fff;
+    overflow-y: auto;
+}
+
+.career-details p, .career-details li {
+    color: #fff;
+}
+
+.career-details h4 {
+    color: #fff;
+    margin: 1.5rem 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.career-details ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.career-details li {
+    margin-bottom: 0.5rem;
+}
+
+.role-notice {
+    color: #ffd700;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-left: 3px solid #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 4px;
+}
+
+.modal-btn.unavailable {
+    background-color: #2a2a2a;
+    color: #666;
+    cursor: not-allowed;
+    border: 1px solid #444;
+    pointer-events: none;
+}
+
+.career-modal-buttons {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.career-modal-buttons .modal-btn {
+    width: fit-content;
+}
+
+/* Hide content in cards */
+.role-card .card-description,
+.role-card .card-buttons {
+    display: none;
+}
+
+.role-card {
+    cursor: pointer;
+}
+
+.marketing-section {
+    margin-top: 8rem;
+    padding: 6rem 2rem;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.marketing-logo {
+    height: 120px;
+    margin-bottom: 2rem;
+    filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255,255,255,0.2));
+    transition: transform 0.5s ease;
+}
+
+.marketing-section:hover .marketing-logo {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.non-profit-disclaimer {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 71, 87, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+    border: 1px solid rgba(255, 71, 87, 0.2);
+    border-left: 6px solid #ff4757;
+    border-radius: 24px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.non-profit-disclaimer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at top right, rgba(255, 71, 87, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.disclaimer-icon {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 71, 87, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+}
+
+.disclaimer-icon svg {
+    width: 35px;
+    height: 35px;
+    stroke: #ff4757;
+}
+
+.disclaimer-content {
+    flex-grow: 1;
+}
+
+.non-profit-disclaimer p {
+    color: #efefef;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.non-profit-disclaimer strong {
+    color: #ff4757;
+    display: block;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+@media (max-width: 768px) {
+    .non-profit-disclaimer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+    .disclaimer-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.marketing-title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -1px;
+    background: linear-gradient(to right, #fff, #555);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.marketing-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .marketing-title { font-size: 2.5rem; }
+    .marketing-logo { height: 80px; }
+}
+
+@media (max-width: 768px) {
+    .career-modal-content {
+        flex-direction: column;
+    }
+    .career-modal-side {
+        width: 100%;
+        height: 200px;
+    }
+    .career-modal-body {
+        width: 100%;
+        padding: 2rem;
+    }
+    .career-modal-body h2 {
+        font-size: 2.2rem;
+    }
+    .career-modal-icon {
+        width: 80px;
+        height: 80px;
+    }
+    .career-modal-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-main-text { font-size: 4.5rem; }
+    .banner-text h1 { font-size: 2rem; }
+    .banner-logo { height: 70px; }
+    .section-title { font-size: 2.5rem; }
+    .banner { clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
+}

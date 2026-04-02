@@ -189,7 +189,7 @@ div.banner.scroll-on-active {
     opacity: 1;
 }
 
-div.banner img {
+div.banner img.main-logo {
     height: 30vh;
     width: auto;
     filter: var(--banner-filter);
@@ -198,7 +198,7 @@ div.banner img {
     transition: 1s ease;
 }
 
-div.banner img.scroll-on-active {
+div.banner img.main-logo.scroll-on-active {
     transform: translateX(0px) rotate(0deg);
     opacity: 1;
 }
@@ -1058,9 +1058,13 @@ div.banner-text.scroll-on-active {
         text-align: center;
     }
 
-    body.modal-open .character-img {
-        display: none;
-    }
+    body.modal-open {
+    overflow: hidden;
+}
+
+body.modal-open .character-img {
+    display: none;
+}
 }
 
 @keyframes float-text {
