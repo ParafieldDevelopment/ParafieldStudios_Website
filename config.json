@@ -1,3 +1,4 @@
 {
-  "maintenanceMode": false
+  "maintenanceMode": false,
+  "introEnabled": true
 }
