@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (sessionStorage.getItem('parafield_intro_shown')) return;
 
     // 2. Direct entry check: If referrer is from our own domain, don't show the intro.
-    // This ensures it only plays when first arriving at the site (direct, bookmark, or external link)
-    // and not when clicking internal links like "Home".
     const referrer = document.referrer;
     if (referrer && (referrer.includes(window.location.hostname) || referrer.includes('parafieldstudios.com'))) {
         sessionStorage.setItem('parafield_intro_shown', 'true');
@@ -18,17 +16,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         if (!config.introEnabled) return;
 
-        // Mark as shown immediately to prevent any re-triggers
+        // Mark as shown immediately
         sessionStorage.setItem('parafield_intro_shown', 'true');
 
         // 4. Create the Intro Overlay
         const introOverlay = document.createElement('div');
         introOverlay.id = 'parafield-intro';
         introOverlay.innerHTML = `
-            <div class="intro-content">
-                <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="intro-logo">
-                <div class="intro-glow"></div>
+            <div class="intro-container">
+                <div class="intro-logo-wrapper">
+                    <img src="assets/logo.svg" alt="Parafield" class="intro-logo">
+                    <div class="intro-logo-glow"></div>
+                </div>
+                <div class="intro-text-wrapper">
+                    <h1 class="intro-text">PARAFIELD</h1>
+                    <h1 class="intro-text">STUDIOS</h1>
+                </div>
             </div>
+            <div class="intro-bg-glow"></div>
         `;
         document.body.appendChild(introOverlay);
 
@@ -48,95 +53,156 @@ document.addEventListener('DOMContentLoaded', async () => {
                 align-items: center;
                 overflow: hidden;
                 cursor: none;
-                transition: opacity 1s ease;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
 
-            .intro-content {
+            .intro-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
                 position: relative;
+                z-index: 10;
+            }
+
+            .intro-logo-wrapper {
+                position: relative;
+                width: 200px;
+                height: 200px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
 
             .intro-logo {
-                width: 400px;
-                max-width: 80vw;
+                width: 100%;
                 height: auto;
                 opacity: 0;
-                filter: blur(20px);
-                transform: scale(0.8);
-                transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+                filter: blur(15px) brightness(0);
+                transform: scale(0.5);
+                transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
             }
 
             .intro-logo.reveal {
                 opacity: 1;
-                filter: blur(0px);
+                filter: blur(0px) brightness(1.2);
                 transform: scale(1);
             }
 
-            .intro-logo.shake {
-                animation: violent-shake 0.1s linear infinite;
-                filter: drop-shadow(0 0 30px #f2ae49);
-            }
-
-            @keyframes violent-shake {
-                0% { transform: translate(0, 0) rotate(0deg); }
-                25% { transform: translate(5px, 5px) rotate(2deg); }
-                50% { transform: translate(-5px, -5px) rotate(-2deg); }
-                75% { transform: translate(5px, -5px) rotate(2deg); }
-                100% { transform: translate(-5px, 5px) rotate(-2deg); }
-            }
-
-            .intro-glow {
+            .intro-logo-glow {
                 position: absolute;
-                width: 150%;
-                height: 150%;
-                background: radial-gradient(circle, rgba(242, 174, 73, 0.4) 0%, transparent 70%);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, #f2ae49 0%, transparent 70%);
                 opacity: 0;
-                transition: opacity 0.5s ease, transform 0.3s ease;
-                pointer-events: none;
+                transition: opacity 1s ease;
+                filter: blur(20px);
+                mix-blend-mode: screen;
             }
 
-            .intro-glow.active {
+            .intro-text-wrapper {
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .intro-text {
+                color: #ffffff;
+                font-size: 3.5rem;
+                font-weight: 900;
+                margin: 0;
+                letter-spacing: 0.5rem;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+                line-height: 1.1;
+            }
+
+            .intro-text.reveal {
                 opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* The Insanity Effects */
+            .intro-container.shake {
+                animation: extreme-shake 0.15s cubic-bezier(.36,.07,.19,.97) infinite;
+            }
+
+            .intro-container.chromatic {
+                text-shadow: 2px 0 0 #ff0000, -2px 0 0 #00ffff;
+                filter: contrast(1.5) brightness(1.2);
+            }
+
+            @keyframes extreme-shake {
+                10%, 90% { transform: translate3d(-2px, 0, 0); }
+                20%, 80% { transform: translate3d(4px, 0, 0); }
+                30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+                40%, 60% { transform: translate3d(6px, 0, 0); }
+            }
+
+            .intro-bg-glow {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at center, rgba(242, 174, 73, 0.15) 0%, transparent 80%);
+                opacity: 0;
+                transition: opacity 2s ease;
             }
 
             #parafield-intro.fade-out {
                 opacity: 0;
+                transition: opacity 1.2s ease-in;
                 pointer-events: none;
             }
         `;
         document.head.appendChild(style);
 
         // 6. Run Animation Sequence
+        const container = introOverlay.querySelector('.intro-container');
         const logo = introOverlay.querySelector('.intro-logo');
-        const glow = introOverlay.querySelector('.intro-glow');
+        const logoGlow = introOverlay.querySelector('.intro-logo-glow');
+        const texts = introOverlay.querySelectorAll('.intro-text');
+        const bgGlow = introOverlay.querySelector('.intro-bg-glow');
 
-        // Disable scrolling while intro is playing
+        // Disable scrolling
         document.body.style.overflow = 'hidden';
 
-        // Wait for black screen impact
-        await new Promise(r => setTimeout(r, 600));
+        // Wait for black screen
+        await new Promise(r => setTimeout(r, 800));
 
-        // Step 1: Reveal logo with a blur-to-clear transition
+        // Step 1: Logo enters
         logo.classList.add('reveal');
-        await new Promise(r => setTimeout(r, 1200));
+        bgGlow.style.opacity = '1';
+        await new Promise(r => setTimeout(r, 800));
 
-        // Step 2: Activate glow
-        glow.classList.add('active');
+        // Step 2: Logo glow activates
+        logoGlow.style.opacity = '0.6';
         await new Promise(r => setTimeout(r, 400));
 
-        // Step 3: THE INSANITY SHAKE
-        logo.classList.add('shake');
-        glow.style.transform = 'scale(1.3)';
-        await new Promise(r => setTimeout(r, 400)); 
-        logo.classList.remove('shake');
-        glow.style.transform = 'scale(1)';
+        // Step 3: Text reveals sequentially
+        for (let i = 0; i < texts.length; i++) {
+            texts[i].classList.add('reveal');
+            await new Promise(r => setTimeout(r, 200));
+        }
+        await new Promise(r => setTimeout(r, 600));
 
-        // Step 4: Final hold
-        await new Promise(r => setTimeout(r, 1000));
+        // Step 4: THE INSANITY
+        container.classList.add('shake', 'chromatic');
+        logoGlow.style.opacity = '1';
+        logoGlow.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        
+        await new Promise(r => setTimeout(r, 500)); // Intense burst
+        
+        container.classList.remove('shake', 'chromatic');
+        logoGlow.style.transform = 'translate(-50%, -50%) scale(1)';
+        logoGlow.style.opacity = '0.4';
 
-        // Step 5: Fade out
+        // Step 5: Final hold
+        await new Promise(r => setTimeout(r, 1200));
+
+        // Step 6: Fade out everything
         introOverlay.classList.add('fade-out');
         
         // Cleanup
@@ -144,7 +210,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             introOverlay.remove();
             style.remove();
             document.body.style.overflow = '';
-        }, 1000);
+        }, 1200);
 
     } catch (e) {
         console.error('Intro error:', e);
