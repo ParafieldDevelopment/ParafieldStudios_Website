@@ -291,6 +291,24 @@ div.banner-text.scroll-on-active {
     text-decoration-color: var(--primary-color);
     text-decoration-thickness: 4px;
     color: #888;
+    position: relative;
+}
+
+.scribble::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary-color);
+    transform: scaleX(0) translateY(-50%);
+    transform-origin: left;
+    transition: transform 1s ease 0.5s;
+}
+
+.scroll-on-active .scribble::after {
+    transform: scaleX(1) translateY(-50%);
 }
 
 .games-grid {
@@ -1080,3 +1098,71 @@ body.modal-open .character-img {
     font-style: italic;
     animation: float-text 3s ease-in-out infinite;
 }
+
+/* ---------------------- DYNAMICITY EFFECTS ---------------------- */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.1s ease-out;
+}
+
+.custom-cursor {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.custom-cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10001;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-hover {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(242, 174, 73, 0.1);
+    border-color: var(--secondary-color);
+}
+
+.dot-hover {
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .custom-cursor, .custom-cursor-dot {
+        display: none;
+    }
+}
+
+/* Staggered items inside scroll-on containers */
+.scroll-on[data-stagger="true"] > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.scroll-on[data-stagger="true"] > .scroll-on-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@view-transition {
+    navigation: auto; /* For MPA support in Chrome */
+}
+

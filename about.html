@@ -38,6 +38,8 @@
     <script src="js/slider.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/banner-theme.js"></script>
+    <script src="js/dynamicity.js"></script>
+    <script src="js/view-transitions.js"></script>
     <nav class="nav">
         <div class="nav-left">
             <img src="assets/logo.svg" alt="logo" class="nav-logo">
@@ -101,8 +103,8 @@
 
         <h2 class="section-title">The Directors</h2>
 
-        <section class="team-grid">
-            <div class="team-card scroll-on character-card" data-image="assets/team/directors/bat.png">
+        <section class="team-grid scroll-on" data-stagger="true">
+            <div class="team-card character-card" data-image="assets/team/directors/bat.png">
                 <div class="team-image-placeholder" style="background-color: #ff5733;">
                     <img src="assets/team/directors/bat.png" class="character-img" alt="Batista">
                 </div>
@@ -118,7 +120,7 @@
                     <a onclick="window.open('https://bsky.app/profile/did:plc:5dsearzpvgk34k5tbwy2nhu7')" class="modal-btn twitter">Bluesky</a>
                 </div>
             </div>
-            <div class="team-card scroll-on character-card" data-image="assets/team/directors/notdef.png">
+            <div class="team-card character-card" data-image="assets/team/directors/notdef.png">
                 <div class="team-image-placeholder" style="background-color: #d333ff;">
                     <img src="assets/team/directors/notdef.png" class="character-img" alt="Notdef">
                 </div>
@@ -132,7 +134,7 @@
 <!--                    <a href="#" class="modal-btn youtube">YouTube</a>-->
 <!--                </div>-->
             </div>
-            <div class="team-card scroll-on character-card" data-image="assets/team/directors/xX420MCplayerXx.png">
+            <div class="team-card character-card" data-image="assets/team/directors/xX420MCplayerXx.png">
                 <div class="team-image-placeholder" style="background-color: #9b8666;">
                     <img src="assets/team/directors/xX420MCplayerXx.png" class="character-img" alt="Sheila">
 
@@ -159,8 +161,8 @@
 
         <h2 class="section-title">The Staffs</h2>
 
-        <section class="team-grid">
-            <div class="team-card scroll-on character-card" data-image="assets/team/staffs/Ocean.png">
+        <section class="team-grid scroll-on" data-stagger="true">
+            <div class="team-card character-card" data-image="assets/team/staffs/Ocean.png">
                 <div class="team-image-placeholder" style="background-color: #6e4192;">
                     <img src="assets/team/staffs/Ocean.png" class="character-img" alt="Ocean">
 
@@ -177,7 +179,7 @@
 <!--                </div>-->
             </div>
 
-            <div class="team-card scroll-on character-card" data-image="assets/team/staffs/cory.png">
+            <div class="team-card character-card" data-image="assets/team/staffs/cory.png">
                 <div class="team-image-placeholder" style="background-color: #125acc;">
                     <img src="assets/team/staffs/cory.png" class="character-img" alt="cory">
 
@@ -194,7 +196,7 @@
                     <a onclick="window.open('https://youtube.com/@cjkdawggaming')" class="modal-btn youtube">YouTube</a>
                 </div>
             </div>
-            <div class="team-card scroll-on character-card" data-image="assets/team/staffs/ducko.png">
+            <div class="team-card character-card" data-image="assets/team/staffs/ducko.png">
                 <div class="team-image-placeholder" style="background-color: #82efa5;">
                     <img src="assets/team/staffs/ducko.png" class="character-img" alt="duck">
 
@@ -209,7 +211,7 @@
 <!--                </div>-->
             </div>
 
-            <div class="team-card scroll-on character-card" data-image="assets/team/staffs/chester.png">
+            <div class="team-card character-card" data-image="assets/team/staffs/chester.png">
                 <div class="team-image-placeholder" style="background-color: #9c9c9c;">
                     <img src="assets/team/staffs/chester.png" class="character-img" alt="chester">
 
@@ -226,7 +228,7 @@
 <!--                    <a onclick="window.open('https://youtube.com/@cjkdawggaming')" class="modal-btn youtube">YouTube</a>-->
                 </div>
             </div>
-            <div class="team-card scroll-on character-card" data-image="assets/team/staffs/ethonionmain.png">
+            <div class="team-card character-card" data-image="assets/team/staffs/ethonionmain.png">
                 <div class="team-image-placeholder" style="background-color: #305932;">
                     <img src="assets/team/staffs/ethonion.png" class="character-img" alt="ethonion">
 
@@ -246,7 +248,7 @@
                 </div>
             </div>
 
-            <div class="team-card scroll-on character-card" data-image="assets/team/staffs/saturn.png">
+            <div class="team-card character-card" data-image="assets/team/staffs/saturn.png">
                 <div class="team-image-placeholder" style="background-color: #9c9c9c;">
                     <img src="assets/team/staffs/saturn.png" class="character-img" alt="saturn">
 
@@ -263,7 +265,7 @@
                 </div>
             </div>
 
-            <div class="team-card scroll-on character-card" data-image="assets/team/directors/Sheilatemp.png">
+            <div class="team-card character-card" data-image="assets/team/directors/Sheilatemp.png">
                 <div class="team-image-placeholder" style="background-color: #49ba4e;">
                     <img src="assets/team/directors/Sheilatemp.png" class="character-img" alt="saturn">
 
@@ -280,7 +282,7 @@
                 </div>
             </div>
 
-            <div class="team-card scroll-on character-card" data-image="assets/team/staffs/mas.png" data-modal-color="rgb(32, 0, 96)">
+            <div class="team-card character-card" data-image="assets/team/staffs/mas.png" data-modal-color="rgb(32, 0, 96)">
                 <div class="team-image-placeholder" style="background-image: linear-gradient(to top, rgb(85,0,255), #100017);">
                     <img src="assets/team/staffs/mas.png" class="character-img" alt="mas6y6">
                 </div>
