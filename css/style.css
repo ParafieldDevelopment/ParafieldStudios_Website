@@ -293,9 +293,7 @@ div.banner-text.scroll-on-active {
 }
 
 .scribble {
-    text-decoration: line-through;
-    text-decoration-color: var(--primary-color);
-    text-decoration-thickness: 4px;
+    text-decoration: none;
     color: #888;
     position: relative;
 }
