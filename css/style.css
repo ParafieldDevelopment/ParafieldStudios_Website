@@ -20,13 +20,19 @@ html {
     min-height: 100%;
 }
 
-body {
+html, body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
     color: var(--text-color);
     overflow-x: hidden;
+    cursor: none; /* Hide OS cursor */
+}
+
+/* Ensure banner images are white on legal pages where class might be missing */
+div.banner img {
+    filter: brightness(0) invert(1);
 }
 
 * {
@@ -1114,7 +1120,7 @@ body.modal-open .character-img {
 .custom-cursor {
     width: 30px;
     height: 30px;
-    border: 2px solid var(--primary-color);
+    border: 2px solid #ffffff;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
@@ -1126,7 +1132,7 @@ body.modal-open .character-img {
 .custom-cursor-dot {
     width: 6px;
     height: 6px;
-    background-color: var(--primary-color);
+    background-color: #ffffff;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
@@ -1137,12 +1143,17 @@ body.modal-open .character-img {
 .cursor-hover {
     width: 60px;
     height: 60px;
-    background-color: rgba(242, 174, 73, 0.1);
-    border-color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
 }
 
 .dot-hover {
-    background-color: var(--secondary-color);
+    background-color: #ffffff;
+}
+
+/* Force hide cursor on interactive elements */
+a, button, [role="button"], input, select, textarea, .team-card, .showcase-item {
+    cursor: none !important;
 }
 
 @media (max-width: 768px) {

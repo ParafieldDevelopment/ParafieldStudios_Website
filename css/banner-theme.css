@@ -163,7 +163,7 @@
 .careers-logo-animated {
     height: 250px;
     filter: brightness(0) invert(1);
-    animation: roll-and-bounce 2s ease-out forwards;
+    animation: roll-and-bounce 4s ease-out forwards;
     z-index: 2;
 }
 
@@ -171,6 +171,7 @@
     position: absolute;
     height: 300px;
     z-index: 1;
+    filter: brightness(0) invert(1); /* Make it white */
     animation: point-and-jiggle 3s ease-out 1.5s forwards;
     opacity: 0;
 }
@@ -211,10 +212,11 @@
 
 @keyframes roll-and-bounce {
     0% { transform: translateX(-150vw) rotate(-720deg); opacity: 0; }
-    60% { transform: translateX(0) rotate(0deg); opacity: 1; }
-    75% { transform: translateY(-30px); }
-    90% { transform: translateY(10px); }
-    100% { transform: translateY(0); }
+    30% { transform: translateX(0) rotate(0deg); opacity: 1; }
+    40% { transform: translateY(-30px); opacity: 1; }
+    50% { transform: translateY(10px); opacity: 1; }
+    60% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0; } /* Fade out logo at the end */
 }
 
 @keyframes point-and-jiggle {
