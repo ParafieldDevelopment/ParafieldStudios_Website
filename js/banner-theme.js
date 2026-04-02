@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!banner || !bannerText || !bannerImg) return;
 
-        const names = ["aprilfool"]; // "Parafield Studios", "Moonlight", "CC", "Careers"
+        const names = ["aprilfool", "Parafield Studios", "Moonlight", "CC", "Careers"];
         const selectedName = names[Math.floor(Math.random() * names.length)];
 
         if (selectedName === "Parafield Studios") {
