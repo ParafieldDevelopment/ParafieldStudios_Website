@@ -1,9 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize any hardcoded dropdowns first
+    document.querySelectorAll('.footer-legal-dropdown').forEach(setupDropdown);
+
+    // Then, for groups without a dropdown, try to merge flat links
     const footerGroups = document.querySelectorAll('.footer-links-group');
     
     footerGroups.forEach(group => {
-        const links = group.querySelectorAll('a');
-        let legalGroup = null;
+        // Skip if this group already has a dropdown
+        if (group.querySelector('.footer-legal-dropdown')) return;
+
+        // Get only direct child links to avoid picking up links inside existing sub-structures
+        const links = Array.from(group.children).filter(child => child.tagName === 'A');
         const legalLinks = [];
 
         links.forEach(link => {
@@ -25,28 +32,45 @@ document.addEventListener('DOMContentLoaded', () => {
             const menu = document.createElement('div');
             menu.className = 'footer-legal-menu';
             
+            // Insert the dropdown before the first legal link
+            const firstLegalLink = legalLinks[0];
+            group.insertBefore(dropdown, firstLegalLink);
+
             // Move legal links into the menu
             legalLinks.forEach(link => {
-                const menuItem = link.cloneNode(true);
-                menu.appendChild(menuItem);
-                link.remove(); // Remove original link from footer
+                menu.appendChild(link);
             });
 
             dropdown.appendChild(trigger);
             dropdown.appendChild(menu);
-            group.appendChild(dropdown);
-
-            // Toggle logic
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                dropdown.classList.toggle('active');
-            });
-
-            // Close when clicking outside
-            document.addEventListener('click', () => {
-                dropdown.classList.remove('active');
-            });
+            
+            setupDropdown(dropdown);
         }
+    });
+
+    function setupDropdown(dropdown) {
+        const trigger = dropdown.querySelector('.footer-legal-trigger');
+        if (!trigger || trigger.dataset.initialized) return;
+
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Close other dropdowns
+            document.querySelectorAll('.footer-legal-dropdown').forEach(other => {
+                if (other !== dropdown) other.classList.remove('active');
+            });
+            
+            dropdown.classList.toggle('active');
+        });
+        
+        trigger.dataset.initialized = "true";
+    }
+
+    // Close when clicking outside
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.footer-legal-dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
     });
 });
