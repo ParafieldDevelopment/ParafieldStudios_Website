@@ -110,6 +110,39 @@
             opacity: 0;
             z-index: 10;
         }
+
+        .non-profit-disclaimer {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .disclaimer-icon {
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+        }
+
+        .disclaimer-content strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .last-updated {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -160,27 +193,44 @@
             <div class="studio-desc-content">
                 <p>At Parafield Studios (and our subsidiaries like REDTOPS), we believe your personal life is none of our business. We aren't data brokers, and we aren't interested in your digital footprint.</p>
             </div>
+
+            <div class="non-profit-disclaimer scroll-on">
+                <div class="disclaimer-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+                <div class="disclaimer-content">
+                    <strong>Legal Disclaimer</strong>
+                    <p>Parafield Studios is run by creators, not lawyers. We have absolutely NO IDEA what we're doing when it comes to legal jargon. This policy is written in plain English because that's all we know. Don't sue us.</p>
+                </div>
+            </div>
         </section>
 
         <section class="intro-section scroll-on">
-            <h2 class="section-title">What we DO collect however is Hardware Telemetry data.</h2>
-            <p class="section-subtitle">Why we collect it: To make sure our products and games actually run on your machine no matter how shitty it might be. We use this data to push updates and fix bugs. That is it.</p>
+            <h2 class="section-title">What we DO collect: Hardware Telemetry Data</h2>
+            <p class="section-subtitle">We collect anonymous hardware telemetry data to ensure our products and games run optimally across a wide range of systems. This data helps us identify common hardware configurations, prioritize compatibility fixes, and improve overall performance and stability.</p>
             <div class="studio-desc-content" style="text-align: left; display: inline-block;">
-                <h3>This includes:</h3>
+                <h3>Specifically, this includes:</h3>
                 <ul style="list-style: '• '; padding-left: 1.5rem;">
-                    <li>GPU/CPU models</li>
-                    <li>OS Version</li>
-                    <li>Crash logs and stability metrics</li>
+                    <li><strong>GPU/CPU models:</strong> To understand the processing power and graphics capabilities of your system.</li>
+                    <li><strong>Operating System Version:</strong> To ensure compatibility and address OS-specific issues.</li>
+                    <li><strong>RAM amount:</strong> To gauge memory availability and optimize resource usage.</li>
+                    <li><strong>Screen resolution and refresh rate:</strong> To fine-tune visual performance and UI scaling.</li>
+                    <li><strong>Crash logs and stability metrics:</strong> Anonymous data on application crashes and errors to help us fix things.</li>
+                    <li><strong>Game/Application version:</strong> To track which versions are in use and ensure updates are working.</li>
                 </ul>
-                <h3>What we DON'T see:</h3>
+                <h3>What we absolutely DON'T collect or see:</h3>
                 <ul style="list-style: '• '; padding-left: 1.5rem;">
-                    <li>Your name</li>
-                    <li>Your email</li>
-                    <li>Your location</li>
-                    <li>OR what you had for breakfast.</li>
+                    <li><strong>Your name, email address, or any other personal identifiers.</strong></li>
+                    <li><strong>Your IP address or precise geographical location.</strong></li>
+                    <li><strong>Any data from your personal files, documents, or browsing history.</strong></li>
+                    <li><strong>Information about other software installed on your computer.</strong></li>
+                    <li><strong>Any sensitive personal information, financial data, or what you had for breakfast.</strong></li>
+                    <li><strong>Any data that could be used to personally identify you.</strong></li>
                 </ul>
             </div>
-            <p class="section-subtitle">If you however do not want any telemerty data to be collected INCLUDING hardware data. You may disable them via the settings menu from any of our games or products.</p>
+            <p class="section-subtitle">If you, however, do not wish for any telemetry data to be collected, you may disable these features via the settings menu within any of our games or products.</p>
+
+            <p class="last-updated">Last Updated: 4/4/2026</p>
         </section>
     </main>
 
@@ -197,8 +247,15 @@
                     <a href="careers.html">Careers</a>
                 </div>
                 <div class="footer-links-group">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="do-not-sell-my-information.html">Legal</a>
+                    <div class="footer-legal-dropdown">
+                        <button class="footer-legal-trigger">Legal <span class="arrow">▾</span></button>
+                        <div class="footer-legal-menu">
+                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="terms-of-service.html">Terms of Service</a>
+                            <a href="do-not-sell-my-information.html">Do Not Sell My Info</a>
+                            <a href="health-and-safety.html">Health & Safety</a>
+                        </div>
+                    </div>
                     <a href="https://learn.parafieldstudios.com">Learn</a>
                 </div>
             </div>
@@ -267,5 +324,6 @@
         }, 2500);
 
     </script>
+    <script src="js/footer-legal.js"></script>
 </body>
 </html>

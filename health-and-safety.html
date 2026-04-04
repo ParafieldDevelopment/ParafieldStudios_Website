@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <meta charset="UTF-8">
+    <title>Health & Safety | Parafield Studios</title>
+    <meta name="description" content="Health and Safety Information for Parafield Studios products.">
+    <meta name="theme-color" content="#f2ae49">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .non-profit-disclaimer {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .health-warning-large {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 8px;
+            max-width: 850px;
+            text-align: left;
+        }
+
+        .disclaimer-icon {
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+        }
+
+        .disclaimer-content strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .shaking-text {
+            display: inline-block;
+            animation: shake 0.2s infinite;
+            font-weight: 800;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .safety-priority-footer {
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-top: 2rem;
+            color: #b21f2d;
+            text-align: center;
+            border-top: 2px solid rgba(178, 31, 45, 0.2);
+            padding-top: 1.5rem;
+        }
+
+        .info-grid {
+            text-align: left;
+            display: inline-block;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .info-grid h3 {
+            margin-top: 2rem;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .info-grid p, .info-grid li {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+        }
+
+        .final-safety-statement {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid #eee;
+        }
+
+        .final-safety-statement p {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+
+        .safety-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .safety-logos img {
+            height: 80px;
+            width: auto;
+        }
+
+        .yellow-heart {
+            filter: invert(72%) sepia(85%) saturate(452%) hue-rotate(359deg) brightness(203%) contrast(104%); /* Yellow filter */
+        }
+    </style>
+</head>
+<body>
+    <script src="js/external-redirect.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/banner-theme.js"></script>
+    <script src="js/dynamicity.js"></script>
+    <script src="js/view-transitions.js"></script>
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="index.html"><img src="assets/logo.svg" alt="logo" class="nav-logo"></a>
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-button">Home</a>
+            <a href="about.html" class="nav-button">About</a>
+            <a href="careers.html" class="nav-button">Careers</a>
+            <a href="https://learn.parafieldstudios.com" class="nav-button">Learn</a>
+        </div>
+    </nav>
+
+    <div class="banner scroll-on">
+        <img src="assets/logo.svg" alt="banner" class="scroll-on">
+        <div class="banner-text scroll-on">
+            <h1>HEALTH &</h1>
+            <h1>SAFETY</h1>
+        </div>
+    </div>
+
+    <main class="content">
+        <section class="intro-section scroll-on">
+            <h2 class="section-title">Play Smart, Stay Safe.</h2>
+            <div class="studio-desc-content">
+                <p>At Parafield Studios, we want you to enjoy our games for years to come. That starts with taking care of yourself. Please read this information carefully before using our software.</p>
+            </div>
+        </section>
+
+        <section class="intro-section scroll-on">
+            <div class="health-warning-large">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="disclaimer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <div class="disclaimer-content">
+                        <strong>Photosensitivity and <span class="shaking-text">Seizure</span> Warning</strong>
+                        <p>A very small percentage of people may experience a seizure when exposed to certain visual images, including flashing lights or patterns that may appear in video games. Even people who have no history of seizures or epilepsy may have an undiagnosed condition that can cause these "photosensitive epileptic seizures" while watching video games.</p>
+                        <p><strong>Symptoms may include:</strong> lightheadedness, altered vision, eye or face twitching, jerking or shaking of arms or legs, disorientation, confusion, or momentary loss of awareness.</p>
+                        <p><strong>IMMEDIATELY stop playing and consult a doctor if you experience any of these symptoms.</strong></p>
+                    </div>
+                </div>
+                <p class="safety-priority-footer">Your safety is more important than our silly games.</p>
+            </div>
+
+            <div class="info-grid">
+                <h3>General Health Recommendations</h3>
+                <ul style="list-style: '• '; padding-left: 1.5rem;">
+                    <li><strong>Take Breaks:</strong> We recommend taking a 15-minute break for every hour of play, even if you don't think you need it.</li>
+                    <li><strong>Lighting:</strong> Play in a well-lit room and stay as far from the screen as reasonably possible.</li>
+                    <li><strong>Listen to your body:</strong> If you feel tired, dizzy, or have strained eyes, stop playing immediately and rest.</li>
+                    <li><strong>Repetitive Motion:</strong> Playing video games can make your muscles, joints, or skin hurt. If you feel any pain or numbness, stop playing and rest for several hours before playing again.</li>
+                </ul>
+
+                <h3>Mental Wellbeing</h3>
+                <p>Gaming should be fun, not stressful. If you find yourself becoming frustrated or angry, it's time to step away. Our community spaces are meant to be welcoming; if you're feeling overwhelmed by online interactions, don't hesitate to mute, block, or take a digital detox.</p>
+
+                <h3>Hearing Safety</h3>
+                <p>Avoid listening to our games at extremely high volume levels for long periods, as this can lead to permanent hearing loss. Use your hardware's volume limiters if available.</p>
+            </div>
+
+            <div class="final-safety-statement">
+                <p>We care way more about people's safety than our stupid games that we make.</p>
+                <div class="safety-logos">
+                    <img src="assets/logo.svg" alt="Parafield Logo">
+                    <img src="assets/heart.svg" alt="Heart Logo" class="yellow-heart">
+                </div>
+            </div>
+
+            <p class="last-updated">Last Updated: 4/4/2026</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
+                <p class="footer-copyright">&copy; 2026 Parafield Studios<br>All rights reserved.</p>
+            </div>
+            <div class="footer-center">
+                <div class="footer-links-group">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="careers.html">Careers</a>
+                </div>
+                <div class="footer-links-group">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="do-not-sell-my-information.html">Legal</a>
+                    <a href="health-and-safety.html">Health & Safety</a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="social-icons">
+                    <a href="https://x.com/ParafieldStudio" target="_blank">
+                        <img src="assets/Twitter.png" alt="Twitter" class="social-icon">
+                    </a>
+                    <a href="https://discord.gg/23FVgBaYYh" target="_blank">
+                        <img src="assets/Discord.png" alt="Discord" class="social-icon">
+                    </a>
+                </div>
+                <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
+                    <span>Hosted via Cloudflare Pages</span>
+                    <img src="assets/cloudflare.png" alt="Cloudflare Pages">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
