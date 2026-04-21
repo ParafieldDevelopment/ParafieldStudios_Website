@@ -5,42 +5,48 @@
       "progress": 5,
       "status": "Paused",
       "image": "assets/MDC/img_1.png",
-      "isSecret": false
+      "isSecret": false,
+      "category": "Paused"
     },
     {
       "name": "Codename Combat",
       "progress": 45,
       "status": "Paused",
       "image": "assets/CC/BetterGameBackground.png",
-      "isSecret": false
+      "isSecret": false,
+      "category": "Paused"
+    },
+    {
+      "name": "???",
+      "progress": 2,
+      "status": "In Development",
+      "image": "assets/404.png",
+      "isSecret": true,
+      "category": "Active"
     },
     {
       "name": "???",
       "progress": 0,
       "status": "Unknown",
       "image": "assets/404.png",
-      "isSecret": true
+      "isSecret": true,
+      "category": "Unfocused"
     },
     {
       "name": "???",
       "progress": 0,
       "status": "Unknown",
       "image": "assets/404.png",
-      "isSecret": true
+      "isSecret": true,
+      "category": "Unfocused"
     },
     {
       "name": "???",
       "progress": 0,
       "status": "Unknown",
       "image": "assets/404.png",
-      "isSecret": true
-    },
-    {
-      "name": "???",
-      "progress": 0,
-      "status": "Unknown",
-      "image": "assets/404.png",
-      "isSecret": true
+      "isSecret": true,
+      "category": "Unfocused"
     }
   ]
 }
