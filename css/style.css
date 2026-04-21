@@ -1777,7 +1777,140 @@ a, button, [role="button"], input, select, textarea, .team-card, .showcase-item 
     transform: translateY(0);
 }
 
-@view-transition {
-    navigation: auto; /* For MPA support in Chrome */
+/* ---------------------- WORKSTATION MODAL (PROGRESS PAGE) ---------------------- */
+.workstation-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 10001;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.workstation-modal.active {
+    display: flex;
+}
+
+.workstation-modal-content {
+    background: #000;
+    border: 1px solid var(--crt-white);
+    width: 95%;
+    max-width: 1200px; /* Wide modal */
+    position: relative;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+}
+
+.close-workstation-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--crt-white);
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.close-workstation-modal:hover {
+    opacity: 1;
+}
+
+.workstation-modal-body {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.workstation-modal-left img {
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    filter: grayscale(1) contrast(1.4);
+}
+
+.workstation-modal-left img.is-placeholder {
+    width: 40%;
+    margin: 0 auto;
+    display: block;
+    opacity: 0.3;
+}
+
+#modal-project-name {
+    font-family: monospace !important;
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0 0 1rem 0;
+    color: var(--crt-white);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.modal-status-line {
+    font-family: monospace;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.modal-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+}
+
+#modal-project-desc {
+    font-family: monospace;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--crt-white);
+    margin-bottom: 3rem;
+}
+
+.modal-logs h3 {
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: var(--crt-white);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.modal-logs-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.modal-placeholder-logs {
+    width: 60px;
+    height: auto;
+    opacity: 0.15;
+    display: block;
+    margin-bottom: 1.5rem;
+    filter: grayscale(1);
+}
+
+@media (max-width: 992px) {
+    .workstation-modal-body {
+        grid-template-columns: 1fr;
+    }
+    .workstation-modal-left {
+        display: none;
+    }
+    .workstation-modal-content {
+        padding: 2rem;
+    }
 }
 

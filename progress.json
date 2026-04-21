@@ -6,7 +6,8 @@
       "status": "Paused",
       "image": "assets/MDC/img_1.png",
       "isSecret": false,
-      "category": "Paused"
+      "category": "Paused",
+      "description": "A underground facility management game. Development is currently suspended however due to Roblox's issues. Check back later!"
     },
     {
       "name": "Codename Combat",
@@ -14,34 +15,39 @@
       "status": "Paused",
       "image": "assets/CC/BetterGameBackground.png",
       "isSecret": false,
-      "category": "Paused"
+      "category": "Paused",
+      "description": "Our flagship combat experience. Features the classic ROBLOX items and a unique ability system. Development is currently suspended however due to Roblox's issues. Check back later!"
     },
     {
       "name": "???",
-      "progress": 2,
+      "progress": 15,
       "status": "In Development",
-      "category": "Active"
+      "category": "Active",
+      "description": "It's in progress but we're aren't saying much. Check back later!"
     },
     {
       "name": "???",
       "progress": 0,
       "status": "Unknown",
       "category": "Unfocused",
-      "hideProgress": true
+      "hideProgress": true,
+      "description": "No data found.. Oh well check back later!"
     },
     {
       "name": "???",
       "progress": 0,
       "status": "Unknown",
       "category": "Unfocused",
-      "hideProgress": true
+      "hideProgress": true,
+      "description": "No data found.. Oh well check back later!"
     },
     {
       "name": "???",
       "progress": 0,
       "status": "Unknown",
       "category": "Unfocused",
-      "hideProgress": true
+      "hideProgress": true,
+      "description": "No data found.. Oh well check back later!"
     }
   ]
 }

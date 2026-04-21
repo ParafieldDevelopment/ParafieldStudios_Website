@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const progressContainer = document.getElementById('progress-list');
-    if (!progressContainer) return;
+    const modal = document.getElementById('project-modal');
+    if (!progressContainer || !modal) return;
+
+    // Modal elements
+    const mImg = document.getElementById('modal-project-img');
+    const mName = document.getElementById('modal-project-name');
+    const mStatus = document.getElementById('modal-project-status');
+    const mPercent = document.getElementById('modal-project-percent');
+    const mDesc = document.getElementById('modal-project-desc');
+    const closeBtn = document.querySelector('.close-workstation-modal');
 
     try {
         const response = await fetch('progress.json');
@@ -32,8 +41,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 catProjects.forEach(project => {
                     const card = document.createElement('div');
                     card.className = 'dashboard-card scroll-on-active';
+                    card.style.cursor = 'pointer';
                     
-                    // Logic for placeholder vs project image
                     const hasImage = !!project.image;
                     const imagePath = project.image || 'assets/404.png';
                     const imageClass = hasImage ? 'dashboard-img' : 'dashboard-img is-placeholder';
@@ -60,11 +69,35 @@ document.addEventListener('DOMContentLoaded', async () => {
                             ` : ''}
                         </div>
                     `;
+
+                    // Modal Click Logic
+                    card.addEventListener('click', () => {
+                        mImg.src = imagePath;
+                        mImg.className = hasImage ? '' : 'is-placeholder';
+                        mName.textContent = `> ${project.name}`;
+                        mStatus.textContent = project.status;
+                        mPercent.textContent = project.progress + '%';
+                        mDesc.textContent = project.description || 'ACCESSING DATA...';
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+
                     grid.appendChild(card);
                 });
             }
             
             progressContainer.appendChild(grid);
+        });
+
+        // Close Modal Logic
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
 
         setTimeout(() => {
