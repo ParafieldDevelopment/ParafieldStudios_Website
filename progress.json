@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "name": "Project MDC",
+      "progress": 5,
+      "status": "Paused",
+      "image": "assets/MDC/img_1.png",
+      "isSecret": false
+    },
+    {
+      "name": "Codename Combat",
+      "progress": 45,
+      "status": "Paused",
+      "image": "assets/CC/BetterGameBackground.png",
+      "isSecret": false
+    },
+    {
+      "name": "???",
+      "progress": 0,
+      "status": "Unknown",
+      "image": "assets/404.png",
+      "isSecret": true
+    },
+    {
+      "name": "???",
+      "progress": 0,
+      "status": "Unknown",
+      "image": "assets/404.png",
+      "isSecret": true
+    },
+    {
+      "name": "???",
+      "progress": 0,
+      "status": "Unknown",
+      "image": "assets/404.png",
+      "isSecret": true
+    },
+    {
+      "name": "???",
+      "progress": 0,
+      "status": "Unknown",
+      "image": "assets/404.png",
+      "isSecret": true
+    }
+  ]
+}

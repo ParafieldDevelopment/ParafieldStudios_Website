@@ -17,6 +17,7 @@
     <script src="js/scroll-animations.js"></script>
     <script src="js/dynamicity.js"></script>
     <script src="js/view-transitions.js"></script>
+    <script src="js/progress-handler.js"></script>
     
     <nav class="nav">
         <div class="nav-left">
@@ -44,53 +45,14 @@
 
     <main class="content">
         <section class="intro-section scroll-on">
-            <h2 class="section-title">Current Status</h2>
-            <p class="section-subtitle">Real-time (mostly) updates on what we're building.</p>
+            <h2 class="section-title">System Status</h2>
+            <p class="section-subtitle">Accessing Parafield Mainframe... Data loaded.</p>
         </section>
 
-        <div class="progress-list scroll-on" data-stagger="true">
-            <div class="progress-item">
-                <h3>Project MDC</h3>
-                <div class="progress-track">
-                    <div class="progress-bar" style="width: 45%;"></div>
-                </div>
-                <div class="progress-stats">
-                    <span>In Early Dev</span>
-                    <span>45%</span>
-                </div>
-            </div>
-
-            <div class="progress-item">
-                <h3>Codename Combat</h3>
-                <div class="progress-track">
-                    <div class="progress-bar" style="width: 15%;"></div>
-                </div>
-                <div class="progress-stats">
-                    <span>Paused</span>
-                    <span>15%</span>
-                </div>
-            </div>
-
-            <div class="progress-item">
-                <h3>Secret Project A</h3>
-                <div class="progress-track">
-                    <div class="progress-bar" style="width: 5%;"></div>
-                </div>
-                <div class="progress-stats">
-                    <span>Classified</span>
-                    <span>5%</span>
-                </div>
-            </div>
-
-            <div class="progress-item">
-                <h3>Secret Project B</h3>
-                <div class="progress-track">
-                    <div class="progress-bar" style="width: 2%;"></div>
-                </div>
-                <div class="progress-stats">
-                    <span>Incubating</span>
-                    <span>2%</span>
-                </div>
+        <div class="crt-screen">
+            <div id="crt-progress-list">
+                <!-- Dynamically loaded from progress.json -->
+                <p class="crt-status">INITIALIZING LINK...</p>
             </div>
         </div>
 
