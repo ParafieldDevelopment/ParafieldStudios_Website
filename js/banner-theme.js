@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!banner || !bannerText || !bannerImg) return;
 
-        const names = ["aprilfool", "Parafield Studios", "Moonlight", "CC", "Careers"];
+        const names = ["aprilfool", "Parafield Studios", "Careers", "Secrets"];
         const selectedName = names[Math.floor(Math.random() * names.length)];
 
         if (selectedName === "Parafield Studios") {
@@ -17,79 +17,52 @@ document.addEventListener('DOMContentLoaded', () => {
                 h1s[1].textContent = "STUDIOS";
             }
         } else {
-            // Shared Theme Setup (Moonlight & CC)
+            // Shared Theme Setup
             banner.classList.add('moonlight-theme');
             banner.style.backgroundSize = "cover";
             banner.style.backgroundPosition = "center";
             banner.style.backgroundColor = "#1a1a1a";
             banner.style.gap = "50px";
 
-            if (selectedName === "CC") {
-                banner.classList.add('cc-theme');
-            } else if (selectedName === "iSounds") {
-                banner.classList.add('isounds-theme');
-            } else if (selectedName === "Careers") {
+            if (selectedName === "Careers") {
                 banner.classList.add('careers-theme');
+            } else if (selectedName === "Secrets") {
+                banner.classList.add('secrets-theme');
             }
 
-            if (selectedName === "Moonlight") {
-                banner.style.backgroundImage = "url('assets/Moonlight/backgroundwithstuff.png')";
-                bannerImg.src = "assets/Moonlight/window.png";
+            if (selectedName === "Secrets") {
+                banner.style.backgroundColor = "#000";
+                banner.style.backgroundImage = "none";
+                bannerImg.style.display = 'none';
 
-                // Update Text
                 bannerText.innerHTML = `
-                    <div class="moonlight-text-header">
-                        <img src="assets/Moonlight/transparent.png" class="moonlight-logo-small">
-                        <h1 class="moonlight-title">Moonlight</h1>
+                    <div class="secrets-container">
+                        <div class="banner-scanlines"></div>
+                        
+                        <!-- Floating 404s (Distributed across the banner) -->
+                        <img src="assets/404.png" class="floating-404" style="top: 10%; left: 10%; --x: 50px; --y: 50px; --r: 360deg; --d: 15s;">
+                        <img src="assets/404.png" class="floating-404" style="top: 70%; left: 15%; --x: -30px; --y: -80px; --r: -180deg; --d: 12s;">
+                        <img src="assets/404.png" class="floating-404" style="top: 20%; left: 80%; --x: -60px; --y: 40px; --r: 90deg; --d: 18s;">
+                        <img src="assets/404.png" class="floating-404" style="top: 80%; left: 85%; --x: 40px; --y: -50px; --r: -360deg; --d: 14s;">
+                        <img src="assets/404.png" class="floating-404" style="top: 45%; left: 75%; --x: -100px; --y: -100px; --r: 45deg; --d: 20s;">
+                        
+                        <!-- Floating Qs (Also distributed) -->
+                        <div class="floating-q" style="top: 15%; left: 25%; --x: 30px; --y: 30px; --r: 45deg; --d: 6s;">?</div>
+                        <div class="floating-q" style="top: 65%; left: 40%; --x: -40px; --y: 20px; --r: -30deg; --d: 8s;">?</div>
+                        <div class="floating-q" style="top: 30%; left: 60%; --x: 20px; --y: -50px; --r: 20deg; --d: 7s;">?</div>
+                        <div class="floating-q" style="top: 75%; left: 20%; --x: 50px; --y: -30px; --r: 90deg; --d: 9s;">?</div>
+                        
+                        <div class="secrets-content">
+                            <h1 class="secrets-title">SOMETHING'S HAPPENING...</h1>
+                            <p class="secrets-subtitle">Secrets are hidden in the noise.</p>
+                            <p class="secrets-count">0/4 secrets shown.</p>
+                            <div class="scroll-indicator">
+                                <span>SCROLL DOWN</span>
+                                <div class="arrow-down"></div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="moonlight-subtitle">An advanced Roblox IDE</h3>
-                    <p class="theme-coming-soon">Coming soon.. Eventually</p>
                 `;
-            } else if (selectedName === "CC") {
-                banner.style.backgroundImage = "url('assets/CC/BetterGameBackground.png')";
-                bannerImg.src = "assets/CC/CCSwords.png";
-
-                // Random Text Logic
-                const randomChance = Math.random();
-                let titleText = "3 Items...";
-                let titleText2 = "2 Abilities...";
-
-                let subText = "Coming soon... Eventually";
-
-                if (randomChance < 0.1) { // 10% chance
-                    titleText = "Too many bots in TF2 casual?";
-                    titleText2 = ""; // Clear second line if using alternate text
-                    subText = "Try our fighting game instead, that's on the hated platform roblox!";
-                }
-
-
-                
-                let htmlContent = '';
-                if (titleText2) {
-                     htmlContent = `
-                        <h3 class="cc-title">${titleText}</h3>
-                        <h3 class="cc-title">${titleText2}</h3>
-                    `;
-                } else {
-                     // Alternate text case (Easter egg)
-                     htmlContent = `
-                        <h3 class="cc-title-alt">${titleText}</h3>
-                    `;
-                }
-
-                bannerText.innerHTML = `
-                    ${htmlContent}
-                    <p class="theme-coming-soon">${subText}</p>
-                `;
-            // } else if (selectedName === "iSounds") {
-            //     bannerImg.style.display = 'none';
-            //
-            //     bannerText.innerHTML = `
-            //         <h1 style="font-size: 6rem; margin: 0; line-height: 1; text-shadow: 0 0 30px rgba(255, 115, 0, 0.4); color: #ff7300; font-weight: 900; letter-spacing: -2px;">iSounds</h1>
-            //         <h3 style="font-size: 2.5rem; color: white; margin: 15px 0; font-weight: 700; letter-spacing: 0.5px;">Listen to the World.</h3>
-            //         <p style="font-size: 1.3rem; color: #ccc; margin-top: 10px; font-weight: 400; max-width: 600px; line-height: 1.6;">Stream thousands of internet radio stations and podcasts in one place.</p>
-            //         <a href="https://sounds.parafieldstudios.com" class="isounds-btn">Start Listening</a>
-            //     `;
             } else if (selectedName === "Careers") {
                 banner.style.backgroundImage = "url('assets/blueprint-background.png')";
                 bannerImg.style.display = 'none';
