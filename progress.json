@@ -20,16 +20,12 @@
       "name": "???",
       "progress": 2,
       "status": "In Development",
-      "image": "assets/404.png",
-      "isSecret": true,
       "category": "Active"
     },
     {
       "name": "???",
       "progress": 0,
       "status": "Unknown",
-      "image": "assets/404.png",
-      "isSecret": true,
       "category": "Unfocused",
       "hideProgress": true
     },
@@ -37,8 +33,6 @@
       "name": "???",
       "progress": 0,
       "status": "Unknown",
-      "image": "assets/404.png",
-      "isSecret": true,
       "category": "Unfocused",
       "hideProgress": true
     },
@@ -46,8 +40,6 @@
       "name": "???",
       "progress": 0,
       "status": "Unknown",
-      "image": "assets/404.png",
-      "isSecret": true,
       "category": "Unfocused",
       "hideProgress": true
     }

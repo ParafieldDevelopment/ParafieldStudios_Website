@@ -33,9 +33,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const card = document.createElement('div');
                     card.className = 'dashboard-card scroll-on-active';
                     
+                    // Logic for placeholder vs project image
+                    const hasImage = !!project.image;
                     const imagePath = project.image || 'assets/404.png';
+                    const imageClass = hasImage ? 'dashboard-img' : 'dashboard-img is-placeholder';
                     
-                    // Determine bar color based on status/category
                     let barColorClass = 'bar-white';
                     if (project.category === 'Active' || project.category === 'Paused') {
                         barColorClass = 'bar-yellow';
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const showProgress = !project.hideProgress;
                     
                     card.innerHTML = `
-                        <div class="dashboard-img" style="background-image: url('${imagePath}')"></div>
+                        <div class="${imageClass}" style="background-image: url('${imagePath}')"></div>
                         <div class="dashboard-info">
                             <h3>${project.name}</h3>
                             <div class="dashboard-status-row">
@@ -65,12 +67,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             progressContainer.appendChild(grid);
         });
 
-        // Trigger progress bar animation after a short delay
         setTimeout(() => {
             const bars = document.querySelectorAll('.dashboard-progress-bar');
             bars.forEach(bar => {
                 const targetWidth = bar.getAttribute('data-progress');
-                // Force a reflow to ensure transition works
                 bar.getBoundingClientRect();
                 bar.style.width = targetWidth + '%';
             });

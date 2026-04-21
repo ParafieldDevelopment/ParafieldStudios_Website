@@ -705,13 +705,18 @@ div.banner-text.scroll-on-active {
 
 .dashboard-img {
     width: 100%;
-    height: 220px; /* Consistent height */
+    height: 220px;
     border-radius: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     filter: grayscale(1) contrast(1.2) brightness(0.7);
-    background-size: cover; /* Use cover but with better container sizing */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.dashboard-img.is-placeholder {
+    background-size: 30%; /* Smaller placeholder */
+    background-position: center;
 }
 
 .dashboard-card:hover .dashboard-img {
