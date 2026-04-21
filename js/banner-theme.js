@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="floating-q" style="top: 75%; left: 20%; --x: 50px; --y: -30px; --r: 90deg; --d: 9s;">?</div>
                         
                         <div class="secrets-content">
-                            <h1 class="secrets-title">SOMETHING'S HAPPENING...</h1>
+                            <h1 class="secrets-title">Secrets... Unfolding..</h1>
                             <p class="secrets-subtitle">Secrets are hidden in the noise.</p>
                             <p class="secrets-count">0/4 secrets shown.</p>
                             <div class="scroll-indicator">

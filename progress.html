@@ -45,13 +45,21 @@
 
     <main class="content">
         <section class="intro-section scroll-on">
-            <h2 class="section-title">Current Projects</h2>
-            <p class="section-subtitle">Real-time status of our creative laboratory.</p>
+            <div class="tab-system">
+                <button class="tab-btn active" data-tab="progress-list">PROGRESS</button>
+                <button class="tab-btn" data-tab="updates-list">DEV UPDATES</button>
+            </div>
+            <p class="section-subtitle" id="tab-subtitle">Real-time status of our creative laboratory.</p>
         </section>
 
-        <div class="progress-container" id="progress-list">
-            <!-- Dynamically loaded from progress.json -->
+        <!-- Progress List View -->
+        <div class="progress-container tab-content active" id="progress-list">
             <p style="text-align: center; color: #888;">LOADING PROJECT DATA...</p>
+        </div>
+
+        <!-- Updates List View -->
+        <div class="progress-container tab-content" id="updates-list">
+            <p style="text-align: center; color: #888;">LOADING SYSTEM LOGS...</p>
         </div>
 
         <hr class="section-divider">
@@ -79,9 +87,8 @@
                     <p id="modal-project-desc">ACCESSING DATA...</p>
                     <div class="modal-logs">
                         <h3>> SYSTEM_LOGS</h3>
-                        <div class="modal-logs-placeholder">
-                            <img src="assets/404.png" class="modal-placeholder-logs" alt="No logs found">
-                            <p class="none-text" style="font-size: 0.9rem; border: none; padding: 0;">No updates found</p>
+                        <div id="modal-logs-container" class="modal-logs-list">
+                            <!-- Logs injected here -->
                         </div>
                     </div>
                 </div>
