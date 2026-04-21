@@ -1246,6 +1246,101 @@ body.modal-open .character-img {
 }
 }
 
+/* Static effect for secret games */
+@keyframes tv-static-flicker {
+    0% { opacity: 0.1; }
+    20% { opacity: 0.2; }
+    40% { opacity: 0.15; }
+    60% { opacity: 0.25; }
+    80% { opacity: 0.1; }
+    100% { opacity: 0.2; }
+}
+
+@keyframes signal-glitch {
+    0% { filter: grayscale(1) contrast(1.2); }
+    5% { filter: grayscale(1) contrast(2) brightness(1.5); transform: translateX(-2px); }
+    10% { filter: grayscale(1) contrast(1.2); transform: translateX(0); }
+    15% { transform: skewX(5deg); }
+    20% { transform: skewX(0deg); }
+    100% { filter: grayscale(1) contrast(1.2); }
+}
+
+.showcase-static {
+    background: #000 !important;
+}
+
+.showcase-static .showcase-bg {
+    background-size: 40% !important; /* Slightly larger but still neat */
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: grayscale(1) brightness(0.6);
+    animation: signal-glitch 4s infinite;
+}
+
+.showcase-static::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* High-contrast SVG Noise */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-size: 150px 150px;
+    opacity: 0.3; /* Increased opacity for visibility */
+    z-index: 1;
+    pointer-events: none;
+    animation: analog-static 0.1s steps(2) infinite;
+    filter: contrast(150%) brightness(120%);
+}
+
+@keyframes analog-static {
+    0% { background-position: 0 0; }
+    20% { background-position: 10% 5%; }
+    40% { background-position: -5% 15%; }
+    60% { background-position: 15% -10%; }
+    80% { background-position: -10% -5%; }
+    100% { background-position: 5% 10%; }
+}
+
+.showcase-static::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.3) 0px,
+        rgba(0, 0, 0, 0.3) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Reverted text styles to match standard items */
+.showcase-static .showcase-content {
+    text-align: left;
+    width: auto;
+    display: block;
+}
+
+.showcase-static h3 {
+    font-family: var(--font);
+    letter-spacing: -1px;
+    color: white;
+    text-shadow: none;
+}
+
+.showcase-static p {
+    font-family: var(--font);
+    color: rgba(255,255,255,0.7);
+    opacity: 1;
+}
+
 @keyframes float-text {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
