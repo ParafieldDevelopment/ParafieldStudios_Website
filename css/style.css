@@ -1341,6 +1341,26 @@ body.modal-open .character-img {
     opacity: 1;
 }
 
+@keyframes q-float {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.3; }
+    80% { opacity: 0.3; }
+    100% { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0; }
+}
+
+.floating-q {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    animation: q-float var(--d) linear infinite;
+}
+
 @keyframes float-text {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
