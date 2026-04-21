@@ -35,17 +35,27 @@ document.addEventListener('DOMContentLoaded', async () => {
                     
                     const imagePath = project.image || 'assets/404.png';
                     
+                    // Determine bar color based on status/category
+                    let barColorClass = 'bar-white';
+                    if (project.category === 'Active' || project.category === 'Paused') {
+                        barColorClass = 'bar-yellow';
+                    }
+
+                    const showProgress = !project.hideProgress;
+                    
                     card.innerHTML = `
                         <div class="dashboard-img" style="background-image: url('${imagePath}')"></div>
                         <div class="dashboard-info">
                             <h3>${project.name}</h3>
                             <div class="dashboard-status-row">
                                 <span class="dashboard-status">${project.status}</span>
-                                <span class="dashboard-percent">${project.progress}%</span>
+                                ${showProgress ? `<span class="dashboard-percent">${project.progress}%</span>` : ''}
                             </div>
+                            ${showProgress ? `
                             <div class="dashboard-progress-track">
-                                <div class="dashboard-progress-bar" data-progress="${project.progress}" style="width: 0%"></div>
+                                <div class="dashboard-progress-bar ${barColorClass}" data-progress="${project.progress}" style="width: 0%"></div>
                             </div>
+                            ` : ''}
                         </div>
                     `;
                     grid.appendChild(card);
@@ -60,9 +70,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const bars = document.querySelectorAll('.dashboard-progress-bar');
             bars.forEach(bar => {
                 const targetWidth = bar.getAttribute('data-progress');
+                // Force a reflow to ensure transition works
+                bar.getBoundingClientRect();
                 bar.style.width = targetWidth + '%';
             });
-        }, 300);
+        }, 100);
 
     } catch (e) {
         console.error('Error loading progress:', e);

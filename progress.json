@@ -30,7 +30,8 @@
       "status": "Unknown",
       "image": "assets/404.png",
       "isSecret": true,
-      "category": "Unfocused"
+      "category": "Unfocused",
+      "hideProgress": true
     },
     {
       "name": "???",
@@ -38,7 +39,8 @@
       "status": "Unknown",
       "image": "assets/404.png",
       "isSecret": true,
-      "category": "Unfocused"
+      "category": "Unfocused",
+      "hideProgress": true
     },
     {
       "name": "???",
@@ -46,7 +48,8 @@
       "status": "Unknown",
       "image": "assets/404.png",
       "isSecret": true,
-      "category": "Unfocused"
+      "category": "Unfocused",
+      "hideProgress": true
     }
   ]
 }
