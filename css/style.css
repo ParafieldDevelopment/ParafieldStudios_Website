@@ -4,9 +4,10 @@
     --top-bar-height: 80px;
 
     --primary-color: #f2ae49; /* Vibrant */
-    --secondary-color: #33CCFF; /* Bright Blue */
+    --secondary-color: #ff4444; /* Glitch Red */
     --accent-color: #FFCC00; /* Yellow */
     --background-color: #f4f4f4;
+    --font-mono: "JetBrains Mono", "Courier New", monospace;
 
     --banner-color: white;
     --banner-background-color: var(--primary-color);
@@ -506,6 +507,78 @@ div.banner-text.scroll-on-active {
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     text-align: left;
+}
+
+/* ---------------------- TECHNICAL TYPOGRAPHY ---------------------- */
+.technical-label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+.text-outline {
+    -webkit-text-stroke: 1px rgba(242, 174, 73, 0.2);
+    color: transparent;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+/* ---------------------- BACKGROUND MARQUEES ---------------------- */
+.bg-marquee-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0.05;
+}
+
+.bg-marquee {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 15rem;
+    font-weight: 900;
+    line-height: 1;
+    display: flex;
+    gap: 50px;
+    animation: marquee-background 60s linear infinite;
+}
+
+.bg-marquee.top { top: 10%; }
+.bg-marquee.bottom { bottom: 10%; animation-direction: reverse; }
+
+@keyframes marquee-background {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ---------------------- INTERACTIVE SHIFTS ---------------------- */
+.hover-shift {
+    transition: all 0.2s ease;
+}
+
+.hover-shift:hover {
+    text-shadow: 2px 0 var(--secondary-color), -2px 0 #00ffff;
+    transform: skewX(-5deg);
+}
+
+.glitch-text-hover:hover {
+    animation: glitch-vibrate 0.3s infinite;
+}
+
+@keyframes glitch-vibrate {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
 }
 
 .section-subtitle {
@@ -2511,6 +2584,20 @@ body.modal-open .character-img {
         transform: translateY(0) scale(1);
         clip-path: inset(0 0 0 0);
     }
+}
+
+.glitch-reveal-flicker {
+    animation: mechanicalReveal 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards, glitch-flicker 0.4s ease;
+}
+
+@keyframes glitch-flicker {
+    0% { opacity: 0; transform: skewX(10deg); }
+    10% { opacity: 0.8; transform: skewX(-10deg); }
+    20% { opacity: 0.2; transform: skewX(5deg); }
+    30% { opacity: 1; transform: skewX(0); }
+    40% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
 }
 
 .scroll-on[data-stagger="true"] > * {
