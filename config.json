@@ -1,5 +1,5 @@
 {
-  "maintenanceMode": false,
+  "maintenanceMode": true,
   "introEnabled": false,
   "noticeBar": {
     "enabled": true,
