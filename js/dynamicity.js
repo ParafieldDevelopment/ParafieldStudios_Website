@@ -38,6 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.top = e.clientY + 'px';
             dot.style.left = e.clientX + 'px';
             dot.style.top = e.clientY + 'px';
+
+            // Parallax HUD Elements
+            const hudElements = document.querySelectorAll('.banner-hud-top-left, .banner-hud-top-right, .banner-hud-bottom-left, .banner-hud-bottom-right, .banner-bracket');
+            const ghostText = document.querySelector('.banner-ghost-text');
+            
+            const moveX = (e.clientX - window.innerWidth / 2) / 50;
+            const moveY = (e.clientY - window.innerHeight / 2) / 50;
+
+            hudElements.forEach(el => {
+                el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+
+            if (ghostText) {
+                ghostText.style.transform = `translate(calc(-50% + ${moveX * 2}px), calc(-50% + ${moveY * 2}px))`;
+            }
         });
 
         // Hover effects
@@ -47,10 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('cursor-hover');
                 dot.classList.add('dot-hover');
+                cursor.innerHTML = '<div class="cursor-crosshair"></div>';
             });
             el.addEventListener('mouseleave', () => {
                 cursor.classList.remove('cursor-hover');
                 dot.classList.remove('dot-hover');
+                cursor.innerHTML = '';
             });
         });
     }

@@ -6,15 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const children = el.children;
             Array.from(children).forEach((child, index) => {
                 setTimeout(() => {
+                    child.classList.add("mechanical-reveal");
                     child.classList.add("scroll-on-active");
-                    // If child itself is a scroll-on element, ensure it's handled
-                    if (child.classList.contains('scroll-on')) {
-                        child.classList.add("scroll-on-active");
-                    }
-                }, index * 100); // 100ms stagger
+                }, index * 150); // Slightly slower stagger for impact
             });
             el.classList.add("scroll-on-active");
         } else {
+            el.classList.add("mechanical-reveal");
             el.classList.add("scroll-on-active");
         }
     };
