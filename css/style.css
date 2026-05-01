@@ -1177,6 +1177,62 @@ div.banner-text.scroll-on-active {
     display: none;
 }
 
+/* Team Card HUD Elements */
+.team-card {
+    position: relative;
+}
+
+.team-card-bracket {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .team-card-bracket {
+    border-color: var(--primary-color);
+}
+
+.team-card-bracket.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.team-card-bracket.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+.team-card-bracket.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+.team-card-bracket.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+.team-meta {
+    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.team-scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.03) 0px,
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-scanlines {
+    opacity: 1;
+}
+
 /* ---------------------- MODAL ---------------------- */
 .modal {
     display: none; /* Hidden by default */
@@ -1630,14 +1686,44 @@ div.banner-text.scroll-on-active {
         right: -100%;
         width: 100%;
         height: 100vh;
-        background-color: var(--primary-color);
+        background-color: rgba(0, 0, 0, 0.95);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 30px;
-        transition: right 0.3s ease;
+        transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1);
         z-index: 999;
+        border-left: 2px solid var(--primary-color);
+    }
+
+    .nav-buttons::before {
+        content: '[ SYSTEM_OVERRIDE_MENU ]';
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        font-family: monospace;
+        color: var(--primary-color);
+        font-weight: 800;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .nav-buttons::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(242, 174, 73, 0.03) 0px,
+            rgba(242, 174, 73, 0.03) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+        pointer-events: none;
     }
 
     .studio-description {
@@ -1656,12 +1742,25 @@ div.banner-text.scroll-on-active {
         font-size: 2rem;
         color: white;
         border: none;
+        font-family: monospace;
+        letter-spacing: -1px;
+    }
+
+    .nav-button::before {
+        content: '> ';
+        color: var(--primary-color);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-button:hover::before {
+        opacity: 1;
     }
 
     .nav-button:hover {
         background-color: transparent;
-        color: var(--accent-color);
-        transform: scale(1.1);
+        color: white;
+        transform: scale(1.1) translateX(10px);
     }
 
     div.banner {
