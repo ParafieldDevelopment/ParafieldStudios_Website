@@ -2392,7 +2392,7 @@ body.modal-open .character-img {
 }
 
 @keyframes q-float {
-    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
     20% { opacity: 0.3; }
     80% { opacity: 0.3; }
     100% { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0; }
@@ -2803,3 +2803,135 @@ body.modal-open .character-img {
     }
 }
 
+/* ---------------------- INTRO OVERLAY ANIMATIONS ---------------------- */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000; /* Or a color that fits the initial load */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to top for top-left, bottom for bottom-right */
+    padding: 5vw; /* Responsive padding */
+    font-size: 3vw; /* Responsive font size */
+    font-weight: 900;
+    z-index: 9999; /* Ensure it's on top of everything */
+    pointer-events: none; /* Allow clicks to pass through once animation is done or hidden */
+    opacity: 1;
+    transition: opacity 1s ease-out; /* For fading out the overlay */
+}
+
+.intro-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-phrase {
+    position: absolute;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.intro-phrase.top-left {
+    top: 5vw;
+    left: 5vw;
+    transform: translateY(-20px); /* Initial offset for animation */
+}
+
+.intro-phrase.bottom-right {
+    bottom: 5vw;
+    right: 5vw;
+    transform: translateY(20px); /* Initial offset for animation */
+}
+
+.intro-phrase.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.strikethrough {
+    text-decoration: line-through;
+    color: var(--primary-color); /* Use primary color for strikethrough */
+}
+
+.shaking-text {
+    display: inline-block; /* Required for transform to work */
+    color: var(--secondary-color); /* Glitch Red */
+    /* The violent-shake animation is already defined in style.css, I'll just apply it */
+}
+
+/* Keyframes for initial appearance */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------- GAMES HORIZONTAL SCROLL ---------------------- */
+.games-horizontal-scroll-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hide scrollbar */
+    margin-bottom: 4rem;
+    padding: 2rem 0; /* Add some vertical padding */
+    background-color: #1a1a1a; /* Dark background for contrast */
+}
+
+.games-horizontal-scroll-container {
+    display: flex;
+    flex-wrap: nowrap; /* Keep items in a single line */
+    gap: 1.5rem; /* Space between items */
+    padding: 0 2rem; /* Padding on sides to show partial items */
+    transform: translateX(0); /* Initial position */
+    will-change: transform; /* Optimize for animation */
+}
+
+.games-horizontal-scroll-container .showcase-grid {
+    display: flex; /* Override grid display for horizontal scroll */
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    margin: 0; /* Reset margin from original showcase-grid */
+    padding: 0; /* Reset padding from original showcase-grid */
+    width: auto; /* Allow content to define width */
+}
+
+.games-horizontal-scroll-container .showcase-item {
+    flex-shrink: 0; /* Prevent items from shrinking */
+    width: 400px; /* Fixed width for items in horizontal scroll */
+    max-width: 80vw; /* Responsive width */
+    height: 450px; /* Fixed height for consistency */
+    grid-column: unset !important; /* Override grid column spans */
+    grid-row: unset !important; /* Override grid row spans */
+}
+
+/* Adjust showcase-grid for horizontal scroll context */
+.games-horizontal-scroll-container .showcase-grid.scroll-on[data-stagger="true"] > * {
+    opacity: 1; /* Keep items visible, animation will be handled by JS transform */
+    transform: translateY(0);
+}
+
+/* Ensure the showcase-grid itself doesn't apply its own layout */
+.games-horizontal-scroll-container .showcase-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
