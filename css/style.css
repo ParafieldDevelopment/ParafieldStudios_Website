@@ -493,25 +493,36 @@ div.banner-text.scroll-on-active {
 
 .scribble {
     text-decoration: none;
-    color: #888;
+    color: #ff4444;
     position: relative;
+    font-weight: 900;
+    transition: all 0.3s ease;
 }
 
 .scribble::after {
-    content: '';
+    content: '[ SYSTEM_REDACTED ]';
     position: absolute;
     top: 50%;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: var(--primary-color);
-    transform: scaleX(0) translateY(-50%);
-    transform-origin: left;
-    transition: transform 1s ease 0.5s;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(0);
+    background-color: #ff4444;
+    color: white;
+    font-family: monospace;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    white-space: nowrap;
+    transform-origin: center;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 1;
 }
 
 .scroll-on-active .scribble::after {
-    transform: scaleX(1) translateY(-50%);
+    transform: translate(-50%, -50%) scaleX(1);
+}
+
+.scribble:hover {
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
 }
 
 .games-grid {
@@ -1453,117 +1464,149 @@ div.banner-text.scroll-on-active {
     opacity: 1;
 }
 
-/* ---------------------- MODAL ---------------------- */
+/* ---------------------- MODAL (UNIFIED WORKSTATION) ---------------------- */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 2000; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 2000;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: transparent; /* Handled by JS for animation */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
     align-items: center;
     justify-content: center;
-    pointer-events: none; /* Allow clicks to pass through when hidden/animating initially */
+    pointer-events: none;
 }
 
 .modal.active {
     pointer-events: auto;
-    background-color: rgba(0,0,0,0.8);
-    transition: background-color 0.3s ease;
+    display: flex;
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #000;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
-    width: 95%; /* Wider modal */
-    max-width: 1000px; /* Increased max-width */
-    border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 95%;
+    max-width: 1100px;
+    border-radius: 0;
+    box-shadow: 0 0 50px rgba(242, 174, 73, 0.1);
     position: relative;
-    transform-origin: center center;
-    /* Animation handled by JS */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: row; /* Side by side layout */
-    overflow: hidden; /* Ensure content stays inside rounded corners */
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.modal-content::before {
+    content: 'PARAFIELD_OS';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: monospace;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .close-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: var(--primary-color);
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 20px;
+    right: 30px;
+    font-size: 0.9rem;
+    font-family: monospace;
+    font-weight: 900;
     cursor: pointer;
     z-index: 10;
-}
-
-.close-modal:hover,
-.close-modal:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    letter-spacing: 2px;
 }
 
 .modal-body {
-    padding: 2rem;
-    text-align: left; /* Align text to left */
-    opacity: 0; /* Hidden initially for animation */
-    transition: opacity 0.3s ease 0.1s;
-    width: 60%; /* Take up remaining space */
+    padding: 4rem;
+    text-align: left;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-
-.modal.active .modal-body {
-    opacity: 1;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 1;
 }
 
 .modal-image-placeholder {
-    width: 40%; /* Image takes up 40% */
-    height: auto; /* Auto height to fill container */
-    min-height: 500px; /* Minimum height */
-    background-color: #ddd;
-    border-radius: 0; /* Remove border radius as it's flush with container */
-    margin-bottom: 0;
+    width: 40%;
+    height: auto;
+    min-height: 550px;
+    background-color: #111;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
     background-size: cover;
     background-position: center;
+    filter: grayscale(0.5) brightness(0.8);
+    transition: filter 0.5s ease;
+}
+
+.modal-content:hover .modal-image-placeholder {
+    filter: grayscale(0) brightness(1);
 }
 
 #modal-name {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
     color: var(--primary-color);
-    font-weight: 800;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
 #modal-role {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    font-family: monospace;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+}
+
+.modal-divider {
+    border: none;
+    border-top: 2px solid var(--primary-color);
+    margin-bottom: 2rem;
+    width: 80px;
 }
 
 #modal-description {
     font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: #efefef;
+    margin-bottom: 3rem;
 }
 
 .modal-buttons {
     display: flex;
     gap: 15px;
-    margin-top: auto; /* Push to bottom if needed */
+    margin-top: auto;
+}
+
+@media (max-width: 992px) {
+    .modal-content {
+        flex-direction: column;
+        width: 90%;
+        max-width: 600px;
+    }
+    .modal-image-placeholder {
+        width: 100%;
+        height: 300px;
+        min-height: auto;
+    }
+    .modal-body {
+        width: 100%;
+        padding: 2.5rem;
+    }
+    #modal-name { font-size: 2.2rem; }
 }
 
 .modal-btn {
@@ -2349,13 +2392,44 @@ body.modal-open .character-img {
 
 .insane-text {
     display: inline-block;
-    transition: color 0.5s ease, text-decoration 0.5s ease;
+    position: relative;
+    color: #ff3333;
+    font-weight: 900;
+    text-shadow: 2px 0 0 rgba(255,0,0,0.5), -2px 0 0 rgba(0,0,255,0.5);
+}
+
+.insane-text::before {
+    content: 'ERR: INTEGRITY_FAIL';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-family: monospace;
+    font-size: 0.6rem;
+    color: #ff4444;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-on-active .insane-text::before {
+    opacity: 0.6;
+    animation: alert-blink 1s infinite;
+}
+
+@keyframes alert-blink {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes glitch-corruption {
+    0% { transform: translate(0); text-shadow: 2px 0 0 rgba(255,0,0,0.5), -2px 0 0 rgba(0,0,255,0.5); }
+    2% { transform: translate(2px, -1px); text-shadow: 4px 0 0 rgba(255,0,0,0.7), -4px 0 0 rgba(0,0,255,0.7); }
+    4% { transform: translate(-2px, 1px); }
+    6% { transform: translate(0); }
+    100% { transform: translate(0); }
 }
 
 .scroll-on-active .insane-text {
-    color: #ff3333;
-    text-decoration: underline;
-    animation: violent-shake 0.1s linear infinite;
+    animation: glitch-corruption 2s infinite, violent-shake 0.1s linear infinite;
 }
 
 @media (max-width: 768px) {
