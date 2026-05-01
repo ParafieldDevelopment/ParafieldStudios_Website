@@ -23,10 +23,10 @@ body {
 .role-card {
     background-color: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 3rem 2rem;
+    border-radius: 0; /* Square for HUD look */
+    padding: 3.5rem 2rem;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -35,20 +35,56 @@ body {
     justify-content: center;
 }
 
-.role-card::before {
-    content: '';
+/* Role Card Brackets */
+.role-card-bracket {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.role-card:hover .role-card-bracket {
+    border-color: var(--primary-color);
+}
+
+.role-card-bracket.tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.role-card-bracket.tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+.role-card-bracket.bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+.role-card-bracket.br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+/* Role Card Scanlines */
+.role-card-scanlines {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.role-meta {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    opacity: 0.8;
 }
 
 .role-card:hover {
-    transform: translateY(-12px);
+    transform: translateY(-8px);
     border-color: var(--primary-color);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
@@ -88,12 +124,14 @@ body {
 }
 
 .role-card h3 {
-    font-size: 1.8rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 900;
     color: #fff;
     margin: 0 0 1rem 0;
     position: relative;
     z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: -1px;
 }
 
 .role-card p {
@@ -139,14 +177,14 @@ body {
 .role-contact-btn {
     display: inline-block;
     margin-top: 2rem;
-    padding: 16px 32px;
+    padding: 16px 40px;
     background-color: var(--primary-color);
     color: #fff;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
@@ -493,31 +531,48 @@ div.banner {
 
 .non-profit-disclaimer {
     margin-top: 4rem;
-    padding: 2.5rem;
-    background: linear-gradient(135deg, rgba(255, 71, 87, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
-    border: 1px solid rgba(255, 71, 87, 0.2);
-    border-left: 6px solid #ff4757;
-    border-radius: 24px;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 8px solid #ff4757;
+    border-radius: 0;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
     display: flex;
     align-items: center;
-    gap: 2rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    gap: 2.5rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
+}
+
+.disclaimer-hud {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: rgba(255, 71, 87, 0.6);
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .non-profit-disclaimer::before {
     content: '';
     position: absolute;
     top: 0;
-    right: 0;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle at top right, rgba(255, 71, 87, 0.15) 0%, transparent 70%);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 71, 87, 0.03) 0px,
+        rgba(255, 71, 87, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
     pointer-events: none;
 }
 
@@ -525,8 +580,8 @@ div.banner {
     flex-shrink: 0;
     width: 70px;
     height: 70px;
-    background: rgba(255, 71, 87, 0.15);
-    border-radius: 50%;
+    background: rgba(255, 71, 87, 0.1);
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -553,10 +608,10 @@ div.banner {
 .non-profit-disclaimer strong {
     color: #ff4757;
     display: block;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.3rem;
+    letter-spacing: 3px;
+    font-size: 1.4rem;
     font-weight: 900;
 }
 
@@ -564,7 +619,7 @@ div.banner {
     .non-profit-disclaimer {
         flex-direction: column;
         text-align: center;
-        padding: 2rem;
+        padding: 2.5rem;
         gap: 1.5rem;
     }
     .disclaimer-icon {
