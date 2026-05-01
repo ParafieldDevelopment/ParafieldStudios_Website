@@ -111,6 +111,92 @@
             100% { opacity: 1; transform: scale(1.2); }
         }
 
+        /* Smooth Background Transition */
+        body {
+            background-color: #f4f4f4; /* Match 404.css */
+            transition: background-color 5s ease-in;
+        }
+
+        /* Depth of Field Tape */
+        .tape-strip {
+            position: fixed;
+            width: 200%;
+            height: 60px;
+            /* Classic Hazard Stripes */
+            background: repeating-linear-gradient(
+                45deg,
+                #f2ae49,
+                #f2ae49 40px,
+                #222 40px,
+                #222 80px
+            );
+            z-index: -1;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-top: 4px solid #000;
+            border-bottom: 4px solid #000;
+            opacity: 0.3; /* Lower opacity as requested */
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            filter: blur(4px); /* Depth of field effect */
+            transition: opacity 0.5s;
+        }
+
+        /* Plastic Shimmer Effect */
+        .tape-strip::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shimmer 5s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .strip-1 {
+            top: 15%;
+            left: -50%;
+            transform: rotate(-10deg);
+        }
+
+        .strip-2 {
+            bottom: 20%;
+            right: -50%;
+            transform: rotate(8deg);
+        }
+
+        /* Independent Drift for Tapes */
+        @keyframes drift-away-tape-1 {
+            0% { transform: rotate(-10deg) translate(0, 0); opacity: 0.3; }
+            100% { transform: rotate(-30deg) translate(-200px, 120vh); opacity: 0; }
+        }
+
+        @keyframes drift-away-tape-2 {
+            0% { transform: rotate(8deg) translate(0, 0); opacity: 0.3; }
+            100% { transform: rotate(40deg) translate(300px, 120vh); opacity: 0; }
+        }
+
+        .strip-1.drifting {
+            animation: drift-away-tape-1 6s forwards ease-in !important;
+        }
+
+        .strip-2.drifting {
+            animation: drift-away-tape-2 7s forwards ease-in !important;
+        }
+
         /* Shooting Star */
         .shooting-star {
             position: absolute;
@@ -156,6 +242,10 @@
     <div class="stars-container" id="stars-container">
         <!-- Shooting stars will be added here -->
     </div>
+
+    <!-- Caution Tape -->
+    <div class="tape-strip strip-1"></div>
+    <div class="tape-strip strip-2"></div>
 
     <div class="container">
         <img src="../assets/under-construction-barrier-icon.svg" alt="Under Construction" class="maintenance-img" id="maintenance-img">
@@ -277,7 +367,11 @@
                 eggText.classList.add('visible');
             } else if (clickCount >= finalThreshold) {
                 document.body.style.overflow = 'hidden';
+                document.body.style.backgroundImage = 'none';
+                document.body.style.backgroundColor = '#000';
                 container.classList.add('drifting');
+                // Drift away the caution tape too
+                document.querySelectorAll('.tape-strip').forEach(strip => strip.classList.add('drifting'));
                 starsContainer.style.opacity = '1'; // Fade in the stars
                 eggText.textContent = "Bye bye!";
                 const ambientAudio = document.getElementById('ambient-audio');
