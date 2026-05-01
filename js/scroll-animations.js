@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const children = el.children;
             Array.from(children).forEach((child, index) => {
                 setTimeout(() => {
-                    child.classList.add("mechanical-reveal");
+                    child.classList.add("glitch-reveal-flicker");
                     child.classList.add("scroll-on-active");
                 }, index * 150); // Slightly slower stagger for impact
             });
             el.classList.add("scroll-on-active");
         } else {
-            el.classList.add("mechanical-reveal");
+            el.classList.add("glitch-reveal-flicker");
             el.classList.add("scroll-on-active");
         }
     };
