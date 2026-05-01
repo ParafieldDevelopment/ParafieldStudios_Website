@@ -11,7 +11,36 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = scrolled + "%";
     });
 
-    // 2. Custom Cursor Logic
+    // 2. Terminal Typewriter Effect
+    const typeTitle = (el) => {
+        const text = el.innerText;
+        el.innerText = '';
+        el.classList.add('typing');
+
+        let i = 0;
+        const speed = 70;
+
+        const type = () => {
+            if (i < text.length) {
+                el.innerText += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else {
+                el.classList.remove('typing');
+            }
+        };
+
+        type();
+    };
+
+    const bannerTitles = document.querySelectorAll('.banner-text h1');
+    bannerTitles.forEach((title, index) => {
+        setTimeout(() => {
+            typeTitle(title);
+        }, index * 400 + 500); // Stagger titles
+    });
+
+    // 3. Custom Cursor and Parallax
     const cursor = document.createElement('div');
     const dot = document.createElement('div');
     cursor.className = 'custom-cursor';

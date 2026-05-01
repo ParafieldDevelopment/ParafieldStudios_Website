@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/banner-theme.css">
 </head>
-<body class="progress-body">
+<body class="">
     <script src="js/config-handler.js" defer></script>
     <script src="js/navigation.js" defer></script>
     <script src="js/scroll-animations.js" defer></script>
@@ -37,14 +37,35 @@
     </nav>
 
     <div class="banner scroll-on">
+        <div class="banner-hud-top-left">[ PS_STU_PROG ]</div>
+        <div class="banner-hud-top-right">LAT: 40.7128 | LNG: -74.0060</div>
+        <div class="banner-hud-bottom-left">STATUS: ACTIVE // ACCESS GRANTED</div>
+        <div class="banner-hud-bottom-right">SEC_LVL: 04</div>
+        
+        <div class="banner-ghost-text">COMMAND</div>
+        
+        <img src="assets/logo.svg" alt="banner" class="main-logo scroll-on">
         <div class="banner-text scroll-on">
             <h1>DEVELOPMENT</h1>
             <h1>PROGRESS</h1>
         </div>
+
+        <div class="banner-bracket tl"></div>
+        <div class="banner-bracket tr"></div>
+        <div class="banner-bracket bl"></div>
+        <div class="banner-bracket br"></div>
     </div>
 
     <main class="content">
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <span class="ticker-item">PARAFIELD STUDIOS // [ ACCESS GRANTED ] // LABORATORY ACCESS // SYSTEM STATUS: OPTIMAL //</span>
+                <span class="ticker-item">PARAFIELD STUDIOS // [ ACCESS GRANTED ] // LABORATORY ACCESS // SYSTEM STATUS: OPTIMAL //</span>
+            </div>
+        </div>
+
         <section class="intro-section scroll-on">
+            <div class="section-hud">01 // LABORATORY: ACTIVE PROJECTS</div>
             <div class="tab-system">
                 <button class="tab-btn active" data-tab="progress-list">PROGRESS</button>
                 <button class="tab-btn" data-tab="updates-list">DEV UPDATES</button>
@@ -97,6 +118,9 @@
     </div>
 
     <footer class="footer">
+        <div class="footer-hud-left">MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</div>
+        <div class="footer-hud-right">SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</div>
+        
         <div class="footer-container">
             <div class="footer-left">
                 <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
