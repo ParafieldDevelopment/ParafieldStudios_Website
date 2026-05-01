@@ -330,6 +330,63 @@ div.banner-text h1.typing::after {
 .banner-bracket.bl { bottom: 100px; left: 20px; border-right: none; border-top: none; }
 .banner-bracket.br { bottom: 100px; right: 20px; border-left: none; border-top: none; }
 
+/* Rotating Reticle (Command Center Detail) */
+.rotating-reticle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+    animation: rotate-slow 30s linear infinite;
+    filter: brightness(0) invert(1);
+}
+
+.rotating-reticle.tl { top: -20px; left: -20px; }
+.rotating-reticle.tr { top: -20px; right: -20px; }
+.rotating-reticle.bl { bottom: 60px; left: -20px; }
+.rotating-reticle.br { bottom: 60px; right: -20px; }
+
+@keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Scanning Hover Animation (High-End Interaction) */
+.scanning-hover {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.scanning-hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(242, 174, 73, 0.1),
+        rgba(242, 174, 73, 0.4),
+        rgba(242, 174, 73, 0.1),
+        transparent
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.scanning-hover:hover::after {
+    animation: scan-sweep 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes scan-sweep {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
 div.banner img.main-logo {
     height: 35vh;
     width: auto;

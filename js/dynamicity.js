@@ -142,4 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 5. Dynamic Coordinates
+    const coordsDisplay = document.querySelector('.banner-hud-top-right');
+    if (coordsDisplay) {
+        document.addEventListener('mousemove', (e) => {
+            const lat = (e.clientY / window.innerHeight * 90).toFixed(4);
+            const lng = (e.clientX / window.innerWidth * 180).toFixed(4);
+            coordsDisplay.innerText = `LAT: ${lat} | LNG: ${lng}`;
+        });
+    }
 });

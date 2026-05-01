@@ -139,18 +139,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                     // Modal Click Logic
                     card.addEventListener('click', () => {
-                        mImg.src = imagePath;
-                        mImg.className = hasImage ? '' : 'is-placeholder';
-                        mName.textContent = `> ${project.name}`;
-                        mStatus.textContent = project.status;
-                        mPercent.textContent = project.progress + '%';
-                        mDesc.textContent = project.description || 'ACCESSING DATA...';
-                        
-                        // Load project specific logs
-                        renderLogs(modalLogsContainer, project.name);
-
-                        modal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
+                        openTechnicalModal('project-modal', {
+                            name: `> ${project.name}`,
+                            description: project.description || 'ACCESSING DATA...',
+                            image: imagePath,
+                            status: project.status,
+                            progress: project.progress,
+                            projectName: project.name // for logs
+                        });
                     });
 
                     grid.appendChild(card);
@@ -160,15 +156,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             progressContainer.appendChild(grid);
         });
 
-        // Close Modal Logic
-        const closeModal = () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        };
-
-        closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
+        // Technical Modal event listener for custom fields
+        window.addEventListener('technicalModalOpened', (e) => {
+            const { modalId, data } = e.detail;
+            if (modalId === 'project-modal') {
+                const mStatus = document.getElementById('modal-project-status');
+                const mPercent = document.getElementById('modal-project-percent');
+                const mLogsContainer = document.getElementById('modal-logs-container');
+                
+                if (mStatus) mStatus.textContent = data.status;
+                if (mPercent) mPercent.textContent = data.progress + '%';
+                if (mLogsContainer) renderLogs(mLogsContainer, data.projectName);
+            }
         });
 
         setTimeout(() => {
