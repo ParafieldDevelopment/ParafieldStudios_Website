@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             } else {
                 catProjects.forEach(project => {
                     const card = document.createElement('div');
-                    card.className = 'dashboard-card scroll-on-active';
+                    card.className = 'dashboard-card mechanical-reveal';
                     card.style.cursor = 'pointer';
                     
                     const hasImage = !!project.image;
@@ -117,6 +117,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const showProgress = !project.hideProgress;
                     
                     card.innerHTML = `
+                        <div class="dashboard-card-bracket tl"></div>
+                        <div class="dashboard-card-bracket tr"></div>
+                        <div class="dashboard-card-bracket bl"></div>
+                        <div class="dashboard-card-bracket br"></div>
+                        
                         <div class="${imageClass}" style="background-image: url('${imagePath}')"></div>
                         <div class="dashboard-info">
                             <h3>${project.name}</h3>
