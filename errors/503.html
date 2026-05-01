@@ -10,6 +10,28 @@
     <link rel="stylesheet" href="../css/404.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <style>
+        /* Animation keyframes */
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Staggered animation for container children */
+        .container > * {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        /* Specific animation delays */
+        .container #easter-egg-text { animation-delay: 0.2s; }
+        .container h1 { animation-delay: 0.3s; }
+        .container p:nth-of-type(1) { animation-delay: 0.4s; } /* Main descriptive paragraph */
+        .container .home-link { animation-delay: 0.5s; }
+        .container .funny-section { animation-delay: 0.6s; }
+
+        /* Existing styles */
         .maintenance-img {
             width: 250px;
             height: 150px;
@@ -18,6 +40,13 @@
             cursor: pointer;
             transition: transform 0.1s;
             user-select: none;
+            /* Initial state for bounceIn */
+            opacity: 0;
+            transform: scale(0.8);
+            /* Combine bounceIn and tilt animations */
+            animation:
+                bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.1s forwards, /* bounceIn with delay */
+                tilt 2s infinite ease-in-out 0.9s; /* tilt starts after bounceIn finishes (0.8s + 0.1s delay) */
         }
 
         .maintenance-img:active {

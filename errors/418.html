@@ -10,19 +10,50 @@
     <link rel="stylesheet" href="../css/404.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <style>
-        .teapot-img {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: tilt 2s infinite ease-in-out;
-            /* filter: invert(1); Removed as requested */
+        /* Animation keyframes */
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         @keyframes tilt {
             0%, 100% { transform: rotate(0deg); }
             25% { transform: rotate(-10deg); }
             75% { transform: rotate(10deg); }
+        }
+
+        /* Staggered animation for container children */
+        .container > * {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        /* Specific animation delays */
+        .container h1 { animation-delay: 0.2s; }
+        .container p:nth-of-type(1) { animation-delay: 0.3s; } /* Main descriptive paragraph */
+        .container .home-link { animation-delay: 0.4s; }
+        .container .funny-section { animation-delay: 0.5s; }
+
+        /* Existing styles for teapot-img, now combining animations */
+        .teapot-img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            display: inline-block;
+            /* Initial state for bounceIn */
+            opacity: 0;
+            transform: scale(0.8);
+            /* Combine bounceIn and tilt animations */
+            animation:
+                bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.1s forwards, /* bounceIn with delay */
+                tilt 2s infinite ease-in-out 0.9s; /* tilt starts after bounceIn finishes (0.8s + 0.1s delay) */
+            /* filter: invert(1); Removed as requested */
+        }
+
+        .teapot-img:active {
+            transform: scale(0.95);
         }
     </style>
 </head>

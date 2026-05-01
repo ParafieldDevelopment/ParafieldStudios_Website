@@ -10,6 +10,30 @@
     <link rel="stylesheet" href="../css/404.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <style>
+        /* Animation styles */
+        body {
+            /* Keep body visible initially, individual elements will be hidden */
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .container > * {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        .container .error-img { animation-delay: 0.1s; }
+        .container h1 { animation-delay: 0.2s; }
+        .container p:nth-of-type(1) { animation-delay: 0.3s; } /* Main descriptive paragraph */
+        .container .home-link { animation-delay: 0.4s; }
+        .container .funny-section { animation-delay: 0.5s; }
+
+        /* Existing styles */
         .error-img {
             width: 260px; /* Adjust size as needed */
             /*height: 306px;*/
@@ -43,7 +67,7 @@
             "Request malformed. Please try again, but better.",
             "Even I'm confused by that request.",
             "Maybe you forgot your CHATGPT Wifiu API key buddy.",
-            ""
+            "Do fucking better."
         ];
 
         const funnyTextElement = document.getElementById('funny-text');
