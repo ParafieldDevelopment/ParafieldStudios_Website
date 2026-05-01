@@ -11,38 +11,48 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = scrolled + "%";
     });
 
-    // 2. Custom Cursor
+    // 2. Custom Cursor Logic
     const cursor = document.createElement('div');
+    const dot = document.createElement('div');
     cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
+    dot.className = 'custom-cursor-dot';
 
-    const cursorDot = document.createElement('div');
-    cursorDot.className = 'custom-cursor-dot';
-    document.body.appendChild(cursorDot);
+    // Device detection: only enable custom cursor on non-touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    // Only show cursor on non-touch devices
-    if (!('ontouchstart' in window)) {
+    if (!isTouchDevice) {
+        document.body.appendChild(cursor);
+        document.body.appendChild(dot);
+        
+        // Safety: Only hide the real cursor if we are actually showing the custom one
+        document.body.style.cursor = 'none';
+        
+        // Handle interactive elements specifically to hide OS cursor on them
+        const interactiveSelectors = 'a, button, [role="button"], input, select, textarea, .team-card, .showcase-item, .nav-button, .modal-btn, .careers-link, .isounds-btn, .careers-btn';
+        const style = document.createElement('style');
+        style.innerHTML = `${interactiveSelectors} { cursor: none !important; }`;
+        document.head.appendChild(style);
+
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
         });
 
-        const interactiveElements = document.querySelectorAll('a, button, .team-card, .showcase-item');
+        // Hover effects
+        const interactiveElements = document.querySelectorAll(interactiveSelectors);
+
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('cursor-hover');
-                cursorDot.classList.add('dot-hover');
+                dot.classList.add('dot-hover');
             });
             el.addEventListener('mouseleave', () => {
                 cursor.classList.remove('cursor-hover');
-                cursorDot.classList.remove('dot-hover');
+                dot.classList.remove('dot-hover');
             });
         });
-    } else {
-        cursor.style.display = 'none';
-        cursorDot.style.display = 'none';
     }
 
     // 3. Magnetic Buttons
@@ -62,26 +72,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. 3D Tilt Effect
-    const tiltElements = document.querySelectorAll('.showcase-item, .team-card');
-    
-    tiltElements.forEach(el => {
-        el.addEventListener('mousemove', (e) => {
-            const rect = el.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 60;
-            const rotateY = (centerX - x) / 60;
-            
-            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
-        });
+    // 4. 3D Tilt Effect (Desktop Only)
+    if (!isTouchDevice) {
+        const tiltElements = document.querySelectorAll('.showcase-item, .team-card');
         
-        el.addEventListener('mouseleave', () => {
-            el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+        tiltElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 60;
+                const rotateY = (centerX - x) / 60;
+                
+                el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+            });
         });
-    });
+    }
 });

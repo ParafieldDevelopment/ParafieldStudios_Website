@@ -1,11 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const scrollElements = document.querySelectorAll(".scroll-on");
 
-    const elementInView = (el, offset = 0) => {
-        const elementTop = el.getBoundingClientRect().top;
-        return elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset;
-    };
-
     const displayScrollElement = (el) => {
         if (el.dataset.stagger === "true") {
             const children = el.children;
@@ -24,15 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const handleScrollAnimation = () => {
-        scrollElements.forEach((el) => {
-            if (elementInView(el, 100) && !el.classList.contains("scroll-on-active")) {
-                displayScrollElement(el);
-            }
-        });
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the element is visible
     };
 
-    window.addEventListener("scroll", handleScrollAnimation);
-    // Initial check
-    handleScrollAnimation();
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                displayScrollElement(entry.target);
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, observerOptions);
+
+    scrollElements.forEach((el) => {
+        observer.observe(el);
+    });
 });

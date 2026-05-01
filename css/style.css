@@ -27,7 +27,6 @@ html, body {
     background-color: var(--background-color);
     color: var(--text-color);
     overflow-x: hidden;
-    cursor: none; /* Hide OS cursor */
 }
 
 /* Ensure banner images are white on legal pages where class might be missing */
@@ -1761,11 +1760,6 @@ body.modal-open .character-img {
     color: #ff3333;
     text-decoration: underline;
     animation: violent-shake 0.1s linear infinite;
-}
-
-/* Force hide cursor on interactive elements */
-a, button, [role="button"], input, select, textarea, .team-card, .showcase-item {
-    cursor: none !important;
 }
 
 @media (max-width: 768px) {
