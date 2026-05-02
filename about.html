@@ -183,6 +183,7 @@
         const CONTENT_IN_PX     = 280;
         const CONTENT_OUT_PX    = 280;
         const TICKER_OFFSET     = 250;
+        const NAV_HEIGHT        = 72; // Height of the fixed navigation bar
 
         /* ── ELEMENTS ── */
         const spacer         = document.getElementById('scroll-spacer');
@@ -191,36 +192,68 @@
         const aboutHeroText  = document.getElementById('about-hero-text');
         const aboutContentLayer = document.getElementById('about-content-layer');
         const tickerEl       = document.getElementById('ticker-layer');
+        const footerLayer    = document.getElementById('footer-layer');
 
         /* ── PHASE MAP ── */
         let PH = {};
 
         function buildPhases() {
-            // Calculate actual height of the content within about-content-layer
-            let contentHeight = 0;
-            const contentInners = aboutContentLayer.querySelectorAll('.about-content-inner');
-            contentInners.forEach(el => {
-                contentHeight += el.offsetHeight;
-                const style = getComputedStyle(el);
-                contentHeight += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-            });
+            const viewportHeight = window.innerHeight;
+            const footerHeight = footerLayer.offsetHeight;
 
-            // Ensure CONTENT_HOLD_PX is at least the content height minus viewport height
-            // plus some buffer, or a minimum value. Add extra buffer for padding/margins.
-            const dynamicContentHold = Math.max(200, contentHeight - window.innerHeight + 200); // Min 200px hold, plus buffer
+            // Temporarily make aboutContentLayer static to measure its full content height
+            const originalAboutContentLayerStyles = {
+                position: aboutContentLayer.style.position,
+                top: aboutContentLayer.style.top,
+                bottom: aboutContentLayer.style.bottom,
+                height: aboutContentLayer.style.height,
+                overflowY: aboutContentLayer.style.overflowY,
+                display: aboutContentLayer.style.display,
+                flexDirection: aboutContentLayer.style.flexDirection
+            };
+
+            aboutContentLayer.style.position = 'static';
+            aboutContentLayer.style.top = 'auto';
+            aboutContentLayer.style.bottom = 'auto';
+            aboutContentLayer.style.height = 'auto';
+            aboutContentLayer.style.overflowY = 'visible';
+            aboutContentLayer.style.display = 'block'; // Temporarily change to block to get natural flow height
+
+            const actualContentScrollHeight = aboutContentLayer.scrollHeight;
+
+            // Restore original styles
+            aboutContentLayer.style.position = originalAboutContentLayerStyles.position;
+            aboutContentLayer.style.top = originalAboutContentLayerStyles.top;
+            aboutContentLayer.style.bottom = originalAboutContentLayerStyles.bottom;
+            aboutContentLayer.style.height = originalAboutContentLayerStyles.height;
+            aboutContentLayer.style.overflowY = originalAboutContentLayerStyles.overflowY;
+            aboutContentLayer.style.display = originalAboutContentLayerStyles.display;
+            aboutContentLayer.style.flexDirection = originalAboutContentLayerStyles.flexDirection;
+
 
             PH.h0 = 0;
             PH.h1 = ABOUT_HERO_OUT_PX;
 
             PH.c0 = PH.h1;
             PH.c1 = PH.c0 + CONTENT_IN_PX;
-            PH.c2 = PH.c1 + dynamicContentHold; // Use dynamic hold
+
+            // The content needs to "hold" for its actual height to be scrollable.
+            // This distance should be enough to scroll the entire content layer past the viewport.
+            // We need to ensure the entire content can be scrolled, considering the fixed nav.
+            // The content layer itself has padding-top: 72px for the nav.
+            // So, the scrollable distance is its full content height minus the viewport height,
+            // plus the height of the fixed nav so the top of the content can reach the top of the viewport.
+            const scrollableContentDistance = Math.max(0, actualContentScrollHeight - (viewportHeight - NAV_HEIGHT));
+
+            PH.c2 = PH.c1 + scrollableContentDistance;
             PH.c3 = PH.c2 + CONTENT_OUT_PX;
 
             PH.t0 = PH.c3 - TICKER_OFFSET;
             PH.t1 = PH.c3;
 
-            spacer.style.height = (PH.t1 + window.innerHeight) + 'px';
+            // Total scroll height needs to accommodate all phases plus the viewport height for the last section
+            // and the footer height.
+            spacer.style.height = (PH.t1 + viewportHeight + footerHeight) + 'px';
         }
 
         /* ── MATH HELPERS ── */

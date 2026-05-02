@@ -272,6 +272,7 @@
         const POSITIONS_IN_PX     = 280;
         const POSITIONS_OUT_PX    = 280;
         const TICKER_OFFSET       = 250;
+        const NAV_HEIGHT          = 72; // Height of the fixed navigation bar
 
         /* ── ELEMENTS ── */
         const spacer            = document.getElementById('scroll-spacer');
@@ -281,40 +282,85 @@
         const careersIntroLayer = document.getElementById('careers-intro-layer');
         const openPositionsLayer= document.getElementById('open-positions-layer');
         const tickerEl          = document.getElementById('ticker-layer');
+        const footerLayer       = document.getElementById('footer-layer');
 
         /* ── PHASE MAP ── */
         let PH = {};
 
         function buildPhases() {
-            // Calculate actual height of the content within careers-intro-layer
-            let introContentHeight = careersIntroLayer.querySelector('.careers-intro-inner').offsetHeight;
-            const introStyle = getComputedStyle(careersIntroLayer.querySelector('.careers-intro-inner'));
-            introContentHeight += parseFloat(introStyle.marginTop) + parseFloat(introStyle.marginBottom);
-            const dynamicIntroHold = Math.max(200, introContentHeight - window.innerHeight + 200);
+            const viewportHeight = window.innerHeight;
+            const footerHeight = footerLayer.offsetHeight;
 
-            // Calculate actual height of the content within open-positions-layer
-            let positionsContentHeight = openPositionsLayer.querySelector('.open-positions-inner').offsetHeight;
-            const positionsStyle = getComputedStyle(openPositionsLayer.querySelector('.open-positions-inner'));
-            positionsContentHeight += parseFloat(positionsStyle.marginTop) + parseFloat(positionsStyle.marginBottom);
-            const dynamicPositionsHold = Math.max(200, positionsContentHeight - window.innerHeight + 200);
+            // --- Measure careersIntroLayer height ---
+            const originalIntroLayerStyles = {
+                position: careersIntroLayer.style.position,
+                top: careersIntroLayer.style.top,
+                bottom: careersIntroLayer.style.bottom,
+                height: careersIntroLayer.style.height,
+                overflowY: careersIntroLayer.style.overflowY,
+                display: careersIntroLayer.style.display,
+                flexDirection: careersIntroLayer.style.flexDirection
+            };
+            careersIntroLayer.style.position = 'static';
+            careersIntroLayer.style.top = 'auto';
+            careersIntroLayer.style.bottom = 'auto';
+            careersIntroLayer.style.height = 'auto';
+            careersIntroLayer.style.overflowY = 'visible';
+            careersIntroLayer.style.display = 'block';
+            const actualIntroScrollHeight = careersIntroLayer.scrollHeight;
+            careersIntroLayer.style.position = originalIntroLayerStyles.position;
+            careersIntroLayer.style.top = originalIntroLayerStyles.top;
+            careersIntroLayer.style.bottom = originalIntroLayerStyles.bottom;
+            careersIntroLayer.style.height = originalIntroLayerStyles.height;
+            careersIntroLayer.style.overflowY = originalIntroLayerStyles.overflowY;
+            careersIntroLayer.style.display = originalIntroLayerStyles.display;
+            careersIntroLayer.style.flexDirection = originalIntroLayerStyles.flexDirection;
+
+            // --- Measure openPositionsLayer height ---
+            const originalPositionsLayerStyles = {
+                position: openPositionsLayer.style.position,
+                top: openPositionsLayer.style.top,
+                bottom: openPositionsLayer.style.bottom,
+                height: openPositionsLayer.style.height,
+                overflowY: openPositionsLayer.style.overflowY,
+                display: openPositionsLayer.style.display,
+                flexDirection: openPositionsLayer.style.flexDirection
+            };
+            openPositionsLayer.style.position = 'static';
+            openPositionsLayer.style.top = 'auto';
+            openPositionsLayer.style.bottom = 'auto';
+            openPositionsLayer.style.height = 'auto';
+            openPositionsLayer.style.overflowY = 'visible';
+            openPositionsLayer.style.display = 'block';
+            const actualPositionsScrollHeight = openPositionsLayer.scrollHeight;
+            openPositionsLayer.style.position = originalPositionsLayerStyles.position;
+            openPositionsLayer.style.top = originalPositionsLayerStyles.top;
+            openPositionsLayer.style.bottom = originalPositionsLayerStyles.bottom;
+            openPositionsLayer.style.height = originalPositionsLayerStyles.height;
+            openPositionsLayer.style.overflowY = originalPositionsLayerStyles.overflowY;
+            openPositionsLayer.style.display = originalPositionsLayerStyles.display;
+            openPositionsLayer.style.flexDirection = originalPositionsLayerStyles.flexDirection;
+
 
             PH.h0 = 0;
             PH.h1 = CAREERS_HERO_OUT_PX;
 
             PH.i0 = PH.h1;
             PH.i1 = PH.i0 + INTRO_IN_PX;
-            PH.i2 = PH.i1 + dynamicIntroHold; // Use dynamic hold
+            const scrollableIntroDistance = Math.max(0, actualIntroScrollHeight - (viewportHeight - NAV_HEIGHT));
+            PH.i2 = PH.i1 + scrollableIntroDistance;
             PH.i3 = PH.i2 + INTRO_OUT_PX;
 
             PH.p0 = PH.i3;
             PH.p1 = PH.p0 + POSITIONS_IN_PX;
-            PH.p2 = PH.p1 + dynamicPositionsHold; // Use dynamic hold
+            const scrollablePositionsDistance = Math.max(0, actualPositionsScrollHeight - (viewportHeight - NAV_HEIGHT));
+            PH.p2 = PH.p1 + scrollablePositionsDistance;
             PH.p3 = PH.p2 + POSITIONS_OUT_PX;
 
             PH.t0 = PH.p3 - TICKER_OFFSET;
             PH.t1 = PH.p3;
 
-            spacer.style.height = (PH.t1 + window.innerHeight) + 'px';
+            spacer.style.height = (PH.t1 + viewportHeight + footerHeight) + 'px';
         }
 
         /* ── MATH HELPERS ── */
