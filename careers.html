@@ -30,10 +30,21 @@
     <meta itemprop="name" content="Parafield Studios - Careers">
     <meta itemprop="description" content="Join the chaos at Parafield Studios. Explore voluntary roles and help us build something cool. Explore our open developer and QA tester positions.">
     <meta itemprop="image" content="https://www.parafieldstudios.com/assets/EmbedImages/Career.png">
+    <style>
+        #careers-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/CC/BetterGameBackground.png'); /* Placeholder background */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 <body>
 
+<div id="scroll-spacer"></div>
+
 <div id="stage">
+
     <!-- NAV -->
     <nav id="nav">
         <img src="assets/logo.svg" alt="Parafield Studios" class="nav-logo">
@@ -41,24 +52,40 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="careers.html">Careers</a></li>
-            <li><a href="https://learn.parafieldstudios.com">Learn</a></li>
+            <!-- <li><a href="https://learn.parafieldstudios.com">Learn</a></li> -->
         </ul>
     </nav>
 
-    <!-- CONTENT -->
-    <main style="padding: 120px 4rem 4rem; color: #fff;">
-        <h1 style="font-size: 3rem; margin-bottom: 2rem;">Careers</h1>
-        
-        <section class="intro-section scroll-on">
-            <div class="section-hud">01 // DEPLOYMENT INTEL</div>
-            <h2 class="section-title">You actually want to join us?</h2>
-            <p class="section-subtitle">Well if you really wanted to, we don't mind! We need more people to help us learn more with procrastinating!</p>
-            <div class="studio-desc-content">
-                <p>Jokes aside though We're a passionate, chaotic, and creative bunch. We believe in making cool things and having fun while doing it. Our studio is a place where your ideas can come to life, and your voice will be heard. We're a team of dreamers and morons, and we're looking for more people like us.</p>
-                <p><small>Even though our funding isn't that great. We were hopeful for any new members who would want to join in on the fun.</small></p>
-            </div>
+    <!-- CAREERS HERO -->
+    <div id="careers-hero" class="hero-section">
+        <div class="hud tl">[ PS_CAR_40.7 ] // SYSTEM ACTIVE</div>
+        <div class="hud tr">LAT: 40.7128 | LNG: -74.0060</div>
+        <div class="hud bl">STATUS: ACTIVE // ACCESS GRANTED</div>
+        <div class="hud br">SEC_LVL: 04</div>
+        <div class="bracket tl"></div><div class="bracket tr"></div>
+        <div class="bracket bl"></div><div class="bracket br"></div>
 
-            <div class="non-profit-disclaimer scroll-on">
+        <div id="careers-hero-text">
+            <div class="hero-eyebrow">// Join the Team · Voluntary Roles</div>
+            <h1 class="hero-title">JOIN THE<br><span class="amber">CHAOS</span></h1>
+            <p class="hero-sub">You actually want to join us? Well if you really wanted to, we don't mind! We need more people to help us learn more with procrastinating!</p>
+        </div>
+
+        <div id="scroll-hint">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </div>
+
+    <!-- CAREERS INTRO -->
+    <div id="careers-intro-layer">
+        <div class="careers-intro-inner">
+            <div class="section-label">01 // DEPLOYMENT INTEL</div>
+            <h2 class="careers-big-title">WE'RE LOOKING<br>FOR<br><span class="outline">TALENT!</span></h2>
+            <p class="careers-desc">Jokes aside though We're a passionate, chaotic, and creative bunch. We believe in making cool things and having fun while doing it. Our studio is a place where your ideas can come to life, and your voice will be heard. We're a team of dreamers and morons, and we're looking for more people like us.</p>
+            <p class="careers-desc"><small>Even though our funding isn't that great. We were hopeful for any new members who would want to join in on the fun.</small></p>
+
+            <div class="non-profit-disclaimer">
                 <div class="disclaimer-hud">[ SYSTEM_NOTICE_404 ]</div>
                 <div class="disclaimer-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
@@ -68,14 +95,18 @@
                     <p>Parafield Studios is a non-profit organization. All positions listed are currently voluntary and unpaid. We are a team of passionate creators working together for the love of the craft and to gain experience in the industry.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section class="intro-section scroll-on">
-            <div class="section-hud">02 // OPEN POSITIONS</div>
-            <h2 class="section-title">Join the Squad</h2>
-            <p class="section-subtitle">We're always looking for passionate people. See if you're a fit for any of our teams.</p>
-            <div class="roles-grid scroll-on" data-stagger="true">
-                <div class="role-card aux-dev-card mechanical-reveal scanning-hover" data-color="#33a1ff" data-priority="true">
+    <!-- OPEN POSITIONS -->
+    <div id="open-positions-layer">
+        <div class="open-positions-inner">
+            <div class="section-label">02 // OPEN POSITIONS</div>
+            <h2 class="careers-big-title">JOIN THE<br><span class="amber">SQUAD</span></h2>
+            <p class="careers-desc">We're always looking for passionate people. See if you're a fit for any of our teams.</p>
+
+            <div class="roles-grid">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" target="_blank" class="role-card aux-dev-card mechanical-reveal scanning-hover" data-color="#33a1ff" data-priority="true">
                     <div class="role-card-bracket tl"></div>
                     <div class="role-card-bracket tr"></div>
                     <div class="role-card-bracket bl"></div>
@@ -99,10 +130,10 @@
                         </ul>
                     </div>
                     <div class="card-buttons">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" class="modal-btn primary">Apply Now</a>
+                        <span class="modal-btn primary">Apply Now</span>
                     </div>
-                </div>
-                <div class="role-card qa-card mechanical-reveal scanning-hover" data-color="#28a745" data-priority="true">
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" target="_blank" class="role-card qa-card mechanical-reveal scanning-hover" data-color="#28a745" data-priority="true">
                     <div class="role-card-bracket tl"></div>
                     <div class="role-card-bracket tr"></div>
                     <div class="role-card-bracket bl"></div>
@@ -126,10 +157,10 @@
                         </ul>
                     </div>
                     <div class="card-buttons">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" class="modal-btn primary">Apply Now</a>
+                        <span class="modal-btn primary">Apply Now</span>
                     </div>
-                </div>
-                <div class="role-card staff-card mechanical-reveal scanning-hover" data-color="#ff8c00">
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" target="_blank" class="role-card staff-card mechanical-reveal scanning-hover" data-color="#ff8c00">
                     <div class="role-card-bracket tl"></div>
                     <div class="role-card-bracket tr"></div>
                     <div class="role-card-bracket bl"></div>
@@ -152,77 +183,175 @@
                         </ul>
                     </div>
                     <div class="card-buttons">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform" class="modal-btn primary">Apply Now</a>
+                        <span class="modal-btn primary">Apply Now</span>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="final-cta">
                 <p>Well.. Would you like to join?</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform?usp=sharing&ouid=111949429715585005508" class="role-contact-btn">Join Us!</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_x5uUq4_LkQ26PYR41e2NpzZtyUfO7cfFp2c_9PvKDSuZcg/viewform?usp=sharing&ouid=111949429715585005508" target="_blank" class="role-contact-btn">Join Us!</a>
             </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <div id="footer-layer">
-        <footer>
-            <div class="footer-hud">
-                <span>MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</span>
-                <span>SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</span>
-            </div>
-            <div class="footer-grid">
-                <div>
-                    <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
-                    <p class="footer-tagline">An independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.</p>
-                    <div class="footer-social">
-                        <a href="https://x.com/ParafieldStudio" target="_blank" class="social-pill">Twitter</a>
-                        <a href="https://discord.gg/23FVgBaYYh" target="_blank" class="social-pill">Discord</a>
-                    </div>
-                </div>
-                <div>
-                    <div class="footer-col-title">Explore</div>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="https://learn.parafieldstudios.com">Learn</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-col-title">Legal</div>
-                    <ul class="footer-links">
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html">Terms of Service</a></li>
-                        <li><a href="do-not-sell-my-information.html">Do Not Sell My Info</a></li>
-                        <li><a href="health-and-safety.html">Health &amp; Safety</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-col-title">Contact</div>
-                    <ul class="footer-links">
-                        <li><a href="mailto:hello@parafieldstudios.com">hello@parafieldstudios.com</a></li>
-                        <li><a href="progress.html">Dev Progress</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span class="footer-copyright">© 2026 PARAFIELD STUDIOS // ALL RIGHTS RESERVED</span>
-                <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
-                    <span>Hosted via Cloudflare Pages</span>
-                    <img src="assets/cloudflare.png" alt="Cloudflare">
-                </a>
-            </div>
-        </footer>
+        </div>
     </div>
+
+    <!-- TICKER -->
+    <div id="ticker-layer">
+        <div class="ticker-inner">
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">INSPIRING OTHERS //</span>
+            <span class="ticker-item">DEPLOYING CREATIVITY //</span><span class="ticker-item">INSPIRE THE WORLD //</span>
+            <span class="ticker-item">GAME DEV //</span><span class="ticker-item">COMMAND CENTER //</span>
+            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">SEC_LVL_04 //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">INSPIRING OTHERS //</span>
+            <span class="ticker-item">DEPLOYING CREATIVITY //</span><span class="ticker-item">INSPIRE THE WORLD //</span>
+            <span class="ticker-item">GAME DEV //</span><span class="ticker-item">COMMAND CENTER //</span>
+            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">SEC_LVL_04 //</span>
+        </div>
+    </div>
+
+</div><!-- #stage -->
+
+<div id="footer-layer">
+    <footer>
+        <div class="footer-hud">
+            <span>MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</span>
+            <span>SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</span>
+        </div>
+        <div class="footer-grid">
+            <div>
+                <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
+                <p class="footer-tagline">An independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.</p>
+                <div class="footer-social">
+                    <a href="https://x.com/ParafieldStudio" target="_blank" class="social-pill">Twitter</a>
+                    <a href="https://discord.gg/23FVgBaYYh" target="_blank" class="social-pill">Discord</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-col-title">Explore</div>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="https://learn.parafieldstudios.com">Learn</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-col-title">Legal</div>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="do-not-sell-my-information.html">Do Not Sell My Info</a></li>
+                    <li><a href="health-and-safety.html">Health &amp; Safety</a></li>
+                </ul>
+            </div>
+            <div>
+                <!-- <div class="footer-col-title">Contact</div> -->
+                <!-- <ul class="footer-links"> -->
+                <!--     <li><a href="mailto:hello@parafieldstudios.com">hello@parafieldstudios.com</a></li> -->
+                <!--     <li><a href="progress.html">Dev Progress</a></li> -->
+                <!-- </ul> -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS // ALL RIGHTS RESERVED</span>
+            <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
+                <span>Hosted via Cloudflare Pages</span>
+                <img src="assets/cloudflare.png" alt="Cloudflare">
+            </a>
+        </div>
+    </footer>
 </div>
 
 <script>
-    // Simple navigation handler
-    const navEl = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-        navEl.classList.toggle('solid', window.scrollY > 30);
-    });
-</script>
+    (function(){
+        'use strict';
 
+        /* ── SCROLL BUDGETS (px) ── */
+        const CAREERS_HERO_OUT_PX = 600;
+        const INTRO_IN_PX         = 280;
+        const INTRO_HOLD_PX       = 800; // Adjust as needed for content length
+        const INTRO_OUT_PX        = 280;
+        const POSITIONS_IN_PX     = 280;
+        const POSITIONS_HOLD_PX   = 1000; // Adjust as needed for content length
+        const POSITIONS_OUT_PX    = 280;
+        const TICKER_OFFSET       = 250;
+
+        /* ── ELEMENTS ── */
+        const spacer            = document.getElementById('scroll-spacer');
+        const navEl             = document.getElementById('nav');
+        const careersHero       = document.getElementById('careers-hero');
+        const careersHeroText   = document.getElementById('careers-hero-text');
+        const careersIntroLayer = document.getElementById('careers-intro-layer');
+        const openPositionsLayer= document.getElementById('open-positions-layer');
+        const tickerEl          = document.getElementById('ticker-layer');
+
+        /* ── PHASE MAP ── */
+        let PH = {};
+
+        function buildPhases() {
+            PH.h0 = 0;
+            PH.h1 = CAREERS_HERO_OUT_PX;
+
+            PH.i0 = PH.h1;
+            PH.i1 = PH.i0 + INTRO_IN_PX;
+            PH.i2 = PH.i1 + INTRO_HOLD_PX;
+            PH.i3 = PH.i2 + INTRO_OUT_PX;
+
+            PH.p0 = PH.i3;
+            PH.p1 = PH.p0 + POSITIONS_IN_PX;
+            PH.p2 = PH.p1 + POSITIONS_HOLD_PX;
+            PH.p3 = PH.p2 + POSITIONS_OUT_PX;
+
+            PH.t0 = PH.p3 - TICKER_OFFSET;
+            PH.t1 = PH.p3;
+
+            spacer.style.height = (PH.t1 + window.innerHeight) + 'px';
+        }
+
+        /* ── MATH HELPERS ── */
+        const clamp   = (v,a,b) => Math.min(Math.max(v,a),b);
+        const inv     = (a,b,v) => clamp((v-a)/(b-a), 0, 1);
+        const ease    = t => t<.5 ? 2*t*t : -1+(4-2*t)*t;
+
+        /* ── SCROLL HANDLER ── */
+        function tick() {
+            const y = window.scrollY;
+
+            navEl.classList.toggle('solid', y > 30);
+
+            /* CAREERS HERO */
+            const hp = ease(inv(PH.h0, PH.h1, y));
+            careersHero.style.opacity = 1 - hp;
+            const hs = hp * 90;
+            careersHeroText.style.transform  = `translateY(calc(-50% - ${hs}px))`;
+
+            /* CAREERS INTRO */
+            const iIn  = ease(inv(PH.i0, PH.i1, y));
+            const iOut = ease(inv(PH.i2, PH.i3, y));
+            const iOp  = iIn * (1 - iOut);
+            careersIntroLayer.style.opacity = iOp;
+            careersIntroLayer.classList.toggle('active', iOp > 0.05);
+
+            /* OPEN POSITIONS */
+            const pIn  = ease(inv(PH.p0, PH.p1, y));
+            const pOut = ease(inv(PH.p2, PH.p3, y));
+            const pOp  = pIn * (1 - pOut);
+            openPositionsLayer.style.opacity = pOp;
+            openPositionsLayer.classList.toggle('active', pOp > 0.05);
+
+            /* TICKER */
+            const tp = ease(inv(PH.t0, PH.t1, y));
+            tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
+            tickerEl.style.opacity   = tp;
+        }
+
+        window.addEventListener('load', () => {
+            buildPhases();
+            tick();
+        });
+        window.addEventListener('scroll', tick, { passive: true });
+        window.addEventListener('resize', () => { buildPhases(); tick(); });
+
+    })();
+</script>
 </body>
 </html>
