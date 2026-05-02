@@ -231,42 +231,26 @@
             const viewportHeight = window.innerHeight;
             const footerHeight = footerLayer.offsetHeight;
 
-            // --- Measure progressContentLayer height ---
-            const originalContentLayerStyles = {
-                position: progressContentLayer.style.position,
-                top: progressContentLayer.style.top,
-                bottom: progressContentLayer.style.bottom,
-                height: progressContentLayer.style.height,
-                overflowY: progressContentLayer.style.overflowY,
-                display: progressContentLayer.style.display,
-                flexDirection: progressContentLayer.style.flexDirection
-            };
-
-            progressContentLayer.style.position = 'static';
-            progressContentLayer.style.top = 'auto';
-            progressContentLayer.style.bottom = 'auto';
-            progressContentLayer.style.height = 'auto';
-            progressContentLayer.style.overflowY = 'visible';
+            // Make sure the layer is visible for a split second to measure correctly
+            const originalOpacity = progressContentLayer.style.opacity;
+            const originalDisplay = progressContentLayer.style.display;
+            progressContentLayer.style.opacity = '1';
             progressContentLayer.style.display = 'block';
 
-            const actualContentScrollHeight = progressContentLayer.scrollHeight;
+            PH.progressContentFullHeight = progressContentLayer.scrollHeight; 
 
-            // Restore original styles
-            progressContentLayer.style.position = originalContentLayerStyles.position;
-            progressContentLayer.style.top = originalContentLayerStyles.top;
-            progressContentLayer.style.bottom = originalContentLayerStyles.bottom;
-            progressContentLayer.style.height = originalContentLayerStyles.height;
-            progressContentLayer.style.overflowY = originalContentLayerStyles.overflowY;
-            progressContentLayer.style.display = originalContentLayerStyles.display;
-            progressContentLayer.style.flexDirection = originalContentLayerStyles.flexDirection;
-
+            // Restore
+            progressContentLayer.style.opacity = originalOpacity;
+            progressContentLayer.style.display = originalDisplay;
 
             PH.h0 = 0;
             PH.h1 = PROGRESS_HERO_OUT_PX;
 
             PH.c0 = PH.h1;
             PH.c1 = PH.c0 + CONTENT_IN_PX;
-            const scrollableContentDistance = Math.max(0, actualContentScrollHeight - (viewportHeight - NAV_HEIGHT));
+
+            const scrollableContentDistance = Math.max(0, PH.progressContentFullHeight - (viewportHeight - NAV_HEIGHT));
+
             PH.c2 = PH.c1 + scrollableContentDistance;
             PH.c3 = PH.c2 + CONTENT_OUT_PX;
 
@@ -304,12 +288,12 @@
             const container = document.getElementById('progress-content-wrapper');
             if (y >= PH.c1 && y <= PH.c2) {
                 const scrollProgress = inv(PH.c1, PH.c2, y);
-                const maxScroll = Math.max(0, progressContentLayer.scrollHeight - (window.innerHeight - NAV_HEIGHT));
+                const maxScroll = Math.max(0, PH.progressContentFullHeight - (window.innerHeight - NAV_HEIGHT));
                 container.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
             } else if (y < PH.c1) {
                 container.style.transform = 'translateY(0)';
             } else if (y > PH.c2) {
-                const maxScroll = Math.max(0, progressContentLayer.scrollHeight - (window.innerHeight - NAV_HEIGHT));
+                const maxScroll = Math.max(0, PH.progressContentFullHeight - (window.innerHeight - NAV_HEIGHT));
                 container.style.transform = `translateY(${-maxScroll}px)`;
             }
 
