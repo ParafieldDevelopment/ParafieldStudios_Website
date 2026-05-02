@@ -606,7 +606,7 @@ footer::before {
 }
 .footer-hud { font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.15);letter-spacing:2px;margin-bottom:4rem;display:flex;justify-content:space-between; }
 .footer-grid { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem; }
-.footer-logo { height:38px;filter:brightness(0) invert(1);margin-bottom:1.2rem;display:block; }
+.footer-logo { height:80px;filter:brightness(0) invert(1);margin-bottom:1.2rem;display:block; }
 .footer-tagline { font-size:.82rem;color:rgba(255,255,255,.28);line-height:1.7;max-width:250px; }
 .footer-col-title { font-family:var(--mono);font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--primary);margin-bottom:1.4rem;opacity:.7; }
 .footer-links { display:flex;flex-direction:column;gap:.75rem;list-style:none; }
