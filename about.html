@@ -259,19 +259,17 @@
             aboutContentLayer.style.opacity = cOp;
             aboutContentLayer.classList.toggle('active', cOp > 0.05);
 
-            // Apply translateY to the *container* of the contents
-            // Note: If you have multiple .about-content-inner, they should be wrapped in one div
-            // Let's assume they are inside #about-content-layer, so we transform #about-content-layer children
-            const container = aboutContentLayer; 
+            // Apply translateY to all content children (the inner sections)
+            const contentChildren = Array.from(aboutContentLayer.querySelectorAll('.about-content-inner'));
             if (y >= PH.c1 && y <= PH.c2) {
                 const scrollProgress = inv(PH.c1, PH.c2, y);
                 const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                container.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
+                contentChildren.forEach(child => child.style.transform = `translateY(${-scrollProgress * maxScroll}px)`);
             } else if (y < PH.c1) {
-                container.style.transform = 'translateY(0)';
+                contentChildren.forEach(child => child.style.transform = 'translateY(0)');
             } else if (y > PH.c2) {
                 const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                container.style.transform = `translateY(${-maxScroll}px)`;
+                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll}px)`);
             }
 
             /* TICKER */
