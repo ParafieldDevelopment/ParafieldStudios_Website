@@ -191,6 +191,7 @@
         const aboutHero      = document.getElementById('about-hero');
         const aboutHeroText  = document.getElementById('about-hero-text');
         const aboutContentLayer = document.getElementById('about-content-layer');
+        const aboutContentInner = aboutContentLayer.querySelector('.about-content-inner'); // Get the inner content element
         const tickerEl       = document.getElementById('ticker-layer');
         const footerLayer    = document.getElementById('footer-layer');
 
@@ -201,34 +202,26 @@
             const viewportHeight = window.innerHeight;
             const footerHeight = footerLayer.offsetHeight;
 
-            // Temporarily make aboutContentLayer static to measure its full content height
-            const originalAboutContentLayerStyles = {
-                position: aboutContentLayer.style.position,
-                top: aboutContentLayer.style.top,
-                bottom: aboutContentLayer.style.bottom,
-                height: aboutContentLayer.style.height,
-                overflowY: aboutContentLayer.style.overflowY,
-                display: aboutContentLayer.style.display,
-                flexDirection: aboutContentLayer.style.flexDirection
+            // Measure the actual scroll height of the inner content
+            // Temporarily make the inner content static to measure its full height
+            const originalInnerStyles = {
+                position: aboutContentInner.style.position,
+                height: aboutContentInner.style.height,
+                overflow: aboutContentInner.style.overflow,
+                display: aboutContentInner.style.display
             };
+            aboutContentInner.style.position = 'static';
+            aboutContentInner.style.height = 'auto';
+            aboutContentInner.style.overflow = 'visible';
+            aboutContentInner.style.display = 'block';
 
-            aboutContentLayer.style.position = 'static';
-            aboutContentLayer.style.top = 'auto';
-            aboutContentLayer.style.bottom = 'auto';
-            aboutContentLayer.style.height = 'auto';
-            aboutContentLayer.style.overflowY = 'visible';
-            aboutContentLayer.style.display = 'block'; // Temporarily change to block to get natural flow height
-
-            const actualContentScrollHeight = aboutContentLayer.scrollHeight;
+            PH.aboutContentFullHeight = aboutContentInner.scrollHeight; // Store this value
 
             // Restore original styles
-            aboutContentLayer.style.position = originalAboutContentLayerStyles.position;
-            aboutContentLayer.style.top = originalAboutContentLayerStyles.top;
-            aboutContentLayer.style.bottom = originalAboutContentLayerStyles.bottom;
-            aboutContentLayer.style.height = originalAboutContentLayerStyles.height;
-            aboutContentLayer.style.overflowY = originalAboutContentLayerStyles.overflowY;
-            aboutContentLayer.style.display = originalAboutContentLayerStyles.display;
-            aboutContentLayer.style.flexDirection = originalAboutContentLayerStyles.flexDirection;
+            aboutContentInner.style.position = originalInnerStyles.position;
+            aboutContentInner.style.height = originalInnerStyles.height;
+            aboutContentInner.style.overflow = originalInnerStyles.overflow;
+            aboutContentInner.style.display = originalInnerStyles.display;
 
 
             PH.h0 = 0;
@@ -243,7 +236,7 @@
             // The content layer itself has padding-top: 72px for the nav.
             // So, the scrollable distance is its full content height minus the viewport height,
             // plus the height of the fixed nav so the top of the content can reach the top of the viewport.
-            const scrollableContentDistance = Math.max(0, actualContentScrollHeight - (viewportHeight - NAV_HEIGHT));
+            const scrollableContentDistance = Math.max(0, PH.aboutContentFullHeight - (viewportHeight - NAV_HEIGHT));
 
             PH.c2 = PH.c1 + scrollableContentDistance;
             PH.c3 = PH.c2 + CONTENT_OUT_PX;
@@ -279,6 +272,19 @@
             const cOp  = cIn * (1 - cOut);
             aboutContentLayer.style.opacity = cOp;
             aboutContentLayer.classList.toggle('active', cOp > 0.05);
+
+            // Apply translateY to the inner content for scrolling
+            if (y >= PH.c1 && y <= PH.c2) {
+                const scrollProgress = inv(PH.c1, PH.c2, y);
+                const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT)); // Use stored full height
+                aboutContentInner.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
+            } else if (y < PH.c1) {
+                aboutContentInner.style.transform = 'translateY(0)';
+            } else if (y > PH.c2) {
+                const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT)); // Use stored full height
+                aboutContentInner.style.transform = `translateY(${-maxScroll}px)`;
+            }
+
 
             /* TICKER */
             const tp = ease(inv(PH.t0, PH.t1, y));
