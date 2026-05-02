@@ -1,0 +1,171 @@
+/* ═══ CAREERS PAGE ENHANCEMENTS ═══ */
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.role-card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    transition: border-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.role-card:hover {
+    border-color: #33a1ff;
+    transform: translateY(-5px);
+}
+
+.role-card-bracket {
+    position: absolute;
+    width: 16px; height: 16px;
+    border: 1.5px solid transparent;
+    z-index: 5;
+    transition: border-color .3s;
+}
+
+.role-card:hover .role-card-bracket { border-color: #33a1ff; }
+.role-card-bracket.tl { top:10px; left:10px; border-right:none; border-bottom:none; }
+.role-card-bracket.tr { top:10px; right:10px; border-left:none; border-bottom:none; }
+.role-card-bracket.bl { bottom:10px; left:10px; border-right:none; border-top:none; }
+.role-card-bracket.br { bottom:10px; right:10px; border-left:none; border-top:none; }
+
+.priority-tag {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    background: #33a1ff;
+    color: #080808;
+    font-family: monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    z-index: 2;
+}
+
+.role-icon {
+    width: 48px; height: 48px;
+    color: #33a1ff;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.role-meta {
+    font-family: monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: #33a1ff;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.role-card h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+.role-card > p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.role-contact-btn {
+    display: inline-block;
+    margin-top: auto;
+    padding: 12px 24px;
+    background: #33a1ff;
+    color: #080808;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.marketing-section {
+    margin-top: 6rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.marketing-logo {
+    height: 80px;
+    margin-bottom: 1.5rem;
+    filter: brightness(0) invert(1);
+}
+
+.marketing-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: #fff;
+}
+
+.marketing-subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.5rem;
+}
+
+.non-profit-disclaimer {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: rgba(255, 71, 87, 0.08);
+    border: 1px solid rgba(255, 71, 87, 0.2);
+    border-left: 8px solid #ff4757;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+.disclaimer-hud {
+    position: absolute;
+    top: 0.5rem; right: 0.5rem;
+    font-family: monospace;
+    font-size: 0.5rem;
+    color: #ff4757;
+    letter-spacing: 1px;
+}
+.disclaimer-icon {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    color: #ff4757;
+    position: relative;
+    z-index: 1;
+}
+.disclaimer-content strong {
+    display: block;
+    font-size: 0.9rem;
+    color: #ff4757;
+    margin-bottom: 0.5rem;
+}
+.disclaimer-content p {
+    font-size: 0.8rem;
+    color: #efefef;
+    line-height: 1.6;
+}
