@@ -294,74 +294,35 @@
             const viewportHeight = window.innerHeight;
             const footerHeight = footerLayer.offsetHeight;
 
-            // --- Measure careersIntroLayer height ---
-            const originalIntroLayerStyles = {
-                position: careersIntroLayer.style.position,
-                top: careersIntroLayer.style.top,
-                bottom: careersIntroLayer.style.bottom,
-                height: careersIntroLayer.style.height,
-                overflowY: careersIntroLayer.style.overflowY,
-                display: careersIntroLayer.style.display,
-                flexDirection: careersIntroLayer.style.flexDirection
-            };
-            careersIntroLayer.style.position = 'static';
-            careersIntroLayer.style.top = 'auto';
-            careersIntroLayer.style.bottom = 'auto';
-            careersIntroLayer.style.height = 'auto';
-            careersIntroLayer.style.overflowY = 'visible';
-            careersIntroLayer.style.display = 'block';
-            const actualIntroScrollHeight = careersIntroLayer.scrollHeight;
-            careersIntroLayer.style.position = originalIntroLayerStyles.position;
-            careersIntroLayer.style.top = originalIntroLayerStyles.top;
-            careersIntroLayer.style.bottom = originalIntroLayerStyles.bottom;
-            careersIntroLayer.style.height = originalIntroLayerStyles.height;
-            careersIntroLayer.style.overflowY = originalIntroLayerStyles.overflowY;
-            careersIntroLayer.style.display = originalIntroLayerStyles.display;
-            careersIntroLayer.style.flexDirection = originalIntroLayerStyles.flexDirection;
+            // Make sure the layers are visible for a split second to measure correctly
+            const originalIntroOpacity = careersIntroLayer.style.opacity;
+            const originalPositionsOpacity = openPositionsLayer.style.opacity;
+            
+            careersIntroLayer.style.opacity = '1';
+            openPositionsLayer.style.opacity = '1';
 
-            // --- Measure openPositionsLayer height ---
-            const originalPositionsLayerStyles = {
-                position: openPositionsLayer.style.position,
-                top: openPositionsLayer.style.top,
-                bottom: openPositionsLayer.style.bottom,
-                height: openPositionsLayer.style.height,
-                overflowY: openPositionsLayer.style.overflowY,
-                display: openPositionsLayer.style.display,
-                flexDirection: openPositionsLayer.style.flexDirection
-            };
-            openPositionsLayer.style.position = 'static';
-            openPositionsLayer.style.top = 'auto';
-            openPositionsLayer.style.bottom = 'auto';
-            openPositionsLayer.style.height = 'auto';
-            openPositionsLayer.style.overflowY = 'visible';
-            openPositionsLayer.style.display = 'block';
-            const actualPositionsScrollHeight = openPositionsLayer.scrollHeight;
-            openPositionsLayer.style.position = originalPositionsLayerStyles.position;
-            openPositionsLayer.style.top = originalPositionsLayerStyles.top;
-            openPositionsLayer.style.bottom = originalPositionsLayerStyles.bottom;
-            openPositionsLayer.style.height = originalPositionsLayerStyles.height;
-            openPositionsLayer.style.overflowY = originalPositionsLayerStyles.overflowY;
-            openPositionsLayer.style.display = originalPositionsLayerStyles.display;
-            openPositionsLayer.style.flexDirection = originalPositionsLayerStyles.flexDirection;
+            // Measure the actual scroll height of the layers
+            const totalContentHeight = careersIntroLayer.scrollHeight + openPositionsLayer.scrollHeight;
+            PH.contentFullHeight = totalContentHeight; 
 
+            // Restore
+            careersIntroLayer.style.opacity = originalIntroOpacity;
+            openPositionsLayer.style.opacity = originalPositionsOpacity;
 
             PH.h0 = 0;
             PH.h1 = CAREERS_HERO_OUT_PX;
 
-            PH.i0 = PH.h1;
-            PH.i1 = PH.i0 + INTRO_IN_PX;
-            const scrollableIntroDistance = Math.max(0, actualIntroScrollHeight - (viewportHeight - NAV_HEIGHT));
-            PH.i2 = PH.i1 + scrollableIntroDistance;
-            PH.i3 = PH.i2 + INTRO_OUT_PX;
+            PH.c0 = PH.h1;
+            PH.c1 = PH.c0 + INTRO_IN_PX;
 
-            PH.p0 = PH.i3;
-            PH.p1 = PH.p0 + POSITIONS_IN_PX;
-            const scrollablePositionsDistance = Math.max(0, actualPositionsScrollHeight - (viewportHeight - NAV_HEIGHT));
-            PH.p2 = PH.p1 + scrollablePositionsDistance;
-            PH.p3 = PH.p2 + POSITIONS_OUT_PX;
+            // Use the full content height, accounting for the viewport nav
+            const scrollableContentDistance = Math.max(0, PH.contentFullHeight - (viewportHeight - NAV_HEIGHT));
 
-            PH.t0 = PH.p3 - TICKER_OFFSET;
-            PH.t1 = PH.p3;
+            PH.c2 = PH.c1 + scrollableContentDistance;
+            PH.c3 = PH.c2 + INTRO_OUT_PX;
+
+            PH.t0 = PH.c3 - TICKER_OFFSET;
+            PH.t1 = PH.c3;
 
             spacer.style.height = (PH.t1 + viewportHeight + footerHeight) + 'px';
         }
@@ -383,41 +344,27 @@
             const hs = hp * 90;
             careersHeroText.style.transform  = `translateY(calc(-50% - ${hs}px))`;
 
-            /* CAREERS INTRO */
-            const iIn  = ease(inv(PH.i0, PH.i1, y));
-            const iOut = ease(inv(PH.i2, PH.i3, y));
-            const iOp  = iIn * (1 - iOut);
-            careersIntroLayer.style.opacity = iOp;
-            careersIntroLayer.classList.toggle('active', iOp > 0.05);
+            /* CAREERS CONTENT */
+            const cIn  = ease(inv(PH.c0, PH.c1, y));
+            const cOut = ease(inv(PH.c2, PH.c3, y));
+            const cOp  = cIn * (1 - cOut);
+            careersIntroLayer.style.opacity = cOp;
+            openPositionsLayer.style.opacity = cOp;
+            careersIntroLayer.classList.toggle('active', cOp > 0.05);
+            openPositionsLayer.classList.toggle('active', cOp > 0.05);
 
-            /* OPEN POSITIONS */
-            const pIn  = ease(inv(PH.p0, PH.p1, y));
-            const pOut = ease(inv(PH.p2, PH.p3, y));
-            const pOp  = pIn * (1 - pOut);
-            openPositionsLayer.style.opacity = pOp;
-            openPositionsLayer.classList.toggle('active', pOp > 0.05);
-
-            // Transformation logic: use the wrapper to scroll through sections
-            const contentWrapper = document.getElementById('careers-content-wrapper');
-
-            // We need to move the wrapper based on combined progress
-            // Or move each section individually. Let's move the wrapper.
-            // Simplified scroll progress: just use a percentage of total layer height
-            // We need to track scroll progress for each phase
+            // Apply translateY to all content children (the inner sections)
+            const contentChildren = Array.from(document.querySelectorAll('.careers-intro-inner, .open-positions-inner'));
             
-            // This is complex, let's keep it simpler for now: transform the wrapper 
-            // if we are in the intro or positions phases
-            
-            if (y >= PH.i1 && y <= PH.i2) {
-                 const scrollProgress = inv(PH.i1, PH.i2, y);
-                 const maxScroll = Math.max(0, careersIntroLayer.scrollHeight - (window.innerHeight - NAV_HEIGHT));
-                 contentWrapper.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
-            } else if (y >= PH.p1 && y <= PH.p2) {
-                 const scrollProgress = inv(PH.p1, PH.p2, y);
-                 const maxScroll = Math.max(0, openPositionsLayer.scrollHeight - (window.innerHeight - NAV_HEIGHT));
-                 contentWrapper.style.transform = `translateY(${-maxScroll - (scrollProgress * maxScroll)}px)`;
-            } else if (y < PH.i1) {
-                contentWrapper.style.transform = 'translateY(0)';
+            if (y >= PH.c1 && y <= PH.c2) {
+                const scrollProgress = inv(PH.c1, PH.c2, y);
+                const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
+                contentChildren.forEach(child => child.style.transform = `translateY(${-scrollProgress * maxScroll}px)`);
+            } else if (y < PH.c1) {
+                contentChildren.forEach(child => child.style.transform = 'translateY(0)');
+            } else if (y > PH.c2) {
+                const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
+                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll}px)`);
             }
 
             /* TICKER */
