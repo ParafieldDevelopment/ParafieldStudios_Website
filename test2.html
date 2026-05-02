@@ -9,6 +9,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.parafieldstudios.com/">
+    <meta property="og:title" content="Parafield Studios">
+    <meta property="twitter:description" content="Parafield Studios is an independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.">
+    <meta property="og:image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.parafieldstudios.com/">
+    <meta property="twitter:title" content="Parafield Studios">
+    <meta property="twitter:description" content="Parafield Studios is an independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.">
+    <meta property="twitter:image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
+
+    <meta itemprop="name" content="Parafield Studios">
+    <meta itemprop="description" content="Parafield Studios is an independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.">
+    <meta itemprop="image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
     <style>
         :root {
             --primary:      #f2ae49;
@@ -51,7 +71,7 @@
         }
         .nav-logo {
             height: 42px;
-            filter: brightness(0) invert(1);
+            filter: brightness(0) saturate(100%) invert(72%) sepia(60%) saturate(500%) hue-rotate(340deg) brightness(100%);
             transition: transform 0.3s;
             cursor: pointer;
         }
@@ -86,50 +106,51 @@
             z-index: 9999;
             pointer-events: none;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 5vw;
-            font-size: clamp(1.4rem, 3vw, 2.8rem);
-            font-weight: 900;
+            flex-direction: column; /* Changed to column */
+            justify-content: center;
+            align-items: center;
+            opacity: 1; /* Ensure it's visible initially */
+            transition: opacity 0.9s ease;
         }
-        .intro-phrase {
-            opacity: 0;
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .intro-phrase.top-left {
-            align-self: flex-start;
-            transform: translateY(-20px);
-        }
-        .intro-phrase.bottom-right {
-            align-self: flex-end;
-            transform: translateY(20px);
-        }
-        .intro-phrase.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .strike {
-            text-decoration: line-through;
-            color: var(--primary);
-        }
-        .shake {
-            display: inline-block;
-            color: #ff4444;
-            animation: violentShake 0.1s infinite;
-        }
-        @keyframes violentShake {
-            0%   { transform: translate(0,0) rotate(0deg); }
-            15%  { transform: translate(-3px, 2px) rotate(-1.5deg); }
-            30%  { transform: translate(4px, -3px) rotate(1deg); }
-            45%  { transform: translate(-4px, 1px) rotate(-0.5deg); }
-            60%  { transform: translate(3px, 3px) rotate(2deg); }
-            75%  { transform: translate(-2px, -2px) rotate(-1deg); }
-            90%  { transform: translate(2px, 1px) rotate(0.5deg); }
-            100% { transform: translate(0,0) rotate(0deg); }
-        }
+
         #intro-overlay.fade-out {
             opacity: 0;
-            transition: opacity 0.9s ease;
+        }
+
+        #intro-logo {
+            width: clamp(150px, 20vw, 250px);
+            height: auto;
+            filter: brightness(0) invert(1); /* Make logo white */
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: introLogoFadeIn 0.8s ease-out forwards;
+        }
+
+        #loading-bar-container {
+            width: clamp(150px, 20vw, 250px);
+            height: 4px;
+            background: rgba(242,174,73,0.15);
+            overflow: hidden;
+            position: relative;
+            opacity: 0;
+            animation: introLogoFadeIn 0.8s ease-out 0.2s forwards; /* Delayed fade in */
+        }
+
+        #loading-bar {
+            height: 100%;
+            width: 0;
+            background: var(--primary);
+            animation: fillLoadingBar 2s ease-out forwards; /* Animation for filling */
+        }
+
+        @keyframes introLogoFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fillLoadingBar {
+            from { width: 0; }
+            to { width: 100%; }
         }
 
         /* ═══ SCROLL SCAFFOLD ═══ */
@@ -258,7 +279,7 @@
         }
         .hero-label .outline {
             -webkit-text-stroke: 2px var(--primary);
-            color: transparent;
+            color: #f2ae49;
         }
 
         #hero-circle {
@@ -637,7 +658,7 @@
         .footer-copyright { font-family:var(--mono);font-size:.6rem;letter-spacing:2px;color:rgba(255,255,255,.18); }
         .cloudflare-badge { display:flex;align-items:center;gap:8px;text-decoration:none;color:rgba(255,255,255,.18);font-family:var(--mono);font-size:.58rem;letter-spacing:2px;transition:color .2s; }
         .cloudflare-badge:hover { color:rgba(255,255,255,.45); }
-        .cloudflare-badge img { height:16px;opacity:.3;filter:invert(1);transition:opacity .2s; }
+        .cloudflare-badge img { height:16px;opacity:.3;filter:invert(1);transition:opacity .55; }
         .cloudflare-badge:hover img { opacity:.55; }
 
         @keyframes fadeUp {
@@ -691,17 +712,17 @@
             <p class="hero-sub">We're a mentally insane independent entertainment studio, dedicated to creating unique experiences and inspiring the next generation of creators.</p>
         </div>
 
-        <div id="hero-circle">
-            <div class="circle-inner">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-2"></div>
-                <div class="orb orb-3"></div>
-                <div class="circle-grid"></div>
-                <div class="circle-ring"></div>
-                <div class="chud tl">SYS_VIS // ONLINE</div>
-                <div class="chud br">NODE: ACTIVE</div>
-            </div>
-        </div>
+<!--        <div id="hero-circle">-->
+<!--            <div class="circle-inner">-->
+<!--                <div class="orb orb-1"></div>-->
+<!--                <div class="orb orb-2"></div>-->
+<!--                <div class="orb orb-3"></div>-->
+<!--                <div class="circle-grid"></div>-->
+<!--                <div class="circle-ring"></div>-->
+<!--                <div class="chud tl">SYS_VIS // ONLINE</div>-->
+<!--                <div class="chud br">NODE: ACTIVE</div>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <div id="hero-text-right">
             <div class="hero-label">GAME<br><span class="outline">DEV</span><br>STUDIO</div>
@@ -892,11 +913,9 @@
 
 <!-- INTRO OVERLAY -->
 <div id="intro-overlay">
-    <div class="intro-phrase top-left" id="intro-top">
-        A <span class="strike">professional</span> <span class="shake">mentally insane</span> studio
-    </div>
-    <div class="intro-phrase bottom-right" id="intro-bottom">
-        Let's inspire
+    <img src="assets/logo.svg" alt="Parafield Studios Logo" id="intro-logo">
+    <div id="loading-bar-container">
+        <div id="loading-bar"></div>
     </div>
 </div>
 
@@ -918,8 +937,7 @@
         const spacer       = document.getElementById('scroll-spacer');
         const navEl        = document.getElementById('nav');
         const introOverlay = document.getElementById('intro-overlay');
-        const introTop     = document.getElementById('intro-top');
-        const introBottom  = document.getElementById('intro-bottom');
+        // Removed introTop and introBottom as they are no longer in HTML
         const hero         = document.getElementById('hero');
         const heroTL       = document.getElementById('hero-text-left');
         const heroTR       = document.getElementById('hero-text-right');
@@ -977,7 +995,7 @@
             const hs = hp * 90;
             heroTL.style.transform  = `translateY(calc(-50% - ${hs}px))`;
             heroTR.style.transform  = `translateY(${hs}px)`;
-            heroCirc.style.transform = `translate(-36%, calc(-50% + ${hs * 0.45}px)) scale(${1 - hp * 0.07})`;
+            // heroCirc.style.transform = `translate(-36%, calc(-50% + ${hs * 0.45}px)) scale(${1 - hp * 0.07})`;
 
             /* GAMES */
             const gIn  = ease(inv(PH.g0, PH.g1, y));
@@ -1018,15 +1036,15 @@
         /* ── INTRO ── */
         function runIntro() {
             document.body.style.overflow = 'hidden';
-            setTimeout(() => introTop.classList.add('visible'),    180);
-            setTimeout(() => introBottom.classList.add('visible'), 620);
+            // The loading bar animation is handled by CSS.
+            // We just need to fade out the overlay after a delay.
             setTimeout(() => {
                 introOverlay.classList.add('fade-out');
                 setTimeout(() => {
                     introOverlay.style.display = 'none';
                     document.body.style.overflow = '';
-                }, 900);
-            }, 2400);
+                }, 900); // This should match the CSS transition duration for fade-out
+            }, 2800); // Total time for logo fade-in + loading bar fill + a small buffer
         }
 
         /* ── INIT ── */
