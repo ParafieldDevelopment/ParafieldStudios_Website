@@ -79,31 +79,33 @@
 
     <!-- ABOUT CONTENT -->
     <div id="about-content-layer">
-        <div class="about-content-inner">
-            <div class="section-label">01 // Our Story</div>
-            <h2 class="about-big-title">8 YEARS OF<br><span class="amber">INSANITY!</span></h2>
-            <div class="studio-desc-content">
-                <p>Well it's simple! All of this nonsense started from a solo team by one idiot messing around with Roblox Studio.</p>
-                <p>That later on started to slowly form into a small group... We weren't proud of our first group name... who even calls themselves "Gamer Productions" (Apparently us... 😭)</p>
-                <p>This team has been around since <b>November 12th, 2019.</b> And our history basically started around <b>August 9th, 2017... 8 Years of insanity!</b></p>
+        <div id="about-content-wrapper">
+            <div class="about-content-inner">
+                <div class="section-label">01 // Our Story</div>
+                <h2 class="about-big-title">8 YEARS OF<br><span class="amber">INSANITY!</span></h2>
+                <div class="studio-desc-content">
+                    <p>Well it's simple! All of this nonsense started from a solo team by one idiot messing around with Roblox Studio.</p>
+                    <p>That later on started to slowly form into a small group... We weren't proud of our first group name... who even calls themselves "Gamer Productions" (Apparently us... 😭)</p>
+                    <p>This team has been around since <b>November 12th, 2019.</b> And our history basically started around <b>August 9th, 2017... 8 Years of insanity!</b></p>
+                </div>
             </div>
-        </div>
 
-        <div class="about-content-inner">
-            <div class="section-label">02 // Our Mission</div>
-            <h2 class="about-big-title">CREATING<br><span class="outline">UNIQUE</span><br>EXPERIENCES</h2>
-            <p class="studio-desc-content">Our mission is to craft unforgettable entertainment experiences that push boundaries and inspire players. We believe in fostering a creative environment where innovation thrives and every idea is given a chance to shine.</p>
-        </div>
+            <div class="about-content-inner">
+                <div class="section-label">02 // Our Mission</div>
+                <h2 class="about-big-title">CREATING<br><span class="outline">UNIQUE</span><br>EXPERIENCES</h2>
+                <p class="studio-desc-content">Our mission is to craft unforgettable entertainment experiences that push boundaries and inspire players. We believe in fostering a creative environment where innovation thrives and every idea is given a chance to shine.</p>
+            </div>
 
-        <div class="about-content-inner">
-            <div class="section-label">03 // Our Values</div>
-            <h2 class="about-big-title">PASSION &amp;<br><span class="amber">INNOVATION</span></h2>
-            <ul class="values-list">
-                <li><b>Creativity:</b> We encourage bold ideas and imaginative solutions.</li>
-                <li><b>Collaboration:</b> Great things are achieved together.</li>
-                <li><b>Quality:</b> We strive for excellence in everything we do.</li>
-                <li><b>Community:</b> Building strong connections with our players and fellow creators.</li>
-            </ul>
+            <div class="about-content-inner">
+                <div class="section-label">03 // Our Values</div>
+                <h2 class="about-big-title">PASSION &amp;<br><span class="amber">INNOVATION</span></h2>
+                <ul class="values-list">
+                    <li><b>Creativity:</b> We encourage bold ideas and imaginative solutions.</li>
+                    <li><b>Collaboration:</b> Great things are achieved together.</li>
+                    <li><b>Quality:</b> We strive for excellence in everything we do.</li>
+                    <li><b>Community:</b> Building strong connections with our players and fellow creators.</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -202,27 +204,18 @@
             const viewportHeight = window.innerHeight;
             const footerHeight = footerLayer.offsetHeight;
 
+            // Make sure the layer is visible for a split second to measure correctly
+            const originalOpacity = aboutContentLayer.style.opacity;
+            const originalDisplay = aboutContentLayer.style.display;
+            aboutContentLayer.style.opacity = '1';
+            aboutContentLayer.style.display = 'block';
+
             // Measure the actual scroll height of the inner content
-            // Temporarily make the inner content static to measure its full height
-            const originalInnerStyles = {
-                position: aboutContentInner.style.position,
-                height: aboutContentInner.style.height,
-                overflow: aboutContentInner.style.overflow,
-                display: aboutContentInner.style.display
-            };
-            aboutContentInner.style.position = 'static';
-            aboutContentInner.style.height = 'auto';
-            aboutContentInner.style.overflow = 'visible';
-            aboutContentInner.style.display = 'block';
+            PH.aboutContentFullHeight = aboutContentLayer.scrollHeight; 
 
-            PH.aboutContentFullHeight = aboutContentInner.scrollHeight; // Store this value
-
-            // Restore original styles
-            aboutContentInner.style.position = originalInnerStyles.position;
-            aboutContentInner.style.height = originalInnerStyles.height;
-            aboutContentInner.style.overflow = originalInnerStyles.overflow;
-            aboutContentInner.style.display = originalInnerStyles.display;
-
+            // Restore
+            aboutContentLayer.style.opacity = originalOpacity;
+            aboutContentLayer.style.display = originalDisplay;
 
             PH.h0 = 0;
             PH.h1 = ABOUT_HERO_OUT_PX;
@@ -230,12 +223,7 @@
             PH.c0 = PH.h1;
             PH.c1 = PH.c0 + CONTENT_IN_PX;
 
-            // The content needs to "hold" for its actual height to be scrollable.
-            // This distance should be enough to scroll the entire content layer past the viewport.
-            // We need to ensure the entire content can be scrolled, considering the fixed nav.
-            // The content layer itself has padding-top: 72px for the nav.
-            // So, the scrollable distance is its full content height minus the viewport height,
-            // plus the height of the fixed nav so the top of the content can reach the top of the viewport.
+            // Use the full content height, accounting for the viewport nav
             const scrollableContentDistance = Math.max(0, PH.aboutContentFullHeight - (viewportHeight - NAV_HEIGHT));
 
             PH.c2 = PH.c1 + scrollableContentDistance;
@@ -244,8 +232,6 @@
             PH.t0 = PH.c3 - TICKER_OFFSET;
             PH.t1 = PH.c3;
 
-            // Total scroll height needs to accommodate all phases plus the viewport height for the last section
-            // and the footer height.
             spacer.style.height = (PH.t1 + viewportHeight + footerHeight) + 'px';
         }
 
@@ -273,18 +259,20 @@
             aboutContentLayer.style.opacity = cOp;
             aboutContentLayer.classList.toggle('active', cOp > 0.05);
 
-            // Apply translateY to the inner content for scrolling
+            // Apply translateY to the *container* of the contents
+            // Note: If you have multiple .about-content-inner, they should be wrapped in one div
+            // Let's assume they are inside #about-content-layer, so we transform #about-content-layer children
+            const container = aboutContentLayer; 
             if (y >= PH.c1 && y <= PH.c2) {
                 const scrollProgress = inv(PH.c1, PH.c2, y);
-                const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT)); // Use stored full height
-                aboutContentInner.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
+                const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT));
+                container.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
             } else if (y < PH.c1) {
-                aboutContentInner.style.transform = 'translateY(0)';
+                container.style.transform = 'translateY(0)';
             } else if (y > PH.c2) {
-                const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT)); // Use stored full height
-                aboutContentInner.style.transform = `translateY(${-maxScroll}px)`;
+                const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT));
+                container.style.transform = `translateY(${-maxScroll}px)`;
             }
-
 
             /* TICKER */
             const tp = ease(inv(PH.t0, PH.t1, y));

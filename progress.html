@@ -79,56 +79,58 @@
 
     <!-- PROGRESS CONTENT -->
     <div id="progress-content-layer">
-        <div class="progress-content-inner">
-            <div class="section-label">01 // LABORATORY: ACTIVE PROJECTS</div>
-            <h2 class="progress-big-title">CURRENT<br><span class="outline">PROJECTS</span></h2>
-            <div class="progress-container" id="progress-list">
-                <!-- Project items will be dynamically loaded here -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Codename Combat</h3>
-                        <span class="project-status in-progress">In Progress</span>
+        <div id="progress-content-wrapper">
+            <div class="progress-content-inner">
+                <div class="section-label">01 // LABORATORY: ACTIVE PROJECTS</div>
+                <h2 class="progress-big-title">CURRENT<br><span class="outline">PROJECTS</span></h2>
+                <div class="progress-container" id="progress-list">
+                    <!-- Project items will be dynamically loaded here -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Codename Combat</h3>
+                            <span class="project-status in-progress">In Progress</span>
+                        </div>
+                        <p class="project-description">Our flagship combat experience. Focusing on core gameplay mechanics and new weapon systems.</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                            <span class="progress-percentage">75%</span>
+                        </div>
+                        <div class="project-details">
+                            <span>Last Update: 2024-07-20</span>
+                            <span>Phase: Alpha Testing</span>
+                        </div>
                     </div>
-                    <p class="project-description">Our flagship combat experience. Focusing on core gameplay mechanics and new weapon systems.</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 75%;"></div>
-                        <span class="progress-percentage">75%</span>
-                    </div>
-                    <div class="project-details">
-                        <span>Last Update: 2024-07-20</span>
-                        <span>Phase: Alpha Testing</span>
-                    </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Project Chimera</h3>
-                        <span class="project-status planning">Planning</span>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Project Chimera</h3>
+                            <span class="project-status planning">Planning</span>
+                        </div>
+                        <p class="project-description">A new, unannounced title in the early planning stages. Expect innovative gameplay and a rich story.</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 15%;"></div>
+                            <span class="progress-percentage">15%</span>
+                        </div>
+                        <div class="project-details">
+                            <span>Last Update: 2024-07-15</span>
+                            <span>Phase: Concept Design</span>
+                        </div>
                     </div>
-                    <p class="project-description">A new, unannounced title in the early planning stages. Expect innovative gameplay and a rich story.</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 15%;"></div>
-                        <span class="progress-percentage">15%</span>
-                    </div>
-                    <div class="project-details">
-                        <span>Last Update: 2024-07-15</span>
-                        <span>Phase: Concept Design</span>
-                    </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Website Revamp</h3>
-                        <span class="project-status completed">Completed</span>
-                    </div>
-                    <p class="project-description">Overhaul of the Parafield Studios official website for a modern, dynamic user experience.</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 100%;"></div>
-                        <span class="progress-percentage">100%</span>
-                    </div>
-                    <div class="project-details">
-                        <span>Last Update: 2024-07-25</span>
-                        <span>Phase: Deployment</span>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Website Revamp</h3>
+                            <span class="project-status completed">Completed</span>
+                        </div>
+                        <p class="project-description">Overhaul of the Parafield Studios official website for a modern, dynamic user experience.</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 100%;"></div>
+                            <span class="progress-percentage">100%</span>
+                        </div>
+                        <div class="project-details">
+                            <span>Last Update: 2024-07-25</span>
+                            <span>Phase: Deployment</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -297,6 +299,19 @@
             const cOp  = cIn * (1 - cOut);
             progressContentLayer.style.opacity = cOp;
             progressContentLayer.classList.toggle('active', cOp > 0.05);
+
+            // Apply translateY to the container
+            const container = document.getElementById('progress-content-wrapper');
+            if (y >= PH.c1 && y <= PH.c2) {
+                const scrollProgress = inv(PH.c1, PH.c2, y);
+                const maxScroll = Math.max(0, progressContentLayer.scrollHeight - (window.innerHeight - NAV_HEIGHT));
+                container.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
+            } else if (y < PH.c1) {
+                container.style.transform = 'translateY(0)';
+            } else if (y > PH.c2) {
+                const maxScroll = Math.max(0, progressContentLayer.scrollHeight - (window.innerHeight - NAV_HEIGHT));
+                container.style.transform = `translateY(${-maxScroll}px)`;
+            }
 
             /* TICKER */
             const tp = ease(inv(PH.t0, PH.t1, y));
