@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'BobloxClassic';
-    src: url('../assets/CC/fonts/BobloxClassic-nRjl4.ttf') format('truetype');
+    src: url('../../assets/CC/fonts/BobloxClassic-nRjl4.ttf') format('truetype');
 }
 
 .moonlight-theme > img {
