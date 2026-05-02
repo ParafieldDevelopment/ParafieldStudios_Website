@@ -181,7 +181,6 @@
         /* ── SCROLL BUDGETS (px) ── */
         const ABOUT_HERO_OUT_PX = 600;
         const CONTENT_IN_PX     = 280;
-        const CONTENT_HOLD_PX   = 1200; // Adjust as needed for content length
         const CONTENT_OUT_PX    = 280;
         const TICKER_OFFSET     = 250;
 
@@ -197,12 +196,25 @@
         let PH = {};
 
         function buildPhases() {
+            // Calculate actual height of the content within about-content-layer
+            let contentHeight = 0;
+            const contentInners = aboutContentLayer.querySelectorAll('.about-content-inner');
+            contentInners.forEach(el => {
+                contentHeight += el.offsetHeight;
+                const style = getComputedStyle(el);
+                contentHeight += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+            });
+
+            // Ensure CONTENT_HOLD_PX is at least the content height minus viewport height
+            // plus some buffer, or a minimum value. Add extra buffer for padding/margins.
+            const dynamicContentHold = Math.max(200, contentHeight - window.innerHeight + 200); // Min 200px hold, plus buffer
+
             PH.h0 = 0;
             PH.h1 = ABOUT_HERO_OUT_PX;
 
             PH.c0 = PH.h1;
             PH.c1 = PH.c0 + CONTENT_IN_PX;
-            PH.c2 = PH.c1 + CONTENT_HOLD_PX; // Content hold
+            PH.c2 = PH.c1 + dynamicContentHold; // Use dynamic hold
             PH.c3 = PH.c2 + CONTENT_OUT_PX;
 
             PH.t0 = PH.c3 - TICKER_OFFSET;

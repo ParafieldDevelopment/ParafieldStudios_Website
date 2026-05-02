@@ -268,10 +268,8 @@
         /* ── SCROLL BUDGETS (px) ── */
         const CAREERS_HERO_OUT_PX = 600;
         const INTRO_IN_PX         = 280;
-        const INTRO_HOLD_PX       = 800; // Adjust as needed for content length
         const INTRO_OUT_PX        = 280;
         const POSITIONS_IN_PX     = 280;
-        const POSITIONS_HOLD_PX   = 1000; // Adjust as needed for content length
         const POSITIONS_OUT_PX    = 280;
         const TICKER_OFFSET       = 250;
 
@@ -288,17 +286,29 @@
         let PH = {};
 
         function buildPhases() {
+            // Calculate actual height of the content within careers-intro-layer
+            let introContentHeight = careersIntroLayer.querySelector('.careers-intro-inner').offsetHeight;
+            const introStyle = getComputedStyle(careersIntroLayer.querySelector('.careers-intro-inner'));
+            introContentHeight += parseFloat(introStyle.marginTop) + parseFloat(introStyle.marginBottom);
+            const dynamicIntroHold = Math.max(200, introContentHeight - window.innerHeight + 200);
+
+            // Calculate actual height of the content within open-positions-layer
+            let positionsContentHeight = openPositionsLayer.querySelector('.open-positions-inner').offsetHeight;
+            const positionsStyle = getComputedStyle(openPositionsLayer.querySelector('.open-positions-inner'));
+            positionsContentHeight += parseFloat(positionsStyle.marginTop) + parseFloat(positionsStyle.marginBottom);
+            const dynamicPositionsHold = Math.max(200, positionsContentHeight - window.innerHeight + 200);
+
             PH.h0 = 0;
             PH.h1 = CAREERS_HERO_OUT_PX;
 
             PH.i0 = PH.h1;
             PH.i1 = PH.i0 + INTRO_IN_PX;
-            PH.i2 = PH.i1 + INTRO_HOLD_PX;
+            PH.i2 = PH.i1 + dynamicIntroHold; // Use dynamic hold
             PH.i3 = PH.i2 + INTRO_OUT_PX;
 
             PH.p0 = PH.i3;
             PH.p1 = PH.p0 + POSITIONS_IN_PX;
-            PH.p2 = PH.p1 + POSITIONS_HOLD_PX;
+            PH.p2 = PH.p1 + dynamicPositionsHold; // Use dynamic hold
             PH.p3 = PH.p2 + POSITIONS_OUT_PX;
 
             PH.t0 = PH.p3 - TICKER_OFFSET;
