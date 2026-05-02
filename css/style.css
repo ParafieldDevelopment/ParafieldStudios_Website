@@ -529,11 +529,12 @@ nav.solid {
     inset: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */ /* REMOVED */
     opacity: 0;
     pointer-events: none;
     will-change: opacity;
     padding-top: 72px; /* To account for fixed nav */
+    overflow-y: auto; /* ADDED */
 }
 #about-content-layer.active { pointer-events: all; }
 .about-content-inner {
@@ -597,11 +598,12 @@ nav.solid {
     inset: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */ /* REMOVED */
     opacity: 0;
     pointer-events: none;
     will-change: opacity;
     padding-top: 72px; /* To account for fixed nav */
+    overflow-y: auto; /* ADDED */
 }
 #careers-intro-layer.active { pointer-events: all; }
 .careers-intro-inner {
@@ -697,11 +699,12 @@ nav.solid {
     inset: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */ /* REMOVED */
     opacity: 0;
     pointer-events: none;
     will-change: opacity;
     padding-top: 72px; /* To account for fixed nav */
+    overflow-y: auto; /* ADDED */
 }
 #open-positions-layer.active { pointer-events: all; }
 .open-positions-inner {
@@ -928,11 +931,12 @@ nav.solid {
     inset: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */ /* REMOVED */
     opacity: 0;
     pointer-events: none;
     will-change: opacity;
     padding-top: 72px; /* To account for fixed nav */
+    overflow-y: auto; /* ADDED */
 }
 #progress-content-layer.active { pointer-events: all; }
 .progress-content-inner {
