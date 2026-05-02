@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <meta charset="UTF-8">
+    <title>Parafield Studios - About</title>
+    <meta name="description" content="Meet the passionate (and slightly chaotic) team at Parafield Studios. Learn about our 8-year journey of creativity and madness.">
+    <meta name="theme-color" content="#f2ae49">
+    <link rel="stylesheet" href="css/OLD/style.css">
+    <link rel="stylesheet" href="css/OLD/banner-theme.css">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.parafieldstudios.com/about">
+    <meta property="og:title" content="Parafield Studios - About">
+    <meta property="twitter:description" content="Meet the passionate (and slightly chaotic) team at Parafield Studios. Learn about our 8-year journey of creativity and madness.">
+    <meta property="og:image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.parafieldstudios.com/about">
+    <meta property="twitter:title" content="Parafield Studios - About">
+    <meta property="twitter:description" content="Meet the passionate (and slightly chaotic) team at Parafield Studios. Learn about our 8-year journey of creativity and madness.">
+    <meta property="twitter:image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
+
+    <meta itemprop="name" content="Parafield Studios - About">
+    <meta itemprop="description" content="Meet the passionate (and slightly chaotic) team at Parafield Studios. Learn about our 8-year journey of creativity and madness.">
+    <meta itemprop="image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
+</head>
+<body>
+    <div class="bg-marquee-container">
+        <div class="bg-marquee top text-outline">PARAFIELD // ARCHIVE // LEGACY // VISION // PARAFIELD // ARCHIVE // LEGACY // VISION //</div>
+        <div class="bg-marquee bottom text-outline">HISTORY // MISSION // TEAM // SQUAD // HISTORY // MISSION // TEAM // SQUAD //</div>
+    </div>
+    <script src="js/config-handler.js" defer></script>
+    <script src="js/external-redirect.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/scroll-animations.js" defer></script>
+    <script src="js/slider.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/banner-theme.js" defer></script>
+    <script src="js/dynamicity.js" defer></script>
+    <script src="js/view-transitions.js" defer></script>
+    <nav class="nav">
+        <div class="nav-left">
+            <img src="assets/logo.svg" alt="logo" class="nav-logo">
+<!--            <h3 class="nav-title">Parafield Studios</h3>-->
+        </div>
+
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-button">Home</a>
+            <a href="about.html" class="nav-button">About</a>
+            <a href="careers.html" class="nav-button">Careers</a>
+            <a href="https://learn.parafieldstudios.com" class="nav-button">Learn</a>
+        </div>
+    </nav>
+
+    <div class="banner scroll-on">
+        <div class="banner-hud-top-left">[ PS_STU_ABOUT ]</div>
+        <div class="banner-hud-top-right">LAT: 40.7128 | LNG: -74.0060</div>
+        <div class="banner-hud-bottom-left">STATUS: ACTIVE // ACCESS GRANTED</div>
+        <div class="banner-hud-bottom-right">SEC_LVL: 04</div>
+        
+        <div class="banner-ghost-text">ARCHIVE</div>
+        
+        <img src="assets/logo.svg" alt="banner" class="main-logo scroll-on">
+        <div class="banner-text scroll-on">
+            <h1>ABOUT</h1>
+            <h1>US</h1>
+        </div>
+
+        <div class="banner-bracket tl"></div>
+        <div class="banner-bracket tr"></div>
+        <div class="banner-bracket bl"></div>
+        <div class="banner-bracket br"></div>
+
+        <img src="assets/axe-svgrepo-com.svg" class="rotating-reticle tl" alt="reticle">
+        <img src="assets/axe-svgrepo-com.svg" class="rotating-reticle tr" alt="reticle">
+        <img src="assets/axe-svgrepo-com.svg" class="rotating-reticle bl" alt="reticle">
+        <img src="assets/axe-svgrepo-com.svg" class="rotating-reticle br" alt="reticle">
+    </div>
+
+    <main class="content">
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <span class="ticker-item">PARAFIELD STUDIOS // [ ACCESS GRANTED ] // ARCHIVE ACCESSED // SYSTEM STATUS: OPTIMAL //</span>
+                <span class="ticker-item">PARAFIELD STUDIOS // [ ACCESS GRANTED ] // ARCHIVE ACCESSED // SYSTEM STATUS: OPTIMAL //</span>
+            </div>
+        </div>
+
+<!--        <section class="about-section scroll-on">-->
+<!--            <p class="studio-description">We're a <span class="scribble">professional</span> mentally insane studio.</p>-->
+<!--            <p class="studio-description-sub">Trust me we know what we're doing (we think)</p>-->
+<!--        </section>-->
+
+        <section class="intro-section scroll-on">
+            <div class="section-hud">01 // ARCHIVE: OUR STORY</div>
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">How it all began</p>
+            <div class="studio-desc-content">
+                <p>Well it's simple! All of this nonsense started from a solo team by one idiot messing around with Roblox Studio.</p>
+                <p>That later on started to slowly form into a small group... We weren't proud of our first group name... who even calls themselves "Gamer Productions" (Apparently us... 😭)</p>
+                <p>This team has been around since <b>November 12th, 2019.</b> And our history basically started around <b>August 9th, 2017... 8 Years of insanity!</b></p>
+            </div>
+        </section>
+
+        <section class="intro-section scroll-on">
+            <div class="section-hud">02 // CORE OBJECTIVES: MISSION</div>
+            <h2 class="section-title">Our Mission</h2>
+            <p class="section-subtitle">What drives us</p>
+            <div class="studio-desc-content">
+                <p>Our mission just like every other Independent entertainment studio is straightforward. We wanna make shit exist, and we will use whatever tools we have to make it real.</p>
+                <p>However! We want to inspire others who want to make games as well! Even if we are mentally insane, we are insane with passion. And we wanna show the world that even the most stupidest people can make things exist.</p>
+                <br>
+                <p><i>"Creativity... It's a powerful tool to bring things to life... Each of us holds something that brings things to life... Use that powerful tool to inspire others..."</i></p>
+                <p><i>"Let's inspire the world..."</i></p>
+                <p><b>- Batista Cakewalk's quote 2024</b></p>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <div class="section-hud">03 // ASSET ROSTER: THE SQUAD</div>
+            <h2 class="section-title">Meet the Team</h2>
+            <p class="section-subtitle">The people behind the madness</p>
+        </section>
+
+        <h2 class="section-title">The Directors</h2>
+
+        <section class="team-grid scroll-on" data-stagger="true">
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/directors/bat.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+                
+                <div class="team-image-placeholder" style="background-color: #ff5733;">
+                    <img src="assets/team/directors/bat.png" class="character-img" alt="Batista">
+                </div>
+
+                <div class="team-meta">[ DEPT: ADMINISTRATION ] [ STATUS: ACTIVE ]</div>
+                <h3>Batista</h3>
+                <p>CEO / Founder</p>
+                <div class="card-description">
+                    ✨ Don’t just chase your dreams, hunt them down. Eventually you’ll get there. ✨
+                    <p>The CEO and Founder of this insanity of a studio.</p>
+                </div>
+                <div class="card-buttons">
+                    <a onclick="window.open('https://batistacakewalk.parafieldstudios.com/home')" class="modal-btn website">Website</a>
+                    <a onclick="window.open('https://bsky.app/profile/did:plc:5dsearzpvgk34k5tbwy2nhu7')" class="modal-btn twitter">Bluesky</a>
+                </div>
+            </div>
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/directors/notdef.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-color: #d333ff;">
+                    <img src="assets/team/directors/notdef.png" class="character-img" alt="Notdef">
+                </div>
+                <div class="team-meta">[ DEPT: ENGINEERING ] [ STATUS: ACTIVE ]</div>
+                <h3>Notdefyingphysics</h3>
+                <p>Director of Structural Studios</p>
+                <div class="card-description">
+                    <p>Master of structures and physics defying creations.</p>
+                    <p>The assistant director of Parafield Studios.</p>
+                </div>
+<!--                <div class="card-buttons">-->
+<!--                    <a href="#" class="modal-btn youtube">YouTube</a>-->
+<!--                </div>-->
+            </div>
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/directors/xX420MCplayerXx.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-color: #9b8666;">
+                    <img src="assets/team/directors/xX420MCplayerXx.png" class="character-img" alt="Sheila">
+
+                </div>
+                <div class="team-meta">[ DEPT: COUNCIL ] [ STATUS: ACTIVE ]</div>
+                <h3>xX420MCplayerXx</h3>
+                <p>Director of Council</p>
+                <div class="card-description">
+
+                    <p>The one who manages the staff team.</p>
+                    <p>Just a guy who likes vintage computers and old movies.</p>
+
+                    <p>Some movie quotes from films I've seen recently:</p>
+
+                    <p>"Oh, sometimes I think I must go mad..." -Groucho Marx [Acting as Professor Wagstaff] (Horse Feathers, 1932)</p>
+                    <p>"Your proposition may be good, but let's have one thing understood: whatever it is, I'm against it!" -Groucho Marx [Acting as Professor Wagstaff, in response to the potential suggestions of the trustees] (Horse Feathers, 1932)</p>
+                    <p>"It isn't right for a college to buy football players." -Zeppo Marx [Acting as Professor Wagstaff's son] (Horse Feathers, 1932)</p>
+                    <p>"69, dudes!" -Alex Winter and Keanu Reeves [Acting ass Bill S. Preston, Esq., and Ted "Theodore" Logan] (Bill & Ted's Excellent Adventure, 1989)</p>
+                </div>
+<!--                <div class="card-buttons">-->
+<!--                    <a href="#" class="modal-btn secondary">Contact</a>-->
+<!--                </div>-->
+            </div>
+        </section>
+
+        <h2 class="section-title">The Staffs</h2>
+
+        <section class="team-grid scroll-on" data-stagger="true">
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/staffs/Ocean.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-color: #6e4192;">
+                    <img src="assets/team/staffs/Ocean.png" class="character-img" alt="Ocean">
+
+                </div>
+                <div class="team-meta">[ DEPT: COUNCIL ] [ STATUS: ACTIVE ]</div>
+                <h3>Pilot Ocean</h3>
+                <p>Council</p>
+                <div class="card-description">
+                    A valued member of the council.
+
+                    <p>Founder of Oceanic Research/Robotics Institutes and creator of a upcoming visual novel game DragonHope Legacies and creator of the wings of fire role play AU discord server Collapsed New Pyrrhia. </p>
+                </div>
+<!--                <div class="card-buttons">-->
+<!--                    <a href="#" class="modal-btn twitter">Twitter</a>-->
+<!--                </div>-->
+            </div>
+
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/staffs/cory.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-color: #125acc;">
+                    <img src="assets/team/staffs/cory.png" class="character-img" alt="cory">
+
+                </div>
+                <div class="team-meta">[ DEPT: COUNCIL ] [ STATUS: ACTIVE ]</div>
+                <h3>cjkdawg</h3>
+                <p>Council</p>
+                <div class="card-description">
+                    A valued member of the council.
+
+                    <p><i>I Like Gambling</i></p>
+                    <p>Higher up of crackfield. (cant create optimized code)</p>
+                </div>
+                <div class="card-buttons">
+                    <a onclick="window.open('https://youtube.com/@cjkdawggaming')" class="modal-btn youtube">YouTube</a>
+                </div>
+            </div>
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/staffs/ducko.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-color: #82efa5;">
+                    <img src="assets/team/staffs/ducko.png" class="character-img" alt="duck">
+
+                </div>
+                <div class="team-meta">[ DEPT: COUNCIL ] [ STATUS: ACTIVE ]</div>
+                <h3>Ducko</h3>
+                <p>Council</p>
+                <div class="card-description">
+                    A valued member of the council.
+                </div>
+<!--                <div class="card-buttons">-->
+<!--                    <a href="#" class="modal-btn secondary">Contact</a>-->
+<!--                </div>-->
+            </div>
+
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/staffs/chester.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-color: #9c9c9c;">
+                    <img src="assets/team/staffs/chester.png" class="character-img" alt="chester">
+
+                </div>
+                <div class="team-meta">[ DEPT: STAFF ] [ STATUS: ACTIVE ]</div>
+                <h3>Chester</h3>
+                <p>Senior Admin</p>
+                <div class="card-description">
+
+
+                    <p><i>I will die you</i></p>
+<!--                    <p>Higher up of crackfield. (cant create optimized code)</p>-->
+                </div>
+                <div class="card-buttons">
+<!--                    <a onclick="window.open('https://youtube.com/@cjkdawggaming')" class="modal-btn youtube">YouTube</a>-->
+                </div>
+            </div>
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/staffs/ethonionmain.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-color: #305932;">
+                    <img src="assets/team/staffs/ethonion.png" class="character-img" alt="ethonion">
+
+                </div>
+                <div class="team-meta">[ DEPT: STAFF ] [ STATUS: ACTIVE ]</div>
+                <h3>ethonion10</h3>
+                <p>Senior Admin</p>
+                <div class="card-description">
+
+
+                    <p><i>PLACEHOLDER</i></p>
+                    <span class="memory-text">In memory of ethonion's friend</span>
+                    <p></p>
+                    <span class="memory-text">2009 | 9/5/2025</span>
+                </div>
+                <div class="card-buttons">
+<!--                    <a onclick="window.open('https://youtube.com/@cjkdawggaming')" class="modal-btn youtube">YouTube</a>-->
+                </div>
+            </div>
+
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/staffs/saturn.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-color: #9c9c9c;">
+                    <img src="assets/team/staffs/saturn.png" class="character-img" alt="saturn">
+
+                </div>
+                <div class="team-meta">[ DEPT: STAFF ] [ STATUS: ACTIVE ]</div>
+                <h3>Saturn</h3>
+                <p>Administrator</p>
+                <div class="card-description">
+
+
+                    <p><i>Our valued Senior in the Administration team</i></p>
+                </div>
+                <div class="card-buttons">
+<!--                    <a onclick="window.open('https://youtube.com/@cjkdawggaming')" class="modal-btn youtube">YouTube</a>-->
+                </div>
+            </div>
+
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/directors/Sheilatemp.png">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-color: #49ba4e;">
+                    <img src="assets/team/directors/Sheilatemp.png" class="character-img" alt="saturn">
+
+                </div>
+                <div class="team-meta">[ DEPT: STAFF ] [ STATUS: ACTIVE ]</div>
+                <h3>TheGreekDev</h3>
+                <p>Administrator</p>
+                <div class="card-description">
+
+
+                    <p><i>Our valued Senior in the Administration team</i></p>
+                </div>
+                <div class="card-buttons">
+<!--                    <a onclick="window.open('https://youtube.com/@cjkdawggaming')" class="modal-btn youtube">YouTube</a>-->
+                </div>
+            </div>
+
+            <div class="team-card character-card mechanical-reveal scanning-hover" data-image="assets/team/staffs/mas.png" data-modal-color="rgb(32, 0, 96)">
+                <div class="team-card-bracket tl"></div>
+                <div class="team-card-bracket tr"></div>
+                <div class="team-card-bracket bl"></div>
+                <div class="team-card-bracket br"></div>
+                <div class="team-scanlines"></div>
+
+                <div class="team-image-placeholder" style="background-image: linear-gradient(to top, rgb(85,0,255), #100017);">
+                    <img src="assets/team/staffs/mas.png" class="character-img" alt="mas6y6">
+                </div>
+                <div class="team-meta">[ DEPT: IT_OPERATIONS ] [ STATUS: ACTIVE ]</div>
+                <h3>mas6y6</h3>
+                <p>IT Admin</p>
+                <div class="card-description">
+
+
+                    <p>
+                        Just a small developer that does random stuff and shit.
+                    </p>
+                    <p>
+                        I also helped to make the site so :3
+                    </p>
+                </div>
+                <div class="card-buttons">
+                    <a onclick="window.open('https://mas6y6.com')" class="modal-btn website">Website</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-hud-left">MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</div>
+        <div class="footer-hud-right">SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</div>
+        
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
+                <p class="footer-copyright">&copy; 2026 Parafield Studios<br>All rights reserved.</p>
+            </div>
+            <div class="footer-center">
+                <div class="footer-links-group">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="careers.html">Careers</a>
+                </div>
+                <div class="footer-links-group">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="do-not-sell-my-information.html">Do Not Sell My Info</a>
+                    <a href="health-and-safety.html">Health & Safety</a>
+                    <a href="https://learn.parafieldstudios.com">Learn</a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="social-icons">
+                    <a href="https://x.com/ParafieldStudio" target="_blank">
+                        <img src="assets/Twitter.png" alt="Twitter" class="social-icon">
+                    </a>
+                    <a href="https://discord.gg/23FVgBaYYh" target="_blank">
+                        <img src="assets/Discord.png" alt="Discord" class="social-icon">
+                    </a>
+                </div>
+                <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
+                    <span>Hosted via Cloudflare Pages</span>
+                    <img src="assets/cloudflare.png" alt="Cloudflare Pages">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Team Modal -->
+    <div id="team-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-image-placeholder"></div>
+            <div class="modal-body">
+                <h2 id="modal-name"></h2>
+                <p id="modal-role"></p>
+                <p id="modal-description"></p>
+                <div class="modal-buttons">
+                    <!-- Buttons will be injected here via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/footer-legal.js" defer></script>
+    <script src="js/modal-system.js" defer></script>
+    <script src="js/modal.js" defer></script>
+</body>
+</html>

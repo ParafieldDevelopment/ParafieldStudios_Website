@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <meta charset="UTF-8">
+    <title>Parafield Studios - Development Progress</title>
+    <link rel="stylesheet" href="css/OLD/style.css">
+    <link rel="stylesheet" href="css/OLD/banner-theme.css">
+</head>
+<body class="">
+    <div class="bg-marquee-container">
+        <div class="bg-marquee top text-outline">PARAFIELD // LABORATORY // EXPERIMENT // PROGRESS // PARAFIELD // LABORATORY // EXPERIMENT // PROGRESS //</div>
+        <div class="bg-marquee bottom text-outline">ALPHA // BETA // RELEASE // SYSTEM_LOGS // ALPHA // BETA // RELEASE // SYSTEM_LOGS //</div>
+    </div>
+    <script src="js/config-handler.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/scroll-animations.js" defer></script>
+    <script src="js/dynamicity.js" defer></script>
+    <script src="js/view-transitions.js" defer></script>
+    <script src="js/modal-system.js" defer></script>
+    <script src="js/progress-handler.js" defer></script>
+    
+    <nav class="nav">
+        <div class="nav-left">
+            <img src="assets/logo.svg" alt="logo" class="nav-logo">
+        </div>
+
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-button">Home</a>
+            <a href="about.html" class="nav-button">About</a>
+            <a href="careers.html" class="nav-button">Careers</a>
+            <a href="https://learn.parafieldstudios.com" class="nav-button">Learn</a>
+        </div>
+    </nav>
+
+    <div class="banner scroll-on">
+        <div class="banner-hud-top-left">[ PS_STU_PROG ]</div>
+        <div class="banner-hud-top-right">LAT: 40.7128 | LNG: -74.0060</div>
+        <div class="banner-hud-bottom-left">STATUS: ACTIVE // ACCESS GRANTED</div>
+        <div class="banner-hud-bottom-right">SEC_LVL: 04</div>
+        
+        <div class="banner-ghost-text">COMMAND</div>
+        
+        <img src="assets/logo.svg" alt="banner" class="main-logo scroll-on">
+        <div class="banner-text scroll-on">
+            <h1>DEVELOPMENT</h1>
+            <h1>PROGRESS</h1>
+        </div>
+
+        <div class="banner-bracket tl"></div>
+        <div class="banner-bracket tr"></div>
+        <div class="banner-bracket bl"></div>
+        <div class="banner-bracket br"></div>
+
+        <img src="assets/axe-svgrepo-com.svg" class="rotating-reticle tl" alt="reticle">
+        <img src="assets/axe-svgrepo-com.svg" class="rotating-reticle tr" alt="reticle">
+        <img src="assets/axe-svgrepo-com.svg" class="rotating-reticle bl" alt="reticle">
+        <img src="assets/axe-svgrepo-com.svg" class="rotating-reticle br" alt="reticle">
+    </div>
+
+    <main class="content">
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <span class="ticker-item">PARAFIELD STUDIOS // [ ACCESS GRANTED ] // LABORATORY ACCESS // SYSTEM STATUS: OPTIMAL //</span>
+                <span class="ticker-item">PARAFIELD STUDIOS // [ ACCESS GRANTED ] // LABORATORY ACCESS // SYSTEM STATUS: OPTIMAL //</span>
+            </div>
+        </div>
+
+        <section class="intro-section scroll-on">
+            <div class="section-hud">01 // LABORATORY: ACTIVE PROJECTS</div>
+            <div class="tab-system">
+                <button class="tab-btn active" data-tab="progress-list">PROGRESS</button>
+                <button class="tab-btn" data-tab="updates-list">DEV UPDATES</button>
+            </div>
+            <p class="section-subtitle" id="tab-subtitle">Real-time status of our creative laboratory.</p>
+        </section>
+
+        <!-- Progress List View -->
+        <div class="progress-container tab-content active" id="progress-list">
+            <p style="text-align: center; color: #888;">LOADING PROJECT DATA...</p>
+        </div>
+
+        <!-- Updates List View -->
+        <div class="progress-container tab-content" id="updates-list">
+            <p style="text-align: center; color: #888;">LOADING SYSTEM LOGS...</p>
+        </div>
+
+        <hr class="section-divider">
+        
+        <section class="intro-section scroll-on">
+            <p class="studio-description-sub">Note: Progress values are estimates and subject to change based on coffee consumption.</p>
+        </section>
+    </main>
+
+    <!-- Workstation Modal -->
+    <div id="project-modal" class="workstation-modal">
+        <div class="workstation-modal-content">
+            <span class="close-workstation-modal">[ CLOSE_SYSTEM ]</span>
+            <div class="workstation-modal-body">
+                <div class="workstation-modal-left">
+                    <img id="modal-project-img" src="assets/404.png" alt="Project Preview">
+                </div>
+                <div class="workstation-modal-right">
+                    <h2 id="modal-project-name">> PROJECT_NAME</h2>
+                    <div class="modal-status-line">
+                        STATUS: <span id="modal-project-status">UNKNOWN</span> | 
+                        COMPLETION: <span id="modal-project-percent">0%</span>
+                    </div>
+                    <hr class="modal-divider">
+                    <p id="modal-project-desc">ACCESSING DATA...</p>
+                    <div class="modal-logs">
+                        <h3>> SYSTEM_LOGS</h3>
+                        <div id="modal-logs-container" class="modal-logs-list">
+                            <!-- Logs injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-hud-left">MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</div>
+        <div class="footer-hud-right">SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</div>
+        
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
+                <p class="footer-copyright">&copy; 2026 Parafield Studios<br>All rights reserved.</p>
+            </div>
+            <div class="footer-center">
+                <div class="footer-links-group">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="careers.html">Careers</a>
+                </div>
+                <div class="footer-links-group">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="do-not-sell-my-information.html">Do Not Sell My Info</a>
+                    <a href="health-and-safety.html">Health & Safety</a>
+                    <a href="https://learn.parafieldstudios.com">Learn</a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="social-icons">
+                    <a href="https://x.com/ParafieldStudio" target="_blank">
+                        <img src="assets/Twitter.png" alt="Twitter" class="social-icon">
+                    </a>
+                    <a href="https://discord.gg/23FVgBaYYh" target="_blank">
+                        <img src="assets/Discord.png" alt="Discord" class="social-icon">
+                    </a>
+                </div>
+                <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
+                    <span>Hosted via Cloudflare Pages</span>
+                    <img src="assets/cloudflare.png" alt="Cloudflare Pages">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/footer-legal.js" defer></script>
+</body>
+</html>
