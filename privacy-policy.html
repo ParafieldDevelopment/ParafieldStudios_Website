@@ -20,6 +20,9 @@
             background-position: center;
             background-attachment: fixed;
         }
+        #legal-content-layer.active {
+            pointer-events: all;
+        }
     </style>
 </head>
 <body>
@@ -48,7 +51,7 @@
         <div class="bracket tl"></div><div class="bracket tr"></div>
         <div class="bracket bl"></div><div class="bracket br"></div>
 
-        <div id="legal-hero-text" class="hero-text-left" style="position: absolute; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 48vw; will-change: opacity, transform;">
+        <div id="legal-hero-text" style="position: absolute; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 48vw; will-change: opacity, transform;">
             <div class="hero-eyebrow">// Legal Directive · Privacy</div>
             <h1 class="hero-title">PRIVACY<br><span class="amber">POLICY</span></h1>
             <p class="hero-sub">At Parafield Studios, we believe your personal life is none of our business. We aren't interested in your digital footprint.</p>
@@ -170,9 +173,8 @@
         const spacer = document.getElementById('scroll-spacer');
         const navEl = document.getElementById('nav');
         const legalHero = document.getElementById('legal-hero');
-        const legalHeroText = document.getElementById('legal-hero-text');
+        const legalHeroText = document.querySelector('#legal-hero-text');
         const legalContentLayer = document.getElementById('legal-content-layer');
-        const legalContentWrapper = document.getElementById('legal-content-wrapper');
         const tickerEl = document.getElementById('ticker-layer');
         const footerLayer = document.getElementById('footer-layer');
 
@@ -182,10 +184,15 @@
             const viewportHeight = window.innerHeight;
             const footerHeight = footerLayer.offsetHeight;
 
+            const originalOpacity = legalContentLayer.style.opacity;
+            const originalDisplay = legalContentLayer.style.display;
+            
             legalContentLayer.style.opacity = '1';
             legalContentLayer.style.display = 'block';
-            PH.contentFullHeight = legalContentWrapper.scrollHeight;
-            legalContentLayer.style.opacity = '0';
+            PH.contentFullHeight = legalContentLayer.scrollHeight;
+            
+            legalContentLayer.style.opacity = originalOpacity;
+            legalContentLayer.style.display = originalDisplay;
 
             PH.h0 = 0;
             PH.h1 = HERO_OUT_PX;
@@ -223,15 +230,16 @@
             legalContentLayer.style.opacity = cOp;
             legalContentLayer.classList.toggle('active', cOp > 0.05);
 
+            const contentChildren = Array.from(legalContentLayer.querySelectorAll('.about-content-inner'));
             if (y >= PH.c1 && y <= PH.c2) {
                 const scrollProgress = inv(PH.c1, PH.c2, y);
                 const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                legalContentWrapper.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
+                contentChildren.forEach(child => child.style.transform = `translateY(${-scrollProgress * maxScroll}px)`);
             } else if (y < PH.c1) {
-                legalContentWrapper.style.transform = 'translateY(0)';
+                contentChildren.forEach(child => child.style.transform = 'translateY(0)');
             } else if (y > PH.c2) {
                 const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                legalContentWrapper.style.transform = `translateY(${-maxScroll}px)`;
+                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll}px)`);
             }
 
             const tp = ease(inv(PH.t0, PH.t1, y));
