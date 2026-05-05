@@ -562,7 +562,7 @@ nav.solid {
     margin-bottom: 2rem;
 }
 .about-big-title .amber { color: var(--primary); }
-.about-big-title .outline { -webkit-text-stroke: 2px var(--primary); color: transparent; }
+.about-big-title .outline { -webkit-text-stroke: 2px var(--primary); color: var(--primary); }
 .studio-desc-content p {
     font-size: 0.92rem;
     color: var(--dim);
@@ -968,7 +968,7 @@ nav.solid {
     margin-bottom: 2rem;
 }
 .progress-big-title .amber { color: var(--primary); }
-.progress-big-title .outline { -webkit-text-stroke: 2px var(--primary); color: transparent; }
+.progress-big-title .outline { -webkit-text-stroke: 2px var(--primary); color: var(--primary); }
 
 .progress-container {
     display: grid;
