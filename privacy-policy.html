@@ -18,7 +18,7 @@
             background: #080808;
             overflow: hidden;
         }
-        /* UNIQUE SHAPE: PRIVACY RADAR */
+        /* UNIQUE SHAPE: PRIVACY RADAR (REFINED) */
         .radar-shape {
             position: absolute;
             top: 50%; left: 65%;
@@ -40,11 +40,12 @@
         
         .radar-sweep {
             position: absolute;
-            top: 50%; left: 50%;
-            width: 400px; height: 400px;
-            background: conic-gradient(from 0deg, rgba(242,174,73,0.1) 0deg, transparent 90deg);
-            transform-origin: top left;
-            animation: sweep 8s linear infinite;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, rgba(242,174,73,0.15) 0deg, transparent 90deg);
+            animation: sweep 6s linear infinite;
+            mask-image: radial-gradient(circle, black 35%, transparent 75%);
+            -webkit-mask-image: radial-gradient(circle, black 35%, transparent 75%);
         }
         @keyframes sweep {
             from { transform: rotate(0deg); }
