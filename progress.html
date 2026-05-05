@@ -32,11 +32,31 @@
     <meta itemprop="image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
     <style>
         #progress-hero {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/CC/BetterGameBackground.png'); /* Placeholder background */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: #080808;
+            overflow: hidden;
         }
+        /* UNIQUE SHAPE: PROGRESS GEARS */
+        .gear-container {
+            position: absolute;
+            top: 50%; left: 65%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+        }
+        .gear {
+            position: absolute;
+            border: 4px dashed var(--primary);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        .g1 { width: 400px; height: 400px; top: 10%; left: 10%; }
+        .g2 { width: 250px; height: 250px; bottom: 5%; right: 5%; animation-direction: reverse; animation-duration: 15s; }
+
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        #progress-content-wrapper { will-change: transform; }
     </style>
 </head>
 <body>
@@ -52,7 +72,6 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="careers.html">Careers</a></li>
-            <!-- <li><a href="https://learn.parafieldstudios.com">Learn</a></li> -->
         </ul>
     </nav>
 
@@ -65,7 +84,13 @@
         <div class="bracket tl"></div><div class="bracket tr"></div>
         <div class="bracket bl"></div><div class="bracket br"></div>
 
-        <div id="progress-hero-text">
+        <!-- UNIQUE SHAPES -->
+        <div class="gear-container">
+            <div class="gear g1"></div>
+            <div class="gear g2"></div>
+        </div>
+
+        <div id="progress-hero-text" style="position: absolute; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 48vw; will-change: opacity, transform;">
             <div class="hero-eyebrow">// Project Status · Real-time Updates</div>
             <h1 class="hero-title">DEV<br><span class="amber">PROGRESS</span></h1>
             <p class="hero-sub">Track the development progress of Parafield Studios' projects. See what we're working on and what's coming next!</p>
@@ -78,76 +103,38 @@
     </div>
 
     <!-- PROGRESS CONTENT -->
-    <div id="progress-content-layer">
+    <div id="progress-content-layer" style="position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; will-change: opacity; padding-top: 72px; overflow: hidden;">
         <div id="progress-content-wrapper">
+            
+            <!-- SECTION 01: PROJECTS -->
             <div class="progress-content-inner">
                 <div class="section-label">01 // LABORATORY: ACTIVE PROJECTS</div>
                 <h2 class="progress-big-title">CURRENT<br><span class="outline">PROJECTS</span></h2>
                 <div class="progress-container" id="progress-list">
-                    <!-- Project items will be dynamically loaded here -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Codename Combat</h3>
-                            <span class="project-status in-progress">In Progress</span>
-                        </div>
-                        <p class="project-description">Our flagship combat experience. Focusing on core gameplay mechanics and new weapon systems.</p>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: 75%;"></div>
-                            <span class="progress-percentage">75%</span>
-                        </div>
-                        <div class="project-details">
-                            <span>Last Update: 2024-07-20</span>
-                            <span>Phase: Alpha Testing</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Project Chimera</h3>
-                            <span class="project-status planning">Planning</span>
-                        </div>
-                        <p class="project-description">A new, unannounced title in the early planning stages. Expect innovative gameplay and a rich story.</p>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: 15%;"></div>
-                            <span class="progress-percentage">15%</span>
-                        </div>
-                        <div class="project-details">
-                            <span>Last Update: 2024-07-15</span>
-                            <span>Phase: Concept Design</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Website Revamp</h3>
-                            <span class="project-status completed">Completed</span>
-                        </div>
-                        <p class="project-description">Overhaul of the Parafield Studios official website for a modern, dynamic user experience.</p>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: 100%;"></div>
-                            <span class="progress-percentage">100%</span>
-                        </div>
-                        <div class="project-details">
-                            <span>Last Update: 2024-07-25</span>
-                            <span>Phase: Deployment</span>
-                        </div>
-                    </div>
+                    <!-- Dynamic Loading Placeholder -->
+                    <div class="loading-hud">ACCESSING_DATABASE...</div>
                 </div>
             </div>
+
+            <!-- SECTION 02: LOGS -->
+            <div class="progress-content-inner">
+                <div class="section-label">02 // TRANSMISSIONS: SYSTEM LOGS</div>
+                <h2 class="progress-big-title">SYSTEM<br><span class="outline">LOGS</span></h2>
+                <div id="updates-list" class="logs-container">
+                    <!-- Dynamic Loading Placeholder -->
+                </div>
+            </div>
+
         </div>
     </div>
 
     <!-- TICKER -->
     <div id="ticker-layer">
         <div class="ticker-inner">
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">INSPIRING OTHERS //</span>
-            <span class="ticker-item">DEPLOYING CREATIVITY //</span><span class="ticker-item">INSPIRE THE WORLD //</span>
-            <span class="ticker-item">GAME DEV //</span><span class="ticker-item">COMMAND CENTER //</span>
-            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">SEC_LVL_04 //</span>
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">INSPIRING OTHERS //</span>
-            <span class="ticker-item">DEPLOYING CREATIVITY //</span><span class="ticker-item">INSPIRE THE WORLD //</span>
-            <span class="ticker-item">GAME DEV //</span><span class="ticker-item">COMMAND CENTER //</span>
-            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">SEC_LVL_04 //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">LABORATORY ACTIVE //</span>
+            <span class="ticker-item">PROJECT UPDATES //</span><span class="ticker-item">SYSTEM ACTIVE //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">LABORATORY ACTIVE //</span>
+            <span class="ticker-item">PROJECT UPDATES //</span><span class="ticker-item">SYSTEM ACTIVE //</span>
         </div>
     </div>
 
@@ -164,8 +151,9 @@
                 <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
                 <p class="footer-tagline">An independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.</p>
                 <div class="footer-social">
-                    <a href="https://x.com/ParafieldStudio" target="_blank" class="social-pill">Twitter</a>
-                    <a href="https://discord.gg/23FVgBaYYh" target="_blank" class="social-pill">Discord</a>
+                    <a href="https://x.com/ParafieldStudio" target="_blank" class="social-pill" title="Twitter"><img src="assets/Twitter.png" alt="Twitter" class="social-icon"></a>
+                    <a href="https://discord.gg/23FVgBaYYh" target="_blank" class="social-pill" title="Discord"><img src="assets/Discord.png" alt="Discord" class="social-icon"></a>
+                    <a href="https://www.instagram.com/parafieldstudios/" target="_blank" class="social-pill" title="Instagram"><img src="assets/inst.png" alt="Instagram" class="social-icon"></a>
                 </div>
             </div>
             <div>
@@ -174,7 +162,6 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="careers.html">Careers</a></li>
-                    <li><a href="https://learn.parafieldstudios.com">Learn</a></li>
                 </ul>
             </div>
             <div>
@@ -185,13 +172,6 @@
                     <li><a href="do-not-sell-my-information.html">Do Not Sell My Info</a></li>
                     <li><a href="health-and-safety.html">Health &amp; Safety</a></li>
                 </ul>
-            </div>
-            <div>
-                <!-- <div class="footer-col-title">Contact</div> -->
-                <!-- <ul class="footer-links"> -->
-                <!--     <li><a href="mailto:hello@parafieldstudios.com">hello@parafieldstudios.com</a></li> -->
-                <!--     <li><a href="progress.html">Dev Progress</a></li> -->
-                <!-- </ul> -->
             </div>
         </div>
         <div class="footer-bottom">
@@ -204,52 +184,51 @@
     </footer>
 </div>
 
+<script src="js/system.js"></script>
+<script src="js/progress.js"></script>
 <script>
     (function(){
         'use strict';
 
-        /* ── SCROLL BUDGETS (px) ── */
-        const PROGRESS_HERO_OUT_PX = 600;
-        const CONTENT_IN_PX        = 280;
-        const CONTENT_OUT_PX       = 280;
-        const TICKER_OFFSET        = 250;
-        const NAV_HEIGHT           = 72; // Height of the fixed navigation bar
+        const HERO_OUT_PX = 600;
+        const CONTENT_IN_PX = 280;
+        const CONTENT_OUT_PX = 280;
+        const TICKER_OFFSET = 250;
+        const NAV_HEIGHT = 72;
 
-        /* ── ELEMENTS ── */
-        const spacer            = document.getElementById('scroll-spacer');
-        const navEl             = document.getElementById('nav');
-        const progressHero      = document.getElementById('progress-hero');
-        const progressHeroText  = document.getElementById('progress-hero-text');
+        const spacer = document.getElementById('scroll-spacer');
+        const navEl = document.getElementById('nav');
+        const progressHero = document.getElementById('progress-hero');
+        const progressHeroText = document.querySelector('#progress-hero-text');
         const progressContentLayer = document.getElementById('progress-content-layer');
-        const tickerEl          = document.getElementById('ticker-layer');
-        const footerLayer       = document.getElementById('footer-layer');
+        const progressContentWrapper = document.getElementById('progress-content-wrapper');
+        const tickerEl = document.getElementById('ticker-layer');
+        const footerLayer = document.getElementById('footer-layer');
 
-        /* ── PHASE MAP ── */
         let PH = {};
 
-        function buildPhases() {
+        // Expose buildPhases globally so progress.js can call it
+        window.buildPhases = function() {
             const viewportHeight = window.innerHeight;
             const footerHeight = footerLayer.offsetHeight;
 
-            // Make sure the layer is visible for a split second to measure correctly
             const originalOpacity = progressContentLayer.style.opacity;
             const originalDisplay = progressContentLayer.style.display;
+            
             progressContentLayer.style.opacity = '1';
             progressContentLayer.style.display = 'block';
-
-            PH.progressContentFullHeight = progressContentLayer.scrollHeight; 
-
-            // Restore
+            PH.contentFullHeight = progressContentWrapper.scrollHeight;
+            
             progressContentLayer.style.opacity = originalOpacity;
             progressContentLayer.style.display = originalDisplay;
 
             PH.h0 = 0;
-            PH.h1 = PROGRESS_HERO_OUT_PX;
+            PH.h1 = HERO_OUT_PX;
 
             PH.c0 = PH.h1;
             PH.c1 = PH.c0 + CONTENT_IN_PX;
 
-            const scrollableContentDistance = Math.max(0, PH.progressContentFullHeight - (viewportHeight - NAV_HEIGHT));
+            const scrollableContentDistance = Math.max(0, PH.contentFullHeight - (viewportHeight - NAV_HEIGHT));
 
             PH.c2 = PH.c1 + scrollableContentDistance;
             PH.c3 = PH.c2 + CONTENT_OUT_PX;
@@ -260,56 +239,45 @@
             spacer.style.height = (PH.t1 + viewportHeight + footerHeight) + 'px';
         }
 
-        /* ── MATH HELPERS ── */
-        const clamp   = (v,a,b) => Math.min(Math.max(v,a),b);
-        const inv     = (a,b,v) => clamp((v-a)/(b-a), 0, 1);
-        const ease    = t => t<.5 ? 2*t*t : -1+(4-2*t)*t;
+        const clamp = (v,a,b) => Math.min(Math.max(v,a),b);
+        const inv = (a,b,v) => clamp((v-a)/(b-a), 0, 1);
+        const ease = t => t<.5 ? 2*t*t : -1+(4-2*t)*t;
 
-        /* ── SCROLL HANDLER ── */
         function tick() {
             const y = window.scrollY;
-
             navEl.classList.toggle('solid', y > 30);
 
-            /* PROGRESS HERO */
             const hp = ease(inv(PH.h0, PH.h1, y));
             progressHero.style.opacity = 1 - hp;
             const hs = hp * 90;
-            progressHeroText.style.transform  = `translateY(calc(-50% - ${hs}px))`;
+            if (progressHeroText) progressHeroText.style.transform = `translateY(calc(-50% - ${hs}px))`;
 
-            /* PROGRESS CONTENT */
-            const cIn  = ease(inv(PH.c0, PH.c1, y));
+            const cIn = ease(inv(PH.c0, PH.c1, y));
             const cOut = ease(inv(PH.c2, PH.c3, y));
-            const cOp  = cIn * (1 - cOut);
+            const cOp = cIn * (1 - cOut);
             progressContentLayer.style.opacity = cOp;
             progressContentLayer.classList.toggle('active', cOp > 0.05);
 
-            // Apply translateY to the container
-            const container = document.getElementById('progress-content-wrapper');
+            const contentChildren = Array.from(progressContentWrapper.querySelectorAll('.progress-content-inner'));
             if (y >= PH.c1 && y <= PH.c2) {
                 const scrollProgress = inv(PH.c1, PH.c2, y);
-                const maxScroll = Math.max(0, PH.progressContentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                container.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
+                const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
+                contentChildren.forEach(child => child.style.transform = `translateY(${-scrollProgress * maxScroll}px)`);
             } else if (y < PH.c1) {
-                container.style.transform = 'translateY(0)';
+                contentChildren.forEach(child => child.style.transform = 'translateY(0)');
             } else if (y > PH.c2) {
-                const maxScroll = Math.max(0, PH.progressContentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                container.style.transform = `translateY(${-maxScroll}px)`;
+                const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
+                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll}px)`);
             }
 
-            /* TICKER */
             const tp = ease(inv(PH.t0, PH.t1, y));
             tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
-            tickerEl.style.opacity   = tp;
+            tickerEl.style.opacity = tp;
         }
 
-        window.addEventListener('load', () => {
-            buildPhases();
-            tick();
-        });
+        window.addEventListener('load', () => { window.buildPhases(); tick(); });
         window.addEventListener('scroll', tick, { passive: true });
-        window.addEventListener('resize', () => { buildPhases(); tick(); });
-
+        window.addEventListener('resize', () => { window.buildPhases(); tick(); });
     })();
 </script>
 </body>

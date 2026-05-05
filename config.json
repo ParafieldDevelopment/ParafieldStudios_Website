@@ -2,8 +2,8 @@
   "maintenanceMode": true,
   "introEnabled": false,
   "noticeBar": {
-    "enabled": false,
-    "text": "Due to the recent updates from Roblox we are halting development on two games. In the meantime we're going to try some new things."
+    "enabled": true,
+    "text": "Hiii, like the new website? More improvements to come soon! :3 - Batista"
   },
   "secretGames": {
     "enabled": true,
