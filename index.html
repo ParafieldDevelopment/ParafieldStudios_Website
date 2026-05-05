@@ -216,8 +216,9 @@
                 <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
                 <p class="footer-tagline">An independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.</p>
                 <div class="footer-social">
-                    <a href="https://x.com/ParafieldStudio" target="_blank" class="social-pill">Twitter</a>
-                    <a href="https://discord.gg/23FVgBaYYh" target="_blank" class="social-pill">Discord</a>
+                    <a href="https://x.com/ParafieldStudio" target="_blank" class="social-pill" title="Twitter"><img src="assets/Twitter.png" alt="Twitter" class="social-icon"></a>
+                    <a href="https://discord.gg/23FVgBaYYh" target="_blank" class="social-pill" title="Discord"><img src="assets/Discord.png" alt="Discord" class="social-icon"></a>
+                    <a href="https://www.instagram.com/parafieldstudios/" target="_blank" class="social-pill" title="Instagram"><img src="assets/inst.png" alt="Instagram" class="social-icon"></a>
                 </div>
             </div>
             <div>
@@ -264,6 +265,7 @@
     </div>
 </div>
 
+<script src="js/system.js"></script>
 <script>
     (function(){
         'use strict';
@@ -289,6 +291,59 @@
         const trackWrap    = document.getElementById('games-track-wrap');
         const tickerEl     = document.getElementById('ticker-layer');
         const careersEl    = document.getElementById('careers-layer');
+
+        /* ── DYNAMIC GAMES ROSTER ── */
+        async function loadGames() {
+            try {
+                const res = await fetch('progress.json');
+                const data = await res.json();
+                const configRes = await fetch('config.json');
+                const config = await configRes.json();
+                
+                renderGames(data.projects, config.secretGames);
+            } catch (e) {
+                console.error('[HOME] Failed to load games:', e);
+            }
+        }
+
+        function renderGames(projects, secretCfg) {
+            gamesTrack.innerHTML = '';
+            
+            // Filter projects to show on home (Active/Paused usually)
+            const showcase = projects.filter(p => p.category !== 'Unfocused');
+            
+            showcase.forEach(game => {
+                const card = document.createElement('a');
+                card.href = '#';
+                card.className = 'game-card';
+                
+                const isSecret = game.name === '???';
+                const bg = isSecret ? 'assets/404.png' : (game.image || 'assets/404.png');
+                const engine = isSecret ? 'ENCRYPTED_DATA' : 'RBLX';
+                const status = game.status;
+                const statusClass = status.toLowerCase().replace(/\s+/g, '-');
+
+                card.innerHTML = `
+                    <div class="card-bg" style="background-image:url('${bg}');"></div>
+                    <div class="card-overlay"></div><div class="card-scan"></div>
+                    <div class="cb tl"></div><div class="cb tr"></div><div class="cb bl"></div><div class="cb br"></div>
+                    ${isSecret ? `
+                        <div class="floating-q" style="--x:55px;--y:-35px;--r:18deg;--d:4s;top:18%;left:12%">?</div>
+                        <div class="floating-q" style="--x:-38px;--y:48px;--r:-28deg;--d:5.5s;top:42%;right:18%">?</div>
+                    ` : ''}
+                    <div class="card-content">
+                        <div class="card-meta">[ ENGINE: ${engine} ]</div>
+                        <span class="card-status ${statusClass}">${status}</span>
+                        ${game.name !== '???' ? `<img src="assets/logo.svg" class="card-logo" alt="${game.name}">` : ''}
+                        <div class="card-title">${game.name}</div>
+                        <p class="card-desc">${game.description || 'Accessing data...'}</p>
+                    </div>
+                `;
+                gamesTrack.appendChild(card);
+            });
+
+            buildPhases();
+        }
 
         /* ── PHASE MAP ── */
         let PH = {};
@@ -330,8 +385,8 @@
             const hp = ease(inv(PH.h0, PH.h1, y));
             hero.style.opacity = 1 - hp;
             const hs = hp * 90;
-            heroTL.style.transform  = `translateY(calc(-50% - ${hs}px))`;
-            heroTR.style.transform  = `translateY(${hs}px)`;
+            if (heroTL) heroTL.style.transform  = `translateY(calc(-50% - ${hs}px))`;
+            if (heroTR) heroTR.style.transform  = `translateY(${hs}px)`;
 
             /* GAMES */
             const gIn  = ease(inv(PH.g0, PH.g1, y));
@@ -374,7 +429,7 @@
         }
 
         window.addEventListener('load', () => {
-            buildPhases();
+            loadGames();
             tick();
             runIntro();
         });

@@ -1006,14 +1006,15 @@ nav.solid {
     padding: 4px 10px;
     font-family: var(--mono);
     font-size: 0.6rem;
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border: 1px solid;
+    color: #080808;
 }
-.project-status.in-progress { color: var(--primary); border-color: var(--primary); }
-.project-status.planning { color: #33a1ff; border-color: #33a1ff; }
-.project-status.completed { color: #28a745; border-color: #28a745; }
+.project-status.in-progress { background: var(--primary); }
+.project-status.paused { background: #ff4444; }
+.project-status.planning { background: #33a1ff; }
+.project-status.completed { background: #28a745; }
 
 .project-description {
     font-size: 0.85rem;
@@ -1352,8 +1353,10 @@ footer::before {
 .footer-links a { color:rgba(255,255,255,.3);text-decoration:none;font-size:.82rem;font-weight:600;transition:color .2s; }
 .footer-links a:hover { color:var(--primary); }
 .footer-social { display:flex;gap:.8rem;margin-top:1.4rem; }
-.social-pill { display:inline-flex;align-items:center;padding:7px 14px;border:1px solid rgba(255,255,255,.1);font-family:var(--mono);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.35);transition:all .2s; }
-.social-pill:hover { border-color:var(--primary);color:var(--primary); }
+.social-pill { display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.1);transition:all .2s; }
+.social-pill:hover { border-color:var(--primary); background: rgba(242,174,73,0.05); transform: translateY(-2px); }
+.social-icon { width: 20px; height: 20px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.6; transition: opacity 0.2s; }
+.social-pill:hover .social-icon { opacity: 1; }
 .footer-bottom { display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.06);padding-top:1.8rem; }
 .footer-copyright { font-family:var(--mono);font-size:.6rem;letter-spacing:2px;color:rgba(255,255,255,.18); }
 .cloudflare-badge { display:flex;align-items:center;gap:8px;text-decoration:none;color:rgba(255,255,255,.18);font-family:var(--mono);font-size:.58rem;letter-spacing:2px;transition:color .2s; }
@@ -1405,4 +1408,80 @@ footer::before {
     .project-title { font-size: 1rem; }
     .project-description { font-size: 0.8rem; }
     .project-details { font-size: 0.6rem; }
+}
+
+/* ═══ SYSTEM DYNAMICS ═══ */
+.top-notice-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--primary);
+    color: #080808;
+    padding: 10px 2rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-align: center;
+    z-index: 2000;
+    box-shadow: 0 4px 20px rgba(242,174,73,0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.notice-hud {
+    opacity: 0.6;
+    margin-right: 10px;
+}
+body.has-notice-bar nav {
+    top: 36px;
+}
+@media (max-width: 900px) {
+    .top-notice-bar { font-size: 0.65rem; padding: 8px 1rem; }
+    body.has-notice-bar nav { top: 48px; }
+}
+
+/* ═══ LOG ENTRIES ═══ */
+.logs-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.log-entry {
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid var(--primary);
+    padding: 1.5rem;
+    position: relative;
+}
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+    color: var(--dim);
+}
+.log-date { color: var(--primary); }
+.log-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+.log-body {
+    font-size: 0.85rem;
+    color: var(--dim);
+    line-height: 1.6;
+}
+
+.loading-hud {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--primary);
+    padding: 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.loading-hud.error {
+    color: #ff4444;
 }

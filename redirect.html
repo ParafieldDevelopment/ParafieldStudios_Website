@@ -3,112 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect Notice - Parafield Studios</title>
+    <title>Parafield_OS // REDIRECT_NOTICE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/404.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <style>
-        /* Remove animation from body, apply to individual elements */
-        body {
-            /* Keep body visible initially, individual elements will be hidden */
+        body { 
+            background: #080808; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0;
+            overflow: hidden;
         }
-
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.8); }
+        .redirect-container {
+            max-width: 600px;
+            width: 90%;
+            padding: 4rem 3rem;
+            background: #111;
+            border: 1px solid rgba(242,174,73,0.1);
+            position: relative;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+        .redirect-hud {
+            position: absolute;
+            top: 1rem; left: 1rem;
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            color: var(--primary);
+            opacity: 0.5;
+            letter-spacing: 2px;
+        }
+        .warning-icon { 
+            width: 80px; 
+            margin-bottom: 2rem; 
+            filter: invert(72%) sepia(60%) saturate(500%) hue-rotate(340deg) brightness(100%);
+            animation: pulse-warn 2s ease-in-out infinite;
+        }
+        @keyframes pulse-warn {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        .container > * {
-            opacity: 0;
-            transform: scale(0.8);
-            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-        }
-
-        .container .error-img { animation-delay: 0.1s; }
-        .container h1 { animation-delay: 0.2s; }
-        .container p:nth-of-type(1) { animation-delay: 0.3s; } /* Main descriptive paragraph */
-        .container .url-box { animation-delay: 0.4s; }
-        .container .button-group { animation-delay: 0.5s; }
-        .container .funny-section { animation-delay: 0.6s; }
-
-
-        .error-img {
-            width: 250px;
-            margin-bottom: 20px;
-            display: inline-block;
         }
         .url-box {
-            background: #e0e0e0;
-            padding: 15px;
-            border-radius: 8px;
+            background: #000;
+            border: 1px dashed rgba(242,174,73,0.3);
+            padding: 1.2rem;
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--primary);
             word-break: break-all;
-            margin: 25px 0;
-            font-family: monospace;
-            font-size: 1.1rem;
-            color: #444;
-            border: 1px dashed #bbb;
+            margin: 2.5rem 0;
+            text-align: left;
         }
-        .button-group {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-        }
+        .btn-group { display: flex; gap: 1.5rem; justify-content: center; }
         .btn {
-            padding: 12px 24px;
+            padding: 14px 28px;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            cursor: pointer;
-            border: none;
+            font-weight: 900;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.3s;
+            font-family: var(--mono);
         }
-        .btn-continue {
-            background-color: #f2ae49;
-            color: white;
+        .btn-back { color: var(--white); border: 1.5px solid rgba(255,255,255,0.1); }
+        .btn-go { background: var(--primary); color: #080808; }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-go:hover { background: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        .btn-back:hover { border-color: #fff; color: #fff; }
+        
+        .funny-text { 
+            margin-top: 3rem; 
+            font-family: var(--mono);
+            color: rgba(255,255,255,0.15); 
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .btn-continue:hover {
-            background-color: #e19d38;
-            transform: scale(1.05);
-        }
-        .btn-back {
-            background-color: #333;
-            color: white;
-        }
-        .btn-back:hover {
-            background-color: #000;
-            transform: scale(1.05);
-        }
-        h1 {
-            font-size: 3rem;
-        }
-        p {
-            font-size: 1.2rem;
-            max-width: 500px;
-            margin: 10px auto;
-        }
+
+        /* HUD Brackets */
+        .b-corner { position: absolute; width: 20px; height: 20px; border: 2px solid var(--primary); opacity: 0.3; }
+        .b-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+        .b-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+        .b-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+        .b-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="assets/warning.svg" alt="Redirect Notice" class="error-img">
-        <h1>Leaving so soon?</h1>
-        <p>You're about to visit an external website. We didn't build it, so we can't promise it's as cool as this one.</p>
+    <div class="redirect-container">
+        <div class="redirect-hud">[ SEC_LINK_PROTECT_v4.0 ]</div>
+        <div class="b-corner b-tl"></div><div class="b-corner b-tr"></div>
+        <div class="b-corner b-bl"></div><div class="b-corner b-br"></div>
         
-        <div id="url-display" class="url-box">Loading...</div>
+        <img src="assets/warning.svg" class="warning-icon" alt="Warning">
+        <h1 style="font-size: 2.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 1rem;">LEAVING<br><span style="color: var(--primary);">SYSTEM</span></h1>
+        <p style="font-size: 0.9rem; color: var(--dim); line-height: 1.6; max-width: 400px; margin: 0 auto;">You are attempting to access an external domain. System security cannot be guaranteed beyond this point.</p>
         
-        <div class="button-group">
-            <a href="javascript:history.back()" class="btn btn-back">Take Me Back</a>
-            <a href="#" id="continue-link" class="btn btn-continue">Proceed to Site</a>
+        <div id="url-display" class="url-box">TARGET_URL: Loading...</div>
+        
+        <div class="btn-group">
+            <a href="javascript:history.back()" class="btn btn-back">Abort</a>
+            <a href="#" id="continue-link" class="btn btn-go">Authorize Access</a>
         </div>
-
-        <div class="funny-section">
-            <p id="funny-text" class="funny-text"></p>
-        </div>
+        
+        <p id="funny-text" class="funny-text"></p>
     </div>
 
     <script>
@@ -116,15 +118,13 @@
         let targetUrl = params.get('url');
         
         if (targetUrl) {
-            // Ensure URL is absolute
             if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
                 targetUrl = 'https://' + targetUrl;
             }
-            
-            document.getElementById('url-display').textContent = targetUrl;
+            document.getElementById('url-display').textContent = `EXTERNAL_NODE: ${targetUrl}`;
             document.getElementById('continue-link').href = targetUrl;
         } else {
-            document.getElementById('url-display').textContent = "No destination specified.";
+            document.getElementById('url-display').textContent = "ERROR: NO_DESTINATION_SPECIFIED";
             document.getElementById('continue-link').style.display = 'none';
         }
 
@@ -136,20 +136,14 @@
             "Watch out for dragons.",
             "Tell them Parafield sent you.",
             "Remember to hydrate while you're out there.",
-            "Is it worth leaving this masterpiece?",
             "Wait, did you leave the oven on?",
             "NO! DON'T LEAVE ME HERE!",
-            "MICHAEL DONT LEAVE ME HERE MICHAEL MICHAEL!!! [ Continuous door banging ] HELP MEEEEE!!!",
-            "If you find any cool secrets out there, let us know.",
+            "MICHAEL DONT LEAVE ME HERE MICHAEL!!!",
             "You're entering the wild west of the web.",
-            "May your connection be fast and your ads be few.",
-            "Farewell, brave traveler.",
-            "Don't forget to come back and visit!"
+            "Farewell, brave traveler."
         ];
 
-        const funnyTextElement = document.getElementById('funny-text');
-        const randomIndex = Math.floor(Math.random() * funnyTexts.length);
-        funnyTextElement.innerHTML = funnyTexts[randomIndex];
+        document.getElementById('funny-text').textContent = funnyTexts[Math.floor(Math.random() * funnyTexts.length)];
     </script>
 </body>
 </html>
