@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parafield Studios - Health & Safety</title>
+    <meta name="description" content="Stay safe while gaming. Read our health recommendations and photosensitivity warnings.">
     <meta name="theme-color" content="#f2ae49">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,10 +12,22 @@
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        #legal-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/CC/BetterGameBackground.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 <body>
 
+<div id="scroll-spacer"></div>
+
 <div id="stage">
+
     <!-- NAV -->
     <nav id="nav">
         <img src="assets/logo.svg" alt="Parafield Studios" class="nav-logo">
@@ -22,103 +35,222 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="careers.html">Careers</a></li>
-            <li><a href="https://learn.parafieldstudios.com">Learn</a></li>
+            <!-- <li><a href="https://learn.parafieldstudios.com">Learn</a></li> -->
         </ul>
     </nav>
 
-    <!-- CONTENT -->
-    <main style="padding: 120px 4rem 4rem; color: #fff;">
-        <h1 style="font-size: 3rem; margin-bottom: 2rem;">Health & Safety</h1>
-        
-        <section class="intro-section scroll-on">
-            <div class="section-hud">01 // SAFETY_DIRECTIVE</div>
-            <h2 class="section-title">Play Smart, Stay Safe.</h2>
-            <div class="studio-desc-content">
-                <p>At Parafield Studios, we want you to enjoy our games for years to come. That starts with taking care of yourself. Please read this information carefully before using our software.</p>
-            </div>
-        </section>
+    <!-- LEGAL HERO -->
+    <div id="legal-hero" class="hero-section">
+        <div class="hud tl">[ PS_SAF_40.7 ] // SYSTEM ACTIVE</div>
+        <div class="hud tr">LAT: 40.7128 | LNG: -74.0060</div>
+        <div class="hud bl">STATUS: ACTIVE // ACCESS GRANTED</div>
+        <div class="hud br">SEC_LVL: 04</div>
+        <div class="bracket tl"></div><div class="bracket tr"></div>
+        <div class="bracket bl"></div><div class="bracket br"></div>
 
-        <section class="intro-section scroll-on" style="margin-top: 2rem;">
-            <div class="section-hud">02 // MEDICAL_PROTOCOL</div>
-            <div style="background-color: #555; padding: 2rem; border-radius: 8px;">
-                <strong>Photosensitivity and Seizure Warning</strong>
-                <p>A very small percentage of people may experience a seizure when exposed to certain visual images, including flashing lights or patterns that may appear in video games. Even people who have no history of seizures or epilepsy may have an undiagnosed condition that can cause these "photosensitive epileptic seizures" while watching video games.</p>
+        <div id="legal-hero-text" class="hero-text-left" style="position: absolute; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 48vw; will-change: opacity, transform;">
+            <div class="hero-eyebrow">// Health & Safety · Directive</div>
+            <h1 class="hero-title">HEALTH &<br><span class="amber">SAFETY</span></h1>
+            <p class="hero-sub">Play Smart, Stay Safe. We want you to enjoy our games for years to come. That starts with taking care of yourself.</p>
+        </div>
+
+        <div id="scroll-hint">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </div>
+
+    <!-- CONTENT LAYER -->
+    <div id="legal-content-layer" style="position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; will-change: opacity; padding-top: 72px; overflow: hidden;">
+        <div id="legal-content-wrapper">
+            <div class="about-content-inner">
+                <div class="section-label">01 // SAFETY_DIRECTIVE</div>
+                <h2 class="about-big-title">PLAY SMART<br><span class="amber">STAY SAFE</span></h2>
+                <div class="studio-desc-content">
+                    <p>At Parafield Studios, we want you to enjoy our games for years to come. That starts with taking care of yourself. Please read this information carefully before using our software.</p>
+                </div>
             </div>
 
-            <div class="info-grid" style="margin-top: 2rem;">
-                <h3>General Health Recommendations</h3>
-                <ul>
-                    <li><strong>Take Breaks:</strong> We recommend taking a 15-minute break for every hour of play.</li>
-                    <li><strong>Lighting:</strong> Play in a well-lit room.</li>
-                    <li><strong>Listen to your body:</strong> If you feel tired, dizzy, or have strained eyes, stop playing immediately.</li>
-                </ul>
-
-                <h3>Mental Wellbeing</h3>
-                <p>Gaming should be fun, not stressful. If you find yourself becoming frustrated, it's time to step away.</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <div id="footer-layer">
-        <footer>
-            <div class="footer-hud">
-                <span>MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</span>
-                <span>SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</span>
-            </div>
-            <div class="footer-grid">
-                <div>
-                    <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
-                    <p class="footer-tagline">An independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.</p>
-                    <div class="footer-social">
-                        <a href="https://x.com/ParafieldStudio" target="_blank" class="social-pill">Twitter</a>
-                        <a href="https://discord.gg/23FVgBaYYh" target="_blank" class="social-pill">Discord</a>
+            <div class="about-content-inner">
+                <div class="section-label">02 // MEDICAL_PROTOCOL</div>
+                <h2 class="about-big-title">SEIZURE<br><span class="outline">WARNING</span></h2>
+                
+                <div class="non-profit-disclaimer" style="border-left: 8px solid #ff4444; background: rgba(255,68,68,0.05); border: 1px solid rgba(255,68,68,0.2); border-left: 8px solid #ff4444;">
+                    <div class="disclaimer-hud" style="color: #ff4444;">[ CRITICAL_WARNING ]</div>
+                    <div class="disclaimer-icon" style="color: #ff4444;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <div class="disclaimer-content">
+                        <strong style="color: #ff4444;">Photosensitivity and Seizure Warning</strong>
+                        <p>A very small percentage of people may experience a seizure when exposed to certain visual images, including flashing lights or patterns. Even people who have no history of seizures or epilepsy may have an undiagnosed condition that can cause these "photosensitive epileptic seizures" while watching video games.</p>
                     </div>
                 </div>
-                <div>
-                    <div class="footer-col-title">Explore</div>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="https://learn.parafieldstudios.com">Learn</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-col-title">Legal</div>
-                    <ul class="footer-links">
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html">Terms of Service</a></li>
-                        <li><a href="do-not-sell-my-information.html">Do Not Sell My Info</a></li>
-                        <li><a href="health-and-safety.html">Health &amp; Safety</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-col-title">Contact</div>
-                    <ul class="footer-links">
-                        <li><a href="mailto:hello@parafieldstudios.com">hello@parafieldstudios.com</a></li>
-                        <li><a href="progress.html">Dev Progress</a></li>
+            </div>
+
+            <div class="about-content-inner">
+                <div class="section-label">03 // GUIDELINE_PROTOCOL</div>
+                <h2 class="about-big-title">BEST<br><span class="amber">PRACTICES</span></h2>
+                <div class="studio-desc-content">
+                    <ul class="values-list">
+                        <li><b>Take Breaks:</b> We recommend taking a 15-minute break for every hour of play.</li>
+                        <li><b>Lighting:</b> Play in a well-lit room.</li>
+                        <li><b>Listen to your body:</b> If you feel tired, dizzy, or have strained eyes, stop playing immediately.</li>
+                        <li><b>Mental Wellbeing:</b> Gaming should be fun, not stressful. If you find yourself becoming frustrated, it's time to step away.</li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <span class="footer-copyright">© 2026 PARAFIELD STUDIOS // ALL RIGHTS RESERVED</span>
-                <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
-                    <span>Hosted via Cloudflare Pages</span>
-                    <img src="assets/cloudflare.png" alt="Cloudflare">
-                </a>
-            </div>
-        </footer>
+        </div>
     </div>
+
+    <!-- TICKER -->
+    <div id="ticker-layer">
+        <div class="ticker-inner">
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">HEALTH & SAFETY //</span>
+            <span class="ticker-item">PLAY RESPONSIBLY //</span><span class="ticker-item">SEC_LVL_04 //</span>
+            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">HEALTH & SAFETY //</span>
+            <span class="ticker-item">PLAY RESPONSIBLY //</span><span class="ticker-item">SEC_LVL_04 //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">HEALTH & SAFETY //</span>
+            <span class="ticker-item">PLAY RESPONSIBLY //</span><span class="ticker-item">SEC_LVL_04 //</span>
+            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">HEALTH & SAFETY //</span>
+            <span class="ticker-item">PLAY RESPONSIBLY //</span><span class="ticker-item">SEC_LVL_04 //</span>
+        </div>
+    </div>
+
+</div><!-- #stage -->
+
+<div id="footer-layer">
+    <footer>
+        <div class="footer-hud">
+            <span>MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</span>
+            <span>SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</span>
+        </div>
+        <div class="footer-grid">
+            <div>
+                <img src="assets/ParafieldStudiosWhite.png" alt="Parafield Studios" class="footer-logo">
+                <p class="footer-tagline">An independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.</p>
+                <div class="footer-social">
+                    <a href="https://x.com/ParafieldStudio" target="_blank" class="social-pill">Twitter</a>
+                    <a href="https://discord.gg/23FVgBaYYh" target="_blank" class="social-pill">Discord</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-col-title">Explore</div>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="https://learn.parafieldstudios.com">Learn</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-col-title">Legal</div>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="do-not-sell-my-information.html">Do Not Sell My Info</a></li>
+                    <li><a href="health-and-safety.html">Health &amp; Safety</a></li>
+                </ul>
+            </div>
+            <div>
+                <!-- <div class="footer-col-title">Contact</div> -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS // ALL RIGHTS RESERVED</span>
+            <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
+                <span>Hosted via Cloudflare Pages</span>
+                <img src="assets/cloudflare.png" alt="Cloudflare">
+            </a>
+        </div>
+    </footer>
 </div>
 
 <script>
-    // Simple navigation handler
-    const navEl = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-        navEl.classList.toggle('solid', window.scrollY > 30);
-    });
-</script>
+    (function(){
+        'use strict';
 
+        const HERO_OUT_PX = 600;
+        const CONTENT_IN_PX = 280;
+        const CONTENT_OUT_PX = 280;
+        const TICKER_OFFSET = 250;
+        const NAV_HEIGHT = 72;
+
+        const spacer = document.getElementById('scroll-spacer');
+        const navEl = document.getElementById('nav');
+        const legalHero = document.getElementById('legal-hero');
+        const legalHeroText = document.getElementById('legal-hero-text');
+        const legalContentLayer = document.getElementById('legal-content-layer');
+        const legalContentWrapper = document.getElementById('legal-content-wrapper');
+        const tickerEl = document.getElementById('ticker-layer');
+        const footerLayer = document.getElementById('footer-layer');
+
+        let PH = {};
+
+        function buildPhases() {
+            const viewportHeight = window.innerHeight;
+            const footerHeight = footerLayer.offsetHeight;
+
+            legalContentLayer.style.opacity = '1';
+            legalContentLayer.style.display = 'block';
+            PH.contentFullHeight = legalContentWrapper.scrollHeight;
+            legalContentLayer.style.opacity = '0';
+
+            PH.h0 = 0;
+            PH.h1 = HERO_OUT_PX;
+
+            PH.c0 = PH.h1;
+            PH.c1 = PH.c0 + CONTENT_IN_PX;
+
+            const scrollableContentDistance = Math.max(0, PH.contentFullHeight - (viewportHeight - NAV_HEIGHT));
+
+            PH.c2 = PH.c1 + scrollableContentDistance;
+            PH.c3 = PH.c2 + CONTENT_OUT_PX;
+
+            PH.t0 = PH.c3 - TICKER_OFFSET;
+            PH.t1 = PH.c3;
+
+            spacer.style.height = (PH.t1 + viewportHeight + footerHeight) + 'px';
+        }
+
+        const clamp = (v,a,b) => Math.min(Math.max(v,a),b);
+        const inv = (a,b,v) => clamp((v-a)/(b-a), 0, 1);
+        const ease = t => t<.5 ? 2*t*t : -1+(4-2*t)*t;
+
+        function tick() {
+            const y = window.scrollY;
+            navEl.classList.toggle('solid', y > 30);
+
+            const hp = ease(inv(PH.h0, PH.h1, y));
+            legalHero.style.opacity = 1 - hp;
+            const hs = hp * 90;
+            legalHeroText.style.transform = `translateY(calc(-50% - ${hs}px))`;
+
+            const cIn = ease(inv(PH.c0, PH.c1, y));
+            const cOut = ease(inv(PH.c2, PH.c3, y));
+            const cOp = cIn * (1 - cOut);
+            legalContentLayer.style.opacity = cOp;
+            legalContentLayer.classList.toggle('active', cOp > 0.05);
+
+            if (y >= PH.c1 && y <= PH.c2) {
+                const scrollProgress = inv(PH.c1, PH.c2, y);
+                const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
+                legalContentWrapper.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
+            } else if (y < PH.c1) {
+                legalContentWrapper.style.transform = 'translateY(0)';
+            } else if (y > PH.c2) {
+                const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
+                legalContentWrapper.style.transform = `translateY(${-maxScroll}px)`;
+            }
+
+            const tp = ease(inv(PH.t0, PH.t1, y));
+            tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
+            tickerEl.style.opacity = tp;
+        }
+
+        window.addEventListener('load', () => { buildPhases(); tick(); });
+        window.addEventListener('scroll', tick, { passive: true });
+        window.addEventListener('resize', () => { buildPhases(); tick(); });
+    })();
+</script>
 </body>
 </html>
