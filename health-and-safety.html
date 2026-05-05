@@ -15,11 +15,52 @@
 
     <style>
         #legal-hero {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/CC/BetterGameBackground.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: #080808;
+            overflow: hidden;
         }
+        /* UNIQUE SHAPE: VITAL PULSE HEART */
+        .vital-container {
+            position: absolute;
+            top: 50%; left: 65%;
+            transform: translate(-50%, -50%);
+            width: 500px; height: 500px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .vital-heart {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px; height: 180px;
+            background: rgba(242,174,73,0.1);
+            mask-image: url('assets/heart.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            -webkit-mask-image: url('assets/heart.svg');
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            animation: pulse-heart 2s ease-in-out infinite;
+        }
+        .vital-ring {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px solid rgba(242,174,73,0.15);
+            animation: pulse-ring 4s ease-out infinite;
+        }
+        .r1 { width: 200px; height: 200px; animation-delay: 0s; }
+        .r2 { width: 200px; height: 200px; animation-delay: 2s; }
+
+        @keyframes pulse-heart {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.25; }
+        }
+        @keyframes pulse-ring {
+            0% { width: 150px; height: 150px; opacity: 0.8; }
+            100% { width: 500px; height: 500px; opacity: 0; }
+        }
+
         #legal-content-layer.active {
             pointer-events: all;
         }
@@ -50,6 +91,13 @@
         <div class="hud br">SEC_LVL: 04</div>
         <div class="bracket tl"></div><div class="bracket tr"></div>
         <div class="bracket bl"></div><div class="bracket br"></div>
+
+        <!-- UNIQUE SHAPES -->
+        <div class="vital-container">
+            <div class="vital-ring r1"></div>
+            <div class="vital-ring r2"></div>
+            <div class="vital-heart"></div>
+        </div>
 
         <div id="legal-hero-text" style="position: absolute; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 48vw; will-change: opacity, transform;">
             <div class="hero-eyebrow">// Health & Safety · Directive</div>
