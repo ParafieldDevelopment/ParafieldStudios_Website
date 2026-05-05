@@ -23,6 +23,15 @@
         #legal-content-layer.active {
             pointer-events: all;
         }
+        .tos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 900px) {
+            .tos-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -47,7 +56,7 @@
         <div class="hud tl">[ PS_TOS_40.7 ] // SYSTEM ACTIVE</div>
         <div class="hud tr">LAT: 40.7128 | LNG: -74.0060</div>
         <div class="hud bl">STATUS: ACTIVE // ACCESS GRANTED</div>
-        <div class="hud br:SEC_LVL: 04"></div>
+        <div class="hud br">SEC_LVL: 04</div>
         <div class="bracket tl"></div><div class="bracket tr"></div>
         <div class="bracket bl"></div><div class="bracket br"></div>
 
@@ -66,24 +75,86 @@
     <!-- CONTENT LAYER -->
     <div id="legal-content-layer" style="position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; will-change: opacity; padding-top: 72px; overflow: hidden;">
         <div id="legal-content-wrapper">
+            
+            <!-- SECTION 01: INTRO -->
             <div class="about-content-inner">
                 <div class="section-label">01 // SERVICE_DIRECTIVE</div>
                 <h2 class="about-big-title">INTERNATIONAL<br><span class="amber">TERMS</span></h2>
                 <div class="studio-desc-content">
-                    <p>These Terms of Service govern your use of the websites, games, and digital products provided by Parafield Studios. Parafield Studios is a non-profit organization dedicated to creative development and community projects.</p>
+                    <p>These Terms of Service govern your use of the websites, games, and digital products provided by Parafield Studios and its subsidiaries, including but not limited to <b>REDTOPS</b>. Parafield Studios is a non-profit organization dedicated to creative development and community projects.</p>
+                </div>
+                <!-- DIEGETIC DISCLAIMER -->
+                <div class="non-profit-disclaimer" style="border-left: 8px solid var(--primary);">
+                    <div class="disclaimer-hud">[ SYSTEM_NOTICE_LOG ]</div>
+                    <div class="disclaimer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </div>
+                    <div class="disclaimer-content">
+                        <strong>Legal Disclaimer</strong>
+                        <p>Parafield Studios is run by creators, not lawyers. We have absolutely NO IDEA what we're doing when it comes to legal jargon. This policy is written in plain English because that's all we know. Don't sue us.</p>
+                    </div>
                 </div>
             </div>
 
+            <!-- SECTION 02: TERMINOLOGY & AGREEMENT -->
             <div class="about-content-inner">
                 <div class="section-label">02 // ENTITY_MAPPING</div>
                 <h2 class="about-big-title">AGREEMENT<br><span class="outline">TO TERMS</span></h2>
                 <div class="studio-desc-content">
-                    <p>By using any service under the Parafield Studios umbrella, you are entering into a binding agreement. If you do not agree with any part of these terms, you must immediately cease use of our software, websites, and associated services.</p>
-                    
-                    <h3 style="color: var(--primary); font-family: var(--mono); font-size: 1rem; margin: 2rem 0 1rem; text-transform: uppercase; letter-spacing: 2px;">Limitation of Liability</h3>
-                    <p>Parafield provides its services on an "as-is" basis. As a non-profit entity, we make no warranties regarding the stability or availability of our software.</p>
+                    <p>Throughout these Terms, references to <b>"Parafield"</b>, <b>"the Studio"</b>, <b>"We"</b>, <b>"Us"</b>, or <b>"Our"</b> refer to Parafield Studios and all subsidiaries managed under its direction (including, but not limited to, <b>REDTOPS</b>).</p>
+                    <p>By using any service under our umbrella, you are entering into a binding agreement. If you do not agree, you must immediately cease use of our software, websites, and associated services.</p>
                 </div>
             </div>
+
+            <!-- SECTION 03: COPYRIGHT & LICENSING -->
+            <div class="about-content-inner">
+                <div class="section-label">03 // INTELLECTUAL_PROPERTY</div>
+                <h2 class="about-big-title">COPYRIGHT<br><span class="amber">PROTOCOLS</span></h2>
+                <div class="studio-desc-content">
+                    <p>Parafield uses a multi-tier licensing system to balance open creativity with protected intellectual property:</p>
+                    <ul class="values-list">
+                        <li><b>Games (Standard):</b> All games not designated as open-source (e.g., <b>Codename Combat</b>) are protected by standard copyright. All rights reserved.</li>
+                        <li><b>Music & Assets:</b> Most are released under <b>CC BY</b> or <b>CC BY-NC</b>. Credit the Studio and creators.</li>
+                        <li><b>Open Source Tools:</b> Tools designated as open-source use <b>MIT</b> or <b>Apache 2.0</b> licenses.</li>
+                        <li><b>Branding:</b> Internal infrastructure and Studio branding are strictly <b>All Rights Reserved</b>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION 04: CONDUCT & MEDIA -->
+            <div class="about-content-inner">
+                <div class="section-label">04 // USER_CONDUCT</div>
+                <h2 class="about-big-title">CONDUCT &<br><span class="outline">MEDIA</span></h2>
+                <div class="studio-desc-content">
+                    <p>We expect a standard of respect. No harassment, exploits, hacks, or disruption of infrastructure.</p>
+                    <p><b>Content Creation:</b> We encourage Let's Plays and streams! You can monetize them on YouTube/Twitch, just provide credit and don't misrepresent our work as your own.</p>
+                </div>
+            </div>
+
+            <!-- SECTION 05: MISC & EOL -->
+            <div class="about-content-inner">
+                <div class="section-label">05 // SYSTEM_MISC</div>
+                <h2 class="about-big-title">FINAL<br><span class="amber">DIRECTIVES</span></h2>
+                <div class="studio-desc-content">
+                    <ul class="values-list">
+                        <li><b>Age Requirement:</b> 13+. Minor use requires parental permission.</li>
+                        <li><b>No Monetary Value:</b> Virtual items/currency have ZERO cash value.</li>
+                        <li><b>Service Availability:</b> No 100% uptime guarantees. We reserve the right to discontinue services, but are committed to open-sourcing projects for preservation if appropriate.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION 06: LIABILITY & UPDATES -->
+            <div class="about-content-inner">
+                <div class="section-label">06 // LEGAL_FINALITY</div>
+                <h2 class="about-big-title">LIABILITY<br><span class="outline">& UPDATES</span></h2>
+                <div class="studio-desc-content">
+                    <p>Parafield provides services <b>"as-is"</b>. We make no warranties regarding stability or availability. We are not liable for any damages arising from use.</p>
+                    <p>We reserve the right to modify these terms. Continued use constitutes acceptance.</p>
+                </div>
+                <p style="margin-top: 3rem; font-family: var(--mono); font-size: 0.7rem; color: rgba(255,255,255,0.2);">LAST_UPDATED: 4/4/2026</p>
+            </div>
+
         </div>
     </div>
 
