@@ -1,5 +1,13 @@
 /* ═══ CAREERS PAGE ENHANCEMENTS ═══ */
 
+.bracket-career {
+    position: absolute;
+    width: 34px; height: 34px;
+    border: 2px solid rgba(51, 161, 255, 0.3);
+    z-index: 10;
+    animation: bpulse 4s ease-in-out infinite;
+}
+
 .roles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -31,6 +39,20 @@
     border: 1.5px solid transparent;
     z-index: 5;
     transition: border-color .3s;
+}
+
+.hero-label-career {
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.5s forwards;
+}
+.hero-label-career .outline {
+    -webkit-text-stroke: 0px var(--career);
+    color: var(--career);
 }
 
 .role-card:hover .role-card-bracket { border-color: #33a1ff; }
