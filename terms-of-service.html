@@ -15,11 +15,37 @@
 
     <style>
         #legal-hero {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/CC/BetterGameBackground.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: #080808;
+            overflow: hidden;
         }
+        /* UNIQUE SHAPE: STRUCTURAL BEAMS */
+        .beam-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .beam {
+            position: absolute;
+            width: 2px;
+            height: 150%;
+            background: linear-gradient(to bottom, transparent, rgba(242,174,73,0.15), transparent);
+            top: -25%;
+            transform: rotate(25deg);
+        }
+        .b1 { left: 60%; }
+        .b2 { left: 70%; height: 120%; opacity: 0.5; }
+        .b3 { left: 80%; height: 180%; }
+        
+        .beam-cross {
+            position: absolute;
+            top: 50%; left: 70%;
+            width: 400px; height: 1px;
+            background: rgba(242,174,73,0.2);
+            transform: translate(-50%, -50%) rotate(-45deg);
+            box-shadow: 0 0 15px rgba(242,174,73,0.1);
+        }
+
         #legal-content-layer.active {
             pointer-events: all;
         }
@@ -59,6 +85,14 @@
         <div class="hud br">SEC_LVL: 04</div>
         <div class="bracket tl"></div><div class="bracket tr"></div>
         <div class="bracket bl"></div><div class="bracket br"></div>
+
+        <!-- UNIQUE SHAPES -->
+        <div class="beam-container">
+            <div class="beam b1"></div>
+            <div class="beam b2"></div>
+            <div class="beam b3"></div>
+            <div class="beam-cross"></div>
+        </div>
 
         <div id="legal-hero-text" style="position: absolute; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 48vw; will-change: opacity, transform;">
             <div class="hero-eyebrow">// Terms of Service · Agreement</div>
