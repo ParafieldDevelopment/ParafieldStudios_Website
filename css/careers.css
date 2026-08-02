@@ -1,13 +1,5 @@
 /* ═══ CAREERS PAGE ENHANCEMENTS ═══ */
 
-.bracket-career {
-    position: absolute;
-    width: 34px; height: 34px;
-    border: 2px solid rgba(51, 161, 255, 0.3);
-    z-index: 10;
-    animation: bpulse 4s ease-in-out infinite;
-}
-
 .roles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -16,14 +8,16 @@
 }
 
 .role-card {
-    background: #111;
-    border: 1px solid rgba(255,255,255,0.06);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     padding: 2.5rem;
     position: relative;
     overflow: hidden;
     text-decoration: none;
-    color: #fff;
-    transition: border-color 0.3s, transform 0.3s;
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
 }
@@ -31,14 +25,7 @@
 .role-card:hover {
     border-color: #33a1ff;
     transform: translateY(-5px);
-}
-
-.role-card-bracket {
-    position: absolute;
-    width: 16px; height: 16px;
-    border: 1.5px solid transparent;
-    z-index: 5;
-    transition: border-color .3s;
+    box-shadow: var(--shadow-hover);
 }
 
 .hero-label-career {
@@ -55,22 +42,16 @@
     color: var(--career);
 }
 
-.role-card:hover .role-card-bracket { border-color: #33a1ff; }
-.role-card-bracket.tl { top:10px; left:10px; border-right:none; border-bottom:none; }
-.role-card-bracket.tr { top:10px; right:10px; border-left:none; border-bottom:none; }
-.role-card-bracket.bl { bottom:10px; left:10px; border-right:none; border-top:none; }
-.role-card-bracket.br { bottom:10px; right:10px; border-left:none; border-top:none; }
-
 .priority-tag {
     position: absolute;
     top: 1.5rem; right: 1.5rem;
     background: #33a1ff;
-    color: #080808;
-    font-family: monospace;
+    color: #fff;
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 1px;
     padding: 4px 8px;
+    border-radius: 20px;
     z-index: 2;
 }
 
@@ -83,7 +64,6 @@
 }
 
 .role-meta {
-    font-family: monospace;
     font-size: 0.6rem;
     letter-spacing: 2px;
     color: #33a1ff;
@@ -99,10 +79,11 @@
     margin-bottom: 0.5rem;
     position: relative;
     z-index: 1;
+    color: var(--text);
 }
 .role-card > p {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.4);
+    color: #555555;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     position: relative;
@@ -114,14 +95,14 @@
     margin-top: auto;
     padding: 12px 24px;
     background: #33a1ff;
-    color: #080808;
+    color: #fff;
     text-decoration: none;
-    font-family: monospace;
     font-size: 0.7rem;
     font-weight: 900;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
+    border-radius: 12px;
     transition: background 0.3s;
 }
 
@@ -129,13 +110,12 @@
     margin-top: 6rem;
     padding: 4rem 2rem;
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(0,0,0,0.06);
 }
 
 .marketing-logo {
     height: 80px;
     margin-bottom: 1.5rem;
-    filter: brightness(0) invert(1);
 }
 
 .marketing-title {
@@ -143,12 +123,12 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -1px;
-    color: #fff;
+    color: var(--text);
 }
 
 .marketing-subtitle {
     font-size: 1rem;
-    color: rgba(255,255,255,0.4);
+    color: #555555;
     margin-top: 0.5rem;
 }
 
@@ -156,22 +136,14 @@
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
-    background: rgba(255, 71, 87, 0.08);
-    border: 1px solid rgba(255, 71, 87, 0.2);
+    background: #fff0f0;
+    border: 1px solid #f5c8c8;
     border-left: 8px solid #ff4757;
+    border-radius: 16px;
     padding: 1.5rem;
     margin-top: 3rem;
     max-width: 600px;
     position: relative;
-    overflow: hidden;
-}
-.disclaimer-hud {
-    position: absolute;
-    top: 0.5rem; right: 0.5rem;
-    font-family: monospace;
-    font-size: 0.5rem;
-    color: #ff4757;
-    letter-spacing: 1px;
 }
 .disclaimer-icon {
     flex-shrink: 0;
@@ -188,6 +160,6 @@
 }
 .disclaimer-content p {
     font-size: 0.8rem;
-    color: #efefef;
+    color: #555555;
     line-height: 1.6;
 }

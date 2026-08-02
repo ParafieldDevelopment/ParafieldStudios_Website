@@ -35,27 +35,6 @@
             background: #080808;
             overflow: hidden;
         }
-        /* UNIQUE SHAPE: PROGRESS GEARS */
-        .gear-container {
-            position: absolute;
-            top: 50%; left: 65%;
-            transform: translate(-50%, -50%);
-            width: 600px; height: 600px;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.15;
-        }
-        .gear {
-            position: absolute;
-            border: 4px dashed var(--primary);
-            border-radius: 50%;
-            animation: rotate 20s linear infinite;
-        }
-        .g1 { width: 400px; height: 400px; top: 10%; left: 10%; }
-        .g2 { width: 250px; height: 250px; bottom: 5%; right: 5%; animation-direction: reverse; animation-duration: 15s; }
-
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
         #progress-content-wrapper { will-change: transform; }
     </style>
 </head>
@@ -77,21 +56,8 @@
 
     <!-- PROGRESS HERO -->
     <div id="progress-hero" class="hero-section">
-        <div class="hud tl">[ PS_PRG_40.7 ] // SYSTEM ACTIVE</div>
-        <div class="hud tr">LAT: 40.7128 | LNG: -74.0060</div>
-        <div class="hud bl">STATUS: ACTIVE // ACCESS GRANTED</div>
-        <div class="hud br">SEC_LVL: 04</div>
-        <div class="bracket tl"></div><div class="bracket tr"></div>
-        <div class="bracket bl"></div><div class="bracket br"></div>
-
-        <!-- UNIQUE SHAPES -->
-        <div class="gear-container">
-            <div class="gear g1"></div>
-            <div class="gear g2"></div>
-        </div>
-
         <div id="progress-hero-text" style="position: absolute; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 48vw; will-change: opacity, transform;">
-            <div class="hero-eyebrow">// Project Status · Real-time Updates</div>
+            <div class="hero-eyebrow">Project Progress · Live Updates</div>
             <h1 class="hero-title">DEV<br><span class="amber">PROGRESS</span></h1>
             <p class="hero-sub">Track the development progress of Parafield Studios' projects. See what we're working on and what's coming next!</p>
         </div>
@@ -108,18 +74,18 @@
             
             <!-- SECTION 01: PROJECTS -->
             <div class="progress-content-inner">
-                <div class="section-label">01 // LABORATORY: ACTIVE PROJECTS</div>
+                <div class="section-label">Active Projects</div>
                 <h2 class="progress-big-title">CURRENT<br><span class="outline">PROJECTS</span></h2>
                 <div class="progress-container" id="progress-list">
                     <!-- Dynamic Loading Placeholder -->
-                    <div class="loading-hud">ACCESSING_DATABASE...</div>
+                    <div class="loading-hud">Loading projects...</div>
                 </div>
             </div>
 
             <!-- SECTION 02: LOGS -->
             <div class="progress-content-inner">
-                <div class="section-label">02 // TRANSMISSIONS: SYSTEM LOGS</div>
-                <h2 class="progress-big-title">SYSTEM<br><span class="outline">LOGS</span></h2>
+                <div class="section-label">Project Updates</div>
+                <h2 class="progress-big-title">WHAT'S<br><span class="outline">NEW</span></h2>
                 <div id="updates-list" class="logs-container">
                     <!-- Dynamic Loading Placeholder -->
                 </div>
@@ -131,10 +97,10 @@
     <!-- TICKER -->
     <div id="ticker-layer">
         <div class="ticker-inner">
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">LABORATORY ACTIVE //</span>
-            <span class="ticker-item">PROJECT UPDATES //</span><span class="ticker-item">SYSTEM ACTIVE //</span>
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">LABORATORY ACTIVE //</span>
-            <span class="ticker-item">PROJECT UPDATES //</span><span class="ticker-item">SYSTEM ACTIVE //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">NEW PROJECTS //</span>
+            <span class="ticker-item">DEV UPDATES //</span><span class="ticker-item">BUILDING FOR THE FUTURE //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">NEW PROJECTS //</span>
+            <span class="ticker-item">DEV UPDATES //</span><span class="ticker-item">BUILDING FOR THE FUTURE //</span>
         </div>
     </div>
 
@@ -142,10 +108,6 @@
 
 <div id="footer-layer">
     <footer>
-        <div class="footer-hud">
-            <span>MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</span>
-            <span>SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</span>
-        </div>
         <div class="footer-grid">
             <div>
                 <img src="assets/PFLD.png" alt="Parafield Studios" class="footer-logo">
@@ -176,7 +138,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS // ALL RIGHTS RESERVED</span>
+            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS. ALL RIGHTS RESERVED.</span>
             <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
                 <span>Hosted via Cloudflare Pages</span>
                 <img src="assets/cloudflare.png" alt="Cloudflare">
