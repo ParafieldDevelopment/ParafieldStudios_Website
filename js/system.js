@@ -77,7 +77,7 @@
 
                 if (!isInternal) {
                     e.preventDefault();
-                    window.location.href = `/redirect.html?url=${encodeURIComponent(link.href)}`;
+                    window.location.href = `redirect.html?url=${encodeURIComponent(link.href)}`;
                 }
             } catch (err) {
                 // Ignore parsing errors for non-standard links

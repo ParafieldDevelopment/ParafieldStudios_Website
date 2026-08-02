@@ -15,9 +15,9 @@
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            height: 100vh; 
+            min-height: 100vh; 
             margin: 0;
-            overflow: hidden;
+            padding: 2rem 0;
         }
         .redirect-container {
             max-width: 600px;
@@ -33,7 +33,6 @@
         .warning-icon { 
             width: 80px; 
             margin-bottom: 2rem; 
-            filter: invert(47%) sepia(61%) saturate(2517%) hue-rotate(0deg) brightness(92%) contrast(92%);
             animation: pulse-warn 2s ease-in-out infinite;
         }
         @keyframes pulse-warn {
