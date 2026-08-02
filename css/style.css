@@ -500,7 +500,7 @@ nav.solid {
     /* justify-content: center; */ /* REMOVED */
     opacity: 0;
     pointer-events: none;
-    will-change: opacity;
+    will-change: opacity, transform;
     padding-top: 72px; /* To account for fixed nav */
     overflow: hidden; /* Ensure no scrollbars on the layer itself */
     background: var(--content-bg);
@@ -879,7 +879,7 @@ nav.solid {
     /* justify-content: center; */ /* REMOVED */
     opacity: 0;
     pointer-events: none;
-    will-change: opacity;
+    will-change: opacity, transform;
     padding-top: 72px; /* To account for fixed nav */
     overflow: hidden; /* Ensure no scrollbars on the layer itself */
     background: var(--content-bg);
@@ -887,6 +887,7 @@ nav.solid {
 #progress-content-layer.active { pointer-events: all; }
 #legal-content-layer {
     background: var(--content-bg);
+    will-change: opacity, transform;
 }
 .progress-content-inner {
     padding: 3.5rem 4rem;

@@ -252,9 +252,10 @@
         const GAMES_IN_PX   = 280;
         const GAMES_HOLD_PX = 1800; // base hold; expands to fit card track
         const GAMES_OUT_PX  = 280;
+        const GAMES_SPEED   = 1.4;  // track scrolls 1.4x faster than scroll
         const TICKER_OFFSET = 250;  // ticker slides in this many px before games ends
         const CAREERS_IN_PX = 380;
-        const CAREERS_HOLD  = 200;
+        const CAREERS_HOLD  = 350;
 
         /* ── ELEMENTS ── */
         const spacer       = document.getElementById('scroll-spacer');
@@ -321,7 +322,7 @@
 
         function buildPhases() {
             const trackScrollable = Math.max(0, gamesTrack.scrollWidth - trackWrap.clientWidth);
-            const gamesTotal = GAMES_IN_PX + Math.max(GAMES_HOLD_PX, trackScrollable + 200) + GAMES_OUT_PX;
+            const gamesTotal = GAMES_IN_PX + Math.max(GAMES_HOLD_PX, trackScrollable / GAMES_SPEED + 800) + GAMES_OUT_PX;
 
             PH.h0 = 0;
             PH.h1 = HERO_OUT_PX;
@@ -355,15 +356,16 @@
             /* HERO */
             const hp = ease(inv(PH.h0, PH.h1, y));
             hero.style.opacity = 1 - hp;
+            hero.style.transform = `scale(${1 + hp * 0.05})`;
             const hs = hp * 90;
             if (heroTL) heroTL.style.transform  = `translateY(calc(-50% - ${hs}px))`;
             if (heroTR) heroTR.style.transform  = `translateY(${hs}px)`;
 
             /* GAMES */
             const gIn  = ease(inv(PH.g0, PH.g1, y));
-            const gOut = ease(inv(PH.g2, PH.g3, y));
-            const gOp  = gIn * (1 - gOut);
+            const gOp  = gIn;
             gamesLayer.style.opacity = gOp;
+            gamesLayer.style.transform = `translateY(${(1 - gIn) * 30}px) scale(${1 - (1 - gIn) * 0.02})`;
             gamesLayer.classList.toggle('active', gOp > 0.05);
 
             const holdStart = PH.g1;
@@ -371,7 +373,7 @@
             if (y >= holdStart && y <= holdEnd) {
                 const scrollable = Math.max(0, gamesTrack.scrollWidth - trackWrap.clientWidth);
                 const prog = inv(holdStart, holdEnd, y);
-                gamesTrack.style.transform = `translateX(${-prog * scrollable}px)`;
+                gamesTrack.style.transform = `translateX(${-prog * scrollable * GAMES_SPEED}px)`;
             } else if (y < holdStart) {
                 gamesTrack.style.transform = 'translateX(0)';
             }
@@ -379,12 +381,12 @@
             /* TICKER */
             const tp = ease(inv(PH.t0, PH.t1, y));
             tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
-            tickerEl.style.opacity   = tp;
+            tickerEl.style.opacity   = 1;
 
             /* CAREERS */
             const cp = ease(inv(PH.c0, PH.c1, y));
             careersEl.style.opacity   = cp;
-            careersEl.style.transform = `translateY(${(1 - cp) * 55}px)`;
+            careersEl.style.transform = `translateY(${(1 - cp) * 55}px) scale(${1 - (1 - cp) * 0.03})`;
             careersEl.classList.toggle('active', cp > 0.05);
         }
 

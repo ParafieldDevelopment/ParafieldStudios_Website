@@ -241,15 +241,18 @@
             /* ABOUT HERO */
             const hp = ease(inv(PH.h0, PH.h1, y));
             aboutHero.style.opacity = 1 - hp;
+            aboutHero.style.transform = `scale(${1 + hp * 0.05})`;
             const hs = hp * 90;
             aboutHeroText.style.transform  = `translateY(calc(-50% - ${hs}px))`;
 
             /* ABOUT CONTENT */
             const cIn  = ease(inv(PH.c0, PH.c1, y));
-            const cOut = ease(inv(PH.c2, PH.c3, y));
-            const cOp  = cIn * (1 - cOut);
+            const cOp  = cIn;
             aboutContentLayer.style.opacity = cOp;
+            aboutContentLayer.style.transform = `translateY(${(1 - cIn) * 30}px) scale(${1 - (1 - cIn) * 0.02})`;
             aboutContentLayer.classList.toggle('active', cOp > 0.05);
+
+            const tp = ease(inv(PH.t0, PH.t1, y));
 
             // Apply translateY to all content children (the inner sections)
             const contentChildren = Array.from(aboutContentLayer.querySelectorAll('.about-content-inner'));
@@ -258,16 +261,15 @@
                 const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT));
                 contentChildren.forEach(child => child.style.transform = `translateY(${-scrollProgress * maxScroll}px)`);
             } else if (y < PH.c1) {
-                contentChildren.forEach(child => child.style.transform = 'translateY(0)');
+                contentChildren.forEach((child, i) => child.style.transform = `translateY(${(1 - cIn) * 26 * (i + 1)}px)`);
             } else if (y > PH.c2) {
                 const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll}px)`);
+                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll + tp * 12}px)`);
             }
 
             /* TICKER */
-            const tp = ease(inv(PH.t0, PH.t1, y));
             tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
-            tickerEl.style.opacity   = tp;
+            tickerEl.style.opacity   = 1;
         }
 
         window.addEventListener('load', () => {

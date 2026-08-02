@@ -291,17 +291,19 @@
             /* CAREERS HERO */
             const hp = ease(inv(PH.h0, PH.h1, y));
             careersHero.style.opacity = 1 - hp;
+            careersHero.style.transform = `scale(${1 + hp * 0.05})`;
             const hs = hp * 90;
             careersHeroText.style.transform  = `translateY(calc(-50% - ${hs}px))`;
 
             /* CAREERS CONTENT */
             const cIn  = ease(inv(PH.c0, PH.c1, y));
-            const cOut = ease(inv(PH.c2, PH.c3, y));
-            const cOp  = cIn * (1 - cOut);
+            const cOp  = cIn;
             careersIntroLayer.style.opacity = cOp;
             openPositionsLayer.style.opacity = cOp;
             careersIntroLayer.classList.toggle('active', cOp > 0.05);
             openPositionsLayer.classList.toggle('active', cOp > 0.05);
+
+            const tp = ease(inv(PH.t0, PH.t1, y));
 
             // Apply translateY to the wrapper container
             const contentWrapper = document.getElementById('careers-content-wrapper');
@@ -313,16 +315,15 @@
                 // Offset the wrapper
                 contentWrapper.style.transform = `translateY(${-scrollProgress * maxScroll}px)`;
             } else if (y < PH.c1) {
-                contentWrapper.style.transform = 'translateY(0)';
+                contentWrapper.style.transform = `translateY(${(1 - cIn) * 30}px)`;
             } else if (y > PH.c2) {
                 const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                contentWrapper.style.transform = `translateY(${-maxScroll}px)`;
+                contentWrapper.style.transform = `translateY(${-maxScroll + tp * 12}px)`;
             }
 
             /* TICKER */
-            const tp = ease(inv(PH.t0, PH.t1, y));
             tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
-            tickerEl.style.opacity   = tp;
+            tickerEl.style.opacity   = 1;
         }
 
         window.addEventListener('load', () => {
