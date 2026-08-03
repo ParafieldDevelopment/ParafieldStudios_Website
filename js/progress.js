@@ -93,6 +93,10 @@
                 </div>
                 <h4 class="log-title">${update.title}</h4>
                 <p class="log-body">${update.content}</p>
+                ${update.images && update.images.length ? `
+                <div class="log-gallery">
+                    ${update.images.map(img => `<img src="${img}" alt="${update.tag}" loading="lazy">`).join('')}
+                </div>` : ''}
             `;
             container.appendChild(entry);
         });

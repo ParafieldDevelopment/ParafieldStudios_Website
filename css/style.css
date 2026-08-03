@@ -1427,6 +1427,23 @@ body.has-notice-bar nav {
     color: #555555;
     line-height: 1.6;
 }
+.log-gallery {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scroll-snap-type: x mandatory;
+}
+.log-gallery img {
+    width: 240px;
+    height: 150px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    scroll-snap-align: start;
+}
 
 .loading-state {
     font-size: 0.85rem;
