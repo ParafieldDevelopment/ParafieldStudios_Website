@@ -98,10 +98,35 @@
                     ${update.images.map(img => `<img src="${img}" alt="${update.tag}" loading="lazy">`).join('')}
                 </div>` : ''}
             `;
+
+            const gallery = entry.querySelector('.log-gallery');
+            if (gallery) {
+                gallery.querySelectorAll('img').forEach(img => {
+                    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+                });
+            }
             container.appendChild(entry);
         });
 
         if (window.buildPhases) window.buildPhases();
+    }
+
+    let lightbox = null;
+
+    function openLightbox(src, alt) {
+        if (!lightbox) {
+            lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.addEventListener('click', closeLightbox);
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+            document.body.appendChild(lightbox);
+        }
+        lightbox.innerHTML = `<img src="${src}" alt="${alt}">`;
+        lightbox.classList.add('open');
+    }
+
+    function closeLightbox() {
+        if (lightbox) lightbox.classList.remove('open');
     }
 
 })();
