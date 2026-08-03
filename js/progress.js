@@ -69,13 +69,27 @@
         if (!container || !updates) return;
         container.innerHTML = '';
 
-        updates.forEach(update => {
+        const sorted = [...updates].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        sorted.forEach(update => {
             const entry = document.createElement('div');
             entry.className = 'log-entry';
+
+            const colors = update.colors || (update.color ? [update.color] : null);
+            let tagStyle = '';
+            if (colors && colors.length > 1) {
+                tagStyle = `style="background:linear-gradient(135deg,${colors.join(',')});color:#fff;border-color:transparent"`;
+                entry.style.borderLeftColor = colors[0];
+            } else if (colors && colors.length === 1) {
+                const c = colors[0];
+                tagStyle = `style="color:${c};background:${c}1f;border-color:${c}66"`;
+                entry.style.borderLeftColor = c;
+            }
+
             entry.innerHTML = `
                 <div class="log-header">
                     <span class="log-date">${update.date}</span>
-                    <span class="log-tag">${update.tag}</span>
+                    <span class="log-tag" ${tagStyle}>${update.tag}</span>
                 </div>
                 <h4 class="log-title">${update.title}</h4>
                 <p class="log-body">${update.content}</p>
