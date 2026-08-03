@@ -301,13 +301,14 @@
                 const platform = game.platform || 'Roblox';
                 const status = game.status || 'Unannounced';
                 const statusClass = status.toLowerCase().replace(/\s+/g, '-');
+                const statusStyle = game.color ? `style="color:${game.color};background:${game.color}1f;border-color:${game.color}66"` : '';
 
                 card.innerHTML = `
                     <div class="card-bg" style="background-image:url('${bg}');"></div>
                     <div class="card-overlay"></div>
                     <div class="card-content">
                         <div class="card-meta">${platform}</div>
-                        <span class="card-status ${statusClass}">${status}</span>
+                        <span class="card-status ${statusClass}" ${statusStyle}>${status}</span>
                         <div class="card-title">${game.name}</div>
                         <p class="card-desc">${isSecret ? 'Something exciting is in the works. Check back soon!' : (game.description || 'An exciting new project.')}</p>
                     </div>

@@ -6,6 +6,7 @@
       "status": "In Progress",
       "image": "assets/Secret01/SecretGame.png",
       "platform": "Godot",
+      "color": "#a855f7",
       "category": "Active",
       "description": "It's in progress but we're aren't saying much. Check back later!"
     },
