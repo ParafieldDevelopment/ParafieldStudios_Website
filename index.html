@@ -252,7 +252,7 @@
         const GAMES_IN_PX   = 280;
         const GAMES_HOLD_PX = 1800; // base hold; expands to fit card track
         const GAMES_OUT_PX  = 280;
-        const GAMES_SPEED   = 1.4;  // track scrolls 1.4x faster than scroll
+        const GAMES_SPEED   = 0.9;  // track scroll ratio — keep < 1 so hold is longer than track distance
         const TICKER_OFFSET = 250;  // ticker slides in this many px before games ends
         const CAREERS_IN_PX = 380;
         const CAREERS_HOLD  = 350;
@@ -322,7 +322,7 @@
 
         function buildPhases() {
             const trackScrollable = Math.max(0, gamesTrack.scrollWidth - trackWrap.clientWidth);
-            const gamesTotal = GAMES_IN_PX + Math.max(GAMES_HOLD_PX, trackScrollable / GAMES_SPEED + 800) + GAMES_OUT_PX;
+            const gamesTotal = GAMES_IN_PX + Math.max(GAMES_HOLD_PX, trackScrollable + 1200) + GAMES_OUT_PX;
 
             PH.h0 = 0;
             PH.h1 = HERO_OUT_PX;
@@ -373,7 +373,8 @@
             if (y >= holdStart && y <= holdEnd) {
                 const scrollable = Math.max(0, gamesTrack.scrollWidth - trackWrap.clientWidth);
                 const prog = inv(holdStart, holdEnd, y);
-                gamesTrack.style.transform = `translateX(${-prog * scrollable * GAMES_SPEED}px)`;
+                const tx = -prog * scrollable;
+                gamesTrack.style.transform = `translateX(${tx}px)`;
             } else if (y < holdStart) {
                 gamesTrack.style.transform = 'translateX(0)';
             }
