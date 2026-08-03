@@ -169,30 +169,16 @@ nav.solid {
     pointer-events: none;
 }
 
-/* Hero backdrop art: ParafieldWhiteBackground tinted amber + legibility gradient */
-.hero-art {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-.hero-art::before {
-    content: '';
+/* ═══ FLOATING BACKGROUND SHAPES (light sections) ═══ */
+.bg-art {
     position: absolute;
     inset: 0;
     background: url('../assets/banner/ParafieldWhiteBackground.png') center/cover no-repeat;
-    filter: sepia(0.8) hue-rotate(-15deg) saturate(1.5) brightness(0.85) contrast(1.05);
-    mix-blend-mode: screen;
-    opacity: 0.32;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
 }
-.hero-art::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(100deg, rgba(14,13,11,0.92) 0%, rgba(14,13,11,0.6) 45%, rgba(14,13,11,0.28) 100%);
-}
+.bg-shapes {
 
 
 .hero-eyebrow {
