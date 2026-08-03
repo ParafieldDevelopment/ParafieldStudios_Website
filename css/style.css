@@ -428,6 +428,7 @@ nav.solid {
 .card-bg {
     position:absolute;inset:0;
     background-size:cover;background-position:center;
+    background-color:#15171c; /* dark backdrop so transparent/white art stays visible */
     transition:transform 0.8s ease;
 }
 .game-card:hover .card-bg { transform:scale(1.05); }
