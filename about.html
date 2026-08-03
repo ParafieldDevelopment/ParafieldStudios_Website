@@ -119,7 +119,7 @@
                             <img src="assets/team/directors/bat.png" alt="Batista">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: ADMINISTRATION ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: ADMINISTRATION · STATUS: ACTIVE</div>
                             <h3>Batista</h3>
                             <p class="team-role">CEO / Founder</p>
                             <p class="team-desc">✨ Don't just chase your dreams, hunt them down. Eventually you'll get there. ✨</p>
@@ -141,7 +141,7 @@
                             <img src="assets/team/directors/notdef.png" alt="Notdefyingphysics">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: ENGINEERING ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: ENGINEERING · STATUS: ACTIVE</div>
                             <h3>Notdefyingphysics</h3>
                             <p class="team-role">Director of Structural Studios</p>
                             <p class="team-desc">Master of structures and physics defying creations.</p>
@@ -160,7 +160,7 @@
                             <img src="assets/team/directors/xX420MCplayerXx.png" alt="xX420MCplayerXx">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: COUNCIL ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: COUNCIL · STATUS: ACTIVE</div>
                             <h3>xX420MCplayerXx</h3>
                             <p class="team-role">Director of Council</p>
                             <p class="team-desc">The one who manages the staff team.</p>
@@ -190,7 +190,7 @@
                             <img src="assets/team/staffs/Ocean.png" alt="Pilot Ocean">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: COUNCIL ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: COUNCIL · STATUS: ACTIVE</div>
                             <h3>Pilot Ocean</h3>
                             <p class="team-role">Council</p>
                             <p class="team-desc">A valued member of the council.</p>
@@ -209,7 +209,7 @@
                             <img src="assets/team/staffs/cory.png" alt="cjkdawg">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: COUNCIL ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: COUNCIL · STATUS: ACTIVE</div>
                             <h3>cjkdawg</h3>
                             <p class="team-role">Council</p>
                             <p class="team-desc">A valued member of the council.</p>
@@ -231,7 +231,7 @@
                             <img src="assets/team/staffs/ducko.png" alt="Ducko">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: COUNCIL ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: COUNCIL · STATUS: ACTIVE</div>
                             <h3>Ducko</h3>
                             <p class="team-role">Council</p>
                             <p class="team-desc">A valued member of the council.</p>
@@ -249,7 +249,7 @@
                             <img src="assets/team/staffs/chester.png" alt="Chester">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: STAFF ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: STAFF · STATUS: ACTIVE</div>
                             <h3>Chester</h3>
                             <p class="team-role">Senior Admin</p>
                             <p class="team-desc"><i>I will die you</i></p>
@@ -267,7 +267,7 @@
                             <img src="assets/team/staffs/ethonion.png" alt="ethonion10">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: STAFF ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: STAFF · STATUS: ACTIVE</div>
                             <h3>ethonion10</h3>
                             <p class="team-role">Senior Admin</p>
                             <p class="team-desc"><i>PLACEHOLDER</i></p>
@@ -287,7 +287,7 @@
                             <img src="assets/team/staffs/saturn.png" alt="Saturn">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: STAFF ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: STAFF · STATUS: ACTIVE</div>
                             <h3>Saturn</h3>
                             <p class="team-role">Administrator</p>
                             <p class="team-desc"><i>Our valued Senior in the Administration team</i></p>
@@ -305,7 +305,7 @@
                             <img src="assets/team/directors/Sheilatemp.png" alt="TheGreekDev">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: STAFF ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: STAFF · STATUS: ACTIVE</div>
                             <h3>TheGreekDev</h3>
                             <p class="team-role">Administrator</p>
                             <p class="team-desc"><i>Our valued Senior in the Administration team</i></p>
@@ -323,7 +323,7 @@
                             <img src="assets/team/staffs/mas.png" alt="mas6y6">
                         </div>
                         <div class="team-card-body">
-                            <div class="team-meta">[ DEPT: IT_OPERATIONS ] [ STATUS: ACTIVE ]</div>
+                            <div class="team-meta">DEPT: IT_OPERATIONS · STATUS: ACTIVE</div>
                             <h3>mas6y6</h3>
                             <p class="team-role">IT Admin</p>
                             <p class="team-desc">Just a small developer that does random stuff and shit.</p>
@@ -565,6 +565,21 @@
             if (e.target.closest('.team-modal-close') || e.target.closest('.team-modal-backdrop')) closeTeamModal();
         });
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTeamModal(); });
+
+        /* ── TEAM CARD SCROLL REVEAL ── */
+        const teamCards = Array.from(document.querySelectorAll('.team-card'));
+        teamCards.forEach((card, i) => card.dataset.ti = i);
+        const teamObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const i = Number(entry.target.dataset.ti);
+                    entry.target.style.transitionDelay = ((i % 4) * 0.09).toFixed(2) + 's';
+                    entry.target.classList.add('in-view');
+                    teamObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        teamCards.forEach(card => teamObserver.observe(card));
 
         window.addEventListener('load', () => {
             buildPhases();
