@@ -298,7 +298,7 @@
                 
                 const isSecret = game.name === '???';
                 const bg = game.image || 'assets/404.png';
-                const platform = isSecret ? 'Coming Soon' : 'Roblox';
+                const platform = game.platform || 'Roblox';
                 const status = game.status || 'Unannounced';
                 const statusClass = status.toLowerCase().replace(/\s+/g, '-');
 
