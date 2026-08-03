@@ -253,6 +253,7 @@
         const GAMES_HOLD_PX = 1800; // base hold; expands to fit card track
         const GAMES_OUT_PX  = 280;
         const GAMES_SPEED   = 0.9;  // track scroll ratio — keep < 1 so hold is longer than track distance
+        const GAMES_TRAVEL_FRACTION = 0.65; // track completes its scroll this far through the hold, then pins
         const TICKER_OFFSET = 250;  // ticker slides in this many px before games ends
         const CAREERS_IN_PX = 380;
         const CAREERS_HOLD  = 350;
@@ -372,7 +373,8 @@
             const holdEnd   = PH.g2;
             if (y >= holdStart && y <= holdEnd) {
                 const scrollable = Math.max(0, gamesTrack.scrollWidth - trackWrap.clientWidth);
-                const prog = inv(holdStart, holdEnd, y);
+                const travelEnd = Math.min(holdEnd, holdStart + (holdEnd - holdStart) * GAMES_TRAVEL_FRACTION);
+                const prog = Math.min(1, inv(holdStart, travelEnd, y));
                 const tx = -prog * scrollable;
                 gamesTrack.style.transform = `translateX(${tx}px)`;
             } else if (y < holdStart) {
