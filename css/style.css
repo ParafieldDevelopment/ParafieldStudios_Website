@@ -888,6 +888,7 @@ nav.solid {
 #progress-content-layer.active { pointer-events: all; }
 #legal-content-layer {
     background: var(--content-bg);
+    pointer-events: none;
     will-change: opacity, transform;
 }
 .progress-content-inner {
