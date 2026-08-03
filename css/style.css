@@ -579,7 +579,7 @@ nav.solid {
 }
 .team-grid-title {
     font-family: var(--font);
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     font-weight: 800;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -612,6 +612,25 @@ nav.solid {
     box-shadow: var(--shadow-hover);
     border-color: var(--primary);
 }
+.team-card-tba {
+    border: 2px dashed rgba(242, 174, 73, 0.55);
+    background: rgba(242, 174, 73, 0.04);
+}
+.team-card-tba .team-img {
+    background: rgba(242, 174, 73, 0.08);
+}
+.team-tba-mark {
+    margin: auto;
+    font-family: var(--font);
+    font-size: 5.5rem;
+    font-weight: 900;
+    color: rgba(242, 174, 73, 0.4);
+    line-height: 1;
+    user-select: none;
+}
+.team-card-tba .team-role {
+    color: rgba(242, 174, 73, 0.8);
+}
 .team-img {
     height: 280px;
     display: flex;
@@ -637,14 +656,14 @@ nav.solid {
     flex-grow: 1;
 }
 .team-card-body h3 {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 900;
     letter-spacing: -0.5px;
-    margin: 0 0 0.15rem;
+    margin: 0 0 0.2rem;
     color: var(--text);
 }
 .team-role {
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -652,7 +671,7 @@ nav.solid {
     margin-bottom: 0.9rem;
 }
 .team-desc {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: #444444;
     line-height: 1.7;
     margin-bottom: 1.25rem;
