@@ -312,7 +312,7 @@
                             <div class="team-detail-links"></div>
                         </div>
                     </div>
-                    <div class="team-card" data-name="mas6y6" data-role="IT Admin">
+                    <div class="team-card" data-name="mas6y6" data-role="IT Admin" data-banner="assets/team/staffs/mas6y6_banner.png">
                         <div class="team-img" style="background-image:linear-gradient(to top, rgb(85,0,255), #100017);">
                             <img src="assets/team/staffs/mas.png" alt="mas6y6">
                         </div>
@@ -413,6 +413,7 @@
         <div class="team-modal-backdrop"></div>
         <div class="team-modal-card">
             <button type="button" class="team-modal-close" aria-label="Close">&times;</button>
+            <div class="team-modal-banner" id="team-modal-banner"></div>
             <div class="team-modal-img" id="team-modal-img"></div>
             <div class="team-modal-body">
                 <h2 id="team-modal-name"></h2>
@@ -582,6 +583,7 @@
 
         /* ── TEAM MODAL ── */
         const teamModal = document.getElementById('team-modal');
+        const teamModalBanner = document.getElementById('team-modal-banner');
         const teamModalImg   = document.getElementById('team-modal-img');
         const teamModalName  = document.getElementById('team-modal-name');
         const teamModalRole  = document.getElementById('team-modal-role');
@@ -592,6 +594,8 @@
             const detail = card.querySelector('.team-detail');
             const imgWrap = card.querySelector('.team-img');
             const img = imgWrap.querySelector('img');
+            teamModalBanner.innerHTML = card.dataset.banner ? '<img src="' + card.dataset.banner + '" alt="">' : '';
+            teamModal.classList.toggle('has-banner', !!card.dataset.banner);
             teamModalImg.innerHTML = img ? img.outerHTML : '';
             teamModalImg.style.background = imgWrap.getAttribute('style') || '';
             teamModalName.textContent = card.dataset.name;
