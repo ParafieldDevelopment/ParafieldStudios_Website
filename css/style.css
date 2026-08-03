@@ -1039,6 +1039,21 @@ nav.solid {
 .ticker-item { display:inline-block;padding:0 2rem;font-family:var(--font);font-weight:800;font-size:.85rem;color:#0E0D0B;letter-spacing:2px; }
 @keyframes tickerScroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
 
+/* ═══ IRIS TRANSITION RING ═══ */
+#circle-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 90px rgba(242,174,73,0.45), inset 0 0 50px rgba(242,174,73,0.12);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 15;
+    will-change: width, height, opacity;
+}
+
 /* ═══ INDEX CAREERS LAYER ═══ */
 #careers-layer {
     position: absolute;
@@ -1053,6 +1068,14 @@ nav.solid {
     background: var(--content-bg);
 }
 #careers-layer.active { pointer-events: all; }
+
+.careers-reveal-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(242,174,73,0.14) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 1;
+}
 
 .careers-ghost {
     position: absolute;

@@ -153,8 +153,12 @@
         </div>
     </div>
 
+    <!-- CIRCLE RING (iris transition accent) -->
+    <div id="circle-ring"></div>
+
     <!-- CAREERS -->
     <div id="careers-layer">
+        <div class="careers-reveal-glow"></div>
         <div class="careers-ghost">TALENT</div>
         <div class="careers-inner">
             <div class="careers-left">
@@ -270,6 +274,7 @@
         const trackWrap    = document.getElementById('games-track-wrap');
         const tickerEl     = document.getElementById('ticker-layer');
         const careersEl    = document.getElementById('careers-layer');
+        const circleRing   = document.getElementById('circle-ring');
 
         /* ── DYNAMIC GAMES ROSTER ── */
         async function loadGames() {
@@ -393,6 +398,14 @@
             if (cp > 0) {
                 const maxR = Math.hypot(window.innerWidth, window.innerHeight) / 2 + 60;
                 careersEl.style.clipPath = `circle(${(cp * maxR).toFixed(1)}px at 50% 50%)`;
+                if (cp < 1) {
+                    const d = (cp * maxR * 2).toFixed(1);
+                    circleRing.style.width  = d + 'px';
+                    circleRing.style.height = d + 'px';
+                    circleRing.style.opacity = (1 - cp * 0.85).toFixed(2);
+                } else {
+                    circleRing.style.opacity = '0';
+                }
             }
         }
 
