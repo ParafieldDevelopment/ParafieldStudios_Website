@@ -253,7 +253,7 @@
         const GAMES_HOLD_PX = 1800; // base hold; expands to fit card track
         const GAMES_OUT_PX  = 280;
         const GAMES_SPEED   = 0.9;  // track scroll ratio — keep < 1 so hold is longer than track distance
-        const GAMES_OVERSHOOT = 60; // margin past fully-hidden; track scrolls until every card exits the viewport
+        const GAMES_OVERSHOOT = 120; // extra margin past full hide; track scrolls a full wrap-width beyond the last card
         const TICKER_OFFSET = 250;  // ticker slides in this many px before games ends
         const CAREERS_IN_PX = 380;
         const CAREERS_HOLD  = 350;
@@ -374,7 +374,7 @@
             const holdEnd   = PH.g2;
             if (y >= holdStart && y <= holdEnd) {
                 const prog = inv(holdStart, holdEnd, y);
-                const tx = -prog * (gamesTrack.scrollWidth + GAMES_OVERSHOOT);
+                const tx = -prog * (gamesTrack.scrollWidth + trackWrap.clientWidth + GAMES_OVERSHOOT);
                 gamesTrack.style.transform = `translateX(${tx}px)`;
             } else if (y < holdStart) {
                 gamesTrack.style.transform = 'translateX(0)';
@@ -385,11 +385,15 @@
             tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
             tickerEl.style.opacity   = 1;
 
-            /* CAREERS */
+            /* CAREERS — circle (iris) reveal over the games layer */
             const cp = ease(inv(PH.c0, PH.c1, y));
             careersEl.style.opacity   = cp;
             careersEl.style.transform = `translateY(${(1 - cp) * 55}px) scale(${1 - (1 - cp) * 0.03})`;
             careersEl.classList.toggle('active', cp > 0.05);
+            if (cp > 0) {
+                const maxR = Math.hypot(window.innerWidth, window.innerHeight) / 2 + 60;
+                careersEl.style.clipPath = `circle(${(cp * maxR).toFixed(1)}px at 50% 50%)`;
+            }
         }
 
         function runIntro() {

@@ -1048,7 +1048,7 @@ nav.solid {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    will-change: opacity, transform;
+    will-change: opacity, transform, clip-path;
     padding-top: 72px;
     background: var(--content-bg);
 }
