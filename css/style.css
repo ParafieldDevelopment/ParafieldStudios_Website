@@ -449,6 +449,7 @@ nav.solid {
     margin-left: 6px;
 }
 .card-status.paused { color:#ff6666; background: rgba(255,68,68,0.12); border: 1px solid rgba(255,68,68,0.3); }
+.card-status.in-progress { color: var(--primary-deep); background: rgba(242,174,73,0.14); border: 1px solid rgba(242,174,73,0.4); }
 .card-status.secret { color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); }
 .card-logo { max-width:150px;max-height:55px;object-fit:contain;margin-bottom:.6rem;filter:brightness(0) invert(1); }
 .card-title { font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:-.5px;margin-bottom:.3rem; }

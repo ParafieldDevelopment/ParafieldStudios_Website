@@ -297,10 +297,10 @@
                 card.className = 'game-card';
                 
                 const isSecret = game.name === '???';
-                const bg = isSecret ? 'assets/404.png' : (game.image || 'assets/404.png');
+                const bg = game.image || 'assets/404.png';
                 const platform = isSecret ? 'Coming Soon' : 'Roblox';
-                const status = isSecret ? 'Unannounced' : game.status;
-                const statusClass = isSecret ? 'secret' : status.toLowerCase().replace(/\s+/g, '-');
+                const status = game.status || 'Unannounced';
+                const statusClass = status.toLowerCase().replace(/\s+/g, '-');
 
                 card.innerHTML = `
                     <div class="card-bg" style="background-image:url('${bg}');"></div>

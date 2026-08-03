@@ -1,6 +1,14 @@
 {
   "projects": [
     {
+      "name": "???",
+      "progress": 28,
+      "status": "In Progress",
+      "image": "assets/Secret01/SecretGame.png",
+      "category": "Active",
+      "description": "It's in progress but we're aren't saying much. Check back later!"
+    },
+    {
       "name": "Project MDC",
       "progress": 5,
       "status": "Paused",
@@ -17,13 +25,6 @@
       "isSecret": false,
       "category": "Paused",
       "description": "Our flagship combat experience. Features the classic ROBLOX items and a unique ability system. Development is currently suspended however due to Roblox's issues. Check back later!"
-    },
-    {
-      "name": "???",
-      "progress": 28,
-      "status": "In Development",
-      "category": "Active",
-      "description": "It's in progress but we're aren't saying much. Check back later!"
     },
     {
       "name": "???",
