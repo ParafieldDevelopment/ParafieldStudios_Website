@@ -1879,3 +1879,19 @@ body.cursor-ready .custom-cursor-dot {
 @media (hover: none) {
     .custom-cursor, .custom-cursor-dot { display: none; }
 }
+.cursor-trail {
+    position: fixed;
+    top: 0; left: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(242,174,73,0.7);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    will-change: left, top;
+}
+@media (hover: none) {
+    .cursor-trail { display: none; }
+}

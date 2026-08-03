@@ -18,12 +18,31 @@
 
     const INTERACTIVE = 'a, button, [role="button"], input, select, textarea, .game-card, .team-card, .project-card';
 
+    /* ── CURSOR TRAIL ── */
+    const TRAIL_COUNT = 8;
+    const trail = [];
+    for (let i = 0; i < TRAIL_COUNT; i++) {
+        const t = document.createElement('div');
+        t.className = 'cursor-trail';
+        t.style.opacity = '0';
+        document.body.appendChild(t);
+        trail.push({ el: t, x: 0, y: 0, o: 0.95 - (i / TRAIL_COUNT) * 0.85 });
+    }
+
+    let mx = 0, my = 0, active = false;
+
     document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        dot.style.left = e.clientX + 'px';
-        dot.style.top = e.clientY + 'px';
-        document.body.classList.add('cursor-ready');
+        mx = e.clientX;
+        my = e.clientY;
+        cursor.style.left = mx + 'px';
+        cursor.style.top = my + 'px';
+        dot.style.left = mx + 'px';
+        dot.style.top = my + 'px';
+        if (!active) {
+            active = true;
+            document.body.classList.add('cursor-ready');
+            trail.forEach(t => { t.el.style.opacity = t.o; });
+        }
         const hit = e.target instanceof Element && e.target.closest(INTERACTIVE);
         cursor.classList.toggle('cursor-hover', !!hit);
         dot.classList.toggle('dot-hover', !!hit);
@@ -33,4 +52,19 @@
         cursor.classList.remove('cursor-hover');
         dot.classList.remove('dot-hover');
     });
+
+    (function trailLoop() {
+        if (active) {
+            let px = mx, py = my;
+            trail.forEach((t, i) => {
+                const k = i === 0 ? 0.45 : 0.32;
+                t.x += (px - t.x) * k;
+                t.y += (py - t.y) * k;
+                t.el.style.left = t.x + 'px';
+                t.el.style.top = t.y + 'px';
+                px = t.x; py = t.y;
+            });
+        }
+        requestAnimationFrame(trailLoop);
+    })();
 })();
