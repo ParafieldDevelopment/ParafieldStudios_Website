@@ -633,6 +633,8 @@ nav.solid {
 }
 .team-card-accent {
     --accent: #d192ff;
+    --accent-deep: #b76ff5;
+    --accent-glow: rgba(209, 146, 255, 0.35);
 }
 .team-card-accent .team-role {
     color: var(--accent);
@@ -844,13 +846,23 @@ body.modal-open { overflow: hidden; }
 }
 .team-modal-links a {
     padding: 10px 22px;
-    background: var(--primary);
+    background: var(--accent, var(--primary));
     color: #fff;
     border-radius: 10px;
     font-family: var(--font);
     font-size: 0.65rem;
     font-weight: 900;
     letter-spacing: 2.5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+.team-modal-links a:hover {
+    background: var(--accent-deep, var(--primary-deep));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--accent-glow, rgba(242,174,73,0.35));
+}
     text-transform: uppercase;
     text-decoration: none;
     transition: all 0.25s;

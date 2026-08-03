@@ -599,6 +599,7 @@
             const img = imgWrap.querySelector('img');
             teamModalBanner.innerHTML = card.dataset.banner ? '<img src="' + card.dataset.banner + '" alt="">' : '';
             teamModal.classList.toggle('has-banner', !!card.dataset.banner);
+            teamModal.style.setProperty('--accent', getComputedStyle(card).getPropertyValue('--accent').trim());
             teamModalImg.innerHTML = img ? img.outerHTML : '';
             teamModalImg.style.background = imgWrap.getAttribute('style') || '';
             teamModalName.textContent = card.dataset.name;
