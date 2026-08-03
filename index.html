@@ -379,7 +379,7 @@
             const holdEnd   = PH.g2;
             if (y >= holdStart && y <= holdEnd) {
                 const prog = inv(holdStart, holdEnd, y);
-                const tx = -prog * (gamesTrack.scrollWidth + trackWrap.clientWidth * 0.5 + GAMES_OVERSHOOT);
+                const tx = -prog * (gamesTrack.scrollWidth + GAMES_OVERSHOOT);
                 gamesTrack.style.transform = `translateX(${tx}px)`;
             } else if (y < holdStart) {
                 gamesTrack.style.transform = 'translateX(0)';
