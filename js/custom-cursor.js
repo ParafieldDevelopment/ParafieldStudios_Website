@@ -13,10 +13,12 @@
     document.body.appendChild(dot);
 
     const style = document.createElement('style');
-    style.textContent = 'html, body, a, button, [role="button"], input, select, textarea, .game-card, .team-card, .project-card { cursor: none !important; }';
+    style.textContent = 'html, body, a, button, [role="button"], input, select, textarea, .game-card, .team-card, .project-card { cursor: none !important; }'
+        + 'html.os-cursor, html.os-cursor body, html.os-cursor * { cursor: auto !important; }';
     document.head.appendChild(style);
 
     const INTERACTIVE = 'a, button, [role="button"], input, select, textarea, .game-card, .team-card, .project-card';
+    const scrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth;
 
     /* ── CURSOR TRAIL ── */
     const TRAIL_COUNT = 8;
@@ -46,6 +48,16 @@
         const hit = e.target instanceof Element && e.target.closest(INTERACTIVE);
         cursor.classList.toggle('cursor-hover', !!hit);
         dot.classList.toggle('dot-hover', !!hit);
+
+        /* Over the scrollbar strip: show the OS cursor, hide the custom one */
+        const sb = scrollbarWidth();
+        if (sb > 0 && e.clientX >= window.innerWidth - sb) {
+            document.documentElement.classList.add('os-cursor');
+            document.body.classList.add('cursor-hide');
+        } else {
+            document.documentElement.classList.remove('os-cursor');
+            document.body.classList.remove('cursor-hide');
+        }
     });
 
     document.addEventListener('mouseleave', () => {
