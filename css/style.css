@@ -181,7 +181,7 @@ nav.solid {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('assets/banner/ParafieldWhiteBackground.png') center/cover no-repeat;
+    background: url('../assets/banner/ParafieldWhiteBackground.png') center/cover no-repeat;
     filter: sepia(0.8) hue-rotate(-15deg) saturate(1.7) brightness(1.15) contrast(1.15);
     mix-blend-mode: screen;
     opacity: 0.65;
