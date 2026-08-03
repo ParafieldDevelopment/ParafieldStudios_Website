@@ -415,6 +415,7 @@
         }
 
         function runIntro() {
+            introOverlay.classList.add('intro-on');
             document.body.style.overflow = 'hidden';
             setTimeout(() => {
                 introOverlay.classList.add('fade-out');

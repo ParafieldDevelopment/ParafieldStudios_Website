@@ -94,12 +94,16 @@ nav.solid {
     background: #000;
     z-index: 9999;
     pointer-events: none;
-    display: flex;
+    display: none; /* Hidden unless the intro is enabled */
     flex-direction: column; /* Changed to column */
     justify-content: center;
     align-items: center;
     opacity: 1; /* Ensure it's visible initially */
     transition: opacity 0.9s ease;
+}
+
+#intro-overlay.intro-on {
+    display: flex;
 }
 
 #intro-overlay.fade-out {
