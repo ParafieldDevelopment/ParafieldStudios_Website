@@ -688,14 +688,14 @@ nav.solid {
     font-size: 0.95rem;
     color: #444444;
     line-height: 1.7;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 .team-more {
-    margin-top: auto;
+    margin-top: 0.5rem;
     align-self: flex-start;
     background: transparent;
     border: 1.5px solid var(--primary);
@@ -840,7 +840,7 @@ body.modal-open { overflow: hidden; }
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 1.5rem;
+    margin-top: 1.1rem;
     padding-top: 1.25rem;
     border-top: 1px solid var(--border);
 }
