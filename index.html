@@ -286,8 +286,10 @@
                 const config = await configRes.json();
                 
                 renderGames(data.projects, config.secretGames);
+                if (config.introEnabled) runIntro();
             } catch (e) {
                 console.error('[HOME] Failed to load games:', e);
+                runIntro();
             }
         }
 
@@ -426,7 +428,6 @@
         window.addEventListener('load', () => {
             loadGames();
             tick();
-            runIntro();
         });
         window.addEventListener('scroll', tick, { passive: true });
         window.addEventListener('resize', () => { buildPhases(); tick(); });
