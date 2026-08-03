@@ -395,17 +395,19 @@
             careersEl.style.opacity   = cp;
             careersEl.style.transform = `translateY(${(1 - cp) * 55}px) scale(${1 - (1 - cp) * 0.03})`;
             careersEl.classList.toggle('active', cp > 0.05);
+            const maxR = Math.hypot(window.innerWidth, window.innerHeight) / 2 + 60;
             if (cp > 0) {
-                const maxR = Math.hypot(window.innerWidth, window.innerHeight) / 2 + 60;
                 careersEl.style.clipPath = `circle(${(cp * maxR).toFixed(1)}px at 50% 50%)`;
-                if (cp < 1) {
-                    const d = (cp * maxR * 2).toFixed(1);
-                    circleRing.style.width  = d + 'px';
-                    circleRing.style.height = d + 'px';
-                    circleRing.style.opacity = (1 - cp * 0.85).toFixed(2);
-                } else {
-                    circleRing.style.opacity = '0';
-                }
+            } else {
+                careersEl.style.clipPath = '';
+            }
+            if (cp > 0 && cp < 1) {
+                const d = (cp * maxR * 2).toFixed(1);
+                circleRing.style.width   = d + 'px';
+                circleRing.style.height  = d + 'px';
+                circleRing.style.opacity = (1 - cp * 0.85).toFixed(2);
+            } else {
+                circleRing.style.opacity = '0';
             }
         }
 
