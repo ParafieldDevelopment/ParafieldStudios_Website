@@ -182,15 +182,16 @@ nav.solid {
     position: absolute;
     inset: 0;
     background: url('assets/banner/ParafieldWhiteBackground.png') center/cover no-repeat;
-    filter: sepia(0.85) hue-rotate(-15deg) saturate(1.5) brightness(0.5) contrast(1.1);
+    filter: sepia(0.8) hue-rotate(-15deg) saturate(1.7) brightness(1.15) contrast(1.15);
+    mix-blend-mode: screen;
+    opacity: 0.65;
 }
 .hero-art::after {
     content: '';
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(100deg, rgba(14,13,11,0.94) 0%, rgba(14,13,11,0.62) 45%, rgba(14,13,11,0.28) 100%),
-        radial-gradient(circle at 70% 50%, rgba(14,13,11,0) 0%, rgba(14,13,11,0.35) 100%);
+        linear-gradient(100deg, rgba(14,13,11,0.88) 0%, rgba(14,13,11,0.48) 45%, rgba(14,13,11,0.12) 100%);
 }
 
 
@@ -1515,18 +1516,18 @@ body.has-notice-bar nav {
 .shape {
     position: absolute;
     display: block;
-    border: 1.5px solid rgba(201,121,15,0.20);
+    border: 1.5px solid rgba(201,121,15,0.38);
     background: transparent;
     animation: shapeDrift 24s ease-in-out infinite alternate;
 }
-.shape:nth-child(even) { border-color: rgba(0,0,0,0.10); }
+.shape:nth-child(even) { border-color: rgba(0,0,0,0.16); }
 .s1 { width: 90px; height: 90px; top: 16%; left: 6%;  animation-duration: 26s; }
 .s2 { width: 34px; height: 34px; top: 68%; left: 13%; rotate: 45deg; animation-duration: 20s; animation-delay: -4s; }
 .s3 { width: 58px; height: 58px; top: 22%; left: 82%; animation-duration: 24s; animation-delay: -8s; }
 .s4 { width: 22px; height: 22px; top: 60%; left: 90%; rotate: 45deg; animation-duration: 18s; animation-delay: -2s; }
 .s5 { width: 130px; height: 130px; top: 42%; left: 93%; border-width: 1px; animation-duration: 30s; animation-delay: -12s; }
 .s6 { width: 16px; height: 16px; top: 10%; left: 47%; rotate: 45deg; animation-duration: 17s; animation-delay: -6s; }
-.s7 { width: 44px; height: 44px; top: 82%; left: 74%; background: rgba(201,121,15,0.06); animation-duration: 21s; animation-delay: -10s; }
+.s7 { width: 44px; height: 44px; top: 82%; left: 74%; background: rgba(201,121,15,0.10); animation-duration: 21s; animation-delay: -10s; }
 .s8 { width: 26px; height: 26px; top: 88%; left: 36%; animation-duration: 19s; animation-delay: -14s; }
 @keyframes shapeDrift {
     0%   { transform: translateY(0) translateX(0); }
