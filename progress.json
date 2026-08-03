@@ -32,6 +32,7 @@
       "name": "???",
       "progress": 0,
       "status": "Unknown",
+      "image": "assets/404.png",
       "category": "Unfocused",
       "hideProgress": true,
       "description": "No data found.. Oh well check back later!"
@@ -40,6 +41,7 @@
       "name": "???",
       "progress": 0,
       "status": "Unknown",
+      "image": "assets/404.png",
       "category": "Unfocused",
       "hideProgress": true,
       "description": "No data found.. Oh well check back later!"
@@ -48,6 +50,7 @@
       "name": "???",
       "progress": 0,
       "status": "Unknown",
+      "image": "assets/404.png",
       "category": "Unfocused",
       "hideProgress": true,
       "description": "No data found.. Oh well check back later!"
