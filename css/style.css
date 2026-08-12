@@ -635,12 +635,31 @@ nav.solid {
     --accent: #d192ff;
     --accent-deep: #b76ff5;
     --accent-glow: rgba(209, 146, 255, 0.35);
+    --accent-soft: rgba(209, 146, 255, 0.28);
+}
+.team-card-accent.role-builder {
+    --accent: #81c784;
+    --accent-deep: #5faa62;
+    --accent-glow: rgba(129, 199, 132, 0.35);
+    --accent-soft: rgba(129, 199, 132, 0.28);
+}
+.team-card-accent.role-concepts {
+    --accent: #f47eff;
+    --accent-deep: #d84fe6;
+    --accent-glow: rgba(244, 126, 255, 0.35);
+    --accent-soft: rgba(244, 126, 255, 0.28);
+}
+.team-card-accent.role-qa {
+    --accent: #2ecc71;
+    --accent-deep: #1fa95b;
+    --accent-glow: rgba(46, 204, 113, 0.35);
+    --accent-soft: rgba(46, 204, 113, 0.28);
 }
 .team-card-accent .team-role {
     color: var(--accent);
 }
 .team-card-accent .team-img {
-    background: linear-gradient(160deg, rgba(209, 146, 255, 0.28), #f3f3f3) !important;
+    background: linear-gradient(160deg, var(--accent-soft), #f3f3f3) !important;
 }
 .team-card-accent:hover {
     border-color: var(--accent);
