@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if we are on the index.html page
-    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+    // Check if we are on the bonzi.html page
+    if (window.location.pathname.endsWith('bonzi.html') || window.location.pathname === '/') {
         const banner = document.querySelector('.banner');
         const bannerText = document.querySelector('.banner-text');
         const bannerImg = document.querySelector('.banner img');
