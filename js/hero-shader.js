@@ -25,13 +25,37 @@
         'uniform float u_speed;',
         'uniform float u_scale;',
         '',
-        'void main() {',
-        '   vec2 uv = gl_FragCoord.xy / u_resolution.xy;',
+        'vec3 checkerColor(vec2 uv) {',
         '   uv.x += u_time * u_speed * 0.1;',
         '   uv.y += u_time * u_speed * 0.05;',
         '   uv.x += sin(uv.y * 10.0 + u_time) * 0.02;',
         '   float check = mod(floor(uv.x * u_scale) + floor(uv.y * u_scale), 2.0);',
-        '   gl_FragColor = mix(u_color1, u_color2, check);',
+        '   return mix(u_color1.rgb, u_color2.rgb, check);',
+        '}',
+        '',
+        'void main() {',
+        '   vec2 uv = gl_FragCoord.xy / u_resolution.xy;',
+        // CRT barrel distortion (tube curvature)
+        '   vec2 cc = uv - 0.5;',
+        '   float d = dot(cc, cc);',
+        '   vec2 cuv = uv + cc * d * 0.15;',
+        // chromatic aberration
+        '   float ab = 0.0018;',
+        '   vec3 col;',
+        '   col.r = checkerColor(cuv + vec2(ab, 0.0)).r;',
+        '   col.g = checkerColor(cuv).g;',
+        '   col.b = checkerColor(cuv - vec2(ab, 0.0)).b;',
+        // scanlines
+        '   float sl = mod(floor(gl_FragCoord.y / 2.0), 2.0);',
+        '   col *= (1.0 - 0.14 * sl);',
+        // vignette
+        '   float vig = smoothstep(0.7, 0.1, d);',
+        '   col *= mix(0.15, 1.0, vig);',
+        // flicker
+        '   col *= 0.97 + 0.03 * sin(u_time * 9.0);',
+        // mask outside the tube
+        '   if (cuv.x < 0.0 || cuv.x > 1.0 || cuv.y < 0.0 || cuv.y > 1.0) col = vec3(0.0);',
+        '   gl_FragColor = vec4(col, 1.0);',
         '}'
     ].join('\n');
 
