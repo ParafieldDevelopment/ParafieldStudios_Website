@@ -74,8 +74,8 @@
     var uSpeed = gl.getUniformLocation(program, 'u_speed');
     var uScale = gl.getUniformLocation(program, 'u_scale');
 
-    gl.uniform4f(uColor1, 0.85, 0.10, 0.10, 1.0);
-    gl.uniform4f(uColor2, 0.98, 0.80, 0.15, 1.0);
+    gl.uniform4f(uColor1, 0.55, 0.07, 0.07, 1.0);
+    gl.uniform4f(uColor2, 0.70, 0.55, 0.10, 1.0);
     gl.uniform1f(uSpeed, 1.0);
     gl.uniform1f(uScale, 20.0);
 
