@@ -271,6 +271,101 @@ nav.solid {
         radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.15), transparent 60%),
         linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.42));
 }
+
+/* ═══ CODENAME OVERDRIVE HERO ═══ */
+@font-face {
+    font-family: 'OverdriveDisplay';
+    src: url('../assets/Overdrive/fonts/ari-w9500-display.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'OverdriveCondensed';
+    src: url('../assets/Overdrive/fonts/ari-w9500-condensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+#hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding: 2rem;
+}
+.od-poster {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    animation: od-float 6s ease-in-out infinite;
+}
+.od-poster img {
+    height: clamp(320px, 70vh, 640px);
+    width: auto;
+    border-radius: 14px;
+    border: 2px solid rgba(242,174,73,0.35);
+    box-shadow: 0 0 0 8px rgba(242,174,73,0.06), 0 0 60px rgba(242,174,73,0.18);
+    opacity: 0.85;
+}
+.od-text {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    max-width: 90vw;
+    text-align: center;
+}
+@keyframes od-float {
+    0%, 100% { transform: translateY(-14px); }
+    50%      { transform: translateY(14px); }
+}
+.od-title {
+    font-family: 'OverdriveDisplay', 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.92;
+    letter-spacing: -1px;
+    font-size: clamp(2.6rem, 6.5vw, 6rem);
+    color: #fff;
+    margin: 0 0 1.4rem;
+    text-shadow: 0 6px 30px rgba(0,0,0,0.6);
+}
+.od-title .od-accent {
+    color: var(--primary);
+    text-shadow: 0 0 28px rgba(242,174,73,0.45);
+}
+.od-sub {
+    font-family: 'OverdriveCondensed', 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 1.6vw, 1.35rem);
+    line-height: 1.45;
+    color: rgba(255,255,255,0.82);
+    margin: 0 auto;
+    max-width: 28rem;
+}
+
+@media (max-width: 860px) {
+    #hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.8rem;
+    }
+    .od-poster img {
+        height: clamp(200px, 38vh, 340px);
+    }
+    .od-sub {
+        margin: 0 auto;
+    }
+}
 #hero-text-left {
     position: absolute;
     left: 4rem;
