@@ -271,6 +271,31 @@ nav.solid {
         radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.15), transparent 60%),
         linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.42));
 }
+#hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0,0,0,0) 0px,
+            rgba(0,0,0,0) 2px,
+            rgba(0,0,0,0.20) 3px,
+            rgba(0,0,0,0.20) 3px
+        ),
+        linear-gradient(rgba(255,255,255,0.04), rgba(255,255,255,0.04));
+    mix-blend-mode: multiply;
+    animation: crt-flicker 5s steps(40) infinite;
+}
+@keyframes crt-flicker {
+    0%, 100% { opacity: 0.75; }
+    47%      { opacity: 0.85; }
+    48%      { opacity: 0.60; }
+    49%      { opacity: 0.85; }
+    77%      { opacity: 0.70; }
+}
 
 /* ═══ CODENAME OVERDRIVE HERO ═══ */
 @font-face {
@@ -301,10 +326,10 @@ nav.solid {
     padding: 2rem;
 }
 .od-poster {
+    display: none; /* B: poster dropped — checker is the hero */
     position: absolute;
     inset: 0;
     z-index: 0;
-    display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
@@ -338,7 +363,10 @@ nav.solid {
     font-size: clamp(2.6rem, 6.5vw, 6rem);
     color: #fff;
     margin: 0 0 1.4rem;
-    text-shadow: 0 6px 30px rgba(0,0,0,0.6);
+    text-shadow:
+        2px 0 rgba(255,0,40,0.55),
+        -2px 0 rgba(0,200,255,0.55),
+        0 6px 30px rgba(0,0,0,0.6);
 }
 .od-title .od-accent {
     color: var(--primary);
