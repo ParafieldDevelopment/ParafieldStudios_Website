@@ -32,10 +32,7 @@
     <meta itemprop="image" content="https://www.parafieldstudios.com/assets/EmbedImages/home.png">
     <style>
         #hero {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/CC/BetterGameBackground.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-color: #2a0606;
         }
     </style>
 </head>
@@ -58,11 +55,7 @@
 
     <!-- HERO -->
     <div id="hero">
-        <div id="hero-text-left">
-            <div class="hero-eyebrow">Independent Studio · Est. 2019</div>
-            <h1 class="hero-title">CREATIVE<br><span class="amber">&amp;</span><br>INSPIRED</h1>
-            <p class="hero-sub">We're an independent entertainment studio dedicated to creating unique experiences and inspiring the next generation of creators.</p>
-        </div>
+        <canvas id="hero-shader"></canvas>
 
         <div id="hero-text-right">
             <div class="hero-label">ENTERTAINMENT<br><span class="amber">STUDIO</span></div>
@@ -247,6 +240,7 @@
 </div>
 
 <script src="js/system.js"></script>
+<script src="js/hero-shader.js"></script>
 <script src="js/custom-cursor.js" defer></script>
 <script>
     (function(){
