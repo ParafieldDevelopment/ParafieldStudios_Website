@@ -108,10 +108,14 @@ body.home nav.solid {
     border-radius: 0;
     box-shadow: none;
 }
+body.home nav.solid .nav-links a {
+    font-family: var(--font);
+}
 body.home .nav-logo {
     filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(0,0,0,0.6)) drop-shadow(0 0 8px rgba(242,174,73,0.5));
 }
 body.home .nav-links a {
+    font-family: 'OverdriveCondensed', 'Montserrat', sans-serif;
     text-shadow: 1px 0 rgba(255,0,40,0.45), -1px 0 rgba(0,200,255,0.45), 0 1px 3px rgba(0,0,0,0.7);
 }
 body.home .nav-links a:hover { color: #fff; text-shadow: 0 0 10px rgba(242,174,73,0.6); }
