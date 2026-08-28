@@ -267,6 +267,7 @@ nav.solid {
     z-index: 1;
     pointer-events: none;
     background:
+        radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.60) 100%),
         radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.15), transparent 60%),
         linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.42));
 }
