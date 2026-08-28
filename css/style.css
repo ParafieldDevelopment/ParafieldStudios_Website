@@ -111,6 +111,9 @@ body.home nav.solid {
 body.home nav.solid .nav-links a {
     font-family: var(--font);
 }
+body.home nav.solid .nav-logo {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(60%) saturate(500%) hue-rotate(340deg) brightness(100%);
+}
 body.home .nav-logo {
     filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(0,0,0,0.6)) drop-shadow(0 0 8px rgba(242,174,73,0.5));
 }
