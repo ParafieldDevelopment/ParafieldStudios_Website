@@ -25,7 +25,8 @@
         'uniform float u_speed;',
         'uniform float u_scale;',
         'uniform float u_pixel;',
-        'uniform float u_scene;',
+        'uniform float u_from;',
+        'uniform float u_to;',
         'uniform float u_trans;',
         'uniform float u_flash;',
         '',
@@ -112,9 +113,18 @@
         '   return sky;',
         '}',
         '',
-        'vec3 skyColor(vec2 uv) {',
-        '   if (u_scene < 1.5) return plainsSky(uv);',
-        '   return snowySky(uv);',
+        'vec3 computeScene(float s, vec2 cuv, vec2 scuv) {',
+        '   float ab = 0.0018;',
+        '   if (s < 0.5) {',
+        '       vec3 c;',
+        '       c.r = checkerColor(cuv + vec2(ab, 0.0)).r;',
+        '       c.g = checkerColor(cuv).g;',
+        '       c.b = checkerColor(cuv - vec2(ab, 0.0)).b;',
+        '       return c;',
+        '   } else if (s < 1.5) {',
+        '       return plainsSky(scuv);',
+        '   }',
+        '   return snowySky(scuv);',
         '}',
         '',
         'void main() {',
@@ -127,14 +137,9 @@
         '   vec2 scc = suv - 0.5; float sd = dot(scc, scc);',
         '   vec2 scuv = suv + scc * sd * 0.15;',
         '',
-        '   float ab = 0.0018;',
-        '   vec3 checker;',
-        '   checker.r = checkerColor(cuv + vec2(ab, 0.0)).r;',
-        '   checker.g = checkerColor(cuv).g;',
-        '   checker.b = checkerColor(cuv - vec2(ab, 0.0)).b;',
-        '',
-        '   vec3 sky = skyColor(scuv);',
-        '   vec3 col = mix(checker, sky, u_trans);',
+        '   vec3 fromC = computeScene(u_from, cuv, scuv);',
+        '   vec3 toC = computeScene(u_to, cuv, scuv);',
+        '   vec3 col = mix(fromC, toC, u_trans);',
         '',
         '   float sl = mod(floor(gl_FragCoord.y / 2.0), 2.0);',
         '   col *= (1.0 - 0.14 * sl);',
@@ -188,7 +193,8 @@
     var uSpeed = gl.getUniformLocation(program, 'u_speed');
     var uScale = gl.getUniformLocation(program, 'u_scale');
     var uPixel = gl.getUniformLocation(program, 'u_pixel');
-    var uScene = gl.getUniformLocation(program, 'u_scene');
+    var uFrom = gl.getUniformLocation(program, 'u_from');
+    var uTo = gl.getUniformLocation(program, 'u_to');
     var uTrans = gl.getUniformLocation(program, 'u_trans');
     var uFlash = gl.getUniformLocation(program, 'u_flash');
 
@@ -197,10 +203,11 @@
     gl.uniform1f(uSpeed, 1.0);
     gl.uniform1f(uScale, 20.0);
     gl.uniform1f(uPixel, 4.0);
-    gl.uniform1f(uScene, Math.random() < 0.5 ? 1.0 : 2.0);
 
-    var TRANSITION_DELAY = 11.0;   // seconds of checker before the flash
-    var FLASH_DURATION = 1.8;      // white flash length
+    var SCENES = [0.0, 1.0, 2.0];   // 0 = checkerboard, 1 = Plains, 2 = Snowy
+    var HOLD = 11.0;                // seconds each scene is shown
+    var FLASH = 1.8;                // white flash / crossfade length
+    var CYCLE = HOLD + FLASH;
 
     function smoothstep(a, b, x) {
         var t = Math.min(1, Math.max(0, (x - a) / (b - a)));
@@ -225,13 +232,21 @@
         var elapsed = (now - start) / 1000.0;
         gl.uniform1f(uTime, elapsed);
 
+        var stepIndex = Math.floor(elapsed / CYCLE);
+        var local = elapsed - stepIndex * CYCLE;
+        var fromScene = SCENES[stepIndex % 3];
+        var toScene = SCENES[(stepIndex + 1) % 3];
+
         var flash = 0.0;
         var trans = 0.0;
-        if (elapsed > TRANSITION_DELAY) {
-            var p = Math.min(1, (elapsed - TRANSITION_DELAY) / FLASH_DURATION);
-            flash = Math.sin(p * Math.PI);          // 0 -> 1 -> 0 white flash
-            trans = smoothstep(0.15, 0.85, p);       // checker fades to sky
+        if (local > HOLD) {
+            var p = Math.min(1, (local - HOLD) / FLASH);
+            flash = Math.sin(p * Math.PI);          // white flash 0 -> 1 -> 0
+            trans = smoothstep(0.15, 0.85, p);       // crossfade between scenes
         }
+
+        gl.uniform1f(uFrom, fromScene);
+        gl.uniform1f(uTo, toScene);
         gl.uniform1f(uTrans, trans);
         gl.uniform1f(uFlash, flash);
 
