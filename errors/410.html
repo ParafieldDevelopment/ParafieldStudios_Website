@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>410 - Gone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/404.css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <style>
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .container > * {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        .container .err-img { animation-delay: 0.1s; }
+        .container h1 { animation-delay: 0.2s; }
+        .container p:nth-of-type(1) { animation-delay: 0.3s; }
+        .container .home-link { animation-delay: 0.4s; }
+        .container .funny-section { animation-delay: 0.5s; }
+
+        .err-img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            display: inline-block;
+            filter: brightness(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../assets/404-amber.png" alt="Gone" class="err-img">
+
+        <h1>410</h1>
+        <p>This page is gone for good. It's not coming back. Stop asking.</p>
+        <div class="btn-group">
+            <a href="javascript:history.back()" class="btn-back">Go Back</a>
+            <a href="../index.html" class="home-link">Go back to Home</a>
+        </div>
+
+        <div class="funny-section">
+            <p class="error-code">Error Code: 410</p>
+            <p id="funny-text" class="funny-text"></p>
+        </div>
+    </div>
+
+    <script src="../js/OLD/external-redirect.js" defer></script>
+    <script>
+        const funnyTexts = [
+            "It's not coming back. Stop asking.",
+            "Gone, like my motivation on Mondays.",
+            "This page went to buy milk and never returned.",
+            "410: deleted with extreme prejudice.",
+            "What page? There never was a page.",
+            "It joined the witness protection program.",
+            "Gone, but mostly forgotten."
+        ];
+
+        const funnyTextElement = document.getElementById('funny-text');
+        const randomIndex = Math.floor(Math.random() * funnyTexts.length);
+        funnyTextElement.innerHTML = funnyTexts[randomIndex];
+    </script>
+</body>
+</html>

@@ -16,7 +16,7 @@
             renderProjects(data.projects, progressList);
         } catch (e) {
             console.error('[PROGRESS] Failed to load projects:', e);
-            if (progressList) progressList.innerHTML = '<div class="loading-hud error">[ ERROR: DATABASE_OFFLINE ]</div>';
+            if (progressList) progressList.innerHTML = '<div class="loading-hud error">Couldn\'t load projects. Please refresh.</div>';
         }
 
         // 2. LOAD UPDATES
@@ -26,7 +26,7 @@
             renderUpdates(data.updates, updatesList);
         } catch (e) {
             console.error('[PROGRESS] Failed to load updates:', e);
-            if (updatesList) updatesList.innerHTML = '<div class="loading-hud error">[ ERROR: LOGS_UNAVAILABLE ]</div>';
+            if (updatesList) updatesList.innerHTML = '<div class="loading-hud error">Couldn\'t load updates. Please refresh.</div>';
         }
     });
 
@@ -46,7 +46,7 @@
                     <h3 class="project-title">${project.name}</h3>
                     <span class="project-status ${statusClass}">${project.status}</span>
                 </div>
-                <p class="project-description">${project.description || 'Accessing encrypted data...'}</p>
+                <p class="project-description">${project.description || 'No description available yet.'}</p>
                 ${showProgress ? `
                 <div class="progress-bar-container">
                     <div class="progress-bar" style="width: ${project.progress}%;"></div>
@@ -54,8 +54,8 @@
                 </div>
                 ` : ''}
                 <div class="project-details">
-                    <span>CATEGORY: ${project.category.toUpperCase()}</span>
-                    <span>ID: PS_PRJ_${Math.floor(Math.random() * 9000) + 1000}</span>
+                    <span>Category: ${project.category}</span>
+                    <span>Updated: ${new Date().toLocaleDateString()}</span>
                 </div>
             `;
             container.appendChild(card);
@@ -69,21 +69,64 @@
         if (!container || !updates) return;
         container.innerHTML = '';
 
-        updates.forEach(update => {
+        const sorted = [...updates].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        sorted.forEach(update => {
             const entry = document.createElement('div');
             entry.className = 'log-entry';
+
+            const colors = update.colors || (update.color ? [update.color] : null);
+            let tagStyle = '';
+            if (colors && colors.length > 1) {
+                tagStyle = `style="background:linear-gradient(135deg,${colors.join(',')});color:#fff;border-color:transparent"`;
+                entry.style.borderLeftColor = colors[0];
+            } else if (colors && colors.length === 1) {
+                const c = colors[0];
+                tagStyle = `style="color:${c};background:${c}1f;border-color:${c}66"`;
+                entry.style.borderLeftColor = c;
+            }
+
             entry.innerHTML = `
                 <div class="log-header">
-                    <span class="log-date">[ ${update.date} ]</span>
-                    <span class="log-tag">// ${update.tag}</span>
+                    <span class="log-date">${update.date}</span>
+                    <span class="log-tag" ${tagStyle}>${update.tag}</span>
                 </div>
                 <h4 class="log-title">${update.title}</h4>
                 <p class="log-body">${update.content}</p>
+                ${update.images && update.images.length ? `
+                <div class="log-gallery">
+                    ${update.images.map(img => `<img src="${img}" alt="${update.tag}" loading="lazy">`).join('')}
+                </div>` : ''}
             `;
+
+            const gallery = entry.querySelector('.log-gallery');
+            if (gallery) {
+                gallery.querySelectorAll('img').forEach(img => {
+                    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+                });
+            }
             container.appendChild(entry);
         });
 
         if (window.buildPhases) window.buildPhases();
+    }
+
+    let lightbox = null;
+
+    function openLightbox(src, alt) {
+        if (!lightbox) {
+            lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.addEventListener('click', closeLightbox);
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+            document.body.appendChild(lightbox);
+        }
+        lightbox.innerHTML = `<img src="${src}" alt="${alt}">`;
+        lightbox.classList.add('open');
+    }
+
+    function closeLightbox() {
+        if (lightbox) lightbox.classList.remove('open');
     }
 
 })();

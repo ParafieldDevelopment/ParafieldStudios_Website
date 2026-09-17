@@ -1,14 +1,28 @@
 {
   "updates": [
     {
+      "date": "8/2/2026",
+      "tag": "Codename Overdrive",
+      "colors": ["#FFB300", "#E53935"],
+      "images": [
+        "assets/Secret01/Sneakpeak3.png",
+        "assets/Secret01/SneakPeak4.png",
+        "assets/Secret01/SpeakPeak2.png"
+      ],
+      "title": "In beta!",
+      "content": "A few months later we're finally in Beta development! More updates to come soon!"
+    },
+    {
       "date": "4/20/2026",
       "tag": "Project MDC",
+      "color": "#F57C00",
       "title": "Project Suspended",
       "content": "Due to some issues with ROBLOX. Development is suspended until further notice."
     },
     {
       "date": "4/20/2026",
       "tag": "Codename Combat",
+      "color": "#C2185B",
       "title": "Project Suspended",
       "content": "Due to some issues with ROBLOX. Development is suspended until further notice."
     },

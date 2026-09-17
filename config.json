@@ -2,7 +2,7 @@
   "maintenanceMode": false,
   "introEnabled": false,
   "noticeBar": {
-    "enabled": true,
+    "enabled": false,
     "text": "Hiii, like the new website? More improvements to come soon! :3 - Batista"
   },
   "secretGames": {

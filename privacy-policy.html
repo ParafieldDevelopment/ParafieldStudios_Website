@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#f2ae49">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
@@ -76,13 +76,6 @@
 
     <!-- LEGAL HERO -->
     <div id="legal-hero" class="hero-section">
-        <div class="hud tl">[ PS_PRV_40.7 ] // SYSTEM ACTIVE</div>
-        <div class="hud tr">LAT: 40.7128 | LNG: -74.0060</div>
-        <div class="hud bl">STATUS: ACTIVE // ACCESS GRANTED</div>
-        <div class="hud br">SEC_LVL: 04</div>
-        <div class="bracket tl"></div><div class="bracket tr"></div>
-        <div class="bracket bl"></div><div class="bracket br"></div>
-
         <!-- UNIQUE SHAPES -->
         <div class="radar-shape">
             <div class="radar-circle c1"></div>
@@ -92,7 +85,7 @@
         </div>
 
         <div id="legal-hero-text" style="position: absolute; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 48vw; will-change: opacity, transform;">
-            <div class="hero-eyebrow">// Legal Directive · Privacy</div>
+            <div class="hero-eyebrow">Legal · Privacy Policy</div>
             <h1 class="hero-title">PRIVACY<br><span class="amber">POLICY</span></h1>
             <p class="hero-sub">At Parafield Studios, we believe your personal life is none of our business. We aren't interested in your digital footprint.</p>
         </div>
@@ -104,20 +97,24 @@
     </div>
 
     <!-- CONTENT LAYER -->
-    <div id="legal-content-layer" style="position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; will-change: opacity; padding-top: 72px; overflow: hidden;">
+    <div id="legal-content-layer" style="position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; will-change: opacity; padding-top: 72px; overflow: hidden;">
+        <div class="bg-art" aria-hidden="true"></div>
+        <div class="bg-shapes" aria-hidden="true">
+            <span class="shape s1"></span><span class="shape s2"></span><span class="shape s3"></span><span class="shape s4"></span>
+            <span class="shape s5"></span><span class="shape s6"></span><span class="shape s7"></span><span class="shape s8"></span>
+        </div>
         <div id="legal-content-wrapper">
             
             <!-- SECTION 01: INTRO -->
             <div class="about-content-inner">
-                <div class="section-label">01 // DATA_DIRECTIVE</div>
+                <div class="section-label">The Basics</div>
                 <h2 class="about-big-title">KEEPING IT<br><span class="amber">SIMPLE</span></h2>
                 <div class="studio-desc-content">
-                    <p>At Parafield Studios (and our subsidiaries like <b>REDTOPS</b>), we believe your personal life is none of our business. We aren't data brokers, and we aren't interested in your digital footprint.</p>
+                    <p>At Parafield Studios (and our subsidiaries like <b>Sunlight Foundation</b>), we believe your personal life is none of our business. We aren't data brokers, and we aren't interested in your digital footprint.</p>
                 </div>
 
                 <!-- DIEGETIC DISCLAIMER -->
                 <div class="non-profit-disclaimer" style="border-left: 8px solid var(--primary);">
-                    <div class="disclaimer-hud">[ SYSTEM_NOTICE_LOG ]</div>
                     <div class="disclaimer-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                     </div>
@@ -130,7 +127,7 @@
 
             <!-- SECTION 02: WHAT WE COLLECT -->
             <div class="about-content-inner">
-                <div class="section-label">02 // TELEMETRY_PROTOCOL</div>
+                <div class="section-label">Anonymous Data Only</div>
                 <h2 class="about-big-title">WHAT WE<br><span class="outline">COLLECT</span></h2>
                 <div class="studio-desc-content">
                     <p>We collect anonymous hardware telemetry data to prioritize compatibility fixes and improve performance. This includes:</p>
@@ -144,7 +141,7 @@
 
             <!-- SECTION 03: WHAT WE DON'T COLLECT -->
             <div class="about-content-inner">
-                <div class="section-label">03 // PRIVACY_ASSURANCE</div>
+                <div class="section-label">What We Don't Collect</div>
                 <h2 class="about-big-title">WHAT WE<br><span class="amber">IGNORE</span></h2>
                 <div class="studio-desc-content">
                     <p>We absolutely <b>DON'T</b> collect or see:</p>
@@ -157,7 +154,7 @@
                     </ul>
                     <p>If you wish for NO data to be collected, you may disable these features in the settings menu of any of our products.</p>
                 </div>
-                <p style="margin-top: 3rem; font-family: var(--mono); font-size: 0.7rem; color: rgba(255,255,255,0.2);">LAST_UPDATED: 4/4/2026</p>
+                <p style="margin-top: 3rem; font-size: 0.7rem; color: #999999;">Last updated: August 28, 2026</p>
             </div>
 
         </div>
@@ -166,14 +163,10 @@
     <!-- TICKER -->
     <div id="ticker-layer">
         <div class="ticker-inner">
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">PRIVACY PROTOCOL //</span>
-            <span class="ticker-item">DATA PROTECTION //</span><span class="ticker-item">SEC_LVL_04 //</span>
-            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">PRIVACY PROTOCOL //</span>
-            <span class="ticker-item">DATA PROTECTION //</span><span class="ticker-item">SEC_LVL_04 //</span>
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">PRIVACY PROTOCOL //</span>
-            <span class="ticker-item">DATA PROTECTION //</span><span class="ticker-item">SEC_LVL_04 //</span>
-            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">PRIVACY PROTOCOL //</span>
-            <span class="ticker-item">DATA PROTECTION //</span><span class="ticker-item">SEC_LVL_04 //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">YOUR DATA STAYS YOURS //</span>
+            <span class="ticker-item">NO TRACKING //</span><span class="ticker-item">NO PROFILING //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">YOUR DATA STAYS YOURS //</span>
+            <span class="ticker-item">NO TRACKING //</span><span class="ticker-item">NO PROFILING //</span>
         </div>
     </div>
 
@@ -181,10 +174,6 @@
 
 <div id="footer-layer">
     <footer>
-        <div class="footer-hud">
-            <span>MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</span>
-            <span>SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</span>
-        </div>
         <div class="footer-grid">
             <div>
                 <img src="assets/PFLD.png" alt="Parafield Studios" class="footer-logo">
@@ -219,7 +208,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS // ALL RIGHTS RESERVED</span>
+            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS. ALL RIGHTS RESERVED.</span>
             <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
                 <span>Hosted via Cloudflare Pages</span>
                 <img src="assets/cloudflare.png" alt="Cloudflare">
@@ -229,6 +218,7 @@
 </div>
 
 <script src="js/system.js"></script>
+<script src="js/custom-cursor.js" defer></script>
 <script>
     (function(){
         'use strict';
@@ -290,14 +280,17 @@
 
             const hp = ease(inv(PH.h0, PH.h1, y));
             legalHero.style.opacity = 1 - hp;
+            legalHero.style.transform = `scale(${1 + hp * 0.05})`;
             const hs = hp * 90;
             legalHeroText.style.transform = `translateY(calc(-50% - ${hs}px))`;
 
             const cIn = ease(inv(PH.c0, PH.c1, y));
-            const cOut = ease(inv(PH.c2, PH.c3, y));
-            const cOp = cIn * (1 - cOut);
+            const cOp = cIn;
             legalContentLayer.style.opacity = cOp;
+            legalContentLayer.style.transform = `translateY(${(1 - cIn) * 30}px) scale(${1 - (1 - cIn) * 0.02})`;
             legalContentLayer.classList.toggle('active', cOp > 0.05);
+
+            const tp = ease(inv(PH.t0, PH.t1, y));
 
             const contentChildren = Array.from(legalContentLayer.querySelectorAll('.about-content-inner'));
             if (y >= PH.c1 && y <= PH.c2) {
@@ -305,15 +298,14 @@
                 const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
                 contentChildren.forEach(child => child.style.transform = `translateY(${-scrollProgress * maxScroll}px)`);
             } else if (y < PH.c1) {
-                contentChildren.forEach(child => child.style.transform = 'translateY(0)');
+                contentChildren.forEach((child, i) => child.style.transform = `translateY(${(1 - cIn) * 26 * (i + 1)}px)`);
             } else if (y > PH.c2) {
                 const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll}px)`);
+                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll + tp * 12}px)`);
             }
 
-            const tp = ease(inv(PH.t0, PH.t1, y));
             tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
-            tickerEl.style.opacity = tp;
+            tickerEl.style.opacity = 1;
         }
 
         window.addEventListener('load', () => { buildPhases(); tick(); });

@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#f2ae49">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
@@ -35,27 +35,6 @@
             background: #080808;
             overflow: hidden;
         }
-        /* UNIQUE SHAPE: PROGRESS GEARS */
-        .gear-container {
-            position: absolute;
-            top: 50%; left: 65%;
-            transform: translate(-50%, -50%);
-            width: 600px; height: 600px;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.15;
-        }
-        .gear {
-            position: absolute;
-            border: 4px dashed var(--primary);
-            border-radius: 50%;
-            animation: rotate 20s linear infinite;
-        }
-        .g1 { width: 400px; height: 400px; top: 10%; left: 10%; }
-        .g2 { width: 250px; height: 250px; bottom: 5%; right: 5%; animation-direction: reverse; animation-duration: 15s; }
-
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
         #progress-content-wrapper { will-change: transform; }
     </style>
 </head>
@@ -77,21 +56,8 @@
 
     <!-- PROGRESS HERO -->
     <div id="progress-hero" class="hero-section">
-        <div class="hud tl">[ PS_PRG_40.7 ] // SYSTEM ACTIVE</div>
-        <div class="hud tr">LAT: 40.7128 | LNG: -74.0060</div>
-        <div class="hud bl">STATUS: ACTIVE // ACCESS GRANTED</div>
-        <div class="hud br">SEC_LVL: 04</div>
-        <div class="bracket tl"></div><div class="bracket tr"></div>
-        <div class="bracket bl"></div><div class="bracket br"></div>
-
-        <!-- UNIQUE SHAPES -->
-        <div class="gear-container">
-            <div class="gear g1"></div>
-            <div class="gear g2"></div>
-        </div>
-
         <div id="progress-hero-text" style="position: absolute; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 48vw; will-change: opacity, transform;">
-            <div class="hero-eyebrow">// Project Status · Real-time Updates</div>
+            <div class="hero-eyebrow">Project Progress · Live Updates</div>
             <h1 class="hero-title">DEV<br><span class="amber">PROGRESS</span></h1>
             <p class="hero-sub">Track the development progress of Parafield Studios' projects. See what we're working on and what's coming next!</p>
         </div>
@@ -103,23 +69,28 @@
     </div>
 
     <!-- PROGRESS CONTENT -->
-    <div id="progress-content-layer" style="position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; will-change: opacity; padding-top: 72px; overflow: hidden;">
+    <div id="progress-content-layer" style="position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; will-change: opacity; padding-top: 72px; overflow: hidden;">
+        <div class="bg-art" aria-hidden="true"></div>
+        <div class="bg-shapes" aria-hidden="true">
+            <span class="shape s1"></span><span class="shape s2"></span><span class="shape s3"></span><span class="shape s4"></span>
+            <span class="shape s5"></span><span class="shape s6"></span><span class="shape s7"></span><span class="shape s8"></span>
+        </div>
         <div id="progress-content-wrapper">
             
             <!-- SECTION 01: PROJECTS -->
             <div class="progress-content-inner">
-                <div class="section-label">01 // LABORATORY: ACTIVE PROJECTS</div>
+                <div class="section-label">Active Projects</div>
                 <h2 class="progress-big-title">CURRENT<br><span class="outline">PROJECTS</span></h2>
                 <div class="progress-container" id="progress-list">
                     <!-- Dynamic Loading Placeholder -->
-                    <div class="loading-hud">ACCESSING_DATABASE...</div>
+                    <div class="loading-hud">Loading projects...</div>
                 </div>
             </div>
 
             <!-- SECTION 02: LOGS -->
             <div class="progress-content-inner">
-                <div class="section-label">02 // TRANSMISSIONS: SYSTEM LOGS</div>
-                <h2 class="progress-big-title">SYSTEM<br><span class="outline">LOGS</span></h2>
+                <div class="section-label">Project Updates</div>
+                <h2 class="progress-big-title">WHAT'S<br><span class="outline">NEW</span></h2>
                 <div id="updates-list" class="logs-container">
                     <!-- Dynamic Loading Placeholder -->
                 </div>
@@ -131,10 +102,10 @@
     <!-- TICKER -->
     <div id="ticker-layer">
         <div class="ticker-inner">
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">LABORATORY ACTIVE //</span>
-            <span class="ticker-item">PROJECT UPDATES //</span><span class="ticker-item">SYSTEM ACTIVE //</span>
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">LABORATORY ACTIVE //</span>
-            <span class="ticker-item">PROJECT UPDATES //</span><span class="ticker-item">SYSTEM ACTIVE //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">NEW PROJECTS //</span>
+            <span class="ticker-item">DEV UPDATES //</span><span class="ticker-item">BUILDING FOR THE FUTURE //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">NEW PROJECTS //</span>
+            <span class="ticker-item">DEV UPDATES //</span><span class="ticker-item">BUILDING FOR THE FUTURE //</span>
         </div>
     </div>
 
@@ -142,10 +113,6 @@
 
 <div id="footer-layer">
     <footer>
-        <div class="footer-hud">
-            <span>MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</span>
-            <span>SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</span>
-        </div>
         <div class="footer-grid">
             <div>
                 <img src="assets/PFLD.png" alt="Parafield Studios" class="footer-logo">
@@ -176,7 +143,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS // ALL RIGHTS RESERVED</span>
+            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS. ALL RIGHTS RESERVED.</span>
             <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
                 <span>Hosted via Cloudflare Pages</span>
                 <img src="assets/cloudflare.png" alt="Cloudflare">
@@ -186,6 +153,7 @@
 </div>
 
 <script src="js/system.js"></script>
+<script src="js/custom-cursor.js" defer></script>
 <script src="js/progress.js"></script>
 <script>
     (function(){
@@ -250,14 +218,17 @@
 
             const hp = ease(inv(PH.h0, PH.h1, y));
             progressHero.style.opacity = 1 - hp;
+            progressHero.style.transform = `scale(${1 + hp * 0.05})`;
             const hs = hp * 90;
             if (progressHeroText) progressHeroText.style.transform = `translateY(calc(-50% - ${hs}px))`;
 
             const cIn = ease(inv(PH.c0, PH.c1, y));
-            const cOut = ease(inv(PH.c2, PH.c3, y));
-            const cOp = cIn * (1 - cOut);
+            const cOp = cIn;
             progressContentLayer.style.opacity = cOp;
+            progressContentLayer.style.transform = `translateY(${(1 - cIn) * 30}px) scale(${1 - (1 - cIn) * 0.02})`;
             progressContentLayer.classList.toggle('active', cOp > 0.05);
+
+            const tp = ease(inv(PH.t0, PH.t1, y));
 
             const contentChildren = Array.from(progressContentWrapper.querySelectorAll('.progress-content-inner'));
             if (y >= PH.c1 && y <= PH.c2) {
@@ -265,15 +236,14 @@
                 const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
                 contentChildren.forEach(child => child.style.transform = `translateY(${-scrollProgress * maxScroll}px)`);
             } else if (y < PH.c1) {
-                contentChildren.forEach(child => child.style.transform = 'translateY(0)');
+                contentChildren.forEach((child, i) => child.style.transform = `translateY(${(1 - cIn) * 26 * (i + 1)}px)`);
             } else if (y > PH.c2) {
                 const maxScroll = Math.max(0, PH.contentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll}px)`);
+                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll + tp * 12}px)`);
             }
 
-            const tp = ease(inv(PH.t0, PH.t1, y));
             tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
-            tickerEl.style.opacity = tp;
+            tickerEl.style.opacity = 1;
         }
 
         window.addEventListener('load', () => { window.buildPhases(); tick(); });

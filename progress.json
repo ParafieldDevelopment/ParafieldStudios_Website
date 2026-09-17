@@ -1,6 +1,16 @@
 {
   "projects": [
     {
+      "name": "Codename Overdrive",
+      "progress": 65,
+      "status": "In Progress",
+      "image": "assets/Secret01/SecretGame.png",
+      "platform": "Godot",
+      "color": "#478CBF",
+      "category": "Active",
+      "description": "It's in progress but we're aren't saying much. Check back later!"
+    },
+    {
       "name": "Project MDC",
       "progress": 5,
       "status": "Paused",
@@ -20,15 +30,9 @@
     },
     {
       "name": "???",
-      "progress": 28,
-      "status": "In Development",
-      "category": "Active",
-      "description": "It's in progress but we're aren't saying much. Check back later!"
-    },
-    {
-      "name": "???",
       "progress": 0,
       "status": "Unknown",
+      "image": "assets/404-amber.png",
       "category": "Unfocused",
       "hideProgress": true,
       "description": "No data found.. Oh well check back later!"
@@ -37,6 +41,7 @@
       "name": "???",
       "progress": 0,
       "status": "Unknown",
+      "image": "assets/404-amber.png",
       "category": "Unfocused",
       "hideProgress": true,
       "description": "No data found.. Oh well check back later!"
@@ -45,6 +50,7 @@
       "name": "???",
       "progress": 0,
       "status": "Unknown",
+      "image": "assets/404-amber.png",
       "category": "Unfocused",
       "hideProgress": true,
       "description": "No data found.. Oh well check back later!"

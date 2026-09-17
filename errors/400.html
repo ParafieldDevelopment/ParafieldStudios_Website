@@ -6,7 +6,7 @@
     <title>400 - Bad Request</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/404.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <style>
@@ -47,7 +47,10 @@
         <img src="../assets/BadRequest.png" alt="Bad Request" class="error-img">
         <h1>400</h1>
         <p>Bad Request. Your request was malformed.</p>
-        <a href="../index.html" class="home-link">Go back to Home</a>
+        <div class="btn-group">
+            <a href="javascript:history.back()" class="btn-back">Go Back</a>
+            <a href="../index.html" class="home-link">Go back to Home</a>
+        </div>
 
         <div class="funny-section">
             <p class="error-code">Error Code: 400</p>

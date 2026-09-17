@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#f2ae49">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
@@ -58,17 +58,10 @@
 
     <!-- ABOUT HERO -->
     <div id="about-hero" class="hero-section">
-        <div class="hud tl">[ PS_ABT_40.7 ] // SYSTEM ACTIVE</div>
-        <div class="hud tr">LAT: 40.7128 | LNG: -74.0060</div>
-        <div class="hud bl">STATUS: ACTIVE // ACCESS GRANTED</div>
-        <div class="hud br">SEC_LVL: 04</div>
-        <div class="bracket tl"></div><div class="bracket tr"></div>
-        <div class="bracket bl"></div><div class="bracket br"></div>
-
         <div id="about-hero-text">
-            <div class="hero-eyebrow">// Our Journey · Since 2017</div>
+            <div class="hero-eyebrow">Our Story · Since 2017</div>
             <h1 class="hero-title">ABOUT<br><span class="amber">US</span></h1>
-            <p class="hero-sub">Meet the passionate (and slightly chaotic) team at Parafield Studios. Learn about our 8-year journey of creativity and madness.</p>
+            <p class="hero-sub">Meet the passionate team at Parafield Studios. Learn about our journey of creativity and craftsmanship.</p>
         </div>
 
         <div id="scroll-hint">
@@ -79,10 +72,15 @@
 
     <!-- ABOUT CONTENT -->
     <div id="about-content-layer">
+        <div class="bg-art" aria-hidden="true"></div>
+        <div class="bg-shapes" aria-hidden="true">
+            <span class="shape s1"></span><span class="shape s2"></span><span class="shape s3"></span><span class="shape s4"></span>
+            <span class="shape s5"></span><span class="shape s6"></span><span class="shape s7"></span><span class="shape s8"></span>
+        </div>
         <div id="about-content-wrapper">
             <div class="about-content-inner">
-                <div class="section-label">01 // Our Story</div>
-                <h2 class="about-big-title">8 YEARS OF<br><span class="amber">INSANITY!</span></h2>
+                <div class="section-label">Our Story</div>
+                <h2 class="about-big-title">8 YEARS OF<br><span class="amber">CREATIVITY!</span></h2>
                 <div class="studio-desc-content">
                     <p>Well it's simple! All of this nonsense started from a solo team by one idiot messing around with Roblox Studio.</p>
                     <p>That later on started to slowly form into a small group... We weren't proud of our first group name... who even calls themselves "Gamer Productions" (Apparently us... 😭)</p>
@@ -91,13 +89,15 @@
             </div>
 
             <div class="about-content-inner">
-                <div class="section-label">02 // Our Mission</div>
+                <div class="section-label">Our Mission</div>
                 <h2 class="about-big-title">CREATING<br><span class="outline">UNIQUE</span><br>EXPERIENCES</h2>
-                <p class="studio-desc-content">Our mission is to craft unforgettable entertainment experiences that push boundaries and inspire players. We believe in fostering a creative environment where innovation thrives and every idea is given a chance to shine.</p>
+                <div class="studio-desc-content">
+                    <p>Our mission is to craft unforgettable entertainment experiences that push boundaries and inspire players. We believe in fostering a creative environment where innovation thrives and every idea is given a chance to shine.</p>
+                </div>
             </div>
 
             <div class="about-content-inner">
-                <div class="section-label">03 // Our Values</div>
+                <div class="section-label">Our Values</div>
                 <h2 class="about-big-title">PASSION &amp;<br><span class="amber">INNOVATION</span></h2>
                 <ul class="values-list">
                     <li><b>Creativity:</b> We encourage bold ideas and imaginative solutions.</li>
@@ -106,20 +106,363 @@
                     <li><b>Community:</b> Building strong connections with our players and fellow creators.</li>
                 </ul>
             </div>
+
+            <div class="about-content-inner">
+                <div class="section-label">Asset Roster · The Squad</div>
+                <h2 class="about-big-title">MEET<br><span class="amber">THE TEAM</span></h2>
+                <div class="studio-desc-content">
+                    <p>The people behind the madness. Click <b>Read More</b> on any card to get the full story.</p>
+                </div>
+            </div>
+
+            <div class="about-content-inner about-content-inner--wide">
+                <h3 class="team-grid-title">The Directors</h3>
+                <div class="team-grid">
+                    <div class="team-card" data-name="Batista" data-role="CEO / Founder">
+                        <div class="team-img" style="background-color:#ff5733;">
+                            <img src="assets/team/directors/bat.png" alt="Batista">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>Batista</h3>
+                            <p class="team-role">CEO / Founder</p>
+                            <p class="team-desc">✨ Don't just chase your dreams, hunt them down. Eventually you'll get there. ✨</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                ✨ Don't just chase your dreams, hunt them down. Eventually you'll get there. ✨
+                                <p>The CEO and Founder of this insanity of a studio.</p>
+                            </div>
+                            <div class="team-detail-links">
+                                <a href="https://batistacakewalk.parafieldstudios.com/home" target="_blank" rel="noopener">Website</a>
+                                <a href="https://bsky.app/profile/did:plc:5dsearzpvgk34k5tbwy2nhu7" target="_blank" rel="noopener">Bluesky</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-name="Notdefyingphysics" data-role="Director of Structural Studios">
+                        <div class="team-img" style="background-color:#d333ff;">
+                            <img src="assets/team/directors/notdef.png" alt="Notdefyingphysics">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>Notdefyingphysics</h3>
+                            <p class="team-role">Director of Structural Studios</p>
+                            <p class="team-desc">Master of structures and physics defying creations.</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                <p>Master of structures and physics defying creations.</p>
+                                <p>The assistant director of Parafield Studios.</p>
+                            </div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-name="xX420MCplayerXx" data-role="Director of Council">
+                        <div class="team-img" style="background-color:#9b8666;">
+                            <img src="assets/team/directors/xX420MCplayerXx.png" alt="xX420MCplayerXx">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>xX420MCplayerXx</h3>
+                            <p class="team-role">Director of Council</p>
+                            <p class="team-desc">The one who manages the staff team.</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                <p>The one who manages the staff team.</p>
+                                <p>Just a guy who likes vintage computers and old movies.</p>
+                                <p>Some movie quotes from films I've seen recently:</p>
+                                <p>"Oh, sometimes I think I must go mad..." -Groucho Marx [Acting as Professor Wagstaff] (Horse Feathers, 1932)</p>
+                                <p>"Your proposition may be good, but let's have one thing understood: whatever it is, I'm against it!" -Groucho Marx [Acting as Professor Wagstaff, in response to the potential suggestions of the trustees] (Horse Feathers, 1932)</p>
+                                <p>"It isn't right for a college to buy football players." -Zeppo Marx [Acting as Professor Wagstaff's son] (Horse Feathers, 1932)</p>
+                                <p>"69, dudes!" -Alex Winter and Keanu Reeves [Acting ass Bill S. Preston, Esq., and Ted "Theodore" Logan] (Bill &amp; Ted's Excellent Adventure, 1989)</p>
+                            </div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content-inner about-content-inner--wide">
+                <h3 class="team-grid-title">The Staffs</h3>
+                <div class="team-grid">
+                    <div class="team-card" data-name="Pilot Ocean" data-role="Council">
+                        <div class="team-img" style="background-color:#6e4192;">
+                            <img src="assets/team/staffs/Ocean.png" alt="Pilot Ocean">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>Pilot Ocean</h3>
+                            <p class="team-role">Council</p>
+                            <p class="team-desc">A valued member of the council.</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                A valued member of the council.
+                                <p>Founder of Oceanic Research/Robotics Institutes and creator of a upcoming visual novel game DragonHope Legacies and creator of the wings of fire role play AU discord server Collapsed New Pyrrhia.</p>
+                            </div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-name="cjkdawg" data-role="Council">
+                        <div class="team-img" style="background-color:#125acc;">
+                            <img src="assets/team/staffs/cory.png" alt="cjkdawg">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>cjkdawg</h3>
+                            <p class="team-role">Council</p>
+                            <p class="team-desc">A valued member of the council.</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                A valued member of the council.
+                                <p><i>I Like Gambling</i></p>
+                                <p>Higher up of crackfield. (cant create optimized code)</p>
+                            </div>
+                            <div class="team-detail-links">
+                                <a href="https://youtube.com/@cjkdawggaming" target="_blank" rel="noopener">YouTube</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-name="Ducko" data-role="Council">
+                        <div class="team-img" style="background-color:#82efa5;">
+                            <img src="assets/team/staffs/ducko.png" alt="Ducko">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>Ducko</h3>
+                            <p class="team-role">Council</p>
+                            <p class="team-desc">A valued member of the council.</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                A valued member of the council.
+                            </div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-name="Chester" data-role="Senior Admin">
+                        <div class="team-img" style="background-color:#9c9c9c;">
+                            <img src="assets/team/staffs/chester.png" alt="Chester">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>Chester</h3>
+                            <p class="team-role">Senior Admin</p>
+                            <p class="team-desc"><i>I will die you</i></p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                <p><i>I will die you</i></p>
+                            </div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-name="ethonion10" data-role="Senior Admin">
+                        <div class="team-img" style="background-color:#305932;">
+                            <img src="assets/team/staffs/ethonion.png" alt="ethonion10">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>ethonion10</h3>
+                            <p class="team-role">Senior Admin</p>
+                            <p class="team-desc"><i>PLACEHOLDER</i></p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                <p><i>PLACEHOLDER</i></p>
+                                <span class="memory-text">In memory of ethonion's friend</span>
+                                <span class="memory-text">2009 | 9/5/2025</span>
+                            </div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-name="Saturn" data-role="Administrator">
+                        <div class="team-img" style="background-color:#9c9c9c;">
+                            <img src="assets/team/staffs/saturn.png" alt="Saturn">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>Saturn</h3>
+                            <p class="team-role">Administrator</p>
+                            <p class="team-desc"><i>Our valued Senior in the Administration team</i></p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                <p><i>Our valued Senior in the Administration team</i></p>
+                            </div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-name="TheGreekDev" data-role="Administrator">
+                        <div class="team-img" style="background-color:#49ba4e;">
+                            <img src="assets/team/directors/Sheilatemp.png" alt="TheGreekDev">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>TheGreekDev</h3>
+                            <p class="team-role">Administrator</p>
+                            <p class="team-desc"><i>Our valued Senior in the Administration team</i></p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                <p><i>Our valued Senior in the Administration team</i></p>
+                            </div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-name="mas6y6" data-role="IT Admin" data-banner="assets/team/staffs/mas6y6_banner.png">
+                        <div class="team-img" style="background-image:linear-gradient(to top, rgb(85,0,255), #100017);">
+                            <img src="assets/team/staffs/mas.png" alt="mas6y6">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>mas6y6</h3>
+                            <p class="team-role">IT Admin</p>
+                            <p class="team-desc">Just a small developer that does random stuff and shit.</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                <p>Just a small developer that does random stuff and shit.</p>
+                                <p>I also helped to make the site so :3</p>
+                            </div>
+                            <div class="team-detail-links">
+                                <a href="https://mas6y6.com" target="_blank" rel="noopener">Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content-inner about-content-inner--wide">
+                <h3 class="team-grid-title">The Developers</h3>
+                <div class="team-grid">
+                    <div class="team-card team-card-accent" data-name="Eclispe" data-role="Sound Designer" data-banner="assets/team/Developers/EclipseBanner.png">
+                        <div class="team-img">
+                            <img src="assets/team/Developers/Eclipse.png" alt="Eclispe">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>Eclispe</h3>
+                            <p class="team-role">Sound Designer</p>
+                            <p class="team-desc">A silly goober who makes music and games.</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                <p>A silly goober who makes music and games.</p>
+                            </div>
+                            <div class="team-detail-links">
+                                <a href="https://www.youtube.com/channel/UCL6hFcFM7FPf1xi2OjEvVFw" target="_blank" rel="noopener">YouTube</a>
+                                <a href="https://soundcloud.com/eclipsetech-hei-4820" target="_blank" rel="noopener">SoundCloud</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card team-card-accent" data-name="Spacecatif" data-role="Sound Designer">
+                        <div class="team-img">
+                            <img src="assets/team/Developers/Spacecatif.webp" alt="Spacecatif">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>Spacecatif</h3>
+                            <p class="team-role">Sound Designer</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc"></div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card team-card-accent role-builder" data-name="A.S.A.L.A" data-role="Builder">
+                        <div class="team-img">
+                            <img src="assets/team/Developers/A.S.A.L.A.webp" alt="A.S.A.L.A.">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>A.S.A.L.A</h3>
+                            <p class="team-role">Builder</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc"></div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card team-card-accent role-concepts" data-name="Emma" data-role="Concept Designer">
+                        <div class="team-img">
+                            <img src="assets/team/Developers/Emma.webp" alt="Emma">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>Emma</h3>
+                            <p class="team-role">Concept Designer</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc"></div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card team-card-accent role-qa" data-name="CutePaws" data-role="QA">
+                        <div class="team-img">
+                            <img src="assets/team/Developers/CutePaws.webp" alt="CutePaws">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>CutePaws</h3>
+                            <p class="team-role">QA</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc"></div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                    <div class="team-card team-card-accent role-qa" data-name="sharky" data-role="QA">
+                        <div class="team-img">
+                            <img src="assets/team/Developers/sharky.webp" alt="sharky">
+                        </div>
+                        <div class="team-card-body">
+                            <h3>sharky</h3>
+                            <p class="team-role">QA</p>
+                            <p class="team-desc">Our sharp-toothed QA, hunting bugs so you don't have to.</p>
+                            <button type="button" class="team-more">Read More</button>
+                        </div>
+                        <div class="team-detail" hidden>
+                            <div class="team-detail-desc">
+                                <p>Our sharp-toothed QA, hunting bugs so you don't have to.</p>
+                            </div>
+                            <div class="team-detail-links"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- TICKER -->
     <div id="ticker-layer">
         <div class="ticker-inner">
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">INSPIRING OTHERS //</span>
-            <span class="ticker-item">DEPLOYING CREATIVITY //</span><span class="ticker-item">INSPIRE THE WORLD //</span>
-            <span class="ticker-item">GAME DEV //</span><span class="ticker-item">COMMAND CENTER //</span>
-            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">SEC_LVL_04 //</span>
-            <span class="ticker-item">PARAFIELD STUDIOS //</span><span class="ticker-item">INSPIRING OTHERS //</span>
-            <span class="ticker-item">DEPLOYING CREATIVITY //</span><span class="ticker-item">INSPIRE THE WORLD //</span>
-            <span class="ticker-item">GAME DEV //</span><span class="ticker-item">COMMAND CENTER //</span>
-            <span class="ticker-item">SYSTEM ACTIVE //</span><span class="ticker-item">SEC_LVL_04 //</span>
+            <span class="ticker-item">PARAFIELD STUDIOS ✦</span><span class="ticker-item">BUILT WITH PASSION ✦</span>
+            <span class="ticker-item">ENTERTAINMENT STUDIO ✦</span><span class="ticker-item">INSPIRE THE WORLD ✦</span>
+            <span class="ticker-item">GAME DEVELOPMENT ✦</span><span class="ticker-item">INDEPENDENT STUDIO ✦</span>
+            <span class="ticker-item">EST. 2019 ✦</span><span class="ticker-item">CREATING THE FUTURE ✦</span>
+            <span class="ticker-item">PARAFIELD STUDIOS ✦</span><span class="ticker-item">BUILT WITH PASSION ✦</span>
+            <span class="ticker-item">ENTERTAINMENT STUDIO ✦</span><span class="ticker-item">INSPIRE THE WORLD ✦</span>
+            <span class="ticker-item">GAME DEVELOPMENT ✦</span><span class="ticker-item">INDEPENDENT STUDIO ✦</span>
+            <span class="ticker-item">EST. 2019 ✦</span><span class="ticker-item">CREATING THE FUTURE ✦</span>
+        </div>
+    </div>
+
+    <!-- TEAM MODAL -->
+    <div id="team-modal" class="team-modal" aria-hidden="true">
+        <div class="team-modal-backdrop"></div>
+        <div class="team-modal-card">
+            <button type="button" class="team-modal-close" aria-label="Close">&times;</button>
+            <div class="team-modal-banner" id="team-modal-banner"></div>
+            <div class="team-modal-img" id="team-modal-img"></div>
+            <div class="team-modal-body">
+                <h2 id="team-modal-name"></h2>
+                <p class="team-modal-role" id="team-modal-role"></p>
+                <div class="team-modal-desc" id="team-modal-desc"></div>
+                <div class="team-modal-links" id="team-modal-links"></div>
+            </div>
         </div>
     </div>
 
@@ -127,10 +470,6 @@
 
 <div id="footer-layer">
     <footer>
-        <div class="footer-hud">
-            <span>MEM_USAGE: OPTIMAL // [ ACCESS_GRANTED ]</span>
-            <span>SERVER: CLOUDFLARE_PAGES // UPTIME: 99.9%</span>
-        </div>
         <div class="footer-grid">
             <div>
                 <img src="assets/PFLD.png" alt="Parafield Studios" class="footer-logo">
@@ -169,7 +508,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS // ALL RIGHTS RESERVED</span>
+            <span class="footer-copyright">© 2026 PARAFIELD STUDIOS. ALL RIGHTS RESERVED.</span>
             <a href="https://pages.cloudflare.com/" target="_blank" class="cloudflare-badge">
                 <span>Hosted via Cloudflare Pages</span>
                 <img src="assets/cloudflare.png" alt="Cloudflare">
@@ -179,6 +518,7 @@
 </div>
 
 <script src="js/system.js"></script>
+<script src="js/custom-cursor.js" defer></script>
 <script>
     (function(){
         'use strict';
@@ -252,15 +592,18 @@
             /* ABOUT HERO */
             const hp = ease(inv(PH.h0, PH.h1, y));
             aboutHero.style.opacity = 1 - hp;
+            aboutHero.style.transform = `scale(${1 + hp * 0.05})`;
             const hs = hp * 90;
             aboutHeroText.style.transform  = `translateY(calc(-50% - ${hs}px))`;
 
             /* ABOUT CONTENT */
             const cIn  = ease(inv(PH.c0, PH.c1, y));
-            const cOut = ease(inv(PH.c2, PH.c3, y));
-            const cOp  = cIn * (1 - cOut);
+            const cOp  = cIn;
             aboutContentLayer.style.opacity = cOp;
+            aboutContentLayer.style.transform = `translateY(${(1 - cIn) * 30}px) scale(${1 - (1 - cIn) * 0.02})`;
             aboutContentLayer.classList.toggle('active', cOp > 0.05);
+
+            const tp = ease(inv(PH.t0, PH.t1, y));
 
             // Apply translateY to all content children (the inner sections)
             const contentChildren = Array.from(aboutContentLayer.querySelectorAll('.about-content-inner'));
@@ -269,17 +612,72 @@
                 const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT));
                 contentChildren.forEach(child => child.style.transform = `translateY(${-scrollProgress * maxScroll}px)`);
             } else if (y < PH.c1) {
-                contentChildren.forEach(child => child.style.transform = 'translateY(0)');
+                contentChildren.forEach((child, i) => child.style.transform = `translateY(${(1 - cIn) * 26 * (i + 1)}px)`);
             } else if (y > PH.c2) {
                 const maxScroll = Math.max(0, PH.aboutContentFullHeight - (window.innerHeight - NAV_HEIGHT));
-                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll}px)`);
+                contentChildren.forEach(child => child.style.transform = `translateY(${-maxScroll + tp * 12}px)`);
             }
 
             /* TICKER */
-            const tp = ease(inv(PH.t0, PH.t1, y));
             tickerEl.style.transform = `translateY(${(1 - tp) * 100}%)`;
-            tickerEl.style.opacity   = tp;
+            tickerEl.style.opacity   = 1;
         }
+
+        /* ── TEAM MODAL ── */
+        const teamModal = document.getElementById('team-modal');
+        const teamModalBanner = document.getElementById('team-modal-banner');
+        const teamModalImg   = document.getElementById('team-modal-img');
+        const teamModalName  = document.getElementById('team-modal-name');
+        const teamModalRole  = document.getElementById('team-modal-role');
+        const teamModalDesc  = document.getElementById('team-modal-desc');
+        const teamModalLinks = document.getElementById('team-modal-links');
+
+        function openTeamModal(card) {
+            const detail = card.querySelector('.team-detail');
+            const imgWrap = card.querySelector('.team-img');
+            const img = imgWrap.querySelector('img');
+            teamModalBanner.innerHTML = card.dataset.banner ? '<img src="' + card.dataset.banner + '" alt="">' : '';
+            teamModal.classList.toggle('has-banner', !!card.dataset.banner);
+            teamModal.style.setProperty('--accent', getComputedStyle(card).getPropertyValue('--accent').trim());
+            teamModalImg.innerHTML = img ? img.outerHTML : '';
+            teamModalImg.style.background = imgWrap.getAttribute('style') || '';
+            teamModalName.textContent = card.dataset.name;
+            teamModalRole.textContent = card.dataset.role;
+            teamModalDesc.innerHTML = detail.querySelector('.team-detail-desc').innerHTML;
+            teamModalLinks.innerHTML = '';
+            detail.querySelectorAll('.team-detail-links a').forEach(a => {
+                teamModalLinks.appendChild(a.cloneNode(true));
+            });
+            teamModal.classList.add('open');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeTeamModal() {
+            teamModal.classList.remove('open');
+            document.body.classList.remove('modal-open');
+        }
+
+        document.addEventListener('click', e => {
+            const more = e.target.closest('.team-more');
+            if (more) { openTeamModal(more.closest('.team-card')); return; }
+            if (e.target.closest('.team-modal-close') || e.target.closest('.team-modal-backdrop')) closeTeamModal();
+        });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTeamModal(); });
+
+        /* ── TEAM CARD SCROLL REVEAL ── */
+        const teamCards = Array.from(document.querySelectorAll('.team-card'));
+        teamCards.forEach((card, i) => card.dataset.ti = i);
+        const teamObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const i = Number(entry.target.dataset.ti);
+                    entry.target.style.transitionDelay = ((i % 4) * 0.09).toFixed(2) + 's';
+                    entry.target.classList.add('in-view');
+                    teamObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        teamCards.forEach(card => teamObserver.observe(card));
 
         window.addEventListener('load', () => {
             buildPhases();

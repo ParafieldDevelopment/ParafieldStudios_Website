@@ -3,45 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parafield_OS // REDIRECT_NOTICE</title>
+    <title>Leaving Parafield Studios</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <style>
         body { 
-            background: #080808; 
+            background: var(--content-bg); 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            height: 100vh; 
+            min-height: 100vh; 
             margin: 0;
-            overflow: hidden;
+            padding: 2rem 0;
         }
         .redirect-container {
             max-width: 600px;
             width: 90%;
             padding: 4rem 3rem;
-            background: #111;
-            border: 1px solid rgba(242,174,73,0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             position: relative;
             text-align: center;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-        }
-        .redirect-hud {
-            position: absolute;
-            top: 1rem; left: 1rem;
-            font-family: var(--mono);
-            font-size: 0.6rem;
-            color: var(--primary);
-            opacity: 0.5;
-            letter-spacing: 2px;
+            box-shadow: var(--shadow);
         }
         .warning-icon { 
             width: 80px; 
             margin-bottom: 2rem; 
-            filter: invert(72%) sepia(60%) saturate(500%) hue-rotate(340deg) brightness(100%);
             animation: pulse-warn 2s ease-in-out infinite;
         }
         @keyframes pulse-warn {
@@ -49,17 +40,17 @@
             50% { opacity: 1; transform: scale(1.05); }
         }
         .url-box {
-            background: #000;
-            border: 1px dashed rgba(242,174,73,0.3);
+            background: var(--content-bg);
+            border: 1px dashed rgba(201,121,15,0.4);
+            border-radius: 12px;
             padding: 1.2rem;
-            font-family: var(--mono);
             font-size: 0.75rem;
-            color: var(--primary);
+            color: var(--primary-deep);
             word-break: break-all;
             margin: 2.5rem 0;
             text-align: left;
         }
-        .btn-group { display: flex; gap: 1.5rem; justify-content: center; }
+        .btn-group { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
         .btn {
             padding: 14px 28px;
             text-decoration: none;
@@ -67,47 +58,35 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 3px;
+            border-radius: 12px;
             transition: all 0.3s;
-            font-family: var(--mono);
         }
-        .btn-back { color: var(--white); border: 1.5px solid rgba(255,255,255,0.1); }
-        .btn-go { background: var(--primary); color: #080808; }
+        .btn-back { color: var(--text-muted); border: 1.5px solid var(--border); background: transparent; }
+        .btn-go { background: var(--primary); color: #fff; }
         .btn:hover { transform: translateY(-3px); }
-        .btn-go:hover { background: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
-        .btn-back:hover { border-color: #fff; color: #fff; }
+        .btn-go:hover { background: var(--primary-deep); box-shadow: var(--shadow-hover); }
+        .btn-back:hover { border-color: var(--text-muted); color: var(--text); }
         
         .funny-text { 
             margin-top: 3rem; 
-            font-family: var(--mono);
-            color: rgba(255,255,255,0.15); 
+            color: var(--text-muted); 
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
-        /* HUD Brackets */
-        .b-corner { position: absolute; width: 20px; height: 20px; border: 2px solid var(--primary); opacity: 0.3; }
-        .b-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
-        .b-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
-        .b-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
-        .b-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
     </style>
 </head>
 <body>
     <div class="redirect-container">
-        <div class="redirect-hud">[ SEC_LINK_PROTECT_v4.0 ]</div>
-        <div class="b-corner b-tl"></div><div class="b-corner b-tr"></div>
-        <div class="b-corner b-bl"></div><div class="b-corner b-br"></div>
-        
         <img src="assets/warning.svg" class="warning-icon" alt="Warning">
-        <h1 style="font-size: 2.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 1rem;">LEAVING<br><span style="color: var(--primary);">SYSTEM</span></h1>
-        <p style="font-size: 0.9rem; color: var(--dim); line-height: 1.6; max-width: 400px; margin: 0 auto;">You are attempting to access an external domain. System security cannot be guaranteed beyond this point.</p>
+        <h1 style="font-size: 2.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 1rem; color: var(--text);">LEAVING<br><span style="color: var(--primary-deep);">PARAFIELD</span></h1>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; max-width: 400px; margin: 0 auto;">You're about to visit an external website. Parafield Studios isn't responsible for what happens there.</p>
         
-        <div id="url-display" class="url-box">TARGET_URL: Loading...</div>
+        <div id="url-display" class="url-box">Destination: Loading...</div>
         
         <div class="btn-group">
-            <a href="javascript:history.back()" class="btn btn-back">Abort</a>
-            <a href="#" id="continue-link" class="btn btn-go">Authorize Access</a>
+            <a href="javascript:history.back()" class="btn btn-back">Go Back</a>
+            <a href="#" id="continue-link" class="btn btn-go">Continue</a>
         </div>
         
         <p id="funny-text" class="funny-text"></p>
@@ -121,10 +100,10 @@
             if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
                 targetUrl = 'https://' + targetUrl;
             }
-            document.getElementById('url-display').textContent = `EXTERNAL_NODE: ${targetUrl}`;
+            document.getElementById('url-display').textContent = `Destination: ${targetUrl}`;
             document.getElementById('continue-link').href = targetUrl;
         } else {
-            document.getElementById('url-display').textContent = "ERROR: NO_DESTINATION_SPECIFIED";
+            document.getElementById('url-display').textContent = "No destination specified.";
             document.getElementById('continue-link').style.display = 'none';
         }
 
